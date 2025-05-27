@@ -40,4 +40,4 @@
 ​
 ## 使用素材
 - フリーのソフトウェアアイコンの素材として以下を使用
- - [ICONS](https://icons8.jp/icons)
+    - [ICONS](https://icons8.jp/icons)
