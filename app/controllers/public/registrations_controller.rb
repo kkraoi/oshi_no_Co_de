@@ -1,3 +1,5 @@
+# ユーザーの新規登録機能を管理する = サインアップ画面、サインアップ処理
+
 # frozen_string_literal: true
 
 class Public::RegistrationsController < Devise::RegistrationsController

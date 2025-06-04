@@ -1,5 +1,6 @@
-# frozen_string_literal: true
+# 管理者のログイン機能を管理する = ログイン画面、ログイン処理、ログアウト処理
 
+# frozen_string_literal: true
 class Admin::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
