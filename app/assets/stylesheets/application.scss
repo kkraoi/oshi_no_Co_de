@@ -14,6 +14,11 @@ html {
   @include sp {
     font-size: calc((10 / 390) * 100vw);
   }
+  &:has(.header.is-active) {
+    @include sp {
+      overflow: hidden;
+    }
+  }
 }
 
 body {
@@ -30,7 +35,7 @@ body {
   left: 0;
   z-index: 1000;
   width: 100%;
-  height: 8rem;
+  height: $hight-header;
   border-bottom: 1px solid $d-color-border;
   background-color: $d-color-bg;
 
@@ -54,7 +59,7 @@ body {
     overflow: hidden;
     pointer-events: none;
     @include pc {
-      width: 39rem;
+      width: $width-1;
     }
     @include sp {
       width: 100%;

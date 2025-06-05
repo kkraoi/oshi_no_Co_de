@@ -269,7 +269,7 @@
     padding-left: $padding-x;
     padding-right: $padding-x;
     @include pc {
-      max-width: 39rem;
+      max-width: $width-1;
       margin-left: auto;
       margin-right: auto;
     }
@@ -319,6 +319,54 @@
         background-color: $d-color-bg-active;
         border-color: $d-color-border-active;
       }
+    }
+  }
+
+  // 2カラムレイアウト
+  &col2 {
+    $col2_side_width: 30rem;
+    display: flex;
+    align-items: flex-start;
+    &-main {
+      @include pc {
+        width: calc(100% - #{$col2_side_width});
+      }
+    }
+    &-side {
+      border-left: 1px solid $d-color-border;
+      position: sticky;
+      top: $hight-header;
+      right: 0;
+      height: calc(100vh - #{$hight-header});
+      @include pc {
+        width: $col2_side_width;
+      }
+    }
+    &-drawer {
+      min-width: 3rem;
+      min-height: 3rem;
+    }
+    &.is-acitve{
+      .u-col2-main {
+
+      }
+      .u-col2-side {
+
+      }
+      .u-col2-drawer {
+        .icon-right {
+
+        }
+        .icon-left {
+
+        }
+      }
+    }
+  }
+  // サイドメニュー
+  &side {
+    &-menu {
+
     }
   }
 }
