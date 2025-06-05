@@ -303,4 +303,22 @@
     }
   }
 
+  // ボタン
+  &btn {
+    &-1 {
+      min-width: 5rem;
+      min-height: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: .3rem;
+      border: 1px solid $d-color-border;
+      background-color: $d-color-bg;
+      @include hover {
+        background-color: $d-color-bg-active;
+        border-color: $d-color-border-active;
+      }
+    }
+  }
 }

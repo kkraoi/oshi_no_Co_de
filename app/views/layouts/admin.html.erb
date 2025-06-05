@@ -7,6 +7,41 @@
   </head>
 
   <body>
+    <header class="header is-active" id="js-header">
+      <figure class="header-logo">
+        <%= link_to admin_root_path do %>
+          <img src="https://placehold.jp/200x100.png" alt="推しのコード" width="200" height="100" fetchpriority="high" />
+        <% end %>
+      </figure>
+
+      <nav class="header-nav" id="js-nav">
+        <div class="header-nav-inner">
+          <menu>
+            <li>
+              <%= link_to admin_root_path do %>
+                TOP
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_style_cheatsheet_path do %>
+                スタイル早見表
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_admin_session_path, method: :delete do %>
+                ログアウト
+              <% end %>
+            </li>
+          </menu>
+        </div>
+      </nav>
+
+      <button class="u-btn-1 header-nav-trigger" id="js-nav-trigger" aria-label="ナビゲーションメニューを開く ナビゲーションメニューを閉じる">
+        <span role="presentation"></span>
+        <span role="presentation"></span>
+      </button>
+    </header>
+
     <main>
       <%= yield %>
     </main>
