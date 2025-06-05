@@ -27,3 +27,11 @@ export ADMIN_PASSWORD=ほげほげパスワード
 ```
 source ~/.bash_profile
 ```
+
+## 特定のページのヘッドだけタグを追加
+特定のページ.html.erbにて
+```
+<% content_for :head do %>
+  <link rel="stylesheet" href="https://example.com/当該ページ専用.css">
+<% end %>
+```
