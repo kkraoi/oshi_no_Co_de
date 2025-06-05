@@ -1,0 +1,40 @@
+@import "base/val";
+@import "base/mixins";
+@import "base/reset";
+@import "base/normalize";
+@import "base/parts";
+
+html {
+  background-color: $d-color-bg;
+  color: $d-color-font;
+  @include pc {
+    font-size: clamp(0px, .6944444444vw, 10px);
+  }
+  @include sp {
+    font-size: calc((10 / 390) * 100vw);
+  }
+}
+
+body {
+  font-family: Menlo, Monaco, 'Courier New', monospace,"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Helvetica Neue", "Original Yu Gothic", YuGothic, Meiryo, Arial, system-ui, sans-serif;
+  word-break: break-all;
+	font-size: 1.4rem;
+}
+
+.footer {
+  border-top: 1px solid $d-color-border;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  &-copyright {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  &-btn-to_top {
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
+  .u-inner {
+    position: relative;
+  }
+}

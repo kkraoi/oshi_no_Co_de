@@ -1,0 +1,14 @@
+// パーツ
+
+.u-{
+  // インナー
+  &-inner {
+    @include pc {
+      
+    }
+    @include sp {
+      padding-left: $padding-x;
+      padding-bottom: $padding-x;
+    }
+  }
+}
