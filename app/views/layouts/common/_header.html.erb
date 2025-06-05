@@ -1,0 +1,18 @@
+<header class="header" id="js-header">
+  <figure class="header-logo">
+    <%= link_to admin_root_path do %>
+      <img src="https://placehold.jp/200x100.png" alt="推しのコード" width="200" height="100" fetchpriority="high" />
+    <% end %>
+  </figure>
+
+  <nav class="header-nav">
+    <div class="header-nav-inner">
+      <%= render menu_partial %>
+    </div>
+  </nav>
+
+  <button class="u-btn-1 header-nav-trigger" id="js-nav-trigger" aria-label="ナビゲーションメニューを開く ナビゲーションメニューを閉じる">
+    <span role="presentation"></span>
+    <span role="presentation"></span>
+  </button>
+</header>
