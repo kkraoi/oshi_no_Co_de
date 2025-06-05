@@ -1,0 +1,33 @@
+<% content_for :title, "スタイルチートシート" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'admin/style_cheatsheet', media: 'all' %>
+<% end %>
+<% content_for :foot do %>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst"></script>
+<% end %>
+
+<h1 class="u-title u-pY-50">スタイルチートシート</h1>
+
+<!-- テンプレ -->
+<section class="u-sec">
+  <div class="u-inner-2">
+    <h2 class="u-title-1">テンプレ</h2>
+
+    <!-- コンテント -->
+    <div class="p-content u-vert-10"></div>
+    <!-- end コンテント -->
+
+    <!-- コード -->
+    <figure class="p-code">
+      <pre class="prettyprint"></pre>
+    </figure>
+    <!-- end コード -->
+
+    <!-- その他 -->
+    <div class="p-other">
+      <p></p>
+    </div>
+    <!-- end その他 -->
+  </div>
+</section>
+<!-- end テンプレ -->

@@ -1,14 +1,306 @@
 // パーツ
 
 .u-{
-  // インナー
-  &-inner {
-    @include pc {
-      
+  $step: 5; // 刻み
+
+  // マージン
+  @for $i from 0 through 30 {
+		&mt-#{$i * $step} {
+			margin-top: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+		&mr-#{$i * $step} {
+			margin-right: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+		&mb-#{$i * $step} {
+			margin-bottom: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+		&ml-#{$i * $step} {
+			margin-left: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+		&mX-#{$i * $step} {
+			margin-left: calc(#{$i * $step / 10} * 1rem) !important;
+			margin-right: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+		&mY-#{$i * $step} {
+			margin-top: calc(#{$i * $step / 10} * 1rem) !important;
+			margin-bottom: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+		&vert-#{$i * $step} {
+			> *:not(:first-child) {
+				margin-top: calc(#{$i * $step / 10} * 1rem) !important;
+			}
+		}
+	}
+  &mt-auto {
+		margin-top: auto !important;
+	}
+	&mr-auto {
+		margin-right: auto !important;
+	}
+	&ml-auto {
+		margin-left: auto !important;
+	}
+	&mb-auto {
+		margin-bottom: auto !important;
+	}
+	&mX-auto {
+		margin-right: auto !important;
+		margin-left: auto !important;
+	}
+	&mY-auto {
+		margin-top: auto !important;
+		margin-bottom: auto !important;
+	}
+  @include pc {
+    @for $i from 0 through 30 {
+      &pc\:mt-#{$i * $step} {
+        margin-top: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &pc\:mr-#{$i * $step} {
+        margin-right: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &pc\:mb-#{$i * $step} {
+        margin-bottom: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &pc\:ml-#{$i * $step} {
+        margin-left: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &pc\:mX-#{$i * $step} {
+        margin-left: calc(#{$i * $step / 10} * 1rem) !important;
+        margin-right: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &pc\:mY-#{$i * $step} {
+        margin-top: calc(#{$i * $step / 10} * 1rem) !important;
+        margin-bottom: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &pc\:vert-#{$i * $step} {
+        > *:not(:first-child) {
+          margin-top: calc(#{$i * $step / 10} * 1rem) !important;
+        }
+      }
     }
-    @include sp {
-      padding-left: $padding-x;
-      padding-bottom: $padding-x;
+    &pc\:mt-auto {
+      margin-top: auto !important;
+    }
+    &pc\:mr-auto {
+      margin-right: auto !important;
+    }
+    &pc\:ml-auto {
+      margin-left: auto !important;
+    }
+    &pc\:mb-auto {
+      margin-bottom: auto !important;
+    }
+    &pc\:mX-auto {
+      margin-right: auto !important;
+      margin-left: auto !important;
+    }
+    &pc\:mY-auto {
+      margin-top: auto !important;
+      margin-bottom: auto !important;
     }
   }
+  @include sp {
+    @for $i from 0 through 30 {
+      &sp\:mt-#{$i * $step} {
+        margin-top: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &sp\:mr-#{$i * $step} {
+        margin-right: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &sp\:mb-#{$i * $step} {
+        margin-bottom: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &sp\:ml-#{$i * $step} {
+        margin-left: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &sp\:mX-#{$i * $step} {
+        margin-left: calc(#{$i * $step / 10} * 1rem) !important;
+        margin-right: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &sp\:mY-#{$i * $step} {
+        margin-top: calc(#{$i * $step / 10} * 1rem) !important;
+        margin-bottom: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &sp\:vert-#{$i * $step} {
+        > *:not(:first-child) {
+          margin-top: calc(#{$i * $step / 10} * 1rem) !important;
+        }
+      }
+    }
+    &sp\:mt-auto {
+      margin-top: auto !important;
+    }
+    &sp\:mr-auto {
+      margin-right: auto !important;
+    }
+    &sp\:ml-auto {
+      margin-left: auto !important;
+    }
+    &sp\:mb-auto {
+      margin-bottom: auto !important;
+    }
+    &sp\:mX-auto {
+      margin-right: auto !important;
+      margin-left: auto !important;
+    }
+    &sp\:mY-auto {
+      margin-top: auto !important;
+      margin-bottom: auto !important;
+    }
+  }
+
+  // パディング
+  @for $i from 0 through 30 {
+		&pt-#{$i * $step} {
+			padding-top: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+		&pr-#{$i * $step} {
+			padding-right: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+		&pb-#{$i * $step} {
+			padding-bottom: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+		&pl-#{$i * $step} {
+			padding-left: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+		&pX-#{$i * $step} {
+			padding-left: calc(#{$i * $step / 10} * 1rem) !important;
+			padding-right: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+		&pY-#{$i * $step} {
+			padding-top: calc(#{$i * $step / 10} * 1rem) !important;
+			padding-bottom: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+	}
+  @include pc {
+    @for $i from 0 through 30 {
+      &pc\:pt-#{$i * $step} {
+        padding-top: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &pc\:pr-#{$i * $step} {
+        padding-right: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &pc\:pb-#{$i * $step} {
+        padding-bottom: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &pc\:pl-#{$i * $step} {
+        padding-left: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &pc\:pX-#{$i * $step} {
+        padding-left: calc(#{$i * $step / 10} * 1rem) !important;
+        padding-right: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &pc\:pY-#{$i * $step} {
+        padding-top: calc(#{$i * $step / 10} * 1rem) !important;
+        padding-bottom: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+    }
+  }
+  @include sp {
+    @for $i from 0 through 30 {
+      &sp\:pt-#{$i * $step} {
+        padding-top: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &sp\:pr-#{$i * $step} {
+        padding-right: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &sp\:pb-#{$i * $step} {
+        padding-bottom: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &sp\:pl-#{$i * $step} {
+        padding-left: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &sp\:pX-#{$i * $step} {
+        padding-left: calc(#{$i * $step / 10} * 1rem) !important;
+        padding-right: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+      &sp\:pY-#{$i * $step} {
+        padding-top: calc(#{$i * $step / 10} * 1rem) !important;
+        padding-bottom: calc(#{$i * $step / 10} * 1rem) !important;
+      }
+    }
+  }
+
+  // タイトル
+  &title {
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.4;
+    @include pc {
+      font-size: 5.6rem;
+    }
+    @include sp {
+      font-size: 2.4rem;
+    }
+    &-1 {
+      font-weight: bold;
+      line-height: 1.4;
+      border-bottom: 3px solid currentColor;
+      margin-bottom: 3rem;
+      @include pc {
+        font-size: 3.6rem;
+      }
+      @include sp {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  // セクション
+  &sec {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    @include pc {
+    }
+    @include sp {
+
+    }
+    + .u-sec {
+      border-top: 1px solid $d-color-border;
+    }
+    &:first-of-type {
+      border-top: 1px solid $d-color-border;
+    }
+  }
+
+  // インナー
+  &inner {
+    padding-left: $padding-x;
+    padding-right: $padding-x;
+    @include pc {
+      max-width: 39rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &-1 {
+      padding-left: $padding-x;
+      padding-right: $padding-x;
+      @include pc {
+        max-width: calc(80rem + #{$padding-x} * 2);
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    &-2 {
+      padding-left: $padding-x;
+      padding-right: $padding-x;
+      @include pc {
+        max-width: calc(100rem + #{$padding-x} * 2);
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    &-3 {
+      padding-left: $padding-x;
+      padding-right: $padding-x;
+      @include pc {
+        max-width: calc(120rem + #{$padding-x} * 2);
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
 }
