@@ -8,6 +8,22 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+function setClickHandleForHeader() {
+  const header = document.getElementById("js-header")
+  const trigger = document.getElementById("js-nav-trigger")
+  if (!header || !trigger) return;
+
+  const ACTIVE_CLASS_NAME = "is-active"
+
+  trigger.addEventListener("click", () => {
+    header.classList.toggle(ACTIVE_CLASS_NAME)
+  })
+}
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener("DOMContentLoaded", () => {
+  setClickHandleForHeader()
+});
