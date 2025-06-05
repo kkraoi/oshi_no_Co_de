@@ -8,6 +8,10 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+/**
+ * ヘッダーにアクティブクラスをつけ外しする
+ * @returns {void}
+ */
 function setClickHandleForHeader() {
   const header = document.getElementById("js-header")
   const trigger = document.getElementById("js-nav-trigger")
