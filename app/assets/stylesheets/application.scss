@@ -5,6 +5,7 @@
 @import "base/parts";
 
 html {
+  scroll-behavior: smooth;
   background-color: $d-color-bg;
   color: $d-color-font;
   @include pc {
@@ -31,6 +32,7 @@ body {
   width: 100%;
   height: 8rem;
   border-bottom: 1px solid $d-color-border;
+  background-color: $d-color-bg;
 
   &-logo {
     width: 10rem;
@@ -132,8 +134,15 @@ body {
 
 .footer {
   border-top: 1px solid $d-color-border;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  @include pc {
+    padding: 5rem 3rem;
+  }
+  @include sp {
+    padding: 5rem $padding-x;
+  }
+  &-inner {
+    position: relative;
+  }
   &-copyright {
     text-align: center;
     font-size: 1.2rem;
@@ -142,8 +151,6 @@ body {
     position: absolute;
     top: 50%;
     right: 0;
-  }
-  .u-inner {
-    position: relative;
+    translate: 0 -50%;
   }
 }

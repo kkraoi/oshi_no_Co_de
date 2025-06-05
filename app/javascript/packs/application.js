@@ -12,7 +12,7 @@ import "channels"
  * ヘッダーにアクティブクラスをつけ外しする
  * @returns {void}
  */
-function setClickHandleForHeader() {
+function setupHeader() {
   const header = document.getElementById("js-header")
   const trigger = document.getElementById("js-nav-trigger")
   if (!header || !trigger) return;
@@ -24,11 +24,24 @@ function setClickHandleForHeader() {
   })
 }
 
+function setupScrollToTop() {
+  const trigger = document.getElementById("js-to-top")
+  if(!trigger) return;
+
+  trigger.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+}
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 // turbolinks:load <= ページ遷移後も発火するために使用
 document.addEventListener("turbolinks:load", () => {
-  setClickHandleForHeader()
+  setupHeader();
+  setupScrollToTop();
 });
