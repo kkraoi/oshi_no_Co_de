@@ -28,6 +28,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-document.addEventListener("DOMContentLoaded", () => {
+// turbolinks:load <= ページ遷移後も発火するために使用
+document.addEventListener("turbolinks:load", () => {
   setClickHandleForHeader()
 });
