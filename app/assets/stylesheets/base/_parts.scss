@@ -301,6 +301,17 @@
         margin-right: auto;
       }
     }
+    &-4 {
+      @include pc {
+        width: calc(100% - 10rem);
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @include sp {
+        padding-left: $padding-x;
+      padding-right: $padding-x;
+      }
+    }
   }
 
   // ボタン
