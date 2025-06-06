@@ -6,16 +6,20 @@
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst"></script>
 <% end %>
 
+<% sections = [
+  { id: 'sec-tpl', title: 'テンプレ' }
+] %>
+
 <div class="u-col2" id="js-col2-root">
   <div class="u-col2-main">
     <div class="u-col2-main-inner">
       <h1 class="u-title u-pY-50">スタイル早見表</h1>
 
       <!-- テンプレ -->
-      <div class="u-scroll-target" id="test">
-        <section class="u-sec js-p-sec" style="height: 300vh">
+      <div class="u-scroll-target js-menu-sec" id="<%= sections[0][:id] %>">
+        <section class="u-sec">
           <div class="u-inner-4">
-            <h2 class="u-title-1">テンプレ</h2>
+            <h2 class="u-title-1 js-menu-sec_title"><%= sections[0][:title] %></h2>
 
             <!-- コンテント -->
             <div class="p-content u-vert-10"></div>
@@ -52,10 +56,12 @@
     <div class="u-col2-side-content">
       <div class="u-col2-side-inner">
         <div class="u-side">
-          <menu class="u-menu">
-            <li>
-              <a href="#test">テスト</a>
-            </li>
+          <menu class="u-menu" id="js-menu">
+              <% sections.each do |section| %>
+                <li>
+                  <a href="#<%= section[:id] %>"><%= section[:title] %></a>
+                </li>
+              <% end %>
           </menu>
         </div>
       </div>
