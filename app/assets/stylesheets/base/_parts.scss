@@ -369,4 +369,10 @@
 
     }
   }
+
+  // スクロールのターゲット
+  &scroll-target {
+    margin-top: calc(#{$hight-header} * -1);
+    padding-top: $hight-header;
+  }
 }
