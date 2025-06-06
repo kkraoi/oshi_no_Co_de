@@ -63,6 +63,31 @@ function setupScrollToTop() {
   });
 }
 
+/**
+ * preタグ内のコードをコピーする。
+ * @returns {void}
+ */
+function setupCopyCode() {
+  const codes = document.querySelectorAll(".js-code");
+  if (codes.length === 0) return;
+
+  codes.forEach((code) => {
+    const button = code.querySelector(".js-code-copy_btn");
+    const pre = code.querySelector(".js-code-pre");
+    if (button && pre) {
+      button.addEventListener("click", () => {
+        const text = pre.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          // トースター活性の記述
+          console.log("コードをコピーしました");
+        }).catch((err) => {
+          console.error("コピーに失敗しました", err)
+        });
+      });
+    }
+  });
+}
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -72,4 +97,5 @@ document.addEventListener("turbolinks:load", () => {
   setupHeader();
   setupScrollToTop();
   setupDrawSideMenu();
+  setupCopyCode();
 });

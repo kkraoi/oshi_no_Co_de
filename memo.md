@@ -35,3 +35,33 @@ source ~/.bash_profile
   <link rel="stylesheet" href="https://example.com/当該ページ専用.css">
 <% end %>
 ```
+
+## 早見表テンプレート
+```
+      <!-- テンプレ -->
+      <div class="u-scroll-target js-menu-sec" id="<%= sections[0][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1 js-menu-sec_title"><%= sections[0][:title] %></h2>
+
+            <!-- コンテント -->
+            <div class="p-content u-vert-10"></div>
+            <!-- end コンテント -->
+
+            <!-- コード -->
+            <figure class="p-code">
+              <pre class="prettyprint"></pre>
+            </figure>
+            <!-- end コード -->
+
+            <!-- その他 -->
+            <div class="p-other">
+              <p></p>
+            </div>
+            <!-- end その他 -->
+          </div>
+        </section>
+      </div>
+      <!-- end テンプレ -->
+
+```
