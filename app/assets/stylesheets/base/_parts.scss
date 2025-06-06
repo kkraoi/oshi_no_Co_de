@@ -333,7 +333,12 @@
     &-main {
       transition: width ease .3s;
       position: relative;
-      width: 100%;
+      @include pc {
+        width: calc(100% - #{$col2_side_width});
+      }
+      @include sp {
+        width: calc(100% - #{$col2_side_width-sp});
+      }
     }
     &-main-inner {
       @include sp {
@@ -347,6 +352,7 @@
       top: 0;
       left: -3rem;
       background-color: $d-color-border;
+      border-top-left-radius: 0;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       @include hover {
@@ -360,10 +366,10 @@
         translate: -50% -50%;
       }
       .icon-right {
-        opacity: 0;
+        opacity: 1;
       }
       .icon-left {
-        opacity: 1;
+        opacity: 0;
       }
     }
     &-side {
@@ -374,7 +380,12 @@
       right: 0;
       height: calc(100vh - #{$hight-header});
       transition: width ease .3s;
-      width: 0px;
+      @include pc {
+        width: $col2_side_width;
+      }
+      @include sp {
+        width: $col2_side_width-sp;
+      }
     }
     &-side-content {
       overflow: hidden;
@@ -387,33 +398,24 @@
         width: $col2_side_width-sp;
       }
     }
-    &.is-active{
+    &.is-close{
       .u-col2-main {
-        @include pc {
-          width: calc(100% - #{$col2_side_width});
-        }
-        @include sp {
-          width: calc(100% - #{$col2_side_width-sp});
-        }
+        width: 100%;
       }
       .u-col2-side {
-        @include pc {
-          width: $col2_side_width;
-        }
-        @include sp {
-          width: $col2_side_width-sp;
-        }
+        width: 0px;
       }
       .u-col2-drawer {
         .icon-right {
-          opacity: 1;
+          opacity: 0;
         }
         .icon-left {
-          opacity: 0;
+          opacity: 1;
         }
       }
     }
   }
+
   // サイドメニュー
   &side {
     &-menu {

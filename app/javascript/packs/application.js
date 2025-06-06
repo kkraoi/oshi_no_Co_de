@@ -4,6 +4,14 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 /**
+ * デバイス判定
+ *
+ * @param {String: 'pc' or 'sp'} device
+ * @return {boolean}
+ */
+const mq = (device) => (window.matchMedia("(min-width:768px)").matches ? device === "pc" : device === "sp");
+
+/**
  * ヘッダーにアクティブクラスをつけ外しする
  * @returns {void}
  */
@@ -19,14 +27,23 @@ function setupHeader() {
   });
 }
 
+/**
+ * サイドメニューを開閉する処理
+ * @returns {void}
+ */
 function setupDrawSideMenu() {
   const root = document.getElementById("js-col2-root");
   const trigger = document.getElementById("js-col2-drawer");
   if (!root || !trigger) return;
 
-  const ACTIVE_CLASS_NAME = "is-active";
+  const CLOSE_CLASS_NAME = "is-close";
+
+  if(mq("sp")) {
+    root.classList.add(CLOSE_CLASS_NAME)
+  }
+
   trigger.addEventListener("click", () => {
-    root.classList.toggle(ACTIVE_CLASS_NAME);
+    root.classList.toggle(CLOSE_CLASS_NAME);
   });
 }
 
