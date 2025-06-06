@@ -6,53 +6,59 @@
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst"></script>
 <% end %>
 
-<div class="u-col2 is-acitve" id="js-col2-root">
+<div class="u-col2" id="js-col2-root">
   <div class="u-col2-main">
-    <h1 class="u-title u-pY-50">スタイル早見表</h1>
+    <div class="u-col2-main-inner">
+      <h1 class="u-title u-pY-50">スタイル早見表</h1>
 
-    <!-- テンプレ -->
-    <div class="u-scroll-target" id="test">
-      <section class="u-sec js-p-sec" style="height: 300vh">
-        <div class="u-inner-2">
-          <h2 class="u-title-1">テンプレ</h2>
+      <!-- テンプレ -->
+      <div class="u-scroll-target" id="test">
+        <section class="u-sec js-p-sec" style="height: 300vh">
+          <div class="u-inner-2">
+            <h2 class="u-title-1">テンプレ</h2>
 
-          <!-- コンテント -->
-          <div class="p-content u-vert-10"></div>
-          <!-- end コンテント -->
+            <!-- コンテント -->
+            <div class="p-content u-vert-10"></div>
+            <!-- end コンテント -->
 
-          <!-- コード -->
-          <figure class="p-code">
-            <pre class="prettyprint"></pre>
-          </figure>
-          <!-- end コード -->
+            <!-- コード -->
+            <figure class="p-code">
+              <pre class="prettyprint"></pre>
+            </figure>
+            <!-- end コード -->
 
-          <!-- その他 -->
-          <div class="p-other">
-            <p></p>
+            <!-- その他 -->
+            <div class="p-other">
+              <p></p>
+            </div>
+            <!-- end その他 -->
           </div>
-          <!-- end その他 -->
-        </div>
-      </section>
+        </section>
+      </div>
+      <!-- end テンプレ -->
     </div>
-    <!-- end テンプレ -->
   </div>
 
   <aside class="u-col2-side">
     <button id="js-col2-drawer" class="u-btn-1 u-col2-drawer" aria-label="サイドメニューを開閉する ">
       <span class="icon-right">
-        <i class="fa-regular fa-square-caret-right"></i>
+        <i class="fa-solid fa-arrow-right"></i>
       </span>
       <span class="icon-left">
-        <i class="fa-regular fa-square-caret-left"></i>
+        <i class="fa-solid fa-arrow-left"></i>
       </span>
     </button>
 
-    <div class="u-side">
-      <menu class="u-side-menu">
-        <li>
-          <a href="#test">テスト</a>
-        </li>
-      </menu>
+    <div class="u-col2-side-content">
+      <div class="u-col2-side-inner">
+        <div class="u-side">
+          <menu class="u-side-menu">
+            <li>
+              <a href="#test">テスト</a>
+            </li>
+          </menu>
+        </div>
+      </div>
     </div>
   </aside>
 </div>

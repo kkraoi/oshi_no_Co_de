@@ -19,6 +19,17 @@ function setupHeader() {
   });
 }
 
+function setupDrawSideMenu() {
+  const root = document.getElementById("js-col2-root");
+  const trigger = document.getElementById("js-col2-drawer");
+  if (!root || !trigger) return;
+
+  const ACTIVE_CLASS_NAME = "is-active";
+  trigger.addEventListener("click", () => {
+    root.classList.toggle(ACTIVE_CLASS_NAME);
+  });
+}
+
 /**
  * トップ位置にスクロールする処理
  * @returns {void}
@@ -43,4 +54,5 @@ ActiveStorage.start()
 document.addEventListener("turbolinks:load", () => {
   setupHeader();
   setupScrollToTop();
+  setupDrawSideMenu();
 });

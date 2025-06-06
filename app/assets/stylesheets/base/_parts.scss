@@ -325,40 +325,91 @@
   // 2カラムレイアウト
   &col2 {
     $col2_side_width: 30rem;
+    $col2_side_width-sp: 20rem;
     display: flex;
     align-items: flex-start;
-    &-main {
-      @include pc {
-        width: calc(100% - #{$col2_side_width});
-      }
+    @include pc {
     }
-    &-side {
-      border-left: 1px solid $d-color-border;
-      position: sticky;
-      top: $hight-header;
-      right: 0;
-      height: calc(100vh - #{$hight-header});
-      @include pc {
-        width: $col2_side_width;
+    &-main {
+      transition: width ease .3s;
+      position: relative;
+      width: 100%;
+    }
+    &-main-inner {
+      @include sp {
+        width: 100vw;
       }
     }
     &-drawer {
       min-width: 3rem;
       min-height: 3rem;
+      position: absolute;
+      top: 0;
+      left: -3rem;
+      background-color: $d-color-border;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      @include hover {
+        background-color: $d-color-border-active;
+      }
+      .icon-right,
+      .icon-left {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+      }
+      .icon-right {
+        opacity: 0;
+      }
+      .icon-left {
+        opacity: 1;
+      }
     }
-    &.is-acitve{
+    &-side {
+      border-left: 1px solid $d-color-border;
+      background-color: $d-color-bg;
+      position: sticky;
+      top: $hight-header;
+      right: 0;
+      height: calc(100vh - #{$hight-header});
+      transition: width ease .3s;
+      width: 0px;
+    }
+    &-side-content {
+      overflow: hidden;
+    }
+    &-side-inner {
+      @include pc {
+        width: $col2_side_width;
+      }
+      @include sp {
+        width: $col2_side_width-sp;
+      }
+    }
+    &.is-active{
       .u-col2-main {
-
+        @include pc {
+          width: calc(100% - #{$col2_side_width});
+        }
+        @include sp {
+          width: calc(100% - #{$col2_side_width-sp});
+        }
       }
       .u-col2-side {
-
+        @include pc {
+          width: $col2_side_width;
+        }
+        @include sp {
+          width: $col2_side_width-sp;
+        }
       }
       .u-col2-drawer {
         .icon-right {
-
+          opacity: 1;
         }
         .icon-left {
-
+          opacity: 0;
         }
       }
     }
