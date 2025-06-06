@@ -65,12 +65,7 @@ body {
       width: 100%;
     }
     a {
-      display: block;
       font-size: 1.8rem;
-      padding: .5rem $padding-x;
-      @include hover {
-        background-color: $d-color-bg-active;
-      }
     }
   }
   &-nav-inner{

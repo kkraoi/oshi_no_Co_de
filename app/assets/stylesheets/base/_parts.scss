@@ -416,11 +416,17 @@
     }
   }
 
-  // サイドメニュー
-  &side {
-    &-menu {
-
+  //メニュー
+  &menu {
+    a {
+      display: block;
+      padding: .5rem $padding-x;
+      @include hover {
+        background-color: $d-color-bg-active;
+      }
     }
+  }
+  &side {
   }
 
   // スクロールのターゲット
