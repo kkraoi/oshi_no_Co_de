@@ -3,6 +3,9 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+// トースターを閉じるクラス
+const G_CLOSE_TOAST_CLASS_NAME = "is-close";
+
 /**
  * デバイス判定
  *
@@ -10,6 +13,63 @@ import "channels"
  * @return {boolean}
  */
 const mq = (device) => (window.matchMedia("(min-width:768px)").matches ? device === "pc" : device === "sp");
+
+/**
+ * トースト通知を表示させる
+ * 
+ * @param {string} message - 表示させるメッセージ。絵文字✅🤨付きを推奨。
+ * @param {boolean} isAlert - アラート版にしたい場合true
+ * @param {number} mseconds - 表示させる時間（m秒）
+ * @returns {void}
+ */
+function showToast(message, isAlert = false, mseconds = 4000) {
+  const toast = document.getElementById("js-toast-1");
+  if(!toast) return;
+
+  const messageElm = toast.querySelector(".js-toast-message");
+  if(messageElm === null) return;
+
+  const ALERT_CLASS_NAME = "is-alert";
+
+  messageElm.innerText = message;
+
+  if (isAlert) {
+    toast.classList.add(ALERT_CLASS_NAME);
+  }
+
+  toast.classList.remove(G_CLOSE_TOAST_CLASS_NAME);
+
+  setTimeout(() => {
+    toast.classList.add(G_CLOSE_TOAST_CLASS_NAME);
+    toast.classList.remove(ALERT_CLASS_NAME);
+  }, mseconds);
+}
+
+/**
+ * トースターを閉じるボタンをセット
+ * @returns {void}
+ */
+function setupCloseToastBtn() {
+  const closeBtns = document.querySelectorAll(".js-toast-close");
+  if (closeBtns.length === 0) return;
+
+  closeBtns.forEach((btn) => {
+    const toast = btn.closest(".js-toast");
+    if (toast) {
+      btn.addEventListener("click", () => {
+        toast.classList.add(G_CLOSE_TOAST_CLASS_NAME)
+      });
+    };
+  });
+}
+
+function setupToast() {
+  const toast = document.getElementById("js-toast");
+  if (!toast) return;
+  setTimeout(() => {
+    toast.classList.add(G_CLOSE_TOAST_CLASS_NAME)
+  }, 4000)
+}
 
 /**
  * ヘッダーにアクティブクラスをつけ外しする
@@ -78,10 +138,10 @@ function setupCopyCode() {
       button.addEventListener("click", () => {
         const text = pre.innerText;
         navigator.clipboard.writeText(text).then(() => {
-          // トースター活性の記述
-          console.log("コードをコピーしました");
+          showToast("✅ コードをコピーしました")
         }).catch((err) => {
-          console.error("コピーに失敗しました", err)
+          showToast("🤨 コピーに失敗しました", true)
+          console.error("コピーに失敗しました", err);
         });
       });
     }
@@ -98,4 +158,6 @@ document.addEventListener("turbolinks:load", () => {
   setupScrollToTop();
   setupDrawSideMenu();
   setupCopyCode();
+  setupCloseToastBtn();
+  setupToast();
 });

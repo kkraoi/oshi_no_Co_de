@@ -154,3 +154,47 @@ body {
     translate: 0 -50%;
   }
 }
+
+.toast {
+  pointer-events: visible;
+  background-color: $d-color-bg-active;
+  border: 1px solid $d-color-border-active;
+  padding: 1rem 4rem 1rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+  border-radius: $radius;
+  position: relative;
+  &-area {
+    position: fixed;
+    bottom: 3rem;
+    left: 3rem;
+    pointer-events: none;
+    z-index: 1000;
+    @include pc {
+      min-width: $width-1;
+    }
+  }
+  &-close {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    background-color: $d-color-bg;
+    border-bottom-left-radius: $radius;
+    font-size: 1.2rem;
+    color: white;
+  }
+  &.is-alert {
+    color: $red;
+  }
+  &.is-close {
+    pointer-events: none;
+    translate: 0 -10px;
+    opacity: 0;
+    transition: translate ease .3s, opacity ease .3s;
+  }
+}
+#js-toast-1{
+
+}

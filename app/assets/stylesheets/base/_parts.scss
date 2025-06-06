@@ -303,7 +303,7 @@
     }
     &-4 {
       @include pc {
-        width: calc(100% - 10rem);
+        width: calc(100% - 20rem);
         margin-left: auto;
         margin-right: auto;
       }
@@ -323,7 +323,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      border-radius: .3rem;
+      border-radius: $radius;
       border: 1px solid $d-color-border;
       background-color: $d-color-bg;
       @include hover {

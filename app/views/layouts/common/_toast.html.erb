@@ -1,0 +1,24 @@
+<div class="toast-area">
+  <% if flash[:notice] %>
+    <div id="js-toast" class="toast js-toast">
+      <p>✅ <%= flash[:notice] %></p>
+      <button class="js-toast-close toast-close" aria-label="通知を閉じる">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  <% elsif flash[:alert] %>
+    <div id="js-toast" class="toast js-toast is-alert">
+      <p>🤨 <%= flash[:alert] %></p>
+      <button class="js-toast-close toast-close" aria-label="通知を閉じる">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  <% end %>
+
+  <div id="js-toast-1" class="toast js-toast is-close">
+    <p class="js-toast-message">✅ コピーに成功しました</p>
+    <button class="js-toast-close toast-close" aria-label="通知を閉じる">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+</div>
