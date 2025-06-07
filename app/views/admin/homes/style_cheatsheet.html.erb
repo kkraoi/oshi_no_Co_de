@@ -12,10 +12,10 @@
       <h1 class="u-title u-pY-50">スタイル早見表</h1>
 
       <!-- マージン -->
-      <div class="u-scroll-target js-menu-sec" id="<%= @sections[0][:id] %>">
+      <div class="u-scroll-target" id="<%= @sections[0][:id] %>">
         <section class="u-sec">
           <div class="u-inner-4 u-vert-30">
-            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[0][:title] %></h2>
+            <h2 class="u-title-1"><%= @sections[0][:title] %></h2>
 
             <!-- コンテント -->
             <div class="p-content u-vert-10"></div>
@@ -56,10 +56,10 @@
       <!-- end マージン -->
 
       <!-- パディング -->
-      <div class="u-scroll-target js-menu-sec" id="<%= @sections[1][:id] %>">
+      <div class="u-scroll-target" id="<%= @sections[1][:id] %>">
         <section class="u-sec">
           <div class="u-inner-4 u-vert-30">
-            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[1][:title] %></h2>
+            <h2 class="u-title-1"><%= @sections[1][:title] %></h2>
 
             <!-- コンテント -->
             <div class="p-content u-vert-10"></div>
@@ -90,10 +90,10 @@
       <!-- end パディング -->
 
       <!-- タイトル -->
-      <div class="u-scroll-target js-menu-sec" id="<%= @sections[2][:id] %>">
+      <div class="u-scroll-target" id="<%= @sections[2][:id] %>">
         <section class="u-sec">
           <div class="u-inner-4 u-vert-30">
-            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[2][:title] %></h2>
+            <h2 class="u-title-1"><%= @sections[2][:title] %></h2>
 
             <!-- コンテント -->
             <div class="p-content u-vert-10">
@@ -127,10 +127,10 @@
       <!-- end タイトル -->
 
       <!-- 文字色 -->
-      <div class="u-scroll-target js-menu-sec" id="<%= @sections[3][:id] %>">
+      <div class="u-scroll-target" id="<%= @sections[3][:id] %>">
         <section class="u-sec">
           <div class="u-inner-4 u-vert-30">
-            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[3][:title] %></h2>
+            <h2 class="u-title-1"><%= @sections[3][:title] %></h2>
 
             <!-- コンテント -->
             <div class="p-content u-vert-10">
@@ -162,10 +162,10 @@
       <!-- end 文字色 -->
 
       <!-- 背景色 -->
-      <div class="u-scroll-target js-menu-sec" id="<%= @sections[4][:id] %>">
+      <div class="u-scroll-target" id="<%= @sections[4][:id] %>">
         <section class="u-sec">
           <div class="u-inner-4 u-vert-30">
-            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[4][:title] %></h2>
+            <h2 class="u-title-1"><%= @sections[4][:title] %></h2>
 
             <!-- コンテント -->
             <div class="p-content u-vert-10">
@@ -203,10 +203,10 @@
       <!-- end 背景色 -->
 
       <!-- フォントサイズ -->
-      <div class="u-scroll-target js-menu-sec" id="<%= @sections[5][:id] %>">
+      <div class="u-scroll-target" id="<%= @sections[5][:id] %>">
         <section class="u-sec">
           <div class="u-inner-4 u-vert-30">
-            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[5][:title] %></h2>
+            <h2 class="u-title-1"><%= @sections[5][:title] %></h2>
 
             <!-- コンテント -->
             <div class="p-content u-vert-10">
@@ -237,10 +237,10 @@
       <!-- end フォントサイズ -->
 
       <!-- ボーダー -->
-      <div class="u-scroll-target js-menu-sec" id="<%= @sections[6][:id] %>">
+      <div class="u-scroll-target" id="<%= @sections[6][:id] %>">
         <section class="u-sec">
           <div class="u-inner-4 u-vert-80">
-            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[6][:title] %></h2>
+            <h2 class="u-title-1"><%= @sections[6][:title] %></h2>
             
             <!-- 基本 -->
             <article class="u-vert-30">
@@ -320,10 +320,10 @@
       <!-- end ボーダー -->
 
       <!-- ボタン -->
-      <div class="u-scroll-target js-menu-sec" id="<%= @sections[7][:id] %>">
+      <div class="u-scroll-target" id="<%= @sections[7][:id] %>">
         <section class="u-sec">
           <div class="u-inner-4 u-vert-80">
-            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[7][:title] %></h2>
+            <h2 class="u-title-1"><%= @sections[7][:title] %></h2>
             
             <!-- 基本 -->
             <article class="u-vert-30">
@@ -419,23 +419,36 @@
       </div>
       <!-- end ボタン -->
 
-      <!-- ボタン -->
-      <div class="u-scroll-target js-menu-sec" id="<%= @sections[8][:id] %>">
+      <!-- リンク -->
+      <div class="u-scroll-target" id="<%= @sections[8][:id] %>">
         <section class="u-sec">
           <div class="u-inner-4 u-vert-80">
-            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[8][:title] %></h2>
+            <h2 class="u-title-1"><%= @sections[8][:title] %></h2>
             
             <!-- 基本 -->
             <article class="u-vert-30">
               <h3 class="u-title-2"></h3>
 
               <!-- コンテント -->
-              <div class="p-content u-vert-10"></div>
+              <div class="p-content u-vert-10">
+                <p>
+                  <%= link_to root_path, class: "u-link" do %>
+                    リンク
+                  <% end %>
+                </p>
+                <p>
+                  <%= link_to "Google", "https://www.google.com", target: "_blank", rel: "noopener noreferrer", class: "u-link"%>
+                </p>
+              </div>
               <!-- end コンテント -->
   
               <!-- コード -->
               <figure class="js-code u-code">
-                <pre class="prettyprint js-code-pre"></pre>
+                <pre class="prettyprint js-code-pre">&lt;%= link_to root_path, class: &quot;u-link&quot; do %&gt;
+  ボタン
+&lt;% end %&gt;
+
+&lt;%= link_to &quot;Google&quot;, &quot;https://www.google.com&quot;, target: &quot;_blank&quot;, rel: &quot;noopener noreferrer&quot;, class: &quot;u-link&quot;%&gt;</pre>
                 <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
                   <i class="fa-solid fa-copy"></i>
                 </button>
@@ -449,7 +462,316 @@
           </div>
         </section>
       </div>
-      <!-- end ボタン -->
+      <!-- end リンク -->
+
+      <!-- セクション -->
+      <div class="u-scroll-target" id="<%= @sections[9][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-80">
+            <h2 class="u-title-1"><%= @sections[9][:title] %></h2>
+            
+            <!-- 基本 -->
+            <article class="u-vert-30">
+              <h3 class="u-title-2"></h3>
+
+              <!-- コンテント -->
+              <div class="p-content u-vert-10">
+                <section class="u-sec">
+                  セクション
+                </section>
+                <section class="u-sec">
+                  セクション
+                </section>
+              </div>
+              <!-- end コンテント -->
+  
+              <!-- コード -->
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre">&lt;section class=&quot;u-sec&quot;&gt;
+  セクション
+&lt;/section&gt;
+&lt;section class=&quot;u-sec&quot;&gt;
+  セクション
+&lt;/section&gt;</pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+              <!-- end コード -->
+  
+              <!-- その他 -->
+              <div class="p-other"></div>
+              <!-- end その他 -->
+            </article>
+          </div>
+        </section>
+      </div>
+      <!-- end セクション -->
+
+      <!-- インナー -->
+      <div class="u-scroll-target" id="<%= @sections[10][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-80">
+            <h2 class="u-title-1"><%= @sections[10][:title] %></h2>
+            
+            <!-- 基本 -->
+            <article class="u-vert-30">
+              <h3 class="u-title-2"></h3>
+
+              <!-- コンテント -->
+              <div class="p-content u-vert-10">
+                <div class="u-inner" style="background-color: darkcyan">
+                  <div class="" style="background-color: darkorchid">
+                    390px相当
+                  </div>
+                </div>
+
+                <div class="u-inner-1" style="background-color: darkcyan">
+                  <div class="" style="background-color: darkorchid">
+                    800px相当
+                  </div>
+                </div>
+
+                <div class="u-inner-2" style="background-color: darkcyan">
+                  <div class="" style="background-color: darkorchid">
+                    1000px相当
+                  </div>
+                </div>
+
+                <div class="u-inner-3" style="background-color: darkcyan">
+                  <div class="" style="background-color: darkorchid">
+                    1200px相当
+                  </div>
+                </div>
+
+                <div class="u-inner-4" style="background-color: darkcyan">
+                  <div class="" style="background-color: darkorchid">
+                    幅80%相当
+                  </div>
+                </div>
+              </div>
+              <!-- end コンテント -->
+  
+              <!-- コード -->
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre">&lt;div class=&quot;u-inner&quot;&gt;
+  390px相当
+&lt;/div&gt;
+
+&lt;div class=&quot;u-inner-1&quot;&gt;
+  800px相当
+&lt;/div&gt;
+
+&lt;div class=&quot;u-inner-2&quot;&gt;
+  1000px相当
+&lt;/div&gt;
+
+&lt;div class=&quot;u-inner-3&quot;&gt;
+  1200px相当
+&lt;/div&gt;
+
+&lt;div class=&quot;u-inner-4&quot;&gt;
+  幅80%相当
+&lt;/div&gt;</pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+              <!-- end コード -->
+  
+              <!-- その他 -->
+              <div class="p-other"></div>
+              <!-- end その他 -->
+            </article>
+          </div>
+        </section>
+      </div>
+      <!-- end インナー -->
+
+      <!-- 2カラムレイアウト -->
+      <div class="u-scroll-target" id="<%= @sections[11][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-80">
+            <h2 class="u-title-1"><%= @sections[11][:title] %></h2>
+            
+            <!-- 基本 -->
+            <article class="u-vert-30">
+              <h3 class="u-title-2"></h3>
+
+              <!-- コンテント -->
+              <div class="p-content u-vert-10"></div>
+              <!-- end コンテント -->
+  
+              <!-- コード -->
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre">&lt;div class=&quot;u-col2&quot; id=&quot;js-col2-root&quot;&gt;
+  &lt;div class=&quot;u-col2-main&quot;&gt;
+    &lt;div class=&quot;u-col2-main-inner&quot;&gt;
+      メインコンテンツ
+    &lt;/div&gt;
+
+    &lt;aside class=&quot;u-col2-side&quot;&gt;
+      &lt;button id=&quot;js-col2-drawer&quot; class=&quot;u-btn-1 type-1 opt-size-s u-col2-drawer&quot; aria-label=&quot;サイドメニューを開閉する &quot;&gt;
+        &lt;span class=&quot;icon-right&quot;&gt;
+          &lt;i class=&quot;fa-solid fa-arrow-right&quot;&gt;&lt;/i&gt;
+        &lt;/span&gt;
+        &lt;span class=&quot;icon-left&quot;&gt;
+          &lt;i class=&quot;fa-solid fa-arrow-left&quot;&gt;&lt;/i&gt;
+        &lt;/span&gt;
+      &lt;/button&gt;
+  
+      &lt;div class=&quot;u-col2-side-content&quot;&gt;
+        &lt;div class=&quot;u-col2-side-inner&quot;&gt;
+          サイドコンテンツ
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/aside&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+              <!-- end コード -->
+  
+              <!-- その他 -->
+              <div class="p-other"></div>
+              <!-- end その他 -->
+            </article>
+          </div>
+        </section>
+      </div>
+      <!-- end 2カラムレイアウト -->
+
+      <!-- メニュー -->
+      <div class="u-scroll-target" id="<%= @sections[12][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-80">
+            <h2 class="u-title-1"><%= @sections[12][:title] %></h2>
+            
+            <!-- 基本 -->
+            <article class="u-vert-30">
+              <h3 class="u-title-2"></h3>
+
+              <!-- コンテント -->
+              <div class="p-content u-vert-10">
+                <menu class="u-menu">
+                  <li>
+                    <a href="#テスト">テスト</a>
+                  </li>
+                  <li>
+                    <a href="#テスト">テスト</a>
+                  </li>
+                </menu>
+              </div>
+              <!-- end コンテント -->
+  
+              <!-- コード -->
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre">&lt;menu class=&quot;u-menu&quot;&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;#テスト&quot;&gt;テスト&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/menu&gt;</pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+              <!-- end コード -->
+  
+              <!-- その他 -->
+              <div class="p-other"></div>
+              <!-- end その他 -->
+            </article>
+          </div>
+        </section>
+      </div>
+      <!-- end メニュー -->
+
+      <!-- スクロール位置調整 -->
+      <div class="u-scroll-target" id="<%= @sections[13][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-80">
+            <h2 class="u-title-1"><%= @sections[13][:title] %></h2>
+            
+            <!-- 基本 -->
+            <article class="u-vert-30">
+              <h3 class="u-title-2"></h3>
+
+              <!-- コンテント -->
+              <div class="p-content u-vert-10"></div>
+              <!-- end コンテント -->
+  
+              <!-- コード -->
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre">&lt;div class=&quot;u-scroll-target&quot; id=&quot;テスト&quot;&gt;&lt;/div&gt;</pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+              <!-- end コード -->
+  
+              <!-- その他 -->
+              <div class="p-other">
+                <p>「href="#"」による内部リンクのヘッダー高さ分を調整するスタイル。</p>
+                <p>マイナスマージン、パティングを使っているため、取り扱いに注意。</p>
+              </div>
+              <!-- end その他 -->
+            </article>
+          </div>
+        </section>
+      </div>
+      <!-- end スクロール位置調整 -->
+
+      <!-- コード -->
+      <div class="u-scroll-target" id="<%= @sections[14][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-80">
+            <h2 class="u-title-1"><%= @sections[14][:title] %></h2>
+            
+            <!-- 基本 -->
+            <article class="u-vert-30">
+              <h3 class="u-title-2"></h3>
+
+              <!-- コンテント -->
+              <div class="p-content u-vert-10">
+                <figure class="js-code u-code">
+                  <pre class="prettyprint js-code-pre"><code>コード</code></pre>
+                  <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                    <i class="fa-solid fa-copy"></i>
+                  </button>
+                </figure>
+              </div>
+              <!-- end コンテント -->
+  
+              <!-- コード -->
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre"><code>&lt;% content_for :foot do %&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst&quot;&gt;&lt;/script&gt;
+&lt;% end %&gt;
+
+&lt;figure class=&quot;js-code u-code&quot;&gt;
+  &lt;pre class=&quot;prettyprint js-code-pre&quot;&gt;&lt;code&gt;コード&lt;/code&gt;&lt;/pre&gt;
+  &lt;button class=&quot;js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s&quot; aria-label=&quot;コードをコピーする&quot;&gt;
+    &lt;i class=&quot;fa-solid fa-copy&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+&lt;/figure&gt;</code></pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+              <!-- end コード -->
+  
+              <!-- その他 -->
+              <div class="p-other">
+                <p>シンタックスハイライトのため、code-prettifyのcdnを用意しておく。</p>
+              </div>
+              <!-- end その他 -->
+            </article>
+          </div>
+        </section>
+      </div>
+      <!-- end コード -->
     </div>
   </div>
 
@@ -466,12 +788,12 @@
     <div class="u-col2-side-content">
       <div class="u-col2-side-inner">
         <div class="u-side">
-          <menu class="u-menu" id="js-menu">
-              <% @sections.each do |section| %>
-                <li>
-                  <a href="#<%= section[:id] %>"><%= section[:title] %></a>
-                </li>
-              <% end %>
+          <menu class="u-menu">
+            <% @sections.each do |section| %>
+              <li>
+                <a href="#<%= section[:id] %>"><%= section[:title] %></a>
+              </li>
+            <% end %>
           </menu>
         </div>
       </div>

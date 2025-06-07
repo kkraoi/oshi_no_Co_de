@@ -663,11 +663,6 @@
   &sec {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    @include pc {
-    }
-    @include sp {
-
-    }
     + .u-sec {
       border-top: 1px solid $d-color-border;
     }
@@ -721,7 +716,7 @@
       }
       @include sp {
         padding-left: $padding-x;
-      padding-right: $padding-x;
+        padding-right: $padding-x;
       }
     }
   }
@@ -827,13 +822,13 @@
   &side {
   }
 
-  // スクロールのターゲット：スクロール位置調整
+  // スクロール位置調整
   &scroll-target {
     margin-top: calc(#{$hight-header} * -1);
     padding-top: $hight-header;
   }
 
-  // コード
+  // コードブロック
   &code {
     position: relative;
     &-copy_btn {

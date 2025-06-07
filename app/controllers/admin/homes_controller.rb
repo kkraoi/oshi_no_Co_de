@@ -14,6 +14,12 @@ class Admin::HomesController < Admin::BaseController
       { id: 'border', title: 'ボーダー' },
       { id: 'button', title: 'ボタン' },
       { id: 'link', title: 'リンク' },
+      { id: 'section', title: 'セクション' },
+      { id: 'inner', title: 'インナー' },
+      { id: 'col2', title: '2カラムレイアウト' },
+      { id: 'menu', title: 'メニュー' },
+      { id: 'scrollposition', title: 'スクロール位置調整' },
+      { id: 'code', title: 'コードブロック' },
     ]
   end
 end
