@@ -49,8 +49,11 @@ source ~/.bash_profile
             <!-- end コンテント -->
 
             <!-- コード -->
-            <figure class="p-code">
-              <pre class="prettyprint"></pre>
+            <figure class="js-code u-code">
+              <button class="js-code-copy_btn u-btn-1" aria-label="コードをコピーする">
+                <i class="fa-solid fa-copy"></i>
+              </button>
+              <pre class="prettyprint js-code-pre"></pre>
             </figure>
             <!-- end コード -->
 
@@ -63,5 +66,4 @@ source ~/.bash_profile
         </section>
       </div>
       <!-- end テンプレ -->
-
 ```

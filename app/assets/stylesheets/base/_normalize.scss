@@ -60,8 +60,11 @@ pre {
 	font-family: monospace; /* 1 */
 	font-size: 2em; /* 2 */
 	border-radius: 15px;
-	padding: 1em !important;
-	margin-top: 0 !important;
+}
+html pre.prettyprint{
+	margin: initial;
+	padding: 1em;
+	width: initial;
 }
 
 /* Text-level semantics

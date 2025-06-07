@@ -330,6 +330,29 @@
         background-color: $d-color-bg-active;
         border-color: $d-color-border-active;
       }
+      &.opt {
+        &-mini {
+          min-width: 3rem;
+          min-height: 3rem;
+          font-size: 1.3rem;
+        }
+        &-mini-1 {
+          min-width: 2rem;
+          min-height: 2rem;
+          font-size: 1.2rem;
+        }
+      }
+      &.type {
+        &-1 {
+          min-width: 3rem;
+          min-height: 3rem;
+          background-color: $d-color-border;
+          font-size: 1.3rem;
+          @include hover {
+            background-color: $d-color-border-active;
+          }
+        }
+      }
     }
   }
 
@@ -357,18 +380,12 @@
       }
     }
     &-drawer {
-      min-width: 3rem;
-      min-height: 3rem;
       position: absolute;
       top: 0;
       left: -3rem;
-      background-color: $d-color-border;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-      @include hover {
-        background-color: $d-color-border-active;
-      }
       .icon-right,
       .icon-left {
         position: absolute;
@@ -449,18 +466,21 @@
   // コード
   &code {
     position: relative;
-    &-copy {
-
+    &-copy_btn {
+      position: absolute;
+      top: 0;
+      right: 0rem;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
-
     pre.prettyprint {
-      width: 100%;
       background-color: $d-color-bg-1;
       font-size: 1.4rem;
       line-height: 1.6;
-      white-space: pre-wrap;
       overflow-wrap: break-word;
       border: 1px solid $d-color-border;
+      padding-right: 4rem;
     }
   }
 }
