@@ -524,6 +524,141 @@
     }
 	}
 
+  // ボタン
+  &btn {
+    display: block;
+    line-height: 1.4;
+    background-color: $blue;
+    cursor: pointer;
+    border-radius: $radius;
+    width: fit-content;
+    font-size: 1.6rem;
+    min-width: 25rem;
+    text-align: center;
+    padding: 1em;
+    @include hover {
+      filter: brightness($dark);
+    }
+    &.opt{
+      &-size{
+        &-full{
+          width: 100%;
+        }
+        &-l{
+          min-width: 35rem;
+          font-size: 1.25em;
+          font-weight: bold;
+        }
+        &-s{
+          min-width: 20rem;
+          font-size: .8em;
+        }
+        &-ss{
+          min-width: 10rem;
+          font-size: .7em;
+        }
+      }
+    }
+    &-1 {
+      min-width: 5rem;
+      min-height: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: $radius;
+      border: 1px solid $d-color-border;
+      background-color: $d-color-bg;
+      @include hover {
+        filter: brightness($light);
+      }
+      &.type {
+        &-1 {
+          background-color: $d-color-border;
+          @include hover {
+            filter: brightness($light);
+          }
+          &.u-bg-red,
+          &.u-bg-blue {
+            @include hover {
+              filter: brightness($dark);
+            }
+          }
+        }
+      }
+      &.opt {
+        &-size{
+          &-s {
+            min-width: 3rem;
+            min-height: 3rem;
+            font-size: 1.3rem;
+          }
+          &-ss {
+            min-width: 2rem;
+            min-height: 2rem;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+    &-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      &.opt {
+        &-left {
+          align-items: flex-start;
+        }
+        &-right {
+          align-items: flex-end;
+        }
+      }
+      &.pc\:opt {
+        @include pc {
+          &-left {
+            align-items: flex-start;
+          }
+          &-right {
+            align-items: flex-end;
+          }
+        }
+      }
+      &.sp\:opt {
+        @include sp {
+          &-left {
+            align-items: flex-start;
+          }
+          &-right {
+            align-items: flex-end;
+          }
+        }
+      }
+    }
+  }
+
+  // リンク
+  &link {
+    color: $blue;
+    text-decoration: underline;
+    @include hover {
+      filter: brightness($dark);
+    }
+  }
+
+  // 外部リンクの表示
+  &btn, &link {
+    &[target="_blank"]::after{
+      font-family: "Font Awesome 6 Free"; 
+      font-weight: 900; 
+      content: "\f35d";
+      margin-left: 0.4em;
+      font-size: 0.9em;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
   // セクション
   &sec {
     padding-top: 5rem;
@@ -590,49 +725,7 @@
       }
     }
   }
-
-  // ボタン
-  &btn {
-    &-1 {
-      min-width: 5rem;
-      min-height: 5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      border-radius: $radius;
-      border: 1px solid $d-color-border;
-      background-color: $d-color-bg;
-      @include hover {
-        background-color: $d-color-bg-active;
-        border-color: $d-color-border-active;
-      }
-      &.opt {
-        &-mini {
-          min-width: 3rem;
-          min-height: 3rem;
-          font-size: 1.3rem;
-        }
-        &-mini-1 {
-          min-width: 2rem;
-          min-height: 2rem;
-          font-size: 1.2rem;
-        }
-      }
-      &.type {
-        &-1 {
-          min-width: 3rem;
-          min-height: 3rem;
-          background-color: $d-color-border;
-          font-size: 1.3rem;
-          @include hover {
-            background-color: $d-color-border-active;
-          }
-        }
-      }
-    }
-  }
-
+  
   // 2カラムレイアウト
   &col2 {
     $col2_side_width: 30rem;
@@ -759,6 +852,7 @@
       border: 1px solid $d-color-border;
       padding-right: 4rem;
       font-family: Consolas, SFMono-Regular, Menlo, Monaco, "Liberation Mono", "Courier New", monospace,serif;
+      border-radius: $radius;
     }
   }
 }

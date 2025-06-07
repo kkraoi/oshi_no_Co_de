@@ -10,3 +10,9 @@
     }
   }
 }
+
+.u-title-2 {
+  &:empty {
+    display: none;
+  }
+}

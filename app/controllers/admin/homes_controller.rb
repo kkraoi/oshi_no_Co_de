@@ -12,6 +12,8 @@ class Admin::HomesController < Admin::BaseController
       { id: 'backgroundcolor', title: '背景色' },
       { id: 'fontsize', title: 'フォントサイズ' },
       { id: 'border', title: 'ボーダー' },
+      { id: 'button', title: 'ボタン' },
+      { id: 'link', title: 'リンク' },
     ]
   end
 end
