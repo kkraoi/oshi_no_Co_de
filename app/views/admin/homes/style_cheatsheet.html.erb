@@ -6,24 +6,19 @@
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst"></script>
 <% end %>
 
-<% sections = [
-  { id: 'margin', title: 'マージン' }
-] %>
-
 <div class="u-col2" id="js-col2-root">
   <div class="u-col2-main">
     <div class="u-col2-main-inner">
       <h1 class="u-title u-pY-50">スタイル早見表</h1>
 
       <!-- マージン -->
-      <div class="u-scroll-target js-menu-sec" id="<%= sections[0][:id] %>">
+      <div class="u-scroll-target js-menu-sec" id="<%= @sections[0][:id] %>">
         <section class="u-sec">
           <div class="u-inner-4 u-vert-30">
-            <h2 class="u-title-1 js-menu-sec_title"><%= sections[0][:title] %></h2>
+            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[0][:title] %></h2>
 
             <!-- コンテント -->
-            <div class="p-content u-vert-10">
-            </div>
+            <div class="p-content u-vert-10"></div>
             <!-- end コンテント -->
 
             <!-- コード -->
@@ -59,6 +54,270 @@
         </section>
       </div>
       <!-- end マージン -->
+
+      <!-- パディング -->
+      <div class="u-scroll-target js-menu-sec" id="<%= @sections[1][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-30">
+            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[1][:title] %></h2>
+
+            <!-- コンテント -->
+            <div class="p-content u-vert-10"></div>
+            <!-- end コンテント -->
+
+            <!-- コード -->
+            <figure class="js-code u-code">
+              <pre class="prettyprint js-code-pre">
+&lt;div class=&quot;u-pl-40&quot;&gt;&lt;/div&gt;
+
+&lt;div class=&quot;u-pc:pt-40&quot;&gt;&lt;/div&gt;
+
+&lt;div class=&quot;u-sp:pt-10&quot;&gt;&lt;/div&gt;</pre>
+              <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1" aria-label="コードをコピーする">
+                <i class="fa-solid fa-copy"></i>
+              </button>
+            </figure>
+            <!-- end コード -->
+
+            <!-- その他 -->
+            <div class="p-other">
+              <p>使い勝手はマージンと同じ。</p>
+            </div>
+            <!-- end その他 -->
+          </div>
+        </section>
+      </div>
+      <!-- end パディング -->
+
+      <!-- タイトル -->
+      <div class="u-scroll-target js-menu-sec" id="<%= @sections[2][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-30">
+            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[2][:title] %></h2>
+
+            <!-- コンテント -->
+            <div class="p-content u-vert-10">
+              <h2 class="u-title">タイトル56</h2>
+              <h2 class="u-title-1">タイトル36</h2>
+              <h2 class="u-title-2">タイトル24</h2>
+              <h2 class="u-title-3">タイトル18</h2>
+            </div>
+            <!-- end コンテント -->
+
+            <!-- コード -->
+            <figure class="js-code u-code">
+              <pre class="prettyprint js-code-pre">&lt;h2 class=&quot;u-title&quot;&gt;タイトル56&lt;/h2&gt;
+&lt;h2 class=&quot;u-title-1&quot;&gt;タイトル36&lt;/h2&gt;
+&lt;h2 class=&quot;u-title-2&quot;&gt;タイトル24&lt;/h2&gt;
+&lt;h2 class=&quot;u-title-3&quot;&gt;タイトル18&lt;/h2&gt;</pre>
+              <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1" aria-label="コードをコピーする">
+                <i class="fa-solid fa-copy"></i>
+              </button>
+            </figure>
+            <!-- end コード -->
+
+            <!-- その他 -->
+            <div class="p-other">
+              <p>タグの依存性はない。</p>
+            </div>
+            <!-- end その他 -->
+          </div>
+        </section>
+      </div>
+      <!-- end タイトル -->
+
+      <!-- 文字色 -->
+      <div class="u-scroll-target js-menu-sec" id="<%= @sections[3][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-30">
+            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[3][:title] %></h2>
+
+            <!-- コンテント -->
+            <div class="p-content u-vert-10">
+              <p class="u-c-red">赤</p>
+              <p class="u-c-blue">青</p>
+              <p class="u-c-black">黒</p>
+              <p class="u-c-white">白（デフォルト色）</p>
+            </div>
+            <!-- end コンテント -->
+
+            <!-- コード -->
+            <figure class="js-code u-code">
+              <pre class="prettyprint js-code-pre">&lt;p class=&quot;u-c-red&quot;&gt;赤&lt;/p&gt;
+&lt;p class=&quot;u-c-blue&quot;&gt;青&lt;/p&gt;
+&lt;p class=&quot;u-c-black&quot;&gt;黒&lt;/p&gt;
+&lt;p class=&quot;u-c-white&quot;&gt;白（デフォルト色）&lt;/p&gt;</pre>
+              <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1" aria-label="コードをコピーする">
+                <i class="fa-solid fa-copy"></i>
+              </button>
+            </figure>
+            <!-- end コード -->
+
+            <!-- その他 -->
+            <div class="p-other"></div>
+            <!-- end その他 -->
+          </div>
+        </section>
+      </div>
+      <!-- end 文字色 -->
+
+      <!-- 背景色 -->
+      <div class="u-scroll-target js-menu-sec" id="<%= @sections[4][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-30">
+            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[4][:title] %></h2>
+
+            <!-- コンテント -->
+            <div class="p-content u-vert-10">
+              <p class="u-bg-red">赤</p>
+              <p class="u-bg-blue">青</p>
+              <p class="u-bg-black">黒（デフォルト）</p>
+              <p class="u-bg-black-1">黒明るい</p>
+              <p class="u-bg-white">白</p>
+              <p class="u-bg-gray">グレー</p>
+              <p class="u-bg-gray-1">グレー明るい</p>
+            </div>
+            <!-- end コンテント -->
+
+            <!-- コード -->
+            <figure class="js-code u-code">
+              <pre class="prettyprint js-code-pre">&lt;p class=&quot;u-bg-red&quot;&gt;赤&lt;/p&gt;
+&lt;p class=&quot;u-bg-blue&quot;&gt;青&lt;/p&gt;
+&lt;p class=&quot;u-bg-black&quot;&gt;黒（デフォルト）&lt;/p&gt;
+&lt;p class=&quot;u-bg-black-1&quot;&gt;黒明るい&lt;/p&gt;
+&lt;p class=&quot;u-bg-white&quot;&gt;白&lt;/p&gt;
+&lt;p class=&quot;u-bg-gray&quot;&gt;グレー&lt;/p&gt;
+&lt;p class=&quot;u-bg-gray-1&quot;&gt;グレー明るい&lt;/p&gt;</pre>
+              <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1" aria-label="コードをコピーする">
+                <i class="fa-solid fa-copy"></i>
+              </button>
+            </figure>
+            <!-- end コード -->
+
+            <!-- その他 -->
+            <div class="p-other"></div>
+            <!-- end その他 -->
+          </div>
+        </section>
+      </div>
+      <!-- end 背景色 -->
+
+      <!-- フォントサイズ -->
+      <div class="u-scroll-target js-menu-sec" id="<%= @sections[5][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-30">
+            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[5][:title] %></h2>
+
+            <!-- コンテント -->
+            <div class="p-content u-vert-10">
+              <p class="u-fz-10">10px相当</p>
+              <p class="u-fz-32">32px相当</p>
+            </div>
+            <!-- end コンテント -->
+
+            <!-- コード -->
+            <figure class="js-code u-code">
+              <pre class="prettyprint js-code-pre">&lt;p class=&quot;u-fz-10&quot;&gt;10px相当&lt;/p&gt;
+&lt;p class=&quot;u-fz-32&quot;&gt;32px相当&lt;/p&gt;</pre>
+              <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1" aria-label="コードをコピーする">
+                <i class="fa-solid fa-copy"></i>
+              </button>
+            </figure>
+            <!-- end コード -->
+
+            <!-- その他 -->
+            <div class="p-other">
+              <p>10~32px相当の範囲（偶数）。</p>
+              <p>「u-pc:fz-数値」「u-sp:fz-数値」でそれぞれ、pcのみ・spのみ、限定適用。</p>
+            </div>
+            <!-- end その他 -->
+          </div>
+        </section>
+      </div>
+      <!-- end フォントサイズ -->
+
+      <!-- ボーダー -->
+      <div class="u-scroll-target js-menu-sec" id="<%= @sections[6][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-80">
+            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[6][:title] %></h2>
+            
+            <!-- 基本 -->
+            <article class="u-vert-30">
+              <h3 class="u-title-2">ボーダー（基本）</h3>
+
+              <!-- コンテント -->
+              <div class="p-content u-vert-10">
+                <p class="u-bd-1">ボーダー1px</p>
+                <p class="u-bdr-1">ボーダー1px右</p>
+                <p class="u-bdl-1">ボーダー1px左</p>
+                <p class="u-bdt-1">ボーダー1px上</p>
+                <p class="u-bdb-1">ボーダー1px下</p>
+                <p class="u-bd-none">ボーダー消す</p>
+              </div>
+              <!-- end コンテント -->
+  
+              <!-- コード -->
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre">&lt;p class=&quot;u-bd-1&quot;&gt;ボーダー1px&lt;/p&gt;
+&lt;p class=&quot;u-bdr-1&quot;&gt;ボーダー1px右&lt;/p&gt;
+&lt;p class=&quot;u-bdl-1&quot;&gt;ボーダー1px左&lt;/p&gt;
+&lt;p class=&quot;u-bdt-1&quot;&gt;ボーダー1px上&lt;/p&gt;
+&lt;p class=&quot;u-bdb-1&quot;&gt;ボーダー1px下&lt;/p&gt;
+&lt;p class=&quot;u-bd-none&quot;&gt;ボーダー消す&lt;/p&gt;</pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+              <!-- end コード -->
+  
+              <!-- その他 -->
+              <div class="p-other">
+                <p>数値は1~10。</p>
+                <p>u-:pc, u-sp:対応。</p>
+              </div>
+              <!-- end その他 -->
+            </article>
+            
+            <!-- ボーダーカラー -->
+            <article class="u-vert-30">
+              <h3 class="u-title-2">ボーダーカラー</h3>
+
+              <!-- コンテント -->
+              <div class="p-content u-vert-10">
+                <p class="u-bdl-10 u-bdc-red">ボーダーカラー赤</p>
+                <p class="u-bdl-10 u-bdc-blue">ボーダーカラー青</p>
+                <p class="u-bdl-10 u-bdc-black">ボーダーカラー黒</p>
+                <p class="u-bdl-10 u-bdc-black-1">ボーダーカラー黒明るい</p>
+                <p class="u-bdl-10 u-bdc-white">ボーダーカラー白（デフォルト）</p>
+                <p class="u-bdl-10 u-bdc-gray">ボーダーカラーグレー</p>
+                <p class="u-bdl-10 u-bdc-gray-1">ボーダーカラーグレー明るい</p>
+              </div>
+              <!-- end コンテント -->
+  
+              <!-- コード -->
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre">&lt;p class=&quot;u-bdl-10 u-bdc-red&quot;&gt;ボーダーカラー赤&lt;/p&gt;
+&lt;p class=&quot;u-bdl-10 u-bdc-blue&quot;&gt;ボーダーカラー青&lt;/p&gt;
+&lt;p class=&quot;u-bdl-10 u-bdc-black&quot;&gt;ボーダーカラー黒&lt;/p&gt;
+&lt;p class=&quot;u-bdl-10 u-bdc-black-1&quot;&gt;ボーダーカラー黒明るい&lt;/p&gt;
+&lt;p class=&quot;u-bdl-10 u-bdc-white&quot;&gt;ボーダーカラー白（デフォルト）&lt;/p&gt;
+&lt;p class=&quot;u-bdl-10 u-bdc-gray&quot;&gt;ボーダーカラーグレー&lt;/p&gt;
+&lt;p class=&quot;u-bdl-10 u-bdc-gray-1&quot;&gt;ボーダーカラーグレー明るい&lt;/p&gt;</pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+              <!-- end コード -->
+  
+              <!-- その他 -->
+              <div class="p-other"></div>
+              <!-- end その他 -->
+            </article>
+          </div>
+        </section>
+      </div>
+      <!-- end ボーダー -->
     </div>
   </div>
 
@@ -76,7 +335,7 @@
       <div class="u-col2-side-inner">
         <div class="u-side">
           <menu class="u-menu" id="js-menu">
-              <% sections.each do |section| %>
+              <% @sections.each do |section| %>
                 <li>
                   <a href="#<%= section[:id] %>"><%= section[:title] %></a>
                 </li>

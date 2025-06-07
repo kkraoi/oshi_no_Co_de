@@ -39,10 +39,10 @@ source ~/.bash_profile
 ## 早見表テンプレート
 ```
       <!-- テンプレ -->
-      <div class="u-scroll-target js-menu-sec" id="<%= sections[0][:id] %>">
+      <div class="u-scroll-target js-menu-sec" id="<%= @sections[0][:id] %>">
         <section class="u-sec">
-          <div class="u-inner-4">
-            <h2 class="u-title-1 js-menu-sec_title"><%= sections[0][:title] %></h2>
+          <div class="u-inner-4 u-vert-30">
+            <h2 class="u-title-1 js-menu-sec_title"><%= @sections[0][:title] %></h2>
 
             <!-- コンテント -->
             <div class="p-content u-vert-10"></div>
@@ -50,17 +50,15 @@ source ~/.bash_profile
 
             <!-- コード -->
             <figure class="js-code u-code">
-              <button class="js-code-copy_btn u-btn-1" aria-label="コードをコピーする">
+              <pre class="prettyprint js-code-pre"></pre>
+              <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1" aria-label="コードをコピーする">
                 <i class="fa-solid fa-copy"></i>
               </button>
-              <pre class="prettyprint js-code-pre"></pre>
             </figure>
             <!-- end コード -->
 
             <!-- その他 -->
-            <div class="p-other">
-              <p></p>
-            </div>
+            <div class="p-other"></div>
             <!-- end その他 -->
           </div>
         </section>

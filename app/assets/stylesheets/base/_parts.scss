@@ -245,7 +245,284 @@
         font-size: 2rem;
       }
     }
+    &-2 {
+      font-weight: bold;
+      line-height: 1.4;
+      border-bottom: 2px solid currentColor;
+      margin-bottom: 2rem;
+      @include pc {
+        font-size: 2.4rem;
+      }
+      @include sp {
+        font-size: 1.6rem;
+      }
+    }
+    &-3 {
+      font-weight: bold;
+      line-height: 1.4;
+      border-bottom: 1px solid currentColor;
+      margin-bottom: 2rem;
+      @include pc {
+        font-size: 1.8rem;
+      }
+      @include sp {
+        font-size: 1.4rem;
+      }
+    }
   }
+
+  // 文字色
+  &c {
+    &-red {
+      color: $red !important;
+    }
+    &-blue {
+      color: $blue !important;
+    }
+    &-black {
+      color: $d-color-bg !important;
+    }
+    &-white {
+      color: $d-color-font !important;
+    }
+  }
+
+  // 文字色
+  &bg {
+    &-red {
+      background-color: $red !important;
+      color: $d-color-font !important;
+    }
+    &-blue {
+      background-color: $blue !important;
+      color: $d-color-font !important;
+    }
+    &-black {
+      background-color: $d-color-bg !important;
+      color: $d-color-font !important;
+    }
+    &-black-1 {
+      background-color: $d-color-bg-1 !important;
+      color: $d-color-font !important;
+    }
+    &-white {
+      background-color: $d-color-font !important;
+      color: $d-color-bg !important;
+    }
+    &-gray {
+      background-color: $d-color-border !important;
+      color: $d-color-font !important;
+    }
+    &-gray-1 {
+      background-color: $d-color-border-active !important;
+      color: $d-color-font !important;
+    }
+  }
+
+  // フォントサイズ
+  $fontSizeArray: 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32;
+  @each $var in $fontSizeArray {
+		&fz-#{$var} {
+			font-size: calc(#{$var} / 10 * 1rem) !important;
+		}
+		@include pc {
+			&pc\:fz-#{$var} {
+				font-size: calc(#{$var} / 10 * 1rem) !important;
+			}
+		}
+		@include sp {
+			&sp\:fz-#{$var} {
+				font-size: calc(#{$var} / 10 * 1rem) !important;
+			}
+		}
+	}
+
+  // ボーダー
+  &bd {
+		border: 1px solid currentColor;
+		&t {
+			border-top: 1px solid currentColor;
+			&-none {
+				border-top: none !important;
+			}
+		}
+		&r {
+			border-right: 1px solid currentColor;
+			&-none {
+				border-right: none !important;
+			}
+		}
+		&b {
+			border-bottom: 1px solid currentColor;
+			&-none {
+				border-bottom: none !important;
+			}
+		}
+		&l {
+			border-left: 1px solid currentColor;
+			&-none {
+				border-left: none !important;
+			}
+		}
+		@for $i from 1 through 10 {
+			&-#{$i} {
+				border-width: #{$i}px !important;
+				border-style: solid !important;
+			}
+			&t-#{$i} {
+				border-width: #{$i}px !important;
+				border-top-style: solid !important;
+			}
+			&r-#{$i} {
+				border-width: #{$i}px !important;
+				border-right-style: solid !important;
+			}
+			&b-#{$i} {
+				border-width: #{$i}px !important;
+				border-bottom-style: solid !important;
+			}
+			&l-#{$i} {
+				border-width: #{$i}px !important;
+				border-left-style: solid !important;
+			}
+		}
+		&-none {
+			border: none !important;
+		}
+	}
+	@include pc {
+		&pc\:bd {
+			border: 1px solid currentColor;
+			&t {
+				border-top: 1px solid currentColor;
+				&-none {
+					border-top: none !important;
+				}
+			}
+			&r {
+				border-right: 1px solid currentColor;
+				&-none {
+					border-right: none !important;
+				}
+			}
+			&b {
+				border-bottom: 1px solid currentColor;
+				&-none {
+					border-bottom: none !important;
+				}
+			}
+			&l {
+				border-left: 1px solid currentColor;
+				&-none {
+					border-left: none !important;
+				}
+			}
+			@for $i from 1 through 10 {
+				&-#{$i} {
+					border-width: #{$i}px !important;
+					border-style: solid !important;
+				}
+				&t-#{$i} {
+					border-width: #{$i}px !important;
+					border-top-style: solid !important;
+				}
+				&r-#{$i} {
+					border-width: #{$i}px !important;
+					border-right-style: solid !important;
+				}
+				&b-#{$i} {
+					border-width: #{$i}px !important;
+					border-bottom-style: solid !important;
+				}
+				&l-#{$i} {
+					border-width: #{$i}px !important;
+					border-left-style: solid !important;
+				}
+			}
+			&-none {
+				border: none !important;
+			}
+		}
+	}
+	@include sp {
+		&sp\:bd {
+			border: 1px solid currentColor;
+			&t {
+				border-top: 1px solid currentColor;
+				&-none {
+					border-top: none !important;
+				}
+			}
+			&r {
+				border-right: 1px solid currentColor;
+				&-none {
+					border-right: none !important;
+				}
+			}
+			&b {
+				border-bottom: 1px solid currentColor;
+				&-none {
+					border-bottom: none !important;
+				}
+			}
+			&l {
+				border-left: 1px solid currentColor;
+				&-none {
+					border-left: none !important;
+				}
+			}
+			@for $i from 1 through 10 {
+				&-#{$i} {
+					border-width: #{$i}px !important;
+					border-style: solid !important;
+				}
+				&t-#{$i} {
+					border-width: #{$i}px !important;
+					border-top-style: solid !important;
+				}
+				&r-#{$i} {
+					border-width: #{$i}px !important;
+					border-right-style: solid !important;
+				}
+				&b-#{$i} {
+					border-width: #{$i}px !important;
+					border-bottom-style: solid !important;
+				}
+				&l-#{$i} {
+					border-width: #{$i}px !important;
+					border-left-style: solid !important;
+				}
+			}
+			&-none {
+				border: none !important;
+			}
+		}
+	}
+
+  // ボーダーカラー
+	&bdc {
+    &-red {
+      border-color: $red !important;
+    }
+    &-blue {
+      border-color: $blue !important;
+    }
+    &-black {
+      border-color: $d-color-bg !important;
+    }
+    &-black-1 {
+      border-color: $d-color-bg-1 !important;
+    }
+    &-white {
+      border-color: $d-color-font !important;
+    }
+    &-gray {
+      border-color: $d-color-border !important;
+    }
+    &-gray-1 {
+      border-color: $d-color-border-active !important;
+    }
+	}
 
   // セクション
   &sec {
@@ -481,6 +758,7 @@
       overflow-wrap: break-word;
       border: 1px solid $d-color-border;
       padding-right: 4rem;
+      font-family: Consolas, SFMono-Regular, Menlo, Monaco, "Liberation Mono", "Courier New", monospace,serif;
     }
   }
 }

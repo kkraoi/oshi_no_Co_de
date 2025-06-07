@@ -1,0 +1,12 @@
+@import "../base/val";
+
+.p {
+  &-other,
+  &-content {
+    border: 1px solid $d-color-border;
+    padding: 1em;
+    &:empty {
+      display: none;
+    }
+  }
+}

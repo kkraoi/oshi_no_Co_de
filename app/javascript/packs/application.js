@@ -138,9 +138,9 @@ function setupCopyCode() {
       button.addEventListener("click", () => {
         const text = pre.innerText;
         navigator.clipboard.writeText(text).then(() => {
-          showToast("✅ コードをコピーしました")
+          showToast("✅ コードをコピーしました", false, 1000)
         }).catch((err) => {
-          showToast("🤨 コピーに失敗しました", true)
+          showToast("🤨 コピーに失敗しました", true, 1000)
           console.error("コピーに失敗しました", err);
         });
       });
