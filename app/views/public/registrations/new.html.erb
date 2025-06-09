@@ -4,9 +4,25 @@
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
+
       <div class="u-vert-30">
         <div>
+          <h2 class="u-title-2">ユーザーネーム</h2>
+          <% if resource.errors[:name].any? %>
+            <p class="u-c-red">
+              <%= resource.errors.full_messages_for(:name).join(", ") %>
+            </p>
+          <% end %>
+          <%= f.text_field :name, autofocus: true, class: "u-field", placeholder: "例: ジョン" %>
+        </div>
+
+        <div>
           <h2 class="u-title-2">Eメール</h2>
+          <% if resource.errors[:email].any? %>
+            <p class="u-c-red">
+              <%= resource.errors.full_messages_for(:email).join(", ") %>
+            </p>
+          <% end %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "u-field", placeholder: "例: example@mail.com" %>
         </div>
 
@@ -17,12 +33,22 @@
             <small>（<%= @minimum_password_length %> 文字以上）</small>
             <% end %>
           </h2>
+          <% if resource.errors[:password].any? %>
+            <p class="u-c-red">
+              <%= resource.errors.full_messages_for(:email).join(", ") %>
+            </p>
+          <% end %>
           <%= f.password_field :password, autocomplete: "new-password", class: "u-field" %>
         </div>
 
         <div>
           <h2 class="u-title-2 ">パスワード確認</h2>
           <p class="u-mb-5">もう一度パスワードを入力してください。</p>
+          <% if resource.errors[:password_confirmation].any? %>
+            <p class="u-c-red">
+              <%= resource.errors.full_messages_for(:email).join(", ") %>
+            </p>
+          <% end %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "u-field" %>
         </div>
       </div>
