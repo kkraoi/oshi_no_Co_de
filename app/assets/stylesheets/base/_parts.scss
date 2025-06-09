@@ -820,6 +820,9 @@
       @include hover {
         background-color: $d-color-bg-active;
       }
+      .fa-solid {
+        min-width: 1.5em;
+      }
     }
   }
 
