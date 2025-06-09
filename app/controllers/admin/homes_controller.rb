@@ -23,6 +23,10 @@ class Admin::HomesController < Admin::BaseController
       { id: 'menu', title: 'メニュー' },
       { id: 'scrollposition', title: 'スクロール位置調整' },
       { id: 'code', title: 'コードブロック' },
+      { id: 'startset', title: 'ページスタートセット' },
+      { id: 'field', title: 'フォームフィールド' },
+      { id: 'textalign', title: 'テキスト配置' },
+      { id: 'maxh', title: '最大高さオーバーフロー' },
     ]
   end
 end

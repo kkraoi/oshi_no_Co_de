@@ -227,8 +227,9 @@
     text-align: center;
     font-weight: bold;
     line-height: 1.4;
+    margin-bottom: 5rem;
     @include pc {
-      font-size: 5.6rem;
+      font-size: 4.2rem;
     }
     @include sp {
       font-size: 2.4rem;
@@ -249,19 +250,14 @@
       font-weight: bold;
       line-height: 1.4;
       border-bottom: 2px solid currentColor;
-      margin-bottom: 2rem;
-      @include pc {
-        font-size: 2.4rem;
-      }
-      @include sp {
-        font-size: 1.6rem;
-      }
+      margin-bottom: 1rem;
+      font-size: 2rem;
     }
     &-3 {
       font-weight: bold;
       line-height: 1.4;
       border-bottom: 1px solid currentColor;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       @include pc {
         font-size: 1.8rem;
       }
@@ -536,6 +532,7 @@
     min-width: 25rem;
     text-align: center;
     padding: 1em;
+    box-sizing: border-box;
     @include hover {
       filter: brightness($dark);
     }
@@ -782,6 +779,12 @@
     }
     &-side-content {
       overflow: hidden;
+      &:has(.u-side) {
+        height: 100%;
+        .u-col2-side-inner {
+          height: 100%;
+        }
+      }
     }
     &-side-inner {
       @include pc {
@@ -819,8 +822,6 @@
       }
     }
   }
-  &side {
-  }
 
   // スクロール位置調整
   &scroll-target {
@@ -848,6 +849,94 @@
       padding-right: 4rem;
       font-family: Consolas, SFMono-Regular, Menlo, Monaco, "Liberation Mono", "Courier New", monospace,serif;
       border-radius: $radius;
+    }
+  }
+
+  // フォームのフィールド
+  &field {
+    width: 100%;
+    padding: 0.5em;
+    background: $d-color-font;
+    border: 1px solid $d-color-font-1;
+    border-radius: $radius;
+    &::placeholder {
+      color: $d-color-font-1;
+    }
+  }
+
+  // テキスト配置
+  &ta{
+    &-c {
+      text-align: center;
+    }
+    &-l {
+      text-align: left;
+    }
+    &-r {
+      text-align: right;
+    }
+  }
+  @include pc {
+		&pc\:ta {
+      &-c {
+        text-align: center;
+      }
+      &-l {
+        text-align: left;
+      }
+      &-r {
+        text-align: right;
+      }
+		}
+	}
+  @include sp {
+		&sp\:ta {
+      &-c {
+        text-align: center;
+      }
+      &-l {
+        text-align: left;
+      }
+      &-r {
+        text-align: right;
+      }
+		}
+	}
+
+  // 最大高さオーバーフロー
+  &maxh{
+    $maxh-rem-step: 50;
+    $maxh-vh-step: 10;
+
+    @for $i from 50 through 500 {
+      @if $i % $maxh-rem-step == 0 {
+        &-#{$i} {
+          max-height: #{($i / 10)}rem;
+          overflow: auto;
+        }
+      }
+    }
+  }
+
+  // サイドナビ 
+  &side {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    &-body{
+      max-height: calc(100vh - #{$hight-header});
+      overflow: auto;
+    }
+    &-foot{
+      margin-top: auto;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      height: 10rem;
+    }
+    &:has(.u-side-foot) {
+      .u-side-body {
+        max-height: calc(100vh - #{$hight-header} - 4rem - 6rem);
+      }
     }
   }
 }
