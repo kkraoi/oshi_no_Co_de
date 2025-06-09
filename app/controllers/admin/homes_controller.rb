@@ -27,6 +27,7 @@ class Admin::HomesController < Admin::BaseController
       { id: 'field', title: 'フォームフィールド' },
       { id: 'textalign', title: 'テキスト配置' },
       { id: 'maxh', title: '最大高さオーバーフロー' },
+      { id: 'inactive', title: '非活性' },
     ]
   end
 end

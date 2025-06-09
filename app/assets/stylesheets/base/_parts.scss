@@ -942,4 +942,13 @@
       }
     }
   }
+
+  // 非活性
+  &inactive {
+    pointer-events: none;
+    color: $d-color-font-inactive;
+    &[class*="btn"]{
+      background-color: $d-color-bg-inactive;
+    }
+  }
 }

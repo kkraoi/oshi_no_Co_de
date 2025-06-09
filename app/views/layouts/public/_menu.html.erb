@@ -1,32 +1,83 @@
 <%# ユーザー側のメニュー %>
+<div>
+  <h2 class="u-title-2">COMMON</h2>
+  <menu class="u-menu">
+    <li>
+      <%= link_to root_path do %>
+        <i class="fa-solid fa-house"></i> HOME
+      <% end %>
+    </li>
+    <li>
+      <%= link_to about_path do %>
+        <i class="fa-solid fa-book"></i> About
+      <% end %>
+    </li>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to root_path, class: "u-inactive" do %>
+          <i class="fa-solid fa-code"></i> コード一覧
+        <% end %>
+      </li>
+      <li>
+        <%= link_to users_path do %>
+          <i class="fa-solid fa-user"></i> ユーザー一覧
+        <% end %>
+      </li>
+      <li>
+        <%= link_to root_path, class: "u-inactive" do %>
+          <i class="fa-solid fa-users"></i> グループ一覧
+        <% end %>
+      </li>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> ログアウト
+        <% end %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to new_user_session_path do %>
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> ログイン
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_user_registration_path do %>
+          <i class="fa-solid fa-user-plus"></i> サインアップ
+        <% end %>
+      </li>
+    <% end %>
+  </menu>
+</div>
 
-<menu class="u-menu">
-  <li>
-    <%= link_to root_path do %>
-      <i class="fa-solid fa-house"></i> HOME
-    <% end %>
-  </li>
-  <li>
-    <%= link_to about_path do %>
-      <i class="fa-solid fa-book"></i> About
-    <% end %>
-  </li>
-  <% if user_signed_in? %>
+<% if user_signed_in? %>
+<div class="u-mt-30">
+  <h2 class="u-title-2">ユーザー名</h2>
+  <menu class="u-menu">
     <li>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <i class="fa-solid fa-arrow-right-from-bracket"></i> ログアウト
-      <% end %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to new_user_session_path do %>
-        <i class="fa-solid fa-arrow-right-to-bracket"></i> ログイン
+      <%= link_to root_path, class: "u-inactive" do %>
+        <i class="fa-solid fa-code"></i> あなたのコード一覧
       <% end %>
     </li>
     <li>
-      <%= link_to new_user_registration_path do %>
-        <i class="fa-solid fa-user-plus"></i> サインアップ
+      <%= link_to about_path, class: "u-inactive" do %>
+        <i class="fa-solid fa-handshake-simple"></i> フォロー/フォロワー
       <% end %>
     </li>
+    <li>
+      <%= link_to about_path, class: "u-inactive" do %>
+        <i class="fa-solid fa-users"></i> 参加グループ
+      <% end %>
+    </li>
+    <li>
+      <%= link_to about_path, class: "u-inactive" do %>
+        <i class="fa-solid fa-gear"></i> 設定
+      <% end %>
+    </li>
+  </menu>
+</div>
+
+<div class="u-btn-wrap">
+  <%= link_to root_path, class: "u-btn u-inactive" do %>
+    コード投稿
   <% end %>
-</menu>
+</div>
+<% end %>

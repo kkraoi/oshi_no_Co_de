@@ -951,6 +951,54 @@
         </section>
       </div>
       <!-- end 最大高さオーバーフロー -->
+
+      <!-- 非活性 -->
+      <div class="u-scroll-target" id="<%= @sections[19][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-80">
+            <h2 class="u-title-1"><%= @sections[19][:title] %></h2>
+            
+            <!-- 基本 -->
+            <article class="u-vert-30">
+              <h3 class="u-title-2"></h3>
+
+              <!-- コンテント -->
+              <div class="p-content u-vert-10">
+                <div>
+                  <%= link_to about_path, class: "u-inactive u-link" do %>
+                    <i class="fa-solid fa-gear"></i> 設定
+                  <% end %>
+                </div>
+
+                <div class="u-btn-wrap">
+                  <button class="u-btn u-inactive" aria-label="ボタンの説明">ボタン</button>
+                </div>
+              </div>
+              <!-- end コンテント -->
+  
+              <!-- コード -->
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre"><code>&lt;%= link_to about_path, class: &quot;u-inactive u-link&quot; do %&gt;
+  &lt;i class=&quot;fa-solid fa-gear&quot;&gt;&lt;/i&gt; 設定
+&lt;% end %&gt;
+
+&lt;div class=&quot;u-btn-wrap&quot;&gt;
+  &lt;button class=&quot;u-btn u-inactive&quot; aria-label=&quot;ボタンの説明&quot;&gt;ボタン&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+              <!-- end コード -->
+  
+              <!-- その他 -->
+              <div class="p-other"></div>
+              <!-- end その他 -->
+            </article>
+          </div>
+        </section>
+      </div>
+      <!-- end 非活性 -->
     </div>
   </div>
 
