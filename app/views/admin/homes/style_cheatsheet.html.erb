@@ -809,7 +809,13 @@
   
               <!-- コード -->
               <figure class="js-code u-code">
-                <pre class="prettyprint js-code-pre"><code>&lt;section class=&quot;u-sec&quot;&gt;
+                <pre class="prettyprint js-code-pre"><code>&lt;% content_for :title, &quot;ページタイトル&quot; %&gt;
+&lt;% content_for :head do %&gt;
+&lt;% end %&gt;
+&lt;% content_for :foot do %&gt;
+&lt;% end %&gt;
+
+&lt;section class=&quot;u-sec&quot;&gt;
   &lt;div class=&quot;u-inner&quot;&gt;
       &lt;h1 class=&quot;u-title&quot;&gt;タイトル56&lt;/h1&gt;
   &lt;/div&gt;
