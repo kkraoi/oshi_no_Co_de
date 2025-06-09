@@ -604,44 +604,49 @@
   
               <!-- コード -->
               <figure class="js-code u-code">
-                <pre class="prettyprint js-code-pre">&lt;div class=&quot;u-col2&quot; id=&quot;js-col2-root&quot;&gt;
+                <pre class="prettyprint js-code-pre">&lt;% content_for :title, &quot;About&quot; %&gt;
+&lt;div class=&quot;u-col2&quot; id=&quot;js-col2-root&quot;&gt;
   &lt;div class=&quot;u-col2-main&quot;&gt;
     &lt;div class=&quot;u-col2-main-inner&quot;&gt;
-      メインコンテンツ
-    &lt;/div&gt;
+      &lt;h1 class=&quot;u-title u-pt-50&quot;&gt;About&lt;/h1&gt;
 
-    &lt;aside class=&quot;u-col2-side&quot;&gt;
-      &lt;button id=&quot;js-col2-drawer&quot; class=&quot;u-btn-1 type-1 opt-size-s u-col2-drawer&quot; aria-label=&quot;サイドメニューを開閉する &quot;&gt;
-        &lt;span class=&quot;icon-right&quot;&gt;
-          &lt;i class=&quot;fa-solid fa-arrow-right&quot;&gt;&lt;/i&gt;
-        &lt;/span&gt;
-        &lt;span class=&quot;icon-left&quot;&gt;
-          &lt;i class=&quot;fa-solid fa-arrow-left&quot;&gt;&lt;/i&gt;
-        &lt;/span&gt;
-      &lt;/button&gt;
-  
-      &lt;div class=&quot;u-col2-side-content&quot;&gt;
-        &lt;div class=&quot;u-col2-side-inner&quot;&gt;
-          &lt;div class=&quot;u-side&quot;&gt;
-            &lt;div class=&quot;u-side-body&quot;&gt;
-              &lt;menu class=&quot;u-menu&quot;&gt;
-                &lt;% @sections.each do |section| %&gt;
-                  &lt;li&gt;
-                    &lt;a href=&quot;#&lt;%= section[:id] %&gt;&quot;&gt;&lt;%= section[:title] %&gt;&lt;/a&gt;
-                  &lt;/li&gt;
-                &lt;% end %&gt;
-              &lt;/menu&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;u-side-foot&quot;&gt;
-              &lt;div class=&quot;u-btn-wrap&quot;&gt;
-                &lt;a href=&quot;&quot; class=&quot;u-btn&quot;&gt;ボタン&lt;/a&gt;
-              &lt;/div&gt;
+      &lt;section class=&quot;u-sec&quot;&gt;
+        &lt;div class=&quot;u-inner-4&quot;&gt;
+            &lt;h2 class=&quot;u-title-1&quot;&gt;セクションタイトル&lt;/h2&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;aside class=&quot;u-col2-side&quot;&gt;
+    &lt;button id=&quot;js-col2-drawer&quot; class=&quot;u-btn-1 type-1 opt-size-s u-col2-drawer&quot; aria-label=&quot;サイドメニューを開閉する &quot;&gt;
+      &lt;span class=&quot;icon-right&quot;&gt;
+        &lt;i class=&quot;fa-solid fa-arrow-right&quot;&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;span class=&quot;icon-left&quot;&gt;
+        &lt;i class=&quot;fa-solid fa-arrow-left&quot;&gt;&lt;/i&gt;
+      &lt;/span&gt;
+    &lt;/button&gt;
+
+    &lt;div class=&quot;u-col2-side-content&quot;&gt;
+      &lt;div class=&quot;u-col2-side-inner&quot;&gt;
+        &lt;div class=&quot;u-side&quot;&gt;
+          &lt;div class=&quot;u-side-body&quot;&gt;
+            &lt;menu class=&quot;u-menu&quot;&gt;
+                &lt;li&gt;
+                  &lt;a href=&quot;#&quot;&gt;リンク&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/menu&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;u-side-foot&quot;&gt;
+            &lt;div class=&quot;u-btn-wrap&quot;&gt;
+              &lt;a href=&quot;&quot; class=&quot;u-btn&quot;&gt;ボタン&lt;/a&gt;
             &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-    &lt;/aside&gt;
-  &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/aside&gt;
 &lt;/div&gt;</pre>
                 <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
                   <i class="fa-solid fa-copy"></i>
