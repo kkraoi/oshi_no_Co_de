@@ -1,4 +1,7 @@
 class Admin::HomesController < Admin::BaseController
+  # style_cheatsheet アクションは認証スキップ
+  skip_before_action :authenticate_admin!, only: [:style_cheatsheet]
+
   def top
     
   end
