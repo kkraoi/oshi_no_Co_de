@@ -35,7 +35,7 @@
           </h2>
           <% if resource.errors[:password].any? %>
             <p class="u-c-red">
-              <%= resource.errors.full_messages_for(:email).join(", ") %>
+              <%= resource.errors.full_messages_for(:password).join(", ") %>
             </p>
           <% end %>
           <%= f.password_field :password, autocomplete: "new-password", class: "u-field" %>
@@ -46,7 +46,7 @@
           <p class="u-mb-5">もう一度パスワードを入力してください。</p>
           <% if resource.errors[:password_confirmation].any? %>
             <p class="u-c-red">
-              <%= resource.errors.full_messages_for(:email).join(", ") %>
+              <%= resource.errors.full_messages_for(:password_confirmation).join(", ") %>
             </p>
           <% end %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "u-field" %>
