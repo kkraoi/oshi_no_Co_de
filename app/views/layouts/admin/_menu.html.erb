@@ -3,17 +3,17 @@
 <menu class="u-menu">
   <li>
     <%= link_to admin_root_path do %>
-      TOP
+       <i class="fa-solid fa-house"></i> TOP
     <% end %>
   </li>
   <li>
     <%= link_to admin_style_cheatsheet_path do %>
-      スタイル早見表
+      <i class="fa-solid fa-book"></i> スタイル早見表
     <% end %>
   </li>
   <li>
     <%= link_to destroy_admin_session_path, method: :delete do %>
-      ログアウト
+      <i class="fa-solid fa-arrow-right-from-bracket"></i> ログアウト
     <% end %>
   </li>
 </menu>

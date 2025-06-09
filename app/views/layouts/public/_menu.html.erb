@@ -14,7 +14,7 @@
   <% if user_signed_in? %>
     <li>
       <%= link_to destroy_user_session_path, method: :delete do %>
-        ログアウト
+        <i class="fa-solid fa-arrow-right-from-bracket"></i> ログアウト
       <% end %>
     </li>
   <% else %>

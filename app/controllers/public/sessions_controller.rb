@@ -41,7 +41,7 @@ class Public::SessionsController < Devise::SessionsController
   # @param resource_or_scope [Symbol, Class] ログアウト対象のスコープ（例: :user, :admin）
   # @return [String] リダイレクト先のパス（URLまたはパスヘルパー）
   def after_sign_out_path_for(resource_or_scope)
-    public_root_path
+    root_path
   end
 
 
