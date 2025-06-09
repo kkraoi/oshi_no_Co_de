@@ -3,13 +3,19 @@
     <h1 class="u-title">推しのコード</h1>
 
     <div class="u-btn-wrap u-vert-20">
-      <%# <button class="u-btn" aria-label="ボタンの説明">ボタン</button> %>
-      <%= link_to new_user_session_path, class: "u-btn opt-size-l" do %>
-        <i class="fa-solid fa-arrow-right-to-bracket"></i> ログイン
-      <% end %>
+      <% if user_signed_in? %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "u-btn opt-size-l" do %>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> ログアウト
+        <% end %>
+      <% else %>
+        <%# <button class="u-btn" aria-label="ボタンの説明">ボタン</button> %>
+        <%= link_to new_user_session_path, class: "u-btn opt-size-l" do %>
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> ログイン
+        <% end %>
 
-      <%= link_to new_user_registration_path, class: "u-btn opt-size-l" do %>
-        <i class="fa-solid fa-user-plus"></i> サインアップ
+        <%= link_to new_user_registration_path, class: "u-btn opt-size-l" do %>
+          <i class="fa-solid fa-user-plus"></i> サインアップ
+        <% end %>
       <% end %>
     </div>
   </div>
