@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get "/about", to: "homes#about"
+
+    # as:によってprefixができる
+    get "/users/:id/posts", to: "users#posts", as: "user_posts"
+    resources :users, only: [:index, :show, :update, :destroy]
   end
 
   # 管理者用認証系 URL /admin/sign_in ...
