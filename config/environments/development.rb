@@ -75,4 +75,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   
   config.hosts.clear
+
+  # image_processingのため：開発環境では「ActiveJob（非同期処理）を同期的にその場で実行」させるため
+  config.active_job.queue_adapter = :inline
 end
