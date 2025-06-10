@@ -22,16 +22,19 @@
     margin: 0 -1px -1px 0;
     li {
       text-align: center;
-      border: 1px solid $d-color-border;
+      border: 1px solid $d-color-border-active;
       margin-left: -1px; /* 左ボーダー重なり解消 */
       margin-top: -1px;  /* 上ボーダー重なり解消 */
     }
     a {
       padding: 1em;
       display: block;
-      background: $d-color-bg-1;
+      background:  $d-color-border;
       @include hover {
         filter: brightness($light);
+      }
+      &.u-inactive {
+        background-color: $d-color-bg-inactive;
       }
     }
   }

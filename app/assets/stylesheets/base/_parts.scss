@@ -559,7 +559,7 @@
     &.type{
       &-1 {
         background-color: $d-color-border;
-        border: 1px solid $d-color-bg-inactive;
+        border: 1px solid $d-color-border-active;
           @include hover {
             filter: brightness($light);
           }
