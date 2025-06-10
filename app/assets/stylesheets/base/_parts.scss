@@ -951,4 +951,72 @@
       background-color: $d-color-bg-inactive;
     }
   }
+
+  // リスト
+  &list {
+    &-item {
+      border-bottom: 2px solid $d-color-font;
+    }
+  }
+
+  // フレックス
+  &flex {
+    display: flex;
+    &-center {
+      &-x {}
+      &-y {}
+    }
+  }
+
+  // プロフィール
+  &pf {
+    &-wrap{
+      img {
+        margin: .5rem;
+        width: 4rem;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: center;
+        border-radius: $radius;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        @include hover {
+          filter: brightness($light)
+        }
+      }
+      &:not(:has(a)) {
+        display: flex;
+        align-items: center;
+      }
+    }
+    &-name {
+      margin-left: 1em;
+    }
+  }
+
+  // テーブル
+  &table {
+    overflow: auto;
+    width: 100%;
+    table {
+      width: 100%;
+    }
+    td, th {
+      padding: .5em 1em;
+      white-space: nowrap;
+    }
+    tr {
+      border-bottom: 2px solid $d-color-font;
+      > *:first-of-type {
+        padding-left: 0;
+      }
+      > *:last-of-type {
+        padding-right: 0;
+        text-align: right;
+      }
+    }
+  }
 }

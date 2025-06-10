@@ -51,7 +51,7 @@
 
   <% if user_signed_in? %>
   <div class="u-mt-30">
-    <h2 class="u-title-2 header-nav-userame">
+    <h2 class="u-title-2 u-pf-wrap">
       <%= link_to user_path(current_user.id) do %>
         <%= image_tag current_user.get_profile_image,
           loading: "lazy",
@@ -59,7 +59,7 @@
           width: 30,
           alt: "プロフィール画像",
           fetchpriority: "high" %>
-        <%= current_user.name %>
+        <span class="u-pf-name"><%= current_user.name %></span>
       <% end %>
     </h2>
     <menu class="u-menu">

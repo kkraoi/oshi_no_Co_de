@@ -1005,6 +1005,168 @@
         </section>
       </div>
       <!-- end 非活性 -->
+
+      <!-- プロフィール -->
+      <div class="u-scroll-target" id="<%= @sections[20][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-80">
+            <h2 class="u-title-1"><%= @sections[20][:title] %></h2>
+            
+            <!-- 基本 -->
+            <article class="u-vert-30">
+              <h3 class="u-title-2"></h3>
+
+              <!-- コンテント -->
+              <div class="p-content u-vert-10">
+                <figure class="u-pf-wrap">
+                  <%= link_to users_path do %>
+                    <%= image_tag "default-profile_image.png",
+                      loading: "lazy",
+                      height: 30,
+                      width: 30,
+                      alt: "ユーザープロフィール画像",
+                      class: "" %>
+                    <figcaption class="u-pf-name">
+                      ユーザー名
+                    </figcaption>
+                  <% end %>
+                </figure>
+              </div>
+              <!-- end コンテント -->
+  
+              <!-- コード -->
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre"><code>&lt;figure class=&quot;u-pf-wrap&quot;&gt;
+  &lt;%= link_to users_path do %&gt;
+    &lt;%= image_tag &quot;default-profile_image.png&quot;,
+      loading: &quot;lazy&quot;,
+      height: 30,
+      width: 30,
+      alt: &quot;ユーザープロフィール画像&quot;,
+      class: &quot;&quot; %&gt;
+    &lt;figcaption class=&quot;u-pf-name&quot;&gt;
+      ユーザー名
+    &lt;/figcaption&gt;
+  &lt;% end %&gt;
+&lt;/figure&gt;</code></pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+              <!-- end コード -->
+  
+              <!-- その他 -->
+              <div class="p-other"></div>
+              <!-- end その他 -->
+            </article>
+          </div>
+        </section>
+      </div>
+      <!-- end プロフィール -->
+
+      <!-- テーブル -->
+      <div class="u-scroll-target" id="<%= @sections[21][:id] %>">
+        <section class="u-sec">
+          <div class="u-inner-4 u-vert-80">
+            <h2 class="u-title-1"><%= @sections[21][:title] %></h2>
+            
+            <!-- 基本 -->
+            <article class="u-vert-30">
+              <h3 class="u-title-2"></h3>
+
+              <!-- コンテント -->
+              <div class="p-content u-vert-10">
+                <div class="u-table">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <figure class="u-pf-wrap">
+                            <%= link_to root_path do %>
+                              <%= image_tag "default-profile_image.png",
+                                loading: "lazy",
+                                height: 30,
+                                width: 30,
+                                alt: "ユーザープロフィール画像",
+                                class: "" %>
+                              <figcaption class="u-pf-name">
+                                ユーザー名
+                              </figcaption>
+                            <% end %>
+                          </figure>
+                        </td>
+                        <td>
+                          <div class="u-inactive">フォローする</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <figure class="u-pf-wrap">
+                            <%= link_to root_path do %>
+                              <%= image_tag "default-profile_image.png",
+                                loading: "lazy",
+                                height: 30,
+                                width: 30,
+                                alt: "ユーザープロフィール画像",
+                                class: "" %>
+                              <figcaption class="u-pf-name">
+                                ユーザー名
+                              </figcaption>
+                            <% end %>
+                          </figure>
+                        </td>
+                        <td>
+                          <div class="u-inactive">フォローする</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- end コンテント -->
+  
+              <!-- コード -->
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre"><code>&lt;div class=&quot;u-table&quot;&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;figure class=&quot;u-pf-wrap&quot;&gt;
+            &lt;%= link_to root_path do %&gt;
+              &lt;%= image_tag user.get_profile_image,
+                loading: &quot;lazy&quot;,
+                height: 30,
+                width: 30,
+                alt: &quot;ユーザープロフィール画像&quot;,
+                class: &quot;&quot; %&gt;
+              &lt;figcaption class=&quot;u-pf-name&quot;&gt;
+                ユーザー名
+              &lt;/figcaption&gt;
+            &lt;% end %&gt;
+          &lt;/figure&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;div class=&quot;u-inactive&quot;&gt;フォローする&lt;/div&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+              <!-- end コード -->
+  
+              <!-- その他 -->
+              <div class="p-other"></div>
+              <!-- end その他 -->
+            </article>
+          </div>
+        </section>
+      </div>
+      <!-- end テーブル -->
     </div>
   </div>
 
