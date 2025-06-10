@@ -90,13 +90,28 @@ body {
       margin-right: $padding-x;
     }
   }
+  &-nav-userame{
+    img {
+      margin: .5rem;
+      width: 4rem;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center;
+      border-radius: $radius;
+    }
+    a {
+      @include hover {
+        filter: brightness($light)
+      }
+    }
+  }
   &-nav-foot {
     margin-top: auto;
     height: 10rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
-
   &-nav-trigger {
     position: absolute;
     top: 50%;
@@ -124,7 +139,6 @@ body {
       }
     }
   }
-
   &.is-active {
     .header-nav {
       pointer-events: initial;
