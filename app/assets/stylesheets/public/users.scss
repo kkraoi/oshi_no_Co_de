@@ -1,3 +1,42 @@
-// Place all the styles related to the public/users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "../base/mixins";
+@import "../base/val";
+
+// ユーザー詳細ページ
+.p-user {
+  &-image {
+    border-radius: 1rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &-introduction{
+    &:empty {
+      display: none;
+    }
+  }
+  &-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr)); /* 50%幅の2カラム */
+    // gap: 16px;
+    justify-content: start;
+    margin: 0 -1px -1px 0;
+    li {
+      text-align: center;
+      border: 1px solid $d-color-border;
+      margin-left: -1px; /* 左ボーダー重なり解消 */
+      margin-top: -1px;  /* 上ボーダー重なり解消 */
+    }
+    a {
+      padding: 1em;
+      display: block;
+      background: $d-color-bg-1;
+      @include hover {
+        filter: brightness($light);
+      }
+    }
+  }
+  .u-title {
+    text-align-last: left;
+    margin-bottom: 2rem;
+  }
+}

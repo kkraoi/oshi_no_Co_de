@@ -556,6 +556,21 @@
         }
       }
     }
+    &.type{
+      &-1 {
+        background-color: $d-color-border;
+        border: 1px solid $d-color-bg-inactive;
+          @include hover {
+            filter: brightness($light);
+          }
+          &.u-bg-red,
+          &.u-bg-blue {
+            @include hover {
+              filter: brightness($dark);
+            }
+          }
+      }
+    }
     &-1 {
       min-width: 5rem;
       min-height: 5rem;
@@ -959,15 +974,6 @@
     }
   }
 
-  // フレックス
-  &flex {
-    display: flex;
-    &-center {
-      &-x {}
-      &-y {}
-    }
-  }
-
   // プロフィール
   &pf {
     &-wrap{
@@ -1016,6 +1022,19 @@
       > *:last-of-type {
         padding-right: 0;
         text-align: right;
+      }
+    }
+  }
+
+  // フレックス
+  &flex {
+    &-between {
+      display: flex;
+      justify-content: space-between;
+      &.opt{
+        &-center-y {
+          align-items: center;
+        }
       }
     }
   }

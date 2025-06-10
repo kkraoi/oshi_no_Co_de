@@ -1,0 +1,68 @@
+<% content_for :title, "ユーザー｜#{@user.name}" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'public/users', media: 'all' %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+
+<section class="u-sec p-user">
+  <div class="u-inner">
+    <figure class="p-user-image">
+      <%= image_tag @user.get_profile_image,
+        height: 400,
+        width: 400,
+        alt: "ユーザー画像",
+        class: "",
+        fetchpriority: "high" %>
+    </figure>
+
+    <div class="u-mt-20">
+      <h1 class="u-title">
+        <%= @user.name %>
+      </h1>
+      <p>ID: <%= @user.id %></p>
+      <div class="u-flex-between opt-center-y">
+        <p>
+          <%= link_to root_path, class: 'u-link u-inactive' do %>
+            フォロー0 / フォロワー0
+          <% end %>
+        </p>
+        <div class="u-btn-wrap u-ml-20">
+          <% if @user == current_user %>
+            <%= link_to edit_user_path(@user.id), class: 'u-btn type-1 opt-size-ss' do %>
+              <i class="fa-solid fa-gear"></i> 設定
+            <% end %>
+          <% else %>
+            <%= link_to edit_user_path(@user.id), class: 'u-btn opt-size-ss u-inactive' do %>
+              <i class="fa-solid fa-handshake-simple"></i> フォローする
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <p class="u-mt-30 p-user-introduction"><%= @user.introduction %></p>
+    </div>
+
+    <div class="u-mt-50">
+      <menu class="p-user-menu">
+        <li>
+          <%= link_to root_path, class: 'u-inactive' do %>
+            <i class="fa-solid fa-code"></i> コード一覧
+          <% end %>
+        </li>
+        <li>
+          <%= link_to root_path, class: 'u-inactive' do %>
+            <i class="fa-solid fa-users"></i> グループ一覧
+          <% end %>
+        </li>
+        <% if @user.github %>
+          <li>
+              <%= link_to @user.github, target: "_blank", rel: "noopener noreferrer", class: '' do %>
+                <i class="fa-brands fa-github"></i> GitHub
+              <% end %>
+          </li>
+        <% end %>
+      </menu>
+    </div>
+  </div>
+</section>
