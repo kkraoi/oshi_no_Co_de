@@ -1,0 +1,50 @@
+<% content_for :title, "ユーザー｜#{@user.name}}の編集ページ" %>
+<% content_for :head do %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+
+<div class="u-col2" id="js-col2-root">
+  <div class="u-col2-main">
+    <div class="u-col2-main-inner">
+      <h1 class="u-title u-pt-50"><%= @user.name %>の編集ページ</h1>
+
+      <%# ユーザーネーム %>
+      <section class="u-sec" id="username">
+        <div class="u-inner-4">
+            <h2 class="u-title-1">ユーザーネーム</h2>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <aside class="u-col2-side">
+    <button id="js-col2-drawer" class="u-btn-1 type-1 opt-size-s u-col2-drawer" aria-label="サイドメニューを開閉する ">
+      <span class="icon-right">
+        <i class="fa-solid fa-arrow-right"></i>
+      </span>
+      <span class="icon-left">
+        <i class="fa-solid fa-arrow-left"></i>
+      </span>
+    </button>
+
+    <div class="u-col2-side-content">
+      <div class="u-col2-side-inner">
+        <div class="u-side">
+          <div class="u-side-body">
+            <menu class="u-menu">
+                <li>
+                  <a href="#username">ユーザーネーム</a>
+                </li>
+            </menu>
+          </div>
+          <div class="u-side-foot">
+            <div class="u-btn-wrap">
+              <a href="" class="u-btn"><i class="fa-solid fa-user-check"></i> 変更確定</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
