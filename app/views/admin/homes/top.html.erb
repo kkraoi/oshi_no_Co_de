@@ -42,7 +42,7 @@
                   </td>
                   <td>
                     <div class="u-btn-wrap">
-                      <%= link_to root_path, class: 'u-btn-1 opt-size-s', data: { confirm: "本当に削除しますか？" } do %>
+                      <%= link_to admin_destroy_user_path(user), method: :delete, class: 'u-btn-1 opt-size-s', data: { confirm: "本当に削除しますか？" } do %>
                         <i class="fa-solid fa-trash"></i>
                       <% end %>
                     </div>

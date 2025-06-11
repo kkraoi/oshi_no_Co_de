@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   # namespaceメソッド: ブロック内に書かれたルーティングはすべて `/admin/〜` というパスになり、引数のモジュール（シンボル）をコントローラの中から探し出して、ルーティングするようになる。「scope module: シンボル」と比べるとpathやprefixが変更される。
   namespace :admin do
     root to: "homes#top"
+    delete "user/:id", to: "homes#destroy_user", as: "destroy_user"
     get "/style_cheatsheet", to: "homes#style_cheatsheet"
   end
 end

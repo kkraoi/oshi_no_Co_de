@@ -33,4 +33,10 @@ class Admin::HomesController < Admin::BaseController
       { id: 'diff', title: '差分' },
     ]
   end
+
+  def destroy_user
+    user = User.find(params[:id]);
+    user.destroy
+    redirect_to admin_root_path, notice: "ユーザー：#{user.name}を削除しました"
+  end
 end
