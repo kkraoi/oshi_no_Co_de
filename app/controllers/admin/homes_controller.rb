@@ -30,6 +30,7 @@ class Admin::HomesController < Admin::BaseController
       { id: 'inactive', title: '非活性' },
       { id: 'profile', title: 'プロフィール' },
       { id: 'table', title: 'テーブル' },
+      { id: 'diff', title: '差分' },
     ]
   end
 end

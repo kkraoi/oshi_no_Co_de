@@ -4,6 +4,7 @@
 <% content_for :foot do %>
 <% end %>
 
+<%= form_with model:@user, url: user_path(@user), method: :patch, local: true do |f| %>
 <div class="u-col2" id="js-col2-root">
   <div class="u-col2-main">
     <div class="u-col2-main-inner">
@@ -12,7 +13,87 @@
       <%# ユーザーネーム %>
       <section class="u-sec" id="username">
         <div class="u-inner-4">
-            <h2 class="u-title-1">ユーザーネーム</h2>
+          <h2 class="u-title-1">ユーザーネーム</h2>
+          <div class="u-diff">
+            <div class="u-diff-item">
+              <p><%= @user.name %></p>
+            </div>
+            <div class="u-diff-item">
+              <div class="u-diff-content-full">
+                <%= render 'public/shared/field_error', object: @user, field: :name %>
+                <%= f.text_field :name, class: "u-field" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <%# アイコン %>
+      <section class="u-sec" id="icon">
+        <div class="u-inner-4">
+          <h2 class="u-title-1">アイコン</h2>
+          <div class="u-diff">
+            <div class="u-diff-item">
+              <%= image_tag @user.get_profile_image,
+                loading: "lazy",
+                height: 300,
+                width: 300,
+                alt: "代替テキスト",
+                class: "u-p-40" %>
+            </div>
+            <div class="u-diff-item opt-left">
+              <%= render 'public/shared/field_error', object: @user, field: :profile_image %>
+              <%= f.file_field :profile_image, class: "", accept: 'image/*' %>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <%# 紹介文 %>
+      <section class="u-sec" id="introduction">
+        <div class="u-inner-4">
+          <h2 class="u-title-1">紹介文</h2>
+          <div class="u-diff">
+            <div class="u-diff-item">
+              <p>
+                <% if @user.introduction.present? %>
+                  <%= @user.introduction %>
+                <% else %>
+                  未設定
+                <% end %>
+              </p>
+            </div>
+            <div class="u-diff-item">
+              <div class="u-diff-content-full">
+                <%= render 'public/shared/field_error', object: @user, field: :introduction %>
+                <%= f.text_area :introduction, class: "u-field-text_area" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <%# GitHub %>
+      <section class="u-sec" id="github">
+        <div class="u-inner-4">
+          <h2 class="u-title-1">GitHub</h2>
+          <div class="u-diff">
+            <div class="u-diff-item">
+              <p>
+                <% if @user.github.present? %>
+                  <%= link_to @user.github, @user.github, target: "_blank", rel: "noopener noreferrer", class: "u-link"%>
+                <% else %>
+                  未設定
+                <% end %>
+              </p>
+            </div>
+            <div class="u-diff-item">
+              <div class="u-diff-content-full">
+                <%= render 'public/shared/field_error', object: @user, field: :github %>
+                <%= f.text_field :github, class: "u-field" %>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -33,14 +114,23 @@
         <div class="u-side">
           <div class="u-side-body">
             <menu class="u-menu">
-                <li>
-                  <a href="#username">ユーザーネーム</a>
-                </li>
+              <li>
+                <a href="#username">ユーザーネーム</a>
+              </li>
+              <li>
+                <a href="#icon">アイコン</a>
+              </li>
+              <li>
+                <a href="#introduction">紹介文</a>
+              </li>
+              <li>
+                <a href="#github">GitHub</a>
+              </li>
             </menu>
           </div>
           <div class="u-side-foot">
             <div class="u-btn-wrap">
-              <a href="" class="u-btn"><i class="fa-solid fa-user-check"></i> 変更確定</a>
+              <%= f.submit "編集内容を保存", class: "u-btn" %>
             </div>
           </div>
         </div>
@@ -48,3 +138,4 @@
     </div>
   </aside>
 </div>
+<% end %>

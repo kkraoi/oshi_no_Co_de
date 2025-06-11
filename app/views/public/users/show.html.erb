@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <p class="u-mt-30 p-user-introduction"><%= @user.introduction %></p>
+      <p class="u-mt-30 p-user-introduction"><%= @user.introduction if @user.introduction.present? %></p>
     </div>
 
     <div class="u-mt-50">
@@ -55,7 +55,7 @@
             <i class="fa-solid fa-users"></i> グループ一覧
           <% end %>
         </li>
-        <% if @user.github %>
+        <% if @user.github.present? %>
           <li>
               <%= link_to @user.github, target: "_blank", rel: "noopener noreferrer", class: '' do %>
                 <i class="fa-brands fa-github"></i> GitHub

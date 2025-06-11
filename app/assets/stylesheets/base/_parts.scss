@@ -152,6 +152,9 @@
 
   // パディング
   @for $i from 0 through 30 {
+		&p-#{$i * $step} {
+			padding: calc(#{$i * $step / 10} * 1rem) !important;
+		}
 		&pt-#{$i * $step} {
 			padding-top: calc(#{$i * $step / 10} * 1rem) !important;
 		}
@@ -175,6 +178,9 @@
 	}
   @include pc {
     @for $i from 0 through 30 {
+      &pc\:p-#{$i * $step} {
+        padding: calc(#{$i * $step / 10} * 1rem) !important;
+      }
       &pc\:pt-#{$i * $step} {
         padding-top: calc(#{$i * $step / 10} * 1rem) !important;
       }
@@ -199,6 +205,9 @@
   }
   @include sp {
     @for $i from 0 through 30 {
+      &sp\:p-#{$i * $step} {
+        padding: calc(#{$i * $step / 10} * 1rem) !important;
+      }
       &sp\:pt-#{$i * $step} {
         padding-top: calc(#{$i * $step / 10} * 1rem) !important;
       }
@@ -681,6 +690,10 @@
     &:first-of-type {
       border-top: 1px solid $d-color-border;
     }
+    &:last-of-type {
+      border-top: 1px solid $d-color-border;
+      padding-bottom: 15rem;
+    }
   }
 
   // インナー
@@ -880,6 +893,10 @@
     &::placeholder {
       color: $d-color-font-1;
     }
+    &-text_area {
+      min-height: 20em;
+      @extend .u-field;
+    }
   }
 
   // テキスト配置
@@ -1022,6 +1039,45 @@
       > *:last-of-type {
         padding-right: 0;
         text-align: right;
+      }
+    }
+  }
+
+  // 差分
+  &diff {
+    @include pc {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      &:first-child {
+        @include pc {
+          padding-right: 5rem;
+          border-right: 1px solid $d-color-font;
+        }
+      }
+      &:last-child {
+        @include pc {
+          padding-left: 5rem;
+          border-left: 1px solid $d-color-font;
+        }
+      }
+      &.opt{
+        &-left {
+          align-items: initial;
+        }
+      }
+    }
+    &-content-full {
+      @include pc {
+        width: 100%;
+        * {
+          width: 100%;
+        }
       }
     }
   }
