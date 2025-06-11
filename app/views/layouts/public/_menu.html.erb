@@ -34,6 +34,27 @@
             <i class="fa-solid fa-arrow-right-from-bracket"></i> ログアウト
           <% end %>
         </li>
+      <% elsif admin_signed_in? %>
+        <li>
+          <%= link_to root_path, class: "u-inactive" do %>
+            <i class="fa-solid fa-code"></i> コード一覧
+          <% end %>
+        </li>
+        <li>
+          <%= link_to users_path do %>
+            <i class="fa-solid fa-user"></i> ユーザー一覧
+          <% end %>
+        </li>
+        <li>
+          <%= link_to root_path, class: "u-inactive" do %>
+            <i class="fa-solid fa-users"></i> グループ一覧
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_admin_session_path, method: :delete do %>
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> 管理者ログアウト
+          <% end %>
+        </li>
       <% else %>
         <li>
           <%= link_to new_user_session_path do %>
