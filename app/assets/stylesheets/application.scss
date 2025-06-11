@@ -47,7 +47,7 @@ body {
     @include pc {
       left: 3rem;
     }
-    @include pc {
+    @include sp {
       left: $padding-x;
     }
   }
