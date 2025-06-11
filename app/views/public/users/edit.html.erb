@@ -57,7 +57,7 @@
             <div class="u-diff-item">
               <p>
                 <% if @user.introduction.present? %>
-                  <%= @user.introduction %>
+                  <%= simple_format(@user.introduction) %>
                 <% else %>
                   未設定
                 <% end %>
@@ -100,14 +100,14 @@
   </div>
 
   <aside class="u-col2-side">
-    <button id="js-col2-drawer" class="u-btn-1 type-1 opt-size-s u-col2-drawer" aria-label="サイドメニューを開閉する ">
+    <div id="js-col2-drawer" class="u-btn-1 type-1 opt-size-s u-col2-drawer" aria-label="サイドメニューを開閉する ">
       <span class="icon-right">
         <i class="fa-solid fa-arrow-right"></i>
       </span>
       <span class="icon-left">
         <i class="fa-solid fa-arrow-left"></i>
       </span>
-    </button>
+    </div>
 
     <div class="u-col2-side-content">
       <div class="u-col2-side-inner">
@@ -130,7 +130,7 @@
           </div>
           <div class="u-side-foot">
             <div class="u-btn-wrap">
-              <%= f.submit "編集内容を保存", class: "u-btn" %>
+              <%= f.submit "編集内容を保存", class: "u-btn opt-size-full" %>
             </div>
           </div>
         </div>

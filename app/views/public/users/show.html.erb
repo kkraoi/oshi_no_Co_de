@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <p class="u-mt-30 p-user-introduction"><%= @user.introduction if @user.introduction.present? %></p>
+      <div class="u-mt-30 p-user-introduction"><%= simple_format(@user.introduction) if @user.introduction.present? %></div>
     </div>
 
     <div class="u-mt-50">
