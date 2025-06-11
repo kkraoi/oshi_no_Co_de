@@ -3,7 +3,7 @@ class Admin::HomesController < Admin::BaseController
   skip_before_action :authenticate_admin!, only: [:style_cheatsheet]
 
   def top
-    
+    @users = User.all
   end
 
   def style_cheatsheet

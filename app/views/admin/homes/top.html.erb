@@ -1,1 +1,57 @@
-管理者トップ
+<% content_for :title, "管理画面｜ユーザー一覧(ホーム)" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'admin/homes', media: 'all' %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+
+<div class="p-home">
+  <section class="u-sec">
+    <div class="u-inner-1">
+        <h1 class="u-title">ユーザー一覧</h1>
+
+        <div class="u-table-1 u-ta-c">
+          <table>
+            <thead>
+              <tr>
+                <th>ユーザー名</th>
+                <th>ID</th>
+                <th width="15%">削除する</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <td>
+                    <figure class="u-pf-wrap">
+                      <%= link_to user_path(user.id) do %>
+                        <%= image_tag "default-profile_image.png",
+                          loading: "lazy",
+                          height: 30,
+                          width: 30,
+                          alt: "ユーザープロフィール画像",
+                          class: "" %>
+                        <figcaption class="u-pf-name">
+                          <%= user.name %>
+                        </figcaption>
+                      <% end %>
+                    </figure>
+                  </td>
+                  <td>
+                    <%= user.id %>
+                  </td>
+                  <td>
+                    <div class="u-btn-wrap">
+                      <%= link_to root_path, class: 'u-btn-1 opt-size-s', data: { confirm: "本当に削除しますか？" } do %>
+                        <i class="fa-solid fa-trash"></i>
+                      <% end %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </section>
+</div>

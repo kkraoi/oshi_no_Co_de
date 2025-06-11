@@ -1076,7 +1076,7 @@
             
             <!-- 基本 -->
             <article class="u-vert-30">
-              <h3 class="u-title-2"></h3>
+              <h3 class="u-title-2">基本</h3>
 
               <!-- コンテント -->
               <div class="p-content u-vert-10">
@@ -1154,6 +1154,84 @@
           &lt;div class=&quot;u-inactive&quot;&gt;フォローする&lt;/div&gt;
         &lt;/td&gt;
       &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+              <!-- end コード -->
+  
+              <!-- その他 -->
+              <div class="p-other"></div>
+              <!-- end その他 -->
+            </article>
+            
+            <!-- パターン1 -->
+            <article class="u-vert-30">
+              <h3 class="u-title-2">パターン1</h3>
+
+              <!-- コンテント -->
+              <div class="p-content u-vert-10">
+                <div class="u-table-1">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>ユーザー名</th>
+                        <th>ID</th>
+                        <th>削除する</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <figure class="u-pf-wrap">
+                            <%= link_to root_path do %>
+                              <%= image_tag "default-profile_image.png",
+                                loading: "lazy",
+                                height: 30,
+                                width: 30,
+                                alt: "ユーザープロフィール画像",
+                                class: "" %>
+                              <figcaption class="u-pf-name">
+                                ユーザー名
+                              </figcaption>
+                            <% end %>
+                          </figure>
+                        </td>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          <div class="u-btn-wrap">
+                            <%= link_to root_path, class: 'u-btn-1 opt-size-s', data: { confirm: "本当に削除しますか？" } do %>
+                              <i class="fa-solid fa-trash"></i>
+                            <% end %>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- end コンテント -->
+  
+              <!-- コード -->
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre"><code>&lt;div class=&quot;u-table-1&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;
+            
+          &lt;/td&gt;
+        &lt;/tr&gt;
     &lt;/tbody&gt;
   &lt;/table&gt;
 &lt;/div&gt;</code></pre>
