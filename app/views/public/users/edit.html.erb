@@ -77,7 +77,11 @@
       <section class="u-sec" id="github">
         <div class="u-inner-4">
           <h2 class="u-title-1">GitHub</h2>
-          <div class="u-diff">
+          <p class="u-pc:ta-c">
+            GitHubのリンクを掲載することができます。<br>
+            例： https://github.com/ユーザー名
+          </p>
+          <div class="u-diff u-mt-30">
             <div class="u-diff-item">
               <p>
                 <% if @user.github.present? %>
@@ -89,7 +93,7 @@
             </div>
             <div class="u-diff-item">
               <div class="u-diff-content-full">
-                <%= render 'public/shared/field_error', object: @user, field: :github %>
+                <%= render 'public/shared/field_error', object: @user, field: :github, placeholder: "例: https://github.com/ユーザー名" %>
                 <%= f.text_field :github, class: "u-field" %>
               </div>
             </div>
@@ -100,7 +104,7 @@
       <div class="u-pb-80">
         <div class="u-inner-4">
           <p class="u-ta-r">
-            <%= link_to user_path(current_user), method: :delete, class: 'u-link type-1', data: { confirm: "本当に退会しますか？" } do %>
+            <%= link_to user_path(current_user), method: :delete, class: 'u-link type-1', data: { confirm: "アカウントを復元することはできませんが、本当に退会しますか？" } do %>
               退会する <i class="fa-solid fa-person-circle-minus"></i>
             <% end %>
           </p>

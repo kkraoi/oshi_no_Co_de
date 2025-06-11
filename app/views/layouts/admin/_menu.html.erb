@@ -1,19 +1,23 @@
 <%# ユーザー側のメニュー %>
 
 <menu class="u-menu">
-  <li>
-    <%= link_to admin_root_path do %>
-       <i class="fa-solid fa-house"></i> HOME ユーザー一覧
-    <% end %>
-  </li>
+  <% if admin_signed_in? %>
+    <li>
+      <%= link_to admin_root_path do %>
+        <i class="fa-solid fa-house"></i> HOME ユーザー一覧
+      <% end %>
+    </li>
+  <% end %>
   <li>
     <%= link_to admin_style_cheatsheet_path do %>
       <i class="fa-solid fa-book"></i> スタイル早見表
     <% end %>
   </li>
-  <li>
-    <%= link_to destroy_admin_session_path, method: :delete do %>
-      <i class="fa-solid fa-arrow-right-from-bracket"></i> ログアウト
-    <% end %>
-  </li>
+  <% if admin_signed_in? %>
+    <li>
+      <%= link_to destroy_admin_session_path, method: :delete do %>
+        <i class="fa-solid fa-arrow-right-from-bracket"></i> ログアウト
+      <% end %>
+    </li>
+  <% end %>
 </menu>
