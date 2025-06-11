@@ -20,9 +20,11 @@ class Public::UsersController < Public::BaseController
       render "edit"
     end
   end
-  
+
   def destroy
-    
+    @user.destroy
+    sign_out @user
+    redirect_to root_path, notice: "アカウントを削除しました"
   end
   
   def posts

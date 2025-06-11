@@ -96,6 +96,16 @@
           </div>
         </div>
       </section>
+
+      <div class="u-pb-80">
+        <div class="u-inner-4">
+          <p class="u-ta-r">
+            <%= link_to user_path(current_user), method: :delete, class: 'u-link type-1', data: { confirm: "本当に退会しますか？" } do %>
+              退会する <i class="fa-solid fa-person-circle-minus"></i>
+            <% end %>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 

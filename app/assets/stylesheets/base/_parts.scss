@@ -668,6 +668,14 @@
     @include hover {
       filter: brightness($dark);
     }
+    &.type {
+      &-1 {
+        color: $d-color-font;
+        @include hover {
+          color: $red;
+        }
+      }
+    }
   }
 
   // 外部リンクの表示
