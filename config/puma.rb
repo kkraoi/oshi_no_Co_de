@@ -41,3 +41,29 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
+
+# === start: デプロイのための記述
+# UNIXドメインソケットでリクエストを待ち受けるように指定。
+# (unix:はtcp/ipよりも安全で高速)
+bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
+
+# 現在の作業ディレクトリを取得
+rails_root = Dir.pwd
+
+# 本番環境のみ
+if Rails.env.production?
+  # PumaのプロセスIDを「..~/tmp/pids/puma.pid」に保存するよう指定
+  pidfile File.join(rails_root, 'tmp', 'pids', 'puma.pid')
+  # Pumaの状態ファイルを「..~/tmp/pids/puma.state」保存するように指定
+  state_path File.join(rails_root, 'tmp', 'pids', 'puma.state')
+  # ログ出力先を標準出力とエラーに分けて指定
+  stdout_redirect(
+    File.join(rails_root, 'log', 'puma.log'),
+    File.join(rails_root, 'log', 'puma-error.log'),
+    true
+  )
+
+  # Pumaを デーモン（バックグラウンド）モードで起動 => ターミナルを閉じてもPumaが動き続ける
+  daemonize
+end
+# === end
