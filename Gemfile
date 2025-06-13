@@ -8,7 +8,7 @@ gem 'rails', '~> 6.1.7', '>= 6.1.7.10'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -32,7 +32,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
-  gem 'dotenv-rails' # awsでは.envを使うことはでいないから、開発環境にとどめる。
 end
 
 group :development do
@@ -59,3 +58,15 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+
+# === start: デプロイのための記述
+gem 'dotenv-rails' # envファイルを扱う
+
+group :production do
+  gem 'mysql2' # 本番環境でMYSQLを使用する。SQLiteは開発用、MYSQLは本番用。
+end
+
+gem "net-smtp" # SMTPプロトコル: 	メールサーバーにメールを送るために使う（送信用）
+gem "net-pop" # SMTPプロトコル: サーバーにあるメールをローカルにダウンロード（受信用）
+gem "net-imap" # IMAPプロトコル: サーバー上のメールを残したまま受信・管理するプロトコル
+# === end
