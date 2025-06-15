@@ -1,3 +1,16 @@
-// Place all the styles related to the public/posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "../base/mixins";
+@import "../base/val";
+
+// 詳細ページ
+.p-show {
+  .p-title{
+    font-weight: bold;
+    line-height: 1.4;
+    @include pc {
+      font-size: 4.2rem;
+    }
+    @include sp {
+      font-size: 2.4rem;
+    }
+  }
+}

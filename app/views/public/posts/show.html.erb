@@ -1,14 +1,84 @@
-<% content_for :title, "投稿｜test" %>
-<div class="u-col2" id="js-col2-root">
+<% content_for :title, "投稿｜#{@post.title} by #{@post.user.name}" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'public/posts', media: 'all' %>
+<% end %>
+<% content_for :foot do %>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst"></script>
+<% end %>
+
+<div class="u-col2 p-show" id="js-col2-root">
   <div class="u-col2-main">
     <div class="u-col2-main-inner">
-      <h1 class="u-title u-pt-50">test</h1>
+      <div class="u-scroll-target" id="top">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <div class="u-vert-20">
+              <figure class="u-pf-wrap">
+                <%= link_to users_path do %>
+                  <%= image_tag @post.user.get_profile_image,
+                    loading: "lazy",
+                    height: 30,
+                    width: 30,
+                    alt: "ユーザープロフィール画像",
+                    class: "" %>
+                  <figcaption class="u-pf-name">
+                    <%= @post.user.name %>
+                  </figcaption>
+                <% end %>
+              </figure>
+              <div class="p-title-wrap">
+                <h1 class="p-title">test</h1>
+              </div>
+              <p>
+                <span>投稿日: <%= @post.format_date(:created_at) %></span>
+                <span class="u-pl-20">更新日: <%= @post.format_date(:updated_at) %></span>
+              </p>
+              <p><%= simple_format(@post.summary) if @post.summary.present? %></p>
+              <% if @post.user == current_user %>
+                <div>
+                  <%= link_to edit_post_path(@post.id), class: 'u-link' do %>
+                    <i class="fa-solid fa-gear"></i> 編集する 
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </section>
+      </div>
 
-      <section class="u-sec">
-        <div class="u-inner-4">
-            <h2 class="u-title-1">セクションタイトル</h2>
-        </div>
-      </section>
+      <%# コード %>
+      <div class="u-scroll-target" id="code">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">コード</h2>
+            <figure class="js-code u-code">
+              <pre class="prettyprint js-code-pre"><code>コード</code></pre>
+              <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                <i class="fa-solid fa-copy"></i>
+              </button>
+            </figure>
+          </div>
+        </section>
+      </div>
+
+      <%# 解説 %>
+      <div class="u-scroll-target" id="description">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">解説</h2>
+            <p><%= simple_format(@post.description) if @post.description.present? %></p>
+          </div>
+        </section>
+      </div>
+
+      <%# コメント %>
+      <div class="u-scroll-target" id="comment">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">コメント</h2>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
 
@@ -27,9 +97,18 @@
         <div class="u-side">
           <div class="u-side-body">
             <menu class="u-menu">
-                <li>
-                  <a href="#">リンク</a>
-                </li>
+              <li>
+                <a href="#top">TOP</a>
+              </li>
+              <li>
+                <a href="#code">コード</a>
+              </li>
+              <li>
+                <a href="#description">解説</a>
+              </li>
+              <li>
+                <a href="#comment">コメント</a>
+              </li>
             </menu>
           </div>
         </div>

@@ -7,41 +7,49 @@
       <h1 class="u-title u-pt-50">コード投稿</h1>
 
       <%# タイトル %>
-      <section class="u-sec" id="title">
-        <div class="u-inner-4">
-          <h2 class="u-title-1">タイトル（必須）</h2>
-          <%= f.text_field :title, class: "u-field", placeholder: "例: JSでタブメニュー" %>
-        </div>
-      </section>
+      <div class="u-scroll-target" id="title">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">タイトル（必須）</h2>
+            <%= f.text_field :title, class: "u-field", placeholder: "例: JSでタブメニュー" %>
+          </div>
+        </section>
+      </div>
 
       <%# 概要 %>
-      <section class="u-sec" id="summary">
-        <div class="u-inner-4">
-          <h2 class="u-title-1">概要</h2>
-          <p class="u-mb-10">簡単なコードの説明を記載することができます。（256文字まで）</p>
-          <%= f.text_area :summary, class: "u-field-text_area", placeholder: "例: JS・CSS・HTMLでタブメニューを作ることができます。JSでクラスを付け外しし、CSSでクラスによる出しわけをおこないます。" %>
-        </div>
-      </section>
+      <div class="u-scroll-target" id="summary">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">概要</h2>
+            <p class="u-mb-10">簡単なコードの説明を記載することができます。（256文字まで）</p>
+            <%= f.text_area :summary, class: "u-field-text_area", placeholder: "例: JS・CSS・HTMLでタブメニューを作ることができます。JSでクラスを付け外しし、CSSでクラスによる出しわけをおこないます。" %>
+          </div>
+        </section>
+      </div>
 
       <%# コード %>
-      <section class="u-sec" id="code">
-        <div class="u-inner-4">
-          <h2 class="u-title-1">コード</h2>
-          
-        </div>
-      </section>
+      <div class="u-scroll-target" id="code">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">コード</h2>
+            
+          </div>
+        </section>
+      </div>
 
       <%# 解説 %>
-      <section class="u-sec" id="description">
-        <div class="u-inner-4">
-          <h2 class="u-title-1">解説</h2>
-          <p class="u-mb-10">詳細なコードの説明をMD記法で記載することができます。</p>
-          <%= f.text_area :description, class: "u-field-text_area", placeholder: "例: 
-## JSの解説
-### ターゲットとなるクラスを取得する
-解説解説..." %>
-        </div>
-      </section>
+      <div class="u-scroll-target" id="description">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">解説</h2>
+            <p class="u-mb-10">詳細なコードの説明をMD記法で記載することができます。</p>
+            <%= f.text_area :description, class: "u-field-text_area", placeholder: "例: 
+  ## JSの解説
+  ### ターゲットとなるクラスを取得する
+  解説解説..." %>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
 
