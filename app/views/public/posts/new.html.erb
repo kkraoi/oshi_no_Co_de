@@ -1,0 +1,87 @@
+<% content_for :title, "投稿｜コード投稿" %>
+
+<%= form_with model:@post, local: true do |f| %>
+<div class="u-col2" id="js-col2-root">
+  <div class="u-col2-main">
+    <div class="u-col2-main-inner">
+      <h1 class="u-title u-pt-50">コード投稿</h1>
+
+      <%# タイトル %>
+      <section class="u-sec" id="title">
+        <div class="u-inner-4">
+          <h2 class="u-title-1">タイトル（必須）</h2>
+          <%= f.text_field :title, class: "u-field", placeholder: "例: JSでタブメニュー" %>
+        </div>
+      </section>
+
+      <%# 概要 %>
+      <section class="u-sec" id="summary">
+        <div class="u-inner-4">
+          <h2 class="u-title-1">概要</h2>
+          <p class="u-mb-10">簡単なコードの説明を記載することができます。（256文字まで）</p>
+          <%= f.text_area :summary, class: "u-field-text_area", placeholder: "例: JS・CSS・HTMLでタブメニューを作ることができます。JSでクラスを付け外しし、CSSでクラスによる出しわけをおこないます。" %>
+        </div>
+      </section>
+
+      <%# コード %>
+      <section class="u-sec" id="code">
+        <div class="u-inner-4">
+          <h2 class="u-title-1">コード</h2>
+          
+        </div>
+      </section>
+
+      <%# 解説 %>
+      <section class="u-sec" id="description">
+        <div class="u-inner-4">
+          <h2 class="u-title-1">解説</h2>
+          <p class="u-mb-10">詳細なコードの説明をMD記法で記載することができます。</p>
+          <%= f.text_area :description, class: "u-field-text_area", placeholder: "例: 
+## JSの解説
+### ターゲットとなるクラスを取得する
+解説解説..." %>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <aside class="u-col2-side">
+    <div id="js-col2-drawer" class="u-btn-1 type-1 opt-size-s u-col2-drawer" aria-label="サイドメニューを開閉する ">
+      <span class="icon-right">
+        <i class="fa-solid fa-arrow-right"></i>
+      </span>
+      <span class="icon-left">
+        <i class="fa-solid fa-arrow-left"></i>
+      </span>
+    </div>
+
+    <div class="u-col2-side-content">
+      <div class="u-col2-side-inner">
+        <div class="u-side">
+          <div class="u-side-body">
+            <menu class="u-menu">
+              <li>
+                <a href="#title">タイトル</a>
+              </li>
+              <li>
+                <a href="#summary">概要</a>
+              </li>
+              <li>
+                <a href="#code">コード</a>
+              </li>
+              <li>
+                <a href="#description">解説</a>
+              </li>
+            </menu>
+          </div>
+          <div class="u-side-foot">
+            <div class="u-btn-wrap">
+              <%= f.submit "投稿する", class: "u-btn opt-size-full" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+<% end %>

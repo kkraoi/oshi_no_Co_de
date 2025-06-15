@@ -15,7 +15,7 @@
       </li>
       <% if user_signed_in? %>
         <li>
-          <%= link_to root_path, class: "u-inactive" do %>
+          <%= link_to posts_path, class: "" do %>
             <i class="fa-solid fa-code"></i> コード一覧
           <% end %>
         </li>
@@ -36,7 +36,7 @@
         </li>
       <% elsif admin_signed_in? %>
         <li>
-          <%= link_to root_path, class: "u-inactive" do %>
+          <%= link_to posts_path, class: "" do %>
             <i class="fa-solid fa-code"></i> コード一覧
           <% end %>
         </li>
@@ -112,7 +112,7 @@
 <% if user_signed_in? %>
 <div class="header-nav-foot">
   <div class="u-btn-wrap">
-    <%= link_to root_path, class: "u-btn u-inactive" do %>
+    <%= link_to new_post_path, class: "u-btn" do %>
       <i class="fa-solid fa-square-plus"></i> コード投稿
     <% end %>
   </div>
