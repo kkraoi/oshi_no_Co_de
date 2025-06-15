@@ -30,7 +30,29 @@
                 </ul>
               </div>
               <div class="u-diff-item">
-                フォームなど
+                <div class="u-diff-content-full">
+                  <%= form_with(model: @new_language, url: root_path, method: :post, local: true) do |f| %>
+                    <div class="u-vert-30">
+                      <article>
+                        <h2 class="u-title-3">言語名</h2>
+                        <%= f.text_field :name, class: "u-field", placeholder: "例: JavaScript" %>
+                      </article>
+                      <article>
+                        <h2 class="u-title-3">拡張子</h2>
+                        <%= f.text_field :extension, class: "u-field", placeholder: "例: js" %>
+                      </article>
+                      <article>
+                        <h2 class="u-title-3">イメージカラー</h2>
+                        <p class="u-mb-5"><small>「none」または「#000000」のようなカラーコードを記入してください。</small></p>
+                        <%= f.text_field :color, class: "u-field", placeholder: "例: #000000" %>
+                      </article>
+                    </div>
+
+                    <div class="u-btn-wrap u-mt-50">
+                      <%= f.submit "追加", class: "u-btn" %>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
