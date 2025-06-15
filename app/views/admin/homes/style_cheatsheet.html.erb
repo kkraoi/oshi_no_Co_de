@@ -606,17 +606,24 @@
   
               <!-- コード -->
               <figure class="js-code u-code">
-                <pre class="prettyprint js-code-pre">&lt;% content_for :title, &quot;About&quot; %&gt;
+                <pre class="prettyprint js-code-pre"><code>&lt;% content_for :title, &quot;投稿オプション編集&quot; %&gt;
+&lt;% content_for :head do %&gt;
+&lt;% end %&gt;
+&lt;% content_for :foot do %&gt;
+&lt;% end %&gt;
+
 &lt;div class=&quot;u-col2&quot; id=&quot;js-col2-root&quot;&gt;
   &lt;div class=&quot;u-col2-main&quot;&gt;
     &lt;div class=&quot;u-col2-main-inner&quot;&gt;
-      &lt;h1 class=&quot;u-title u-pt-50&quot;&gt;About&lt;/h1&gt;
+      &lt;h1 class=&quot;u-title u-pt-50&quot;&gt;投稿オプション編集&lt;/h1&gt;
 
-      &lt;section class=&quot;u-sec&quot;&gt;
-        &lt;div class=&quot;u-inner-4&quot;&gt;
-            &lt;h2 class=&quot;u-title-1&quot;&gt;セクションタイトル&lt;/h2&gt;
-        &lt;/div&gt;
-      &lt;/section&gt;
+      &lt;div class=&quot;u-scroll-target&quot; id=&quot;test&quot;&gt;
+        &lt;section class=&quot;u-sec&quot;&gt;
+          &lt;div class=&quot;u-inner-4&quot;&gt;
+              &lt;h2 class=&quot;u-title-1&quot;&gt;セクションタイトル&lt;/h2&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 
@@ -636,7 +643,7 @@
           &lt;div class=&quot;u-side-body&quot;&gt;
             &lt;menu class=&quot;u-menu&quot;&gt;
                 &lt;li&gt;
-                  &lt;a href=&quot;#&quot;&gt;リンク&lt;/a&gt;
+                  &lt;a href=&quot;#test&quot;&gt;リンク&lt;/a&gt;
                 &lt;/li&gt;
             &lt;/menu&gt;
           &lt;/div&gt;
@@ -649,7 +656,7 @@
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/aside&gt;
-&lt;/div&gt;</pre>
+&lt;/div&gt;</code></pre>
                 <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
                   <i class="fa-solid fa-copy"></i>
                 </button>
