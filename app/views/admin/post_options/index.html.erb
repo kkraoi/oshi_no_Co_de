@@ -17,7 +17,8 @@
               <div class="u-diff-item">
                 <ul class="u-card-wrap-center">
                   <% @languages.each do |lang| %>
-                    <li class="u-card u-pr-30">
+                    <li class="u-card u-pX-30 u-pY-5">
+                      <span class="u-card-tag" style="background-color: <%= lang.color %>;"></span>
                       <p><%= lang.name %>: <%= lang.extension %></p>
                       <div class="u-btn-wrap u-card-btn">
                         <%= link_to root_path, class: "u-btn-1 type-1 opt-size-ss", data: {confirm: "本当に削除しますか？"} do %>

@@ -1150,6 +1150,14 @@
       line-height: 1.4;
       margin-top: 0.5rem;
     }
+    &-tag {
+      display: block;
+      height: 100%;
+      width: 1rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
     &-btn {
       position: absolute;
       top: 0;

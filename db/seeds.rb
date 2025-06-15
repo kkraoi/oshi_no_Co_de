@@ -12,38 +12,38 @@ end
 # 言語
 language_data = [
   # マークアップ言語
-  { extension: 'html', name: 'HTML' },
-  { extension: 'htm',  name: 'HTML' },
-  { extension: 'xhtml', name: 'XHTML' },
-  { extension: 'xml',  name: 'XML' },
+  { extension: 'html', name: 'HTML', color: "#e34c26" },
+  { extension: 'htm',  name: 'HTML', color: "#e34c26" },
+  { extension: 'xhtml', name: 'XHTML', color: "#f7df1e" },
+  { extension: 'xml',  name: 'XML', color: "#005b9f" },
   
   # スタイルシート
-  { extension: 'css',  name: 'CSS' },
-  { extension: 'scss', name: 'Sass' },
-  { extension: 'sass', name: 'Sass' },
-  { extension: 'less', name: 'LESS' },
+  { extension: 'css',  name: 'CSS', color: "#2965f1" },
+  { extension: 'scss', name: 'Sass', color: "#cc6699" },
+  { extension: 'sass', name: 'Sass', color: "#cc6699" },
+  { extension: 'less', name: 'LESS', color: "#1d365d" },
   
   # プログラミング言語
-  { extension: 'rb',   name: 'Ruby' },
-  { extension: 'erb',  name: 'ERB' },
-  { extension: 'js',   name: 'JavaScript' },
-  { extension: 'ts',   name: 'TypeScript' },
-  { extension: 'php',  name: 'PHP' },
-  { extension: 'py',   name: 'Python' },
-  { extension: 'java', name: 'Java' },
-  { extension: 'kt',   name: 'Kotlin' },
+  { extension: 'rb',   name: 'Ruby', color: "#cc342d" },
+  { extension: 'erb',  name: 'ERB', color: "#cc342d" },
+  { extension: 'js',   name: 'JavaScript', color: "#f7df1e" },
+  { extension: 'ts',   name: 'TypeScript', color: "#3178c6" },
+  { extension: 'php',  name: 'PHP', color: "#777bb4" },
+  { extension: 'py',   name: 'Python', color: "#3776ab" }, 
+  { extension: 'java', name: 'Java', color: "#007396" },
+  { extension: 'kt',   name: 'Kotlin', color: "#7f52ff" },
   
   # データ形式
-  { extension: 'json', name: 'JSON' },
-  { extension: 'yaml', name: 'YAML' },
-  { extension: 'yml',  name: 'YAML' },
-  { extension: 'csv',  name: 'CSV' },
+  { extension: 'json', name: 'JSON', color: "#ffffff" },
+  { extension: 'yaml', name: 'YAML', color: "#ffffff" },
+  { extension: 'yml',  name: 'YAML', color: "#ffffff" },
+  { extension: 'csv',  name: 'CSV', color: "#237346" },
   
   # テキスト/その他
-  { extension: 'txt',  name: 'Plain Text' },
-  { extension: 'md',   name: 'Markdown' },
-  { extension: 'sh',   name: 'Shell Script' },
-  { extension: 'sql',  name: 'SQL' }
+  { extension: 'txt',  name: 'Plain Text', color: "#cccccc" },
+  { extension: 'md',   name: 'Markdown', color: "#083fa1" },
+  { extension: 'sh',   name: 'Shell Script', color: "#4eaa25" },
+  { extension: 'sql',  name: 'SQL', color: "#dd8a00" }
 ]
 # ActiveRecord::Base.transaction ↓
 # ここでのデータベース操作は「全部成功」か「全部失敗」のどちらか
@@ -52,6 +52,7 @@ ActiveRecord::Base.transaction do
   language_data.each do |data|
     Language.find_or_create_by!(extension: data[:extension]) do |lang|
       lang.name = data[:name]
+      lang.color = data[:color]
     end
   end
 end
