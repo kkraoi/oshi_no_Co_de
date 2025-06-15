@@ -46,7 +46,7 @@
     <div class="u-mt-50">
       <menu class="p-user-menu">
         <li>
-          <%= link_to root_path, class: 'u-inactive' do %>
+          <%= link_to user_posts_path(@user.id) do %>
             <i class="fa-solid fa-code"></i> コード一覧
           <% end %>
         </li>

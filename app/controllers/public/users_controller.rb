@@ -28,7 +28,7 @@ class Public::UsersController < Public::BaseController
   end
   
   def posts
-    
+    @user = User.find(params[:id]);
   end
   
   private

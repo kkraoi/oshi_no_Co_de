@@ -1,0 +1,12 @@
+<% content_for :title, "コード一覧" %>
+<% content_for :head do %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+
+<section class="u-sec">
+  <div class="u-inner-3">
+    <h1 class="u-title">コード一覧</h1>
+    <%= render 'public/shared/posts', local: @object %>
+  </div>
+</section>
