@@ -15,9 +15,16 @@
             <h2 class="u-title-1">言語オプション</h2>
             <div class="u-diff">
               <div class="u-diff-item">
-                <ul>
+                <ul class="u-card-wrap-center">
                   <% @languages.each do |lang| %>
-                    
+                    <li class="u-card u-pr-30">
+                      <p><%= lang.name %>: <%= lang.extension %></p>
+                      <div class="u-btn-wrap u-card-btn">
+                        <%= link_to root_path, class: "u-btn-1 type-1 opt-size-ss", data: {confirm: "本当に削除しますか？"} do %>
+                          <i class="fa-solid fa-trash"></i>
+                        <% end %>
+                      </div>
+                    </li>
                   <% end %>
                 </ul>
               </div>

@@ -1122,6 +1122,7 @@
 
   // カード
   &card {
+    position: relative;
     &-wrap {
       display: grid;
       gap: $padding-x;
@@ -1131,6 +1132,12 @@
       @include sp {
         grid-template-columns: repeat(1, 1fr);
       }
+    }
+    &-wrap-center{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: $padding-x;
     }
     &-date {
       font-size: .8em;
@@ -1143,7 +1150,17 @@
       line-height: 1.4;
       margin-top: 0.5rem;
     }
-    a {
+    &-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      .u-btn-1 {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
+    > a {
       display: block;
       position: relative;
       background-color: $d-color-bg-1;
@@ -1165,6 +1182,11 @@
     }
     .u-pf-name {
       margin-left: 0.5rem;
+    }
+    &:not(:has(>a)) {
+      background-color: $d-color-bg-1;
+      border: 1px solid $d-color-border;
+      padding: $padding-x;
     }
   }
 
