@@ -32,5 +32,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
     delete "user/:id", to: "homes#destroy_user", as: "destroy_user"
     get "/style_cheatsheet", to: "homes#style_cheatsheet"
+
+    resources :post_options, only: [:index]
   end
 end
