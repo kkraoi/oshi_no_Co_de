@@ -1,4 +1,4 @@
-class Admin::PostOptionsController < ApplicationController
+class Admin::PostOptionsController < Admin::BaseController
   def index
     @languages = Language.all
     @new_language = Language.new(color: "none")
