@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     get "/style_cheatsheet", to: "homes#style_cheatsheet"
 
     post "/languages", to: "post_options#create_language_option", as: "create_language_option"
+    delete "/language/:id", to: "post_options#destroy_language_option", as: "destroy_language_option"
     resources :post_options, only: [:index]
   end
 end

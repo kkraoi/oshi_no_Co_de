@@ -21,7 +21,7 @@
                       <span class="u-card-tag" style="background-color: <%= lang.color %>;"></span>
                       <p><%= lang.name %>: <%= lang.extension %></p>
                       <div class="u-btn-wrap u-card-btn">
-                        <%= link_to root_path, class: "u-btn-1 type-1 opt-size-ss", data: {confirm: "本当に削除しますか？"} do %>
+                        <%= link_to admin_destroy_language_option_path(lang.id), method: :delete, class: "u-btn-1 type-1 opt-size-ss", data: {confirm: "本当に削除しますか？"} do %>
                           <i class="fa-solid fa-trash"></i>
                         <% end %>
                       </div>

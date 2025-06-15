@@ -17,6 +17,12 @@ class Admin::PostOptionsController < ApplicationController
     end
   end
 
+  def destroy_language_option
+    language = Language.find(params[:id])
+    language.destroy
+    redirect_to "#{admin_post_options_path}#languages", notice: '言語の削除に成功しました'
+  end
+
   private
 
   def language_params
