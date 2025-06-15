@@ -16,22 +16,11 @@
         </section>
       </div>
 
-      <%# 概要 %>
-      <div class="u-scroll-target" id="summary">
-        <section class="u-sec">
-          <div class="u-inner-4">
-            <h2 class="u-title-1">概要</h2>
-            <p class="u-mb-10">簡単なコードの説明を記載することができます。（256文字まで）</p>
-            <%= f.text_area :summary, class: "u-field-text_area", placeholder: "例: JS・CSS・HTMLでタブメニューを作ることができます。JSでクラスを付け外しし、CSSでクラスによる出しわけをおこないます。" %>
-          </div>
-        </section>
-      </div>
-
       <%# コード %>
       <div class="u-scroll-target" id="code">
         <section class="u-sec">
           <div class="u-inner-4">
-            <h2 class="u-title-1">コード</h2>
+            <h2 class="u-title-1">コード（必須）</h2>
             
           </div>
         </section>
@@ -70,9 +59,6 @@
             <menu class="u-menu">
               <li>
                 <a href="#title">タイトル</a>
-              </li>
-              <li>
-                <a href="#summary">概要</a>
               </li>
               <li>
                 <a href="#code">コード</a>

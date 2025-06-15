@@ -33,7 +33,6 @@
                 <span>投稿日: <%= @post.format_date(:created_at) %></span>
                 <span class="u-pl-20">更新日: <%= @post.format_date(:updated_at) %></span>
               </p>
-              <p><%= simple_format(@post.summary) if @post.summary.present? %></p>
               <% if @post.user == current_user %>
                 <div>
                   <%= link_to edit_post_path(@post.id), class: 'u-link' do %>

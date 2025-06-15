@@ -1,1 +1,27 @@
-一覧を
+<ul class="u-card-wrap">
+  <% posts.each do |post| %>
+    <li class="u-card">
+      <%= link_to post_path(post.id) do %>
+        <figure class="u-pf-wrap">
+          <%= image_tag post.user.get_profile_image,
+            loading: "lazy",
+            height: 30,
+            width: 30,
+            alt: "ユーザープロフィール画像",
+            class: "" %>
+          <figcaption class="u-pf-name">
+            <%= post.user.name %>
+          </figcaption>
+        </figure>
+        <p class="u-card-date"><%= post.format_date(:created_at) %></p>
+        <h2 class="u-card-title"><%= post.title %></h2>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="u-btn-wrap u-mt-50">
+  <%= link_to new_post_path, class: "u-btn" do %>
+    <i class="fa-solid fa-square-plus"></i> コード投稿
+  <% end %>
+</div>
