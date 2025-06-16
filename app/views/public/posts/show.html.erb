@@ -50,12 +50,15 @@
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">コード</h2>
-            <figure class="js-code u-code">
-              <pre class="prettyprint js-code-pre"><code>コード</code></pre>
-              <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
-                <i class="fa-solid fa-copy"></i>
-              </button>
-            </figure>
+            <% @post.codes.each do |code| %>
+              <p><%= "#{code.name}.#{code.language.extension}" %></p>
+              <figure class="js-code u-code">
+                <pre class="prettyprint js-code-pre"><code><%= code.content %></code></pre>
+                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </figure>
+            <% end %>
           </div>
         </section>
       </div>

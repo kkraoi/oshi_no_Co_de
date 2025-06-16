@@ -1,4 +1,4 @@
-class Public::PostsController < ApplicationController
+class Public::PostsController < Public::BaseController
   def index
     @posts = Post.all
   end
@@ -9,6 +9,11 @@ class Public::PostsController < ApplicationController
   
   def new
     @post = Post.new
+
+    # build => 新しい関連オブジェクトを作るメソッド。「fields_for :codes」は「@post.codes」に要素がないとフォームを用意しない。そこでbuildをすることで空のCodeをあらかじめ作る。
+    3.times {@post.codes.build}
+
+    @languages = Language.all
   end
   
   def create
@@ -17,7 +22,10 @@ class Public::PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post), notice: "投稿に成功しました"
     else
-      render "new", alert: "投稿に失敗しました"
+      @languages = Language.all
+      flash.now[:alert] = "投稿に失敗しました"
+      # ↓フォームのエラーステータス（422）が返る
+      render "new", status: :unprocessable_entity
     end
   end
   
@@ -39,7 +47,9 @@ class Public::PostsController < ApplicationController
     params.require(:post).permit(
       :title,
       :summary,
-      :description
+      :description,
+      # ↓子モデルを扱う。:_destroy => 「accepts_nested_attributes_for :codes, allow_destroy: true」に対応している。項目を削除するときに、railsにその意図を伝えるフラグ。値が"1"やtrueになると、保存時に＠post.codes[i]を削除する。
+      codes_attributes: [:name, :content, :language_id, :_destroy]
     )
   end
 end
