@@ -1,6 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :codes, dependent: :destroy
+
+  # inverse_of: :post => 通常、code.postを呼び出す場合、post_idをもとにDBに問い合わせるが、inverse_of: :postを設定することで、メモリ上にある@postオブジェクトを使って呼び出すようになり、再見込みをせず、無駄なSQLを発行しないようになる。
+  # また、下記の「accepts_nested_attributes_for :codes」を扱う場合、codeモデルのバリデでpostにアクセスする時、postはまだ保存されていないことになり、エラーになる。これを防ぐためでもある。
+  has_many :codes, inverse_of: :post, dependent: :destroy
 
   # 1つのフォームから関連モデル（Code）も一緒に作成・更新・削除できるようにするための設定。
   # accepts_nested_attributes_for :codes => 親モデル（Post）のフォームから、子モデル（Code）を一緒に作成・編集できるようにするメソッド。これによって「f.fields_for :codes do |code_fields|」が使えるようになる。

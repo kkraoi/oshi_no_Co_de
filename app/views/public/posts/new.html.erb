@@ -1,4 +1,9 @@
 <% content_for :title, "投稿｜コード投稿" %>
+<% content_for :head do %>
+<% end %>
+<% content_for :foot do %>
+  <%= javascript_pack_tag 'posts', defer: true %>
+<% end %>
 
 <%= form_with model:@post, local: true do |f| %>
 <div class="u-col2" id="js-col2-root">
@@ -21,16 +26,21 @@
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">コード（必須）</h2>
-            <%# fields_for: 入れ子のモデルのフォームを生成するためのヘルパー。引数は子モデルをシンボルで取り、ブロック引数は、子モデルに対するフォームビルダーオブジェクトとして扱う。 %>
-            <%= f.fields_for :codes do |code_fields| %>
-              <div class="p-code-block">
-                <%= code_fields.text_field :name %>
-                <%# collection_select 第1引数, 第2引数, 第3引数, 第4引数, オプション %>
-                <%# 第1引数: フィールド名（保存先の属性）, 第2引数: コレクション（選択肢一覧）, 第3引数: 選択肢の値（保存されるid）, 第4引数: 選択肢の表示名（見せるラベル）, オプション: prompt・html属性など %>
-                <%= code_fields.collection_select :language_id, @languages, :id, :extension, prompt: "拡張子を選択してください" %>
-                <%= code_fields.text_area :content %>
-              </div>
-            <% end %>
+            <div id="js-code-fields-container">
+              <%# fields_for: 入れ子のモデルのフォームを生成するためのヘルパー。引数は子モデルをシンボルで取り、ブロック引数は、子モデルに対するフォームビルダーオブジェクトとして扱う。 %>
+              <%= f.fields_for :codes do |code_fields| %>
+               <%= render 'code_fields', f: code_fields %>
+              <% end %>
+            </div>
+            <div class="u-btn-wrap">
+              <button type="button" id="js-add-code-field" class="u-btn" aria-label="フィールドを追加する">ボタン</button>
+            </div>
+            <template id="js-code-field-template">
+              <%# raw() => テンプレで使うコードをエスケープすると、文字列のまま出力されてしまう。なのでそれを防止する。セキュリティ面: このケースはユーザーが入力する使い方をしていないので、問題ない。 %>
+              <%# gsub("\n", "") => テンプレ内部の改行を取り除く %>
+              <%# jsで扱うHTML文字列を1行にしてバグなどを防ぐ %>
+              <%= raw(render('code_fields', f: nil).gsub("\n", "")) %>
+            </template>
           </div>
         </section>
       </div>

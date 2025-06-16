@@ -11,7 +11,7 @@ class Public::PostsController < Public::BaseController
     @post = Post.new
 
     # build => 新しい関連オブジェクトを作るメソッド。「fields_for :codes」は「@post.codes」に要素がないとフォームを用意しない。そこでbuildをすることで空のCodeをあらかじめ作る。
-    3.times {@post.codes.build}
+    @post.codes.build
 
     @languages = Language.all
   end
