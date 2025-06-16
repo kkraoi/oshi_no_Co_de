@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :codes, dependent: :destroy
 
   # 指定された日時属性を日本時間で「YYYY/MM/DD」形式に整形して返す
   #
