@@ -53,7 +53,8 @@
             <% @post.codes.each do |code| %>
               <p><%= "#{code.name}.#{code.language.extension}" %></p>
               <figure class="js-code u-code">
-                <pre class="prettyprint js-code-pre"><code><%= code.content %></code></pre>
+                <%# h(): ERB::Util.html_escape の略（XSS防止） %>
+                <pre class="prettyprint js-code-pre"><code><%= h(code.content) %></code></pre>
                 <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
                   <i class="fa-solid fa-copy"></i>
                 </button>
