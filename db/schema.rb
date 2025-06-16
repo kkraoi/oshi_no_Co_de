@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_06_15_122512) do
+ActiveRecord::Schema.define(version: 2025_06_16_043049) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 2025_06_15_122512) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "codes", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "language_id", null: false
+    t.string "name", null: false
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["language_id"], name: "index_codes_on_language_id"
+    t.index ["post_id"], name: "index_codes_on_post_id"
+  end
+
   create_table "languages", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -88,5 +99,7 @@ ActiveRecord::Schema.define(version: 2025_06_15_122512) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "codes", "languages"
+  add_foreign_key "codes", "posts"
   add_foreign_key "posts", "users"
 end
