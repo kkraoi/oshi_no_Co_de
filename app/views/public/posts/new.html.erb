@@ -2,8 +2,8 @@
 <% content_for :head do %>
 <% end %>
 <% content_for :foot do %>
-  <%= javascript_pack_tag 'posts', defer: true %>
 <% end %>
+<% content_for :body_class, "js-posts-new" %>
 
 <%= form_with model:@post, local: true do |f| %>
 <div class="u-col2" id="js-col2-root">

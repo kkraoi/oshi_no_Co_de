@@ -22,7 +22,6 @@ function setupAddCodeFields() {
     // => フィールドを追加するたびに、js-remove-code-field要素にクリックイベントを仕込むと記述量が多くなってしまうから。
     const removeBtn = e.target.closest(".js-remove-code-field");
     if (removeBtn) {
-      console.log("?");
       const block = e.target.closest(".js-code-block");
       const destroyInput = block.querySelector('input[name*="_destroy"]')
       if(destroyInput) {
@@ -39,5 +38,6 @@ function setupAddCodeFields() {
 }
 
 document.addEventListener("turbolinks:load", () => {
+  if (!document.body.classList.contains("js-posts-new")) return;
   setupAddCodeFields();
 });

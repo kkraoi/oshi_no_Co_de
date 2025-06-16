@@ -1,6 +1,6 @@
 <div class="p-code-block js-code-block">
   <% if f %>
-    <%= f.text_field :name, placeholder: "ファイル名", class: "u-field" %>
+    <%= f.text_field :name, placeholder: "ファイル名", class: "u-field", value: "app" %>
     <%# collection_select 第1引数, 第2引数, 第3引数, 第4引数, オプション %>
     <%# 第1引数: フィールド名（保存先の属性）, 第2引数: コレクション（選択肢一覧）, 第3引数: 選択肢の値（保存されるid）, 第4引数: 選択肢の表示名（見せるラベル）, オプション: prompt・html属性など %>
     <%= f.collection_select :language_id, @languages, :id, :extension, prompt: "拡張子選択"   %>
@@ -10,7 +10,7 @@
   <% else %>
     <%# 以下template要素内に配置する記述 %>
     <%# JS用のダミー要素（name属性などは後で置換される） %>
-    <input type="text" name="post[codes_attributes][JS_INDEX][name]" placeholder="ファイル名" class="u-field_" />
+    <input type="text" name="post[codes_attributes][JS_INDEX][name]" placeholder="ファイル名" value="app" class="u-field_" />
     <select name="post[codes_attributes][JS_INDEX][language_id]" class="u-field_">
       <% @languages.each do |lang| %>
         <option value="<%= lang.id %>"><%= lang.extension %></option>
