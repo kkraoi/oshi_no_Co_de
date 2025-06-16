@@ -38,6 +38,7 @@ function setupAddCodeFields() {
 }
 
 document.addEventListener("turbolinks:load", () => {
+  // 投稿作成ページ以外は実行させない
   if (!document.body.classList.contains("js-posts-new")) return;
   setupAddCodeFields();
 });

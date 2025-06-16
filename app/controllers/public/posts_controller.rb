@@ -13,7 +13,8 @@ class Public::PostsController < Public::BaseController
     # build => 新しい関連オブジェクトを作るメソッド。「fields_for :codes」は「@post.codes」に要素がないとフォームを用意しない。そこでbuildをすることで空のCodeをあらかじめ作る。
     @post.codes.build
 
-    @languages = Language.all
+    # .allではなく.order(:extension) => extensionカラムをアルファベット順に直す
+    @languages = Language.order(:extension)
   end
   
   def create
@@ -22,7 +23,7 @@ class Public::PostsController < Public::BaseController
     if @post.save
       redirect_to post_path(@post), notice: "投稿に成功しました"
     else
-      @languages = Language.all
+      @languages = Language.order(:extension)
       flash.now[:alert] = "投稿に失敗しました"
       # ↓フォームのエラーステータス（422）が返る
       render "new", status: :unprocessable_entity
