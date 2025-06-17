@@ -11,95 +11,103 @@
       <h1 class="u-title u-pt-50"><%= @user.name %>の編集ページ</h1>
 
       <%# ユーザーネーム %>
-      <section class="u-sec" id="username">
-        <div class="u-inner-4">
-          <h2 class="u-title-1">ユーザーネーム</h2>
-          <div class="u-diff">
-            <div class="u-diff-item">
-              <p><%= @user.name %></p>
-            </div>
-            <div class="u-diff-item">
-              <div class="u-diff-content-full">
-                <%= render 'public/shared/field_error', object: @user, field: :name %>
-                <%= f.text_field :name, class: "u-field" %>
+      <div class="u-scroll-target" id="username">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">ユーザーネーム</h2>
+            <div class="u-diff">
+              <div class="u-diff-item">
+                <p><%= @user.name %></p>
+              </div>
+              <div class="u-diff-item">
+                <div class="u-diff-content-full">
+                  <%= render 'public/shared/field_error', object: @user, field: :name %>
+                  <%= f.text_field :name, class: "u-field" %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <%# アイコン %>
-      <section class="u-sec" id="icon">
-        <div class="u-inner-4">
-          <h2 class="u-title-1">アイコン</h2>
-          <div class="u-diff">
-            <div class="u-diff-item">
-              <%= image_tag @user.get_profile_image,
-                loading: "lazy",
-                height: 300,
-                width: 300,
-                alt: "代替テキスト",
-                class: "u-p-40" %>
-            </div>
-            <div class="u-diff-item opt-left">
-              <%= render 'public/shared/field_error', object: @user, field: :profile_image %>
-              <%= f.file_field :profile_image, class: "", accept: 'image/*' %>
+      <div class="u-scroll-target" id="icon">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">アイコン</h2>
+            <div class="u-diff">
+              <div class="u-diff-item">
+                <%= image_tag @user.get_profile_image,
+                  loading: "lazy",
+                  height: 300,
+                  width: 300,
+                  alt: "代替テキスト",
+                  class: "u-p-40" %>
+              </div>
+              <div class="u-diff-item opt-left">
+                <%= render 'public/shared/field_error', object: @user, field: :profile_image %>
+                <%= f.file_field :profile_image, class: "", accept: 'image/*' %>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <%# 紹介文 %>
-      <section class="u-sec" id="introduction">
-        <div class="u-inner-4">
-          <h2 class="u-title-1">紹介文</h2>
-          <div class="u-diff">
-            <div class="u-diff-item">
-              <p>
-                <% if @user.introduction.present? %>
-                  <%= simple_format(@user.introduction) %>
-                <% else %>
-                  未設定
-                <% end %>
-              </p>
-            </div>
-            <div class="u-diff-item">
-              <div class="u-diff-content-full">
-                <%= render 'public/shared/field_error', object: @user, field: :introduction %>
-                <%= f.text_area :introduction, class: "u-field-text_area" %>
+      <div class="u-scroll-target" id="introduction">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">紹介文</h2>
+            <div class="u-diff">
+              <div class="u-diff-item">
+                <p>
+                  <% if @user.introduction.present? %>
+                    <%= simple_format(@user.introduction) %>
+                  <% else %>
+                    未設定
+                  <% end %>
+                </p>
+              </div>
+              <div class="u-diff-item">
+                <div class="u-diff-content-full">
+                  <%= render 'public/shared/field_error', object: @user, field: :introduction %>
+                  <%= f.text_area :introduction, class: "u-field-text_area" %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <%# GitHub %>
-      <section class="u-sec" id="github">
-        <div class="u-inner-4">
-          <h2 class="u-title-1">GitHub</h2>
-          <p class="u-pc:ta-c">
-            GitHubのリンクを掲載することができます。<br>
-            例： https://github.com/ユーザー名
-          </p>
-          <div class="u-diff u-mt-30">
-            <div class="u-diff-item">
-              <p>
-                <% if @user.github.present? %>
-                  <%= link_to @user.github, @user.github, target: "_blank", rel: "noopener noreferrer", class: "u-link"%>
-                <% else %>
-                  未設定
-                <% end %>
-              </p>
-            </div>
-            <div class="u-diff-item">
-              <div class="u-diff-content-full">
-                <%= render 'public/shared/field_error', object: @user, field: :github %>
-                <%= f.text_field :github, class: "u-field", placeholder: "例: https://github.com/ユーザー名" %>
+      <div class="u-scroll-target"id="github">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">GitHub</h2>
+            <p class="u-pc:ta-c">
+              GitHubのリンクを掲載することができます。<br>
+              例： https://github.com/ユーザー名
+            </p>
+            <div class="u-diff u-mt-30">
+              <div class="u-diff-item">
+                <p>
+                  <% if @user.github.present? %>
+                    <%= link_to @user.github, @user.github, target: "_blank", rel: "noopener noreferrer", class: "u-link"%>
+                  <% else %>
+                    未設定
+                  <% end %>
+                </p>
+              </div>
+              <div class="u-diff-item">
+                <div class="u-diff-content-full">
+                  <%= render 'public/shared/field_error', object: @user, field: :github %>
+                  <%= f.text_field :github, class: "u-field", placeholder: "例: https://github.com/ユーザー名" %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <div class="u-pb-80">
         <div class="u-inner-4">
