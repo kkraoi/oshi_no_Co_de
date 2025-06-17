@@ -16,7 +16,7 @@
     <div class="p-codefield-body">
       <%= f.text_area :content, placeholder: "コードを入力", class: "u-field-text_area" %>
     </div>
-    <%= f.hidden_field :_destroy %>
+    <%= f.hidden_field :_destroy, value: "false" %>
   <% else %>
     <%# 以下template要素内に配置する記述 %>
     <%# JS用のダミー要素（name属性などは後で置換される） %>

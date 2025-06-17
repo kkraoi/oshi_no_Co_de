@@ -59,7 +59,7 @@ class Public::PostsController < Public::BaseController
       :summary,
       :description,
       # ↓子モデルを扱う。:_destroy => 「accepts_nested_attributes_for :codes, allow_destroy: true」に対応している。項目を削除するときに、railsにその意図を伝えるフラグ。値が"1"やtrueになると、保存時に＠post.codes[i]を削除する。
-      codes_attributes: [:name, :content, :language_id, :_destroy]
+      codes_attributes: [:id, :name, :content, :language_id, :_destroy]
     )
   end
 
