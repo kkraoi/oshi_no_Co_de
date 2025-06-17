@@ -1,4 +1,7 @@
 class Public::PostsController < Public::BaseController
+  # 他人のアクセス防止
+  before_action :ensure_correct_user, only: [:update, :edit, :destroy]
+
   def index
     @posts = Post.all
   end
@@ -31,11 +34,17 @@ class Public::PostsController < Public::BaseController
   end
   
   def edit
-    
+    @languages = Language.order(:extension)
   end
   
   def update
-    
+    if @post.update(post_params)
+      redirect_to post_path(@post.id), notice: "編集に成功しました"
+    else
+      @languages = Language.order(:extension)
+      flash.now[:alert] = "編集に失敗しました"
+      render "edit", status: :unprocessable_entity
+    end
   end
   
   def destroy
@@ -52,5 +61,14 @@ class Public::PostsController < Public::BaseController
       # ↓子モデルを扱う。:_destroy => 「accepts_nested_attributes_for :codes, allow_destroy: true」に対応している。項目を削除するときに、railsにその意図を伝えるフラグ。値が"1"やtrueになると、保存時に＠post.codes[i]を削除する。
       codes_attributes: [:name, :content, :language_id, :_destroy]
     )
+  end
+
+  # ユーザをチェック
+  def ensure_correct_user
+    @post = Post.find(params[:id])
+    @user = User.find(@post.user.id)
+    unless @user == current_user
+      redirect_to user_path(current_user), alert: "アクセスを禁止しています"
+    end
   end
 end

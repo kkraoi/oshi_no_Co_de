@@ -606,16 +606,17 @@
   
               <!-- コード -->
               <figure class="js-code u-code">
-                <pre class="prettyprint js-code-pre"><code>&lt;% content_for :title, &quot;投稿オプション編集&quot; %&gt;
+                <pre class="prettyprint js-code-pre"><code>&lt;% content_for :title, &quot;投稿｜編集ページ&quot; %&gt;
 &lt;% content_for :head do %&gt;
 &lt;% end %&gt;
 &lt;% content_for :foot do %&gt;
 &lt;% end %&gt;
+&lt;% content_for :body_class, &quot;p-&quot; %&gt;
 
 &lt;div class=&quot;u-col2&quot; id=&quot;js-col2-root&quot;&gt;
   &lt;div class=&quot;u-col2-main&quot;&gt;
     &lt;div class=&quot;u-col2-main-inner&quot;&gt;
-      &lt;h1 class=&quot;u-title u-pt-50&quot;&gt;投稿オプション編集&lt;/h1&gt;
+      &lt;h1 class=&quot;u-title u-pt-50&quot;&gt;投稿編集ページ&lt;/h1&gt;
 
       &lt;div class=&quot;u-scroll-target&quot; id=&quot;test&quot;&gt;
         &lt;section class=&quot;u-sec&quot;&gt;
@@ -628,7 +629,7 @@
   &lt;/div&gt;
 
   &lt;aside class=&quot;u-col2-side&quot;&gt;
-    &lt;button id=&quot;js-col2-drawer&quot; class=&quot;u-btn-1 type-1 opt-size-s u-col2-drawer&quot; aria-label=&quot;サイドメニューを開閉する &quot;&gt;
+    &lt;button type=&quot;button&quot; id=&quot;js-col2-drawer&quot; class=&quot;u-btn-1 type-1 opt-size-s u-col2-drawer&quot; aria-label=&quot;サイドメニューを開閉する &quot;&gt;
       &lt;span class=&quot;icon-right&quot;&gt;
         &lt;i class=&quot;fa-solid fa-arrow-right&quot;&gt;&lt;/i&gt;
       &lt;/span&gt;
@@ -642,9 +643,9 @@
         &lt;div class=&quot;u-side&quot;&gt;
           &lt;div class=&quot;u-side-body&quot;&gt;
             &lt;menu class=&quot;u-menu&quot;&gt;
-                &lt;li&gt;
-                  &lt;a href=&quot;#test&quot;&gt;リンク&lt;/a&gt;
-                &lt;/li&gt;
+              &lt;li&gt;
+                &lt;a href=&quot;#test&quot;&gt;リンク&lt;/a&gt;
+              &lt;/li&gt;
             &lt;/menu&gt;
           &lt;/div&gt;
           &lt;div class=&quot;u-side-foot&quot;&gt;

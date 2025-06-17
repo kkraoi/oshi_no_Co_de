@@ -17,7 +17,8 @@ class Public::UsersController < Public::BaseController
     if @user.update(user_params)
       redirect_to user_path(@user.id), notice: "編集に成功しました"
     else
-      render "edit"
+      flash.now[:alert] = "編集に失敗しました"
+      render "edit", status: :unprocessable_entity
     end
   end
 
@@ -46,8 +47,6 @@ class Public::UsersController < Public::BaseController
   # ユーザをチェック
   def ensure_correct_user
     @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to user_path(current_user), alert: "アクセスを禁止しています"
-    end
+    redirect_unless_current_user(@user)
   end
 end
