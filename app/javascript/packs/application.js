@@ -3,6 +3,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "./posts"
+import "../styles/markdown"
 
 // トースターを閉じるクラス
 const G_CLOSE_TOAST_CLASS_NAME = "is-close";

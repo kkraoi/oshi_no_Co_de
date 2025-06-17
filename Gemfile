@@ -70,3 +70,6 @@ gem "net-smtp" # SMTPプロトコル: 	メールサーバーにメールを送�
 gem "net-pop" # SMTPプロトコル: サーバーにあるメールをローカルにダウンロード（受信用）
 gem "net-imap" # IMAPプロトコル: サーバー上のメールを残したまま受信・管理するプロトコル
 # === end
+
+# MD記法表現のため
+gem "kramdown"

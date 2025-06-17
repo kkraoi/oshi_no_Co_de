@@ -329,6 +329,7 @@ DEPENDENCIES
   dotenv-rails
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
+  kramdown
   listen (~> 3.3)
   mysql2
   net-imap

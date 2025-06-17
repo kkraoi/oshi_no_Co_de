@@ -1,6 +1,7 @@
 <% content_for :title, "投稿｜#{@post.title} by #{@post.user.name}" %>
 <% content_for :head do %>
   <%= stylesheet_link_tag 'public/posts', media: 'all' %>
+  <%= stylesheet_pack_tag "markdown", media: "all" %>
 <% end %>
 <% content_for :foot do %>
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst"></script>
@@ -84,7 +85,7 @@
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">解説</h2>
-            <p><%= simple_format(@post.description) if @post.description.present? %></p>
+            <div class="markdown-body"><%= markdown_to_html(@post.description) if @post.description.present? %></div>
           </div>
         </section>
       </div>

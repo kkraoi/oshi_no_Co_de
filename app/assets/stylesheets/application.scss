@@ -241,3 +241,26 @@ body {
     }
   }
 }
+.markdown-body {
+  padding: 3rem $padding-x;
+  border: 1px solid $d-color-border;
+  border-radius: $radius;
+  h1 {
+    margin-bottom: 4rem !important;
+  }
+  h2 {
+    margin-bottom: 3rem !important;
+  }
+  h3 {
+    margin-bottom: 2rem !important;
+  }
+  li {
+    list-style: inherit;
+  }
+  ul {
+    list-style: initial;
+  }
+  ol {
+    list-style: auto;
+  }
+}
