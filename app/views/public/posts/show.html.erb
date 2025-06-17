@@ -27,7 +27,7 @@
                 <% end %>
               </figure>
               <div class="p-title-wrap">
-                <h1 class="p-title">test</h1>
+                <h1 class="p-title"><%= @post.title %></h1>
               </div>
               <p>
                 <span>投稿日: <%= @post.format_date(:created_at) %></span>

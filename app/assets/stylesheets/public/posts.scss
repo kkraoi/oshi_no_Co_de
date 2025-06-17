@@ -56,6 +56,9 @@
     margin-top: 5rem;
   }
 }
+input[type="hidden"] + .p-codefield{
+  margin-top: 5rem;
+}
 
 // 詳細ページ
 .p-show {
