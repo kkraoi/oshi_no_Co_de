@@ -4,4 +4,5 @@ class Code < ApplicationRecord
 
   validates :name, presence: true
   validates :content, presence: true
+  validates :language_id, presence: true
 end
