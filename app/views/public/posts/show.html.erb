@@ -50,16 +50,31 @@
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">コード</h2>
-            <% @post.codes.each do |code| %>
-              <p><%= "#{code.name}.#{code.language.extension}" %></p>
-              <figure class="js-code u-code">
-                <%# h(): ERB::Util.html_escape の略（XSS防止） %>
-                <pre class="prettyprint js-code-pre"><code><%= h(code.content) %></code></pre>
-                <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
-                  <i class="fa-solid fa-copy"></i>
-                </button>
-              </figure>
-            <% end %>
+            <div class="js-tab">
+              <div class="js-tab-head">
+                <div class="js-tab-head-inner">
+                  <% @post.codes.each do |code| %>
+                    <button type="button" class="js-tab-trigger">
+                      <i class="fa-solid fa-code" style="color: <%= code.language.color %>"></i>
+                      <%= "#{code.name}.#{code.language.extension}" %>
+                    </button>
+                  <% end %>
+                </div>
+              </div>
+              <div class="js-tab-body">
+                <% @post.codes.each do |code| %>
+                  <div class="js-tab-content">
+                    <figure class="js-code u-code">
+                      <%# h(): ERB::Util.html_escape の略（XSS防止） %>
+                      <pre class="prettyprint js-code-pre"><code><%= h(code.content) %></code></pre>
+                      <button class="js-code-copy_btn u-code-copy_btn u-btn-1 type-1 opt-size-s" aria-label="コードをコピーする">
+                        <i class="fa-solid fa-copy"></i>
+                      </button>
+                    </figure>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           </div>
         </section>
       </div>

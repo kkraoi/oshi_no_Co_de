@@ -210,3 +210,34 @@ body {
     transition: translate ease .3s, opacity ease .3s;
   }
 }
+
+.js-tab {
+  &-head {
+    overflow: auto;
+  }
+  &-head-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+  &-trigger {
+    white-space: nowrap;
+    background-color: $d-color-border;
+    padding: 0.5em 1em;
+    border-top-left-radius: $radius;
+    border-top-left-radius: $radius;
+    filter: brightness(60%);
+    &.is-active {
+      filter: initial;
+    }
+  }
+  &-body {
+    background-color: $d-color-border;
+  }
+  &-content {
+    display: none;
+    &.is-active {
+      display: block;
+    }
+  }
+}

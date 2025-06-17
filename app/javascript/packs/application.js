@@ -166,11 +166,40 @@ function setupJump() {
         window.scrollTo({
           top: target.getBoundingClientRect().top + window.pageYOffset,
           behavior: "smooth"
-        })
-      }
-    })
-  })
+        });
+      };
+    });
+  });
+}
+
+/**
+ * タブメニューをセット
+ * @returns {void}
+ */
+function setupTab() {
+  const tabs = document.querySelectorAll(".js-tab");
+  if (tabs.length === 0) return;
   
+  tabs.forEach((tab) => {
+    const triggers = tab.querySelectorAll(".js-tab-trigger");
+    const contents = tab.querySelectorAll(".js-tab-content");
+
+    if (triggers.length > 0 || contents.length > 0) {
+      const ACTIVE_CLASS_NAME = "is-active";
+      triggers[0].classList.add(ACTIVE_CLASS_NAME);
+      contents[0].classList.add(ACTIVE_CLASS_NAME);
+
+      triggers.forEach((trigger, i) => {
+        trigger.addEventListener("click", () => {
+          triggers.forEach(t => t.classList.remove(ACTIVE_CLASS_NAME));
+          contents.forEach(c => c.classList.remove(ACTIVE_CLASS_NAME));
+          
+          trigger.classList.add(ACTIVE_CLASS_NAME);
+          contents[i].classList.add(ACTIVE_CLASS_NAME);
+        });
+      });
+    };
+  });
 }
 
 Rails.start()
@@ -186,4 +215,5 @@ document.addEventListener("turbolinks:load", () => {
   setupCloseToastBtn();
   setupToast();
   setupJump();
+  setupTab();
 });
