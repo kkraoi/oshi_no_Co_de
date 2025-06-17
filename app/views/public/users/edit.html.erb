@@ -93,8 +93,8 @@
             </div>
             <div class="u-diff-item">
               <div class="u-diff-content-full">
-                <%= render 'public/shared/field_error', object: @user, field: :github, placeholder: "例: https://github.com/ユーザー名" %>
-                <%= f.text_field :github, class: "u-field" %>
+                <%= render 'public/shared/field_error', object: @user, field: :github %>
+                <%= f.text_field :github, class: "u-field", placeholder: "例: https://github.com/ユーザー名" %>
               </div>
             </div>
           </div>

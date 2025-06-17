@@ -16,6 +16,7 @@
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">タイトル（必須）</h2>
+            <%= render 'public/shared/field_error', object: @post, field: :title %>
             <%= f.text_field :title, class: "u-field", placeholder: "例: JSでタブメニュー" %>
           </div>
         </section>
@@ -33,7 +34,7 @@
               <% end %>
             </div>
             <div class="u-btn-wrap">
-              <button type="button" id="js-add-code-field" class="u-btn" aria-label="フィールドを追加する">ボタン</button>
+              <button type="button" id="js-add-code-field" class="u-btn" aria-label="フィールドを追加する">追加</button>
             </div>
             <template id="js-code-field-template">
               <%# raw() => テンプレで使うコードをエスケープすると、文字列のまま出力されてしまう。なのでそれを防止する。セキュリティ面: このケースはユーザーが入力する使い方をしていないので、問題ない。 %>
