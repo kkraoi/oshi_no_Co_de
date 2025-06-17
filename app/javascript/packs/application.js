@@ -149,6 +149,30 @@ function setupCopyCode() {
   });
 }
 
+/**
+ * ページ内遷移がターボリンクスの影響により、フォームがリセットされるのを防ぐことを目的として作った
+ * @returns {void}
+ */
+function setupJump() {
+  const triggers = document.querySelectorAll('.js-jump[href^="#"]');
+  if (triggers.length === 0) return
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      const href = trigger.getAttribute("href");
+      const targetID = href.slice(1);
+      const target = document.getElementById(targetID);
+      if (target) {
+        window.scrollTo({
+          top: target.getBoundingClientRect().top + window.pageYOffset,
+          behavior: "smooth"
+        })
+      }
+    })
+  })
+  
+}
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -161,4 +185,5 @@ document.addEventListener("turbolinks:load", () => {
   setupCopyCode();
   setupCloseToastBtn();
   setupToast();
+  setupJump();
 });
