@@ -584,12 +584,12 @@
     }
     &-1 {
       cursor: pointer;
-      min-width: 5rem;
-      min-height: 5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      width: auto;
+      height: 5rem;
+      aspect-ratio: 1 / 1;
+      display: block;
+      text-align: center;
+      line-height: 5rem;
       border-radius: $radius;
       border: 1px solid $d-color-border;
       background-color: $d-color-bg;
@@ -613,13 +613,13 @@
       &.opt {
         &-size{
           &-s {
-            min-width: 3rem;
-            min-height: 3rem;
+            height: 3rem;
+            line-height: 3rem;
             font-size: 1.3rem;
           }
           &-ss {
-            min-width: 2rem;
-            min-height: 2rem;
+            height: 2rem;
+            line-height: 2rem;
             font-size: 1.2rem;
           }
         }
@@ -901,6 +901,12 @@
     background: $d-color-font;
     border: 1px solid $d-color-font-1;
     border-radius: $radius;
+    @include pc {
+      font-size: 1.6rem;
+    }
+    @include sp {
+      font-size: 1.4rem;
+    }
     &::placeholder {
       color: $d-color-font-1;
     }

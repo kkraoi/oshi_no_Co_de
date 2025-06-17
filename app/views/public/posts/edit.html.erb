@@ -1,5 +1,6 @@
 <% content_for :title, "投稿｜#{@post.title}の編集ページ" %>
 <% content_for :head do %>
+  <%= stylesheet_link_tag 'public/posts', media: 'all' %>
 <% end %>
 <% content_for :foot do %>
 <% end %>
@@ -32,7 +33,7 @@
                 <%= render 'code_fields', f: code_fields %>
               <% end %>
             </div>
-            <div class="u-btn-wrap">
+            <div class="u-btn-wrap u-mt-30">
               <button type="button" id="js-add-code-field" class="u-btn" aria-label="フィールドを追加する">追加</button>
             </div>
             <template id="js-code-field-template">

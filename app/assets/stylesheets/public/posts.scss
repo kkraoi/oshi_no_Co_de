@@ -1,6 +1,62 @@
 @import "../base/mixins";
 @import "../base/val";
 
+// 投稿フィールド
+.p-codefield {
+  &-head {
+    display: flex;
+    justify-content: space-between;
+    @include pc {
+      gap: 1.5rem;
+    }
+    @include sp {
+      gap: 1rem;
+    }
+    .u-btn-1 {
+      @include pc {
+        height: 3.64rem;
+        line-height: 3.64rem;
+      }
+      @include sp {
+        height: 3.2rem;
+        line-height: 3.2rem;
+      }
+    }
+  }
+  &-filename{
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    @include pc {
+      font-size: 1.6rem;
+    }
+    @include sp {
+      font-size: 1.4rem;
+    }
+    > * {
+      vertical-align: bottom;
+    }
+    input[type="text"] {
+      flex-grow: 1;
+    }
+    select {
+      width: fit-content;
+    }
+  }
+  &-filename-dot {
+    font-weight: bold; 
+    line-height: 1;
+    padding-left: .75rem;
+    padding-right: .75rem;
+  }
+  &-body {
+    margin-top: 1rem;
+  }
+  + .p-codefield {
+    margin-top: 5rem;
+  }
+}
+
 // 詳細ページ
 .p-show {
   .p-title{
