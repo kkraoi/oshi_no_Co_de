@@ -12,38 +12,46 @@ end
 # 言語
 language_data = [
   # マークアップ言語
-  { extension: 'html', name: 'HTML', color: "#e34c26" },
-  { extension: 'htm',  name: 'HTML', color: "#e34c26" },
-  { extension: 'xhtml', name: 'XHTML', color: "#f7df1e" },
-  { extension: 'xml',  name: 'XML', color: "#005b9f" },
+  { extension: 'html', name: 'HTML', color: "#B25F28" },
+  { extension: 'htm',  name: 'HTML', color: "#B25F28" },
+  { extension: 'xhtml', name: 'XHTML', color: "#AF5E28" },
+  { extension: 'xml',  name: 'XML', color: "#B66129" },
   
   # スタイルシート
   { extension: 'css',  name: 'CSS', color: "#2965f1" },
-  { extension: 'scss', name: 'Sass', color: "#cc6699" },
-  { extension: 'sass', name: 'Sass', color: "#cc6699" },
-  { extension: 'less', name: 'LESS', color: "#1d365d" },
+  { extension: 'scss', name: 'Sass', color: "#AB3C5E" },
+  { extension: 'sass', name: 'Sass', color: "#AB3C5E" },
+  { extension: 'less', name: 'LESS', color: "#3F7790" },
   
   # プログラミング言語
-  { extension: 'rb',   name: 'Ruby', color: "#cc342d" },
-  { extension: 'erb',  name: 'ERB', color: "#cc342d" },
-  { extension: 'js',   name: 'JavaScript', color: "#f7df1e" },
-  { extension: 'ts',   name: 'TypeScript', color: "#3178c6" },
-  { extension: 'php',  name: 'PHP', color: "#777bb4" },
-  { extension: 'py',   name: 'Python', color: "#3776ab" }, 
-  { extension: 'java', name: 'Java', color: "#007396" },
-  { extension: 'kt',   name: 'Kotlin', color: "#7f52ff" },
+  { extension: 'rb',   name: 'Ruby', color: "#A33236" },
+  { extension: 'erb',  name: 'ERB', color: "#A33236" },
+  { extension: 'js',   name: 'JavaScript', color: "#A2A234" },
+  { extension: 'ts',   name: 'TypeScript', color: "#417B95" },
+  { extension: 'php',  name: 'PHP', color: "#805D9D" },
+  { extension: 'py',   name: 'Python', color: "#417B95" }, 
+  { extension: 'java', name: 'Java', color: "#A33236" },
+  { extension: 'kt',   name: 'Kotlin', color: "#B66129" },
+  { extension: 'go',   name: 'Go', color: "#417B95" },
+  { extension: 'rs',   name: 'Rust', color: "#57666B" },
+  { extension: 'c',   name: 'C', color: "#417B95" },
+  { extension: 'cpp',   name: 'C++', color: "#417B95" },
+  { extension: 'cc',   name: 'C++', color: "#417B95" },
+  { extension: 'cxx',   name: 'C++', color: "#417B95" },
+  { extension: 'cs',   name: 'C#', color: "#417B95" },
+  { extension: 'swift',   name: 'Swift', color: "#B66129" },
   
   # データ形式
-  { extension: 'json', name: 'JSON', color: "#ffffff" },
-  { extension: 'yaml', name: 'YAML', color: "#ffffff" },
-  { extension: 'yml',  name: 'YAML', color: "#ffffff" },
-  { extension: 'csv',  name: 'CSV', color: "#237346" },
+  { extension: 'json', name: 'JSON', color: "#A2A234" },
+  { extension: 'yaml', name: 'YAML', color: "#805D9D" },
+  { extension: 'yml',  name: 'YAML', color: "#805D9D" },
+  { extension: 'csv',  name: 'CSV', color: "#719A3A" },
   
   # テキスト/その他
-  { extension: 'txt',  name: 'Plain Text', color: "#cccccc" },
-  { extension: 'md',   name: 'Markdown', color: "#083fa1" },
-  { extension: 'sh',   name: 'Shell Script', color: "#4eaa25" },
-  { extension: 'sql',  name: 'SQL', color: "#dd8a00" }
+  { extension: 'txt',  name: 'Plain Text', color: "#A6A9A8" },
+  { extension: 'md',   name: 'Markdown', color: "#417B95" },
+  { extension: 'sh',   name: 'Shell Script', color: "#719A3A" },
+  { extension: 'sql',  name: 'SQL', color: "#C4426A" }
 ]
 # ActiveRecord::Base.transaction ↓
 # ここでのデータベース操作は「全部成功」か「全部失敗」のどちらか
