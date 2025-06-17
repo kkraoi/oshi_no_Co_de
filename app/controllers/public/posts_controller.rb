@@ -48,7 +48,8 @@ class Public::PostsController < Public::BaseController
   end
   
   def destroy
-    
+    @post.destroy
+    redirect_to posts_path, notice: '投稿を削除しました'
   end
   
   private
