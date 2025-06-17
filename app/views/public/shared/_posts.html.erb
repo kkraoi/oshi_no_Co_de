@@ -15,6 +15,13 @@
         </figure>
         <p class="u-card-date"><%= post.format_date(:created_at) %></p>
         <h2 class="u-card-title"><%= post.title %></h2>
+        <div class="u-card-labels">
+          <% post.unique_languages.each do |language| %>
+            <span class="u-card-label">
+              <i class="fa-solid fa-circle" style="color: <%= language.color %>"></i> <%= language.name %>
+            </span>
+          <% end %>
+        </div>
       <% end %>
     </li>
   <% end %>

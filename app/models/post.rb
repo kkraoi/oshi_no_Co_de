@@ -19,4 +19,18 @@ class Post < ApplicationRecord
   def format_date(attribute = :update_at)
     self[attribute].in_time_zone("Asia/Tokyo").strftime("%Y/%m/%d")
   end
+
+ # 投稿に関連付けられたコードから、重複しない言語（Languageオブジェクト）を抽出する
+  #
+  # 同じ言語名（language.name）を持つ Language は1つだけ返す。
+  # color や extension などの属性もそのまま使える。
+  #
+  # @return [Array<Language>] 言語名が重複しない Language オブジェクトの配列
+  def unique_languages
+    # codes.includes(:language) => N+1問題を防ぐために関連する Language をまとめて事前に読み込む。戻り値はCodeオブジェクトの配列。
+    # .map(&:language) => 戻り値はLanguageオブジェクトの配列を作る。
+    # ↑「&」アンパサンド記法 => .map(&:language) = map { |record| record.language }
+    # .uniq {|lang| lang.name } => 配列の中から、ブロック内のプロパティを基準に重複しない配列を作る。結果、重複しないLanguageオブジェクトの配列となる。
+    codes.includes(:language).map(&:language).uniq {|lang| lang.name }
+  end
 end
