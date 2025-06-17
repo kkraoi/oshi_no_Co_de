@@ -13,7 +13,7 @@
       <h1 class="u-title u-pt-50"><%= @post.title %><br>の編集ページ</h1>
 
       <%# タイトル %>
-      <div class="u-scroll-target" id="test">
+      <div class="u-scroll-target" id="title">
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">タイトル</h2>
@@ -24,7 +24,7 @@
       </div>
 
       <%# コード %>
-      <div class="u-scroll-target" id="test">
+      <div class="u-scroll-target" id="code">
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">コード</h2>
@@ -47,7 +47,7 @@
       </div>
 
       <%# 解説 %>
-      <div class="u-scroll-target" id="test">
+      <div class="u-scroll-target" id="description">
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">解説</h2>
@@ -85,7 +85,13 @@
           <div class="u-side-body">
             <menu class="u-menu">
               <li>
-                <a href="#test">リンク</a>
+                <a href="#title" class="js-jump">タイトル</a>
+              </li>
+              <li>
+                <a href="#code" class="js-jump">コード</a>
+              </li>
+              <li>
+                <a href="#description" class="js-jump">解説</a>
               </li>
             </menu>
           </div>
