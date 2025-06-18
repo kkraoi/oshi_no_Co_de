@@ -8,6 +8,7 @@
 <section class="u-sec">
   <div class="u-inner-3">
     <h1 class="u-title">グループ一覧</h1>
+
     <div class="u-table">
       <table>
         <tbody>
@@ -21,6 +22,12 @@
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="u-btn-wrap u-mt-50">
+      <%= link_to new_group_path, class: 'u-btn' do %>
+        <i class="fa-solid fa-square-plus"></i> グループ作成
+      <% end %>
     </div>
   </div>
 </section>
