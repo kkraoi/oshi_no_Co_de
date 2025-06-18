@@ -12,14 +12,21 @@
     <div class="u-table">
       <table>
         <tbody>
-          <tr>
-            <td>
-              
-            </td>
-            <td>
-              <div class="u-inactive">フォローする</div>
-            </td>
-          </tr>
+          <% @groups.each do |group| %>
+            <tr>
+              <td>
+                <%= link_to group_path(group.id), class: 'u-link' do %>
+                  <%= group.name %>
+                <% end %>
+              </td>
+              <td class="p-table-intro">
+                <%= group.introduction %>
+              </td>
+              <td>
+                <%= group.group_members.count %>人
+              </td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
