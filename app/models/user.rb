@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
+  has_many :group_members, dependent: :destroy
   
   validates :name, presence: true
   validates :password_confirmation, presence: true, if: -> { password.present? }
