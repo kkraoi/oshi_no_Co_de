@@ -1,0 +1,21 @@
+<%# グループ名 %>
+<div class="u-scroll-target" id="name">
+  <section class="u-sec">
+    <div class="u-inner-4">
+      <h2 class="u-title-1">グループ名（必須）</h2>
+      <%= render 'public/shared/field_error', object: group, field: :name %>
+      <%= f.text_field :name, class: "u-field", placeholder: "例: JSでタブメニュー" %>
+    </div>
+  </section>
+</div>
+
+<%# 紹介文 %>
+<div class="u-scroll-target" id="introduction">
+  <section class="u-sec">
+    <div class="u-inner-4">
+      <h2 class="u-title-1">紹介文</h2>
+      <%= render 'public/shared/field_error', object: group, field: :introduction %>
+      <%= f.text_area :introduction, class: "u-field-text_area" %>
+    </div>
+  </section>
+</div>

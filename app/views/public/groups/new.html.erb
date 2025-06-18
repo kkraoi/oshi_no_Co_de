@@ -11,52 +11,18 @@
     <div class="u-col2-main-inner">
       <h1 class="u-title u-pt-50">グループ作成</h1>
 
-      <%# グループ名 %>
-      <div class="u-scroll-target" id="name">
-        <section class="u-sec">
-          <div class="u-inner-4">
-            <h2 class="u-title-1">グループ名（必須）</h2>
-            <%= render 'public/shared/field_error', object: @group, field: :name %>
-            <%= f.text_field :name, class: "u-field", placeholder: "例: JSでタブメニュー" %>
-          </div>
-        </section>
-      </div>
-
-      <%# 紹介文 %>
-      <div class="u-scroll-target" id="introduction">
-        <section class="u-sec">
-          <div class="u-inner-4">
-            <h2 class="u-title-1">紹介文</h2>
-            <%= render 'public/shared/field_error', object: @group, field: :introduction %>
-            <%= f.text_area :introduction, class: "u-field-text_area" %>
-          </div>
-        </section>
-      </div>
+      <%= render 'form_fields', f: f, group: @group %>
     </div>
   </div>
 
   <aside class="u-col2-side">
-    <button type="button" id="js-col2-drawer" class="u-btn-1 type-1 opt-size-s u-col2-drawer" aria-label="サイドメニューを開閉する ">
-      <span class="icon-right">
-        <i class="fa-solid fa-arrow-right"></i>
-      </span>
-      <span class="icon-left">
-        <i class="fa-solid fa-arrow-left"></i>
-      </span>
-    </button>
+    <%= render 'shared/col2_drawer' %>
 
     <div class="u-col2-side-content">
       <div class="u-col2-side-inner">
         <div class="u-side">
           <div class="u-side-body">
-            <menu class="u-menu">
-              <li>
-                <a href="#name" class="js-jump">グループ名</a>
-              </li>
-              <li>
-                <a href="#introduction" class="js-jump">紹介文</a>
-              </li>
-            </menu>
+            <%= render 'form_sidemenu' %>
           </div>
           <div class="u-side-foot">
             <div class="u-btn-wrap">

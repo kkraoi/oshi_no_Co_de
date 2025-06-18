@@ -55,29 +55,22 @@
             <%= f.text_area :description, class: "u-field-text_area" %>
           </div>
         </section>
+      </div>
 
-        <div class="u-pb-80">
-          <div class="u-inner-4">
-            <p class="u-ta-r">
-              <%= link_to post_path(current_user), method: :delete, class: 'u-link type-1', data: { confirm: "投稿を復元することはできませんが、本当に削除しますか？" } do %>
-                投稿を削除する <i class="fa-solid fa-trash"></i>
-              <% end %>
-            </p>
-          </div>
+      <div class="u-pb-80">
+        <div class="u-inner-4">
+          <p class="u-ta-r">
+            <%= link_to post_path(@post.id), method: :delete, class: 'u-link type-1', data: { confirm: "投稿を復元することはできませんが、本当に削除しますか？" } do %>
+              投稿を削除する <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </p>
         </div>
       </div>
     </div>
   </div>
 
   <aside class="u-col2-side">
-    <button type="button" id="js-col2-drawer" class="u-btn-1 type-1 opt-size-s u-col2-drawer" aria-label="サイドメニューを開閉する ">
-      <span class="icon-right">
-        <i class="fa-solid fa-arrow-right"></i>
-      </span>
-      <span class="icon-left">
-        <i class="fa-solid fa-arrow-left"></i>
-      </span>
-    </button>
+    <%= render 'shared/col2_drawer' %>
 
     <div class="u-col2-side-content">
       <div class="u-col2-side-inner">

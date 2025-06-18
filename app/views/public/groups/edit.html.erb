@@ -1,0 +1,47 @@
+<% content_for :title, "グループ｜#{@group.name}の編集ページ" %>
+<% content_for :head do %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+<% content_for :body_class, "" %>
+
+<%= form_with model:@group, url: group_path(@group), method: :patch, local: true do |f| %>
+<div class="u-col2" id="js-col2-root">
+  <div class="u-col2-main">
+    <div class="u-col2-main-inner">
+      <h1 class="u-title u-pt-50"><%= @group.name %><br>の編集ページ</h1>
+
+      <%= render 'form_fields', f: f, group: @group %>
+
+      <div class="u-pb-80">
+        <div class="u-inner-4">
+          <p class="u-ta-r">
+            <%= link_to group_path(@group.id), method: :delete, class: 'u-link type-1', data: { confirm: "投稿を復元することはできませんが、本当に削除しますか？" } do %>
+              グループを削除する <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="u-col2-side">
+    <%= render 'shared/col2_drawer' %>
+
+    <div class="u-col2-side-content">
+      <div class="u-col2-side-inner">
+        <div class="u-side">
+          <div class="u-side-body">
+            <%= render 'form_sidemenu' %>
+          </div>
+          <div class="u-side-foot">
+            <div class="u-btn-wrap">
+              <%= f.submit "編集内容を保存", class: "u-btn opt-size-full" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+<% end %>

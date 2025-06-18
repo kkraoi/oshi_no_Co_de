@@ -29,11 +29,15 @@ class Public::GroupsController < Public::BaseController
   end
   
   def edit
-    
   end
   
   def update
-    
+    if @group.update(group_params)
+      redirect_to group_path(@group.id), notice: "編集に成功しました"
+    else
+      flash.now[:alert] = "編集に失敗しました"
+      render "edit", status: :unprocessable_entity
+    end
   end
   
   def destroy
