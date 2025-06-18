@@ -1,0 +1,109 @@
+<% content_for :title, "グループ｜#{@group.name}" %>
+<% content_for :head do %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+<% content_for :body_class, "" %>
+
+<div class="u-col2" id="js-col2-root">
+  <div class="u-col2-main">
+    <div class="u-col2-main-inner">
+      <%# トップ %>
+      <div class="u-scroll-target" id="top">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h1 class="u-title u-pt-50"><%= @group.name %></h1>
+            <% if @group.introduction.present? %>
+              <div class="u-ta-c"><%= simple_format(@group.introduction) %></div>
+            <% end %>
+          </div>
+        </section>
+      </div>
+
+      <%# メンバー %>
+      <div class="u-scroll-target" id="member">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">メンバー</h2>
+            <ul class="u-users">
+              <% @members.each do |member| %>
+                <li class="u-user">
+                  <%= link_to user_path(member.user.id) do %>
+                    <figure class="u-user-image">
+                      <%= image_tag member.user.get_profile_image,
+                        height: 400,
+                        width: 400,
+                        alt: "ユーザー画像",
+                        class: "",
+                        loading: "lazy"
+                        %>
+                      <figcaption class="u-user-name">
+                        <% if @group.is_owned_by?(member.user) %>
+                          <i class="fa-solid fa-crown"></i>
+                        <% end %>
+                        <%= member.user.name %>
+                      </figcaption>
+                    </figure>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <%# チャット %>
+      <% if @group.is_member?(current_user) %>
+      <div class="u-scroll-target" id="chat">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">チャット</h2>
+          </div>
+        </section>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <aside class="u-col2-side">
+    <button type="button" id="js-col2-drawer" class="u-btn-1 type-1 opt-size-s u-col2-drawer" aria-label="サイドメニューを開閉する ">
+      <span class="icon-right">
+        <i class="fa-solid fa-arrow-right"></i>
+      </span>
+      <span class="icon-left">
+        <i class="fa-solid fa-arrow-left"></i>
+      </span>
+    </button>
+
+    <div class="u-col2-side-content">
+      <div class="u-col2-side-inner">
+        <div class="u-side">
+          <div class="u-side-body">
+            <menu class="u-menu">
+              <li>
+                <a href="#top">TOP</a>
+              </li>
+              <li>
+                <a href="#member">メンバー</a>
+              </li>
+              <% if @group.is_member?(current_user) %>
+                <li>
+                  <a href="#chat">チャット</a>
+                </li>
+              <% end %>
+            </menu>
+          </div>
+          <% if @group.is_owned_by?(current_user) %>
+            <div class="u-side-foot">
+              <div class="u-btn-wrap">
+                <%= link_to edit_group_path(@group.id), class: 'u-btn' do %>
+                <i class="fa-solid fa-gear"></i> 編集する
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>

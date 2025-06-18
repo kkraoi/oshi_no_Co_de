@@ -7,7 +7,8 @@ class Public::GroupsController < Public::BaseController
   end
   
   def show
-    
+    @group = Group.find(params[:id])
+    @members = @group.group_members
   end
   
   def new
@@ -18,6 +19,8 @@ class Public::GroupsController < Public::BaseController
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
     if @group.save
+      # ↓ メンバーにオーナーを加える
+      @group.group_members.create(user_id: @group.owner_id)
       redirect_to group_path(@group), notice: "グループの作成に成功しました"
     else
       flash.now[:alert] = "グループの作成に失敗しました"

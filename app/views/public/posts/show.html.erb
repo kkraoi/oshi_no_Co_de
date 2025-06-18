@@ -34,13 +34,6 @@
                 <span>投稿日: <%= @post.format_date(:created_at) %></span>
                 <span class="u-pl-20">更新日: <%= @post.format_date(:updated_at) %></span>
               </p>
-              <% if @post.user == current_user %>
-                <div>
-                  <%= link_to edit_post_path(@post.id), class: 'u-link' do %>
-                    <i class="fa-solid fa-gear"></i> 編集する 
-                  <% end %>
-                </div>
-              <% end %>
             </div>
           </div>
         </section>
@@ -130,6 +123,15 @@
               </li>
             </menu>
           </div>
+          <% if @post.user == current_user %>
+            <div class="u-side-foot">
+              <div class="u-btn-wrap">
+                <%= link_to edit_post_path(@post.id), class: 'u-btn' do %>
+                  <i class="fa-solid fa-gear"></i> 編集する 
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

@@ -7,7 +7,6 @@ class Group < ApplicationRecord
 
   validates :name, presence: true
 
-  ##
   # 指定したユーザーがこのグループのオーナーかどうかを判定する
   #
   # @param user [User] 判定対象のユーザーオブジェクト
@@ -16,5 +15,15 @@ class Group < ApplicationRecord
   #   - false: ユーザーがオーナーでない場合
   def is_owned_by?(user)
     owner.id == user.id
+  end
+
+  # 指定したユーザーがこのグループのメンバーかどうか判定する
+  #
+  # @param user [User] 判定対象のユーザーオブジェクト
+  # @return [Boolean]
+  #   - true: ユーザーがメンバーである場合
+  #   - false: ユーザーがメンバーでない場合
+  def is_member?(user)
+    users.include?(user)
   end
 end
