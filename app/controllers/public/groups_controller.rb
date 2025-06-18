@@ -3,7 +3,7 @@ class Public::GroupsController < Public::BaseController
   before_action :ensure_correct_user, only: [:update, :edit, :destroy]
 
   def index
-    @group = Group.all
+    @groups = Group.all
   end
   
   def show
@@ -11,11 +11,18 @@ class Public::GroupsController < Public::BaseController
   end
   
   def new
-    
+    @group = Group.new
   end
   
   def create
-    
+    @group = Group.new(group_params)
+    @group.owner_id = current_user.id
+    if @group.save
+      redirect_to group_path(@group), notice: "グループの作成に成功しました"
+    else
+      flash.now[:alert] = "グループの作成に失敗しました"
+      render "new", status: :unprocessable_entity
+    end
   end
   
   def edit

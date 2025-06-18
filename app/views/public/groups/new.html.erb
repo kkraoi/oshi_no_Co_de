@@ -5,15 +5,30 @@
 <% end %>
 <% content_for :body_class, "" %>
 
+<%= form_with model:@group, local: true do |f| %>
 <div class="u-col2" id="js-col2-root">
   <div class="u-col2-main">
     <div class="u-col2-main-inner">
       <h1 class="u-title u-pt-50">グループ作成</h1>
 
-      <div class="u-scroll-target" id="test">
+      <%# グループ名 %>
+      <div class="u-scroll-target" id="name">
         <section class="u-sec">
           <div class="u-inner-4">
-              <h2 class="u-title-1">セクションタイトル</h2>
+            <h2 class="u-title-1">グループ名（必須）</h2>
+            <%= render 'public/shared/field_error', object: @group, field: :name %>
+            <%= f.text_field :name, class: "u-field", placeholder: "例: JSでタブメニュー" %>
+          </div>
+        </section>
+      </div>
+
+      <%# 紹介文 %>
+      <div class="u-scroll-target" id="introduction">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">紹介文</h2>
+            <%= render 'public/shared/field_error', object: @group, field: :introduction %>
+            <%= f.text_area :description, class: "u-field-text_area" %>
           </div>
         </section>
       </div>
@@ -36,13 +51,16 @@
           <div class="u-side-body">
             <menu class="u-menu">
               <li>
-                <a href="#test" class="js-jump">リンク</a>
+                <a href="#name" class="js-jump">グループ名</a>
+              </li>
+              <li>
+                <a href="#introduction" class="js-jump">紹介文</a>
               </li>
             </menu>
           </div>
           <div class="u-side-foot">
             <div class="u-btn-wrap">
-              <a href="" class="u-btn">ボタン</a>
+              <%= f.submit "グループを作成", class: "u-btn opt-size-full" %>
             </div>
           </div>
         </div>
@@ -50,3 +68,4 @@
     </div>
   </aside>
 </div>
+<% end %>
