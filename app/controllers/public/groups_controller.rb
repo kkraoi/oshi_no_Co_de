@@ -41,7 +41,8 @@ class Public::GroupsController < Public::BaseController
   end
   
   def destroy
-    
+    @group.destroy
+    redirect_to groups_path, notice: '投稿を削除しました'
   end
   
   private
@@ -55,7 +56,7 @@ class Public::GroupsController < Public::BaseController
 
   # ユーザをチェック
   def ensure_correct_user
-    @group = Group.find(params[:id])
+    @group = Group.find_by(params[:id])
     unless @group.owner_id == current_user.id
       redirect_to groups_path, alert: "アクセスを禁止しています"
     end

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
     resources :posts
 
-    resources :groups, only: [:new, :index, :show, :create, :edit, :update]
+    resources :groups
   end
 
   # 管理者用認証系 URL /admin/sign_in ...
