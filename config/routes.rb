@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
 
     resources :posts
+
+    resources :groups, only: [:new, :index, :show, :create, :edit, :update]
   end
 
   # 管理者用認証系 URL /admin/sign_in ...
