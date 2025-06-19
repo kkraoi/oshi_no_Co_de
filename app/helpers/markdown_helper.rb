@@ -10,7 +10,7 @@ require 'kramdown'
 module MarkdownHelper
   def markdown_to_html(text)
     return "" if text.blank?
-
+    text
     
   end
 end
