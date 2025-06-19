@@ -10,7 +10,6 @@ require 'kramdown'
 module MarkdownHelper
   def markdown_to_html(text)
     return "" if text.blank?
-    text
-    
+    Kramdown::Document.new(text)
   end
 end
