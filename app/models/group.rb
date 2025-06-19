@@ -5,6 +5,8 @@ class Group < ApplicationRecord
   # ↓ through: 中間テーブルを通した関係の時の表現
   has_many :users, through: :group_members
 
+  has_many :comments, as: :commentable, dependent: :destroy
+
   validates :name, presence: true
 
   # 指定したユーザーがこのグループのオーナーかどうかを判定する

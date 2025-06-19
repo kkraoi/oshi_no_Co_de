@@ -10,6 +10,8 @@ class Post < ApplicationRecord
   # allow_destroy: true: 子モデル（Code）に対して、「削除」のチェックを付けられるようにする。「<%= code_fields.check_box :_destroy %>」で削除フラグを送れる
   accepts_nested_attributes_for :codes, allow_destroy: true
 
+  has_many :comments, as: :commentable, dependent: :destroy
+
   validates :title, presence: true
   
   # 指定された日時属性を日本時間で「YYYY/MM/DD」形式に整形して返す
