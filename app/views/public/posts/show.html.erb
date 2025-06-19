@@ -89,6 +89,13 @@
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">コメント</h2>
+            <div class="u-comment">
+              
+            </div>
+            <%= form_with(model: [@post, Comment.new], url: post_comments_path(@post), local: true, class: "u-comment-form") do |f| %>
+              <%= f.text_field :content, class: 'u-field', placeholder: '内容を入力してください.' %>
+              <%= f.submit '送信', class: 'u-btn opt-size-ss' %>
+            <% end %>
           </div>
         </section>
       </div>
