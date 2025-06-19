@@ -90,7 +90,35 @@
           <div class="u-inner-4">
             <h2 class="u-title-1">コメント</h2>
             <div class="u-comment">
-              
+              <% @comments.each do |comment| %>
+                <div class="u-comment-item <%= comment.user.name %>">
+                  <figure>
+                    <%= image_tag comment.user.get_profile_image,
+                        loading: "lazy",
+                        height: 30,
+                        width: 30,
+                        alt: "ユーザープロフィール画像",
+                        class: "" %>
+                  </figure>
+                  <div>
+                    <p class="u-comment-meta">
+                      <%= comment.user.name %>
+                      <%= l(comment.created_at, format: :short) %>
+                    </p>
+                    <div class="u-comment-content">
+                      <p class="u-comment-text"><%= comment.content %></p>
+                      <%= link_to root_path, class: '', title: "このコメントを通報する", data: { confirm: "このコメントを本当に通報しますか？" } do %>
+                        <i class="fa-solid fa-ban"></i>
+                      <% end %>
+                      <% if current_user == comment.user %>
+                        <%= link_to root_path, class: '', title: "このコメントを削除する", data: { confirm: "このコメントを本当に削除しますか？" } do %>
+                          <i class="fa-solid fa-trash"></i>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             </div>
             <%= form_with(model: [@post, Comment.new], url: post_comments_path(@post), local: true, class: "u-comment-form") do |f| %>
               <%= f.text_field :content, class: 'u-field', placeholder: '内容を入力してください.' %>
