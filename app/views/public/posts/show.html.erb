@@ -1,10 +1,11 @@
 <% content_for :title, "投稿｜#{@post.title} by #{@post.user.name}" %>
 <% content_for :head do %>
   <%= stylesheet_link_tag 'public/posts', media: 'all' %>
-  <%= stylesheet_pack_tag "markdown", media: "all" %>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css" integrity="sha512-BrOPA520KmDMqieeM7XFe6a3u3Sb3F1JBaQnrIAmWg3EYrciJ+Qqe6ZcKCdfPv26rGcgTrJnZ/IdQEct8h3Zhw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <% end %>
 <% content_for :foot do %>
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst"></script>
+  
 <% end %>
 
 <div class="u-col2 p-show" id="js-col2-root">
