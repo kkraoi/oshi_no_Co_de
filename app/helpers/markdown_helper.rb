@@ -12,6 +12,7 @@ module MarkdownHelper
     return "" if text.blank?
     Kramdown::Document.new(
       text,
+      input: 'GFM',
       auto_ids: true,
       hard_wrap: false
     ).to_html.html_safe

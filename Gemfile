@@ -73,3 +73,4 @@ gem "net-imap" # IMAPプロトコル: サーバー上のメールを残したま
 
 # MD記法表現のため
 gem "kramdown"
+gem 'kramdown-parser-gfm'

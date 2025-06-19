@@ -330,6 +330,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   kramdown
+  kramdown-parser-gfm
   listen (~> 3.3)
   mysql2
   net-imap
