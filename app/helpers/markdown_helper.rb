@@ -10,6 +10,11 @@ require 'kramdown'
 module MarkdownHelper
   def markdown_to_html(text)
     return "" if text.blank?
-    Kramdown::Document.new(text).to_html.html_safe
+    Kramdown::Document.new(
+      text,
+      input: 'gfm',        # ✳️ 一部のバージョンでは 'gfm' 小文字しか通らない
+      auto_ids: true,
+      hard_wrap: false,
+    ).to_html.html_safe
   end
 end
