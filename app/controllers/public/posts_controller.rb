@@ -28,6 +28,7 @@ class Public::PostsController < Public::BaseController
     else
       @languages = Language.order(:extension)
       flash.now[:alert] = "投稿に失敗しました"
+      # status: :unprocessable_entity: バリデーションを必要とするアクションで使う
       # ↓フォームのエラーステータス（422）が返る
       render "new", status: :unprocessable_entity
     end
@@ -48,8 +49,11 @@ class Public::PostsController < Public::BaseController
   end
   
   def destroy
-    @post.destroy
-    redirect_to posts_path, notice: '投稿を削除しました'
+    if @post.destroy
+      redirect_to posts_path, notice: '投稿を削除しました'
+    else
+      render "edit", alert: "投稿の削除に失敗しました"
+    end
   end
   
   private

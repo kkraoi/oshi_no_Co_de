@@ -534,7 +534,6 @@
     display: block;
     line-height: 1.4;
     background-color: $blue;
-    cursor: pointer;
     border-radius: $radius;
     width: fit-content;
     font-size: 1.6rem;
@@ -542,7 +541,6 @@
     text-align: center;
     padding: 1em;
     box-sizing: border-box;
-    cursor: pointer;
     @include hover {
       filter: brightness($dark);
     }

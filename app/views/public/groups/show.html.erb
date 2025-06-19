@@ -48,6 +48,19 @@
                 </li>
               <% end %>
             </ul>
+            <div class="u-btn-wrap u-mt-50">
+              <% if @group.is_owned_by?(current_user) %>
+                <strong>あなたは オーナー です<i class="fa-solid fa-crown"></i></strong>
+              <% elsif @group.member?(current_user) %>
+                <%= link_to group_group_members_path(@group.id), method: :delete, class: 'u-btn opt-size-ss u-bg-red' do %>
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i> 退会する
+                <% end %>
+              <% else %>
+                <%= link_to group_group_members_path(@group.id), method: :post, class: 'u-btn opt-size-ss' do %>
+                  <i class="fa-solid fa-arrow-right-to-bracket"></i> 参加する
+                <% end %>
+              <% end %>
+            </div>
           </div>
         </section>
       </div>
