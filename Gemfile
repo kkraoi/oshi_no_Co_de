@@ -73,4 +73,5 @@ gem "net-imap" # IMAPプロトコル: サーバー上のメールを残したま
 
 # MD記法表現のため
 gem "kramdown"
+# ↓ これがないと本番環境でkramdownの「input: 'GFM'」オプションが使えない
 gem 'kramdown-parser-gfm'
