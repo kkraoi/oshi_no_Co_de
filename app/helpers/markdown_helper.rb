@@ -12,9 +12,7 @@ module MarkdownHelper
     return "" if text.blank?
     Kramdown::Document.new(
       text,
-      input: 'gfm',        # ✳️ 一部のバージョンでは 'gfm' 小文字しか通らない
-      auto_ids: true,
-      hard_wrap: false,
+      input: 'gfm'
     ).to_html.html_safe
   end
 end
