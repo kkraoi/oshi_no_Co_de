@@ -33,6 +33,11 @@ class Public::UsersController < Public::BaseController
     @posts = @user.posts
   end
   
+  def groups
+    @user = User.find(params[:id])
+    @groups = @user.groups
+  end
+  
   private
 
   def user_params

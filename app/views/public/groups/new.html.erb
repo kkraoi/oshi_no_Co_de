@@ -1,18 +1,17 @@
-<% content_for :title, "投稿｜コード投稿" %>
+<% content_for :title, "グループ｜作成" %>
 <% content_for :head do %>
-  <%= stylesheet_link_tag 'public/posts', media: 'all' %>
 <% end %>
 <% content_for :foot do %>
 <% end %>
-<% content_for :body_class, "js-posts-new" %>
+<% content_for :body_class, "" %>
 
-<%= form_with model:@post, local: true do |f| %>
+<%= form_with model:@group, local: true do |f| %>
 <div class="u-col2" id="js-col2-root">
   <div class="u-col2-main">
     <div class="u-col2-main-inner">
-      <h1 class="u-title u-pt-50">コード投稿</h1>
+      <h1 class="u-title u-pt-50">グループ作成</h1>
 
-      <%= render 'form_fields', f: f, post: @post %>
+      <%= render 'form_fields', f: f, group: @group %>
     </div>
   </div>
 
@@ -27,7 +26,7 @@
           </div>
           <div class="u-side-foot">
             <div class="u-btn-wrap">
-              <%= f.submit "投稿する", class: "u-btn opt-size-full" %>
+              <%= f.submit "グループを作成", class: "u-btn opt-size-full" %>
             </div>
           </div>
         </div>

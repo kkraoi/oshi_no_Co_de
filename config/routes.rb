@@ -16,9 +16,14 @@ Rails.application.routes.draw do
 
     # as:によってprefixができる
     get "/users/:id/posts", to: "users#posts", as: "user_posts"
+    get "/users/:id/groups", to: "users#groups", as: "user_groups"
     resources :users, only: [:index, :show, :edit, :update, :destroy]
 
     resources :posts
+
+    resources :groups do
+      resource :group_members, only: [:create, :destroy]
+    end
   end
 
   # 管理者用認証系 URL /admin/sign_in ...

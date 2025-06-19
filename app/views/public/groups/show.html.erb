@@ -1,0 +1,115 @@
+<% content_for :title, "グループ｜#{@group.name}" %>
+<% content_for :head do %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+<% content_for :body_class, "" %>
+
+<div class="u-col2" id="js-col2-root">
+  <div class="u-col2-main">
+    <div class="u-col2-main-inner">
+      <%# トップ %>
+      <div class="u-scroll-target" id="top">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h1 class="u-title u-pt-50"><%= @group.name %></h1>
+            <% if @group.introduction.present? %>
+              <div class="u-ta-c"><%= simple_format(@group.introduction) %></div>
+            <% end %>
+          </div>
+        </section>
+      </div>
+
+      <%# メンバー %>
+      <div class="u-scroll-target" id="member">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">メンバー</h2>
+            <ul class="u-users">
+              <% @members.each do |member| %>
+                <li class="u-user">
+                  <%= link_to user_path(member.user.id) do %>
+                    <figure class="u-user-image">
+                      <%= image_tag member.user.get_profile_image,
+                        height: 400,
+                        width: 400,
+                        alt: "ユーザー画像",
+                        class: "",
+                        loading: "lazy"
+                        %>
+                      <figcaption class="u-user-name">
+                        <% if @group.is_owned_by?(member.user) %>
+                          <i class="fa-solid fa-crown"></i>
+                        <% end %>
+                        <%= member.user.name %>
+                      </figcaption>
+                    </figure>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+            <div class="u-btn-wrap u-mt-50">
+              <% if @group.is_owned_by?(current_user) %>
+                <strong>あなたは オーナー です <i class="fa-solid fa-crown"></i></strong>
+              <% elsif @group.member?(current_user) %>
+                <%= link_to group_group_members_path(@group.id), method: :delete, class: 'u-btn opt-size-ss u-bg-red' do %>
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i> 退会する
+                <% end %>
+              <% else %>
+                <%= link_to group_group_members_path(@group.id), method: :post, class: 'u-btn opt-size-ss' do %>
+                  <i class="fa-solid fa-arrow-right-to-bracket"></i> 参加する
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <%# チャット %>
+      <% if @group.member?(current_user) %>
+      <div class="u-scroll-target" id="chat">
+        <section class="u-sec">
+          <div class="u-inner-4">
+            <h2 class="u-title-1">チャット</h2>
+          </div>
+        </section>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <aside class="u-col2-side">
+    <%= render 'shared/col2_drawer' %>
+
+    <div class="u-col2-side-content">
+      <div class="u-col2-side-inner">
+        <div class="u-side">
+          <div class="u-side-body">
+            <menu class="u-menu">
+              <li>
+                <a href="#top">TOP</a>
+              </li>
+              <li>
+                <a href="#member">メンバー</a>
+              </li>
+              <% if @group.member?(current_user) %>
+                <li>
+                  <a href="#chat">チャット</a>
+                </li>
+              <% end %>
+            </menu>
+          </div>
+          <% if @group.is_owned_by?(current_user) %>
+            <div class="u-side-foot">
+              <div class="u-btn-wrap">
+                <%= link_to edit_group_path(@group.id), class: 'u-btn opt-size-full' do %>
+                <i class="fa-solid fa-gear"></i> 編集する
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>

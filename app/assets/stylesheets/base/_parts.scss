@@ -534,7 +534,6 @@
     display: block;
     line-height: 1.4;
     background-color: $blue;
-    cursor: pointer;
     border-radius: $radius;
     width: fit-content;
     font-size: 1.6rem;
@@ -542,7 +541,6 @@
     text-align: center;
     padding: 1em;
     box-sizing: border-box;
-    cursor: pointer;
     @include hover {
       filter: brightness($dark);
     }
@@ -1226,6 +1224,33 @@
           align-items: center;
         }
       }
+    }
+  }
+
+  &user {
+    &s {
+      display: grid;
+      gap: $padding-x;
+      @include pc {
+        grid-template-columns: repeat(6, 1fr);
+      }
+      @include sp {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+    &-image {
+      border-radius: 1rem;
+      img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    &-name {
+      text-align: center;
+      margin-top: 1rem;
     }
   }
 }
