@@ -23,7 +23,7 @@ class Group < ApplicationRecord
   # @return [Boolean]
   #   - true: ユーザーがメンバーである場合
   #   - false: ユーザーがメンバーでない場合
-  def is_member?(user)
-    users.include?(user)
+  def member?(user)
+    group_members.exists?(user_id: user.id)
   end
 end
