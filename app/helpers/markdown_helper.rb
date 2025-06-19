@@ -13,10 +13,7 @@ module MarkdownHelper
 
     Kramdown::Document.new(
       text,
-      input: 'GFM',
-      auto_ids: true,
-      hard_wrap: false,
-      syntax_highlighter: nil
+      input: 'GFM'
     ).to_html.html_safe
   end
 end
