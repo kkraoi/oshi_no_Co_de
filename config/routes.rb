@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
     # as:によってprefixができる
     get "/users/:id/posts", to: "users#posts", as: "user_posts"
+    get "/users/:id/groups", to: "users#groups", as: "user_groups"
     resources :users, only: [:index, :show, :edit, :update, :destroy]
 
     resources :posts
