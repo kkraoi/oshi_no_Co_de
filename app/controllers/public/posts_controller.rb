@@ -70,7 +70,7 @@ class Public::PostsController < Public::BaseController
 
   # ユーザをチェック
   def ensure_correct_user
-    @post = Post.find_by(params[:id])
+    @post = Post.find(params[:id])
     @user = User.find(@post.user.id)
     unless @user == current_user
       redirect_to user_path(current_user), alert: "アクセスを禁止しています"
