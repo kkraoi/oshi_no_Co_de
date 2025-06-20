@@ -3,7 +3,9 @@ class Public::UsersController < Public::BaseController
   before_action :ensure_correct_user, only: [:update, :edit, :destroy]
 
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    # distinct: true => SQLのJOINが発生する場合、重複行を除去する
+    @users = @q.result(distinct: true)
   end
   
   def show

@@ -75,3 +75,6 @@ gem "net-imap" # IMAPプロトコル: サーバー上のメールを残したま
 gem "kramdown"
 # ↓ これがないと本番環境でkramdownの「input: 'GFM'」オプションが使えない
 gem 'kramdown-parser-gfm'
+
+# 検索機能実装
+gem "ransack"

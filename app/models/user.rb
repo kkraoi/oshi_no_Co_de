@@ -23,4 +23,11 @@ class User < ApplicationRecord
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'default-profile_image.png'
   end
+
+  # 検索しても良いカラムを明示する
+  # auth_object => 検索を実行しているユーザーの情報を入れる。
+  # auth_object = nil => ログインしてない人でも検索可能になる。
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name created_at]
+  end
 end

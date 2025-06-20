@@ -8,6 +8,13 @@
   <div class="u-inner-1">
       <h1 class="u-title">ユーザー一覧</h1>
 
+      <%# search_form_for => ransackが提供するヘルパー %>
+      <%= search_form_for @q, url: users_path, method: :get do |f| %>
+        <%# 属性名_cont => 属性名を部分検索、contains valueの意 %>
+        <%= f.search_field :name_cont %>
+        <%= f.submit "検索" %>
+      <% end %>
+
       <div class="u-table">
         <table>
           <tbody>
