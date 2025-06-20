@@ -9,6 +9,7 @@ class Public::GroupsController < Public::BaseController
   def show
     @group = Group.find(params[:id])
     @members = @group.group_members
+    @comments = @group.comments.includes(:user)
   end
   
   def new
