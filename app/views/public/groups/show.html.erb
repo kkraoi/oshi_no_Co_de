@@ -67,7 +67,7 @@
 
       <%# チャット %>
       <% if @group.member?(current_user) %>
-      <div class="u-scroll-target" id="chat">
+      <div class="u-scroll-target" id="groupchat">
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">チャット</h2>
@@ -99,7 +99,7 @@
               </li>
               <% if @group.member?(current_user) %>
                 <li>
-                  <a href="#chat">チャット</a>
+                  <a href="#groupchat">グループチャット</a>
                 </li>
               <% end %>
             </menu>

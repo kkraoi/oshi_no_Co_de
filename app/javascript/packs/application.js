@@ -203,7 +203,7 @@ function setupTab() {
 }
 
 function chatScrollTop() {
-  const chatWrap = document.getElementById("js-chat-wrap");
+  const chatWrap = document.getElementById("chat");
   if (!chatWrap) return;
   chatWrap.scrollTop = chatWrap.scrollHeight;
 }

@@ -34,8 +34,9 @@ class Public::CommentsController < Public::BaseController
 
     # 自分のコメントかチェック
     if @comment.user == current_user
+      commentable = @comment.commentable
       @comment.destroy
-      redirect_back fallback_location: root_path, notice: "コメントを削除しました"
+      redirect_to polymorphic_path(commentable, anchor: 'chat'), notice: 'コメントを削除しました'
     else
       redirect_back fallback_location: root_path, alert: "権限がありません"
     end
