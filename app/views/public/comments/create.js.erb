@@ -1,0 +1,13 @@
+(() => {
+  // チャットリストの末尾にコメント部分テンプレを追加する
+  const chatList = document.getElementById("js-chat-list");
+  chatList.insertAdjacentHTML("beforeend", "<%= j render partial: 'public/comments/comment', locals: { comment: @comment, current_user: current_user, commentable: @commentable } %>");
+  
+  // テキストエリアを空にする
+  const chatTextarea = document.querySelector("textarea#js-chat-textare");
+  chatTextarea.value = "";
+
+  // スクロール最下部に移動
+  const chatWrap = document.getElementById("js-chat-wrap");
+  chatWrap.scrollTop = chatWrap.scrollHeight;
+})();

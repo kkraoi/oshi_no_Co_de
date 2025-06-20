@@ -10,15 +10,22 @@ class Public::CommentsController < Public::BaseController
     @comment.user = current_user
 
     if @comment.save
-      # polymorphic_path => オブジェクトに応じたURLを自動生成する。
-      redirect_to polymorphic_path(@commentable), notice: 'コメントを投稿しました'
+      respond_to do |format|
+        # polymorphic_path => オブジェクトに応じたURLを自動生成する。
+        format.html { redirect_to polymorphic_path(@commentable), notice: 'コメントを投稿しました' }
+        format.js
+      end
     else
-      flash[:alert] = "コメントの投稿に失敗しました"
-
-      # redirect_back => 「直前のページ（リファラー）」にリダイレクトするためのRailsのメソッド。
-      # fallback_location => リファラー（元のページ）が見つからなかったときの代わりの行き先。
-      # redirect_to request.refererとの違い => request.refererは HTTPリクエストヘッダー Referer をそのまま使うが、それがない場合エラーになる。redirect_backはReferer がなければ fallback_location: に戻る。
-      redirect_back fallback_location: root_path
+      respond_to do |format|
+        format.html {
+          flash[:alert] = "コメントの投稿に失敗しました"
+          # redirect_back => 「直前のページ（リファラー）」にリダイレクトするためのRailsのメソッド。
+          # fallback_location => リファラー（元のページ）が見つからなかったときの代わりの行き先。
+          # redirect_to request.refererとの違い => request.refererは HTTPリクエストヘッダー Referer をそのまま使うが、それがない場合エラーになる。redirect_backはReferer がなければ fallback_location: に戻る。
+          redirect_back fallback_location: root_path
+        }
+        format.js
+      end
     end
   end
   

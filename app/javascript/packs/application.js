@@ -202,6 +202,12 @@ function setupTab() {
   });
 }
 
+function chatScrollTop() {
+  const chatWrap = document.getElementById("js-chat-wrap");
+  if (!chatWrap) return;
+  chatWrap.scrollTop = chatWrap.scrollHeight;
+}
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -216,4 +222,5 @@ document.addEventListener("turbolinks:load", () => {
   setupToast();
   setupJump();
   setupTab();
+  chatScrollTop()
 });

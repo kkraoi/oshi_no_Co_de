@@ -1,0 +1,18 @@
+<div class="u-chat-container">
+  <div class="u-chat" id="js-chat-wrap">
+    <ul class="u-chat-list" id="js-chat-list">
+      <%# 【部分テンプレートの繰り返し表現】%>
+      <%# partial: ループする部分テンプレートのパス %>
+      <%# collection: ループさせたい配列 %>
+      <%# as: 各要素をテンプレート内で参照する変数名 %>
+      <%# locals: ローカル変数としてテンプレートに渡す値 %>
+      <%= render partial: 'public/comments/comment', collection: comments, as: :comment, locals: { current_user: current_user, commentable: commentable } %>
+    </ul>
+  </div>
+  <%= form_with(model: [commentable, Comment.new], url: form_url, local: false, class: "u-chat-form") do |f| %>
+    <%= f.text_area :content, class: 'u-field', id: "js-chat-textare", placeholder: '内容を入力してください。' %>
+    <div class="u-btn-wrap opt-right u-mt-5">
+      <%= f.submit '送信', class: 'u-btn opt-size-ss' %>
+    </div>
+  <% end %>
+</div>
