@@ -8,6 +8,8 @@ class Public::PostsController < Public::BaseController
   
   def show
     @post = Post.find(params[:id])
+    # .includes(:user) => N+1問題の対処、コメントと一緒に投稿者情報も取得
+    @comments = @post.comments.includes(:user)
   end
   
   def new

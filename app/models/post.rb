@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  include FormattableDate
+
   belongs_to :user
 
   # inverse_of: :post => 通常、code.postを呼び出す場合、post_idをもとにDBに問い合わせるが、inverse_of: :postを設定することで、メモリ上にある@postオブジェクトを使って呼び出すようになり、再見込みをせず、無駄なSQLを発行しないようになる。
@@ -10,16 +12,10 @@ class Post < ApplicationRecord
   # allow_destroy: true: 子モデル（Code）に対して、「削除」のチェックを付けられるようにする。「<%= code_fields.check_box :_destroy %>」で削除フラグを送れる
   accepts_nested_attributes_for :codes, allow_destroy: true
 
+  has_many :comments, as: :commentable, dependent: :destroy
+
   validates :title, presence: true
   
-  # 指定された日時属性を日本時間で「YYYY/MM/DD」形式に整形して返す
-  #
-  # @param attribute [Symbol] 整形対象の日付属性。デフォルトは :updated_at
-  # @return [String] フォーマット済みの日付（例: "2025/06/15"）
-  def format_date(attribute = :update_at)
-    self[attribute].in_time_zone("Asia/Tokyo").strftime("%Y/%m/%d")
-  end
-
  # 投稿に関連付けられたコードから、重複しない言語（Languageオブジェクト）を抽出する
   #
   # 同じ言語名（language.name）を持つ Language は1つだけ返す。

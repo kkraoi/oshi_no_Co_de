@@ -89,6 +89,48 @@
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">コメント</h2>
+            <div class="u-chat-container">
+              <div class="u-chat">
+                <ul class="u-chat-list">
+                  <% @comments.each do |comment| %>
+                    <li class="u-chat-item <%= "is-me" if comment.user == current_user %>">
+                      <figure class="u-chat-userimg">
+                        <%= image_tag comment.user.get_profile_image,
+                            loading: "lazy",
+                            height: 30,
+                            width: 30,
+                            alt: "ユーザープロフィール画像",
+                            class: "" %>
+                      </figure>
+                      <div class="u-chat-content">
+                        <div class="u-chat-meta">
+                          <div class="u-chat-meta-left">
+                            <p class="u-chat-username"><%= comment.user.name %></p>
+                            <p class="u-chat-date"><%= comment.format_date(:created_at) %></p>
+                          </div>
+                          <div class="u-chat-meta-right">
+                            <% if current_user == comment.user %>
+                              <%= link_to post_comment_path(@post, comment), method: :delete, class: 'u-link type-1', title: "このコメントを削除する", data: { confirm: "このコメントを本当に削除しますか？" } do %><i class="fa-solid fa-trash"></i><% end %>
+                            <% else %>
+                              <%= link_to root_path, class: 'u-link type-1', title: "このコメントを通報する", data: { confirm: "このコメントを本当に通報しますか？" } do %><i class="fa-solid fa-ban"></i><% end %>
+                            <% end %>
+                          </div>
+                        </div>
+                        <div class="u-chat-comment">
+                          <div class="u-chat-text"><%= simple_format(comment.content) %></div>
+                        </div>
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+              <%= form_with(model: [@post, Comment.new], url: post_comments_path(@post), local: true, class: "u-chat-form") do |f| %>
+                <%= f.text_area :content, class: 'u-field', placeholder: '内容を入力してください。' %>
+                <div class="u-btn-wrap opt-right u-mt-5">
+                  <%= f.submit '送信', class: 'u-btn opt-size-ss' %>
+                </div>
+              <% end %>
+            </div>
           </div>
         </section>
       </div>

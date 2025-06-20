@@ -19,10 +19,13 @@ Rails.application.routes.draw do
     get "/users/:id/groups", to: "users#groups", as: "user_groups"
     resources :users, only: [:index, :show, :edit, :update, :destroy]
 
-    resources :posts
+    resources :posts do
+      resources :comments, only: [:create, :destroy]
+    end
 
     resources :groups do
       resource :group_members, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
     end
   end
 

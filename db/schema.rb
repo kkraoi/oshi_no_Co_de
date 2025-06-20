@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_06_18_081300) do
+ActiveRecord::Schema.define(version: 2025_06_19_113916) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 2025_06_18_081300) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["language_id"], name: "index_codes_on_language_id"
     t.index ["post_id"], name: "index_codes_on_post_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "commentable_type", null: false
+    t.integer "commentable_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "group_members", force: :cascade do |t|
@@ -118,6 +129,7 @@ ActiveRecord::Schema.define(version: 2025_06_18_081300) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "codes", "languages"
   add_foreign_key "codes", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "group_members", "groups"
   add_foreign_key "group_members", "users"
   add_foreign_key "posts", "users"
