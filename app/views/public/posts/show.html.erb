@@ -111,7 +111,7 @@
                         <i class="fa-solid fa-ban"></i>
                       <% end %>
                       <% if current_user == comment.user %>
-                        <%= link_to root_path, class: '', title: "このコメントを削除する", data: { confirm: "このコメントを本当に削除しますか？" } do %>
+                        <%= link_to post_comment_path(@post, comment), method: :delete, class: '', title: "このコメントを削除する", data: { confirm: "このコメントを本当に削除しますか？" } do %>
                           <i class="fa-solid fa-trash"></i>
                         <% end %>
                       <% end %>
