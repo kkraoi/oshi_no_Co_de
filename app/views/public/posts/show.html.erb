@@ -103,7 +103,7 @@
                   <div>
                     <p class="u-comment-meta">
                       <%= comment.user.name %>
-                      <%= l(comment.created_at, format: :short) %>
+                      <%= comment.format_date(:created_at) %>
                     </p>
                     <div class="u-comment-content">
                       <p class="u-comment-text"><%= comment.content %></p>
