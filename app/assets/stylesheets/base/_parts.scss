@@ -1298,16 +1298,14 @@
       line-height: 1;
     }
     &-meta-left{
-      width: 100%;
-      display: flex;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 1rem;
     }
     &-meta-right{
       .u-link.type-1 {
         font-size: 1.2rem;
       }
+    }
+    &-username {
+      margin-bottom: 0.5rem;
     }
     &-date {
       font-size: 1rem;
