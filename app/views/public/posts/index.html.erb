@@ -5,8 +5,11 @@
 <% end %>
 
 <section class="u-sec">
+  <h1 class="u-title">コード一覧</h1>
+  <div class="u-inner-1">
+    <%= render 'public/shared/search_post', url: posts_path %>
+  </div>
   <div class="u-inner-3">
-    <h1 class="u-title">コード一覧</h1>
     <%= render 'public/shared/posts', posts: @posts %>
     <div class="u-btn-wrap u-mt-50">
       <%= link_to new_post_path, class: "u-btn" do %>

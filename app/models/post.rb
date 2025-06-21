@@ -29,4 +29,8 @@ class Post < ApplicationRecord
     # .uniq {|lang| lang.name } => 配列の中から、ブロック内のプロパティを基準に重複しない配列を作る。結果、重複しないLanguageオブジェクトの配列となる。
     codes.includes(:language).map(&:language).uniq {|lang| lang.name }
   end
+  
+  def self.ransackable_attributes(auth_object = nil)
+    %w[title created_at]
+  end
 end
