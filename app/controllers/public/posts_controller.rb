@@ -5,6 +5,9 @@ class Public::PostsController < Public::BaseController
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true)
+    # .distinct.pluck(:name) => :nameが重複しないように
+    # .compact => 
+    @language_names = Language.distinct.pluck(:name).compact
   end
   
   def show
