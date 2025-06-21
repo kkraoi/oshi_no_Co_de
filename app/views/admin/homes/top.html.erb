@@ -10,7 +10,7 @@
     <div class="u-inner-1">
         <h1 class="u-title">ユーザー一覧</h1>
         
-        <%= render 'shared/search_user', url: users_path, placeholder: "ユーザー名を入力してください。" %>
+        <%= render 'shared/search_user', url: admin_root_path, placeholder: "ユーザー名を入力してください。" %>
 
         <div class="u-table-1 u-ta-c">
           <table>
@@ -27,7 +27,7 @@
                   <td>
                     <figure class="u-pf-wrap">
                       <%= link_to user_path(user.id) do %>
-                        <%= image_tag "default-profile_image.png",
+                        <%= image_tag user.get_profile_image,
                           loading: "lazy",
                           height: 30,
                           width: 30,

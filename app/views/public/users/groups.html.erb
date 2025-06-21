@@ -9,7 +9,7 @@
   <div class="u-inner-1">
     <h1 class="u-title"><%= @user.name %>の参加グループ</h1>
 
-    <%= render 'shared/search_user', url: groups_path, placeholder: "グループ名を入力してください。" %>
+    <%= render 'shared/search_user', url: user_groups_path(@user), placeholder: "グループ名を入力してください。" %>
 
     <div class="u-table">
       <table>
