@@ -2,11 +2,12 @@
   <%= f.search_field :title_cont, class: "u-field", placeholder: "投稿のタイトルを入力してください。" %>
 
   <div class="u-checkbox-group">
-    <% @language_names.each do |name| %>
+    <% @languages.each do |lang| %>
       <label class="u-checkbox">
-        <%= check_box_tag "q[codes_language_name_in][]", name,
-          Array(params.dig(:q, :codes_language_name_in)).include?(name) %>
-        <%= name %>
+        <%= check_box_tag "q[codes_language_name_in][]", lang.name,
+          Array(params.dig(:q, :codes_language_name_in)).include?(lang.name) %>
+          <%= lang.name %>
+          <i class="fa-solid fa-code" style="color: <%= lang.color %>"></i>
       </label>
     <% end %>
   </div>
