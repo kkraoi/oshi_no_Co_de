@@ -1297,8 +1297,6 @@
       margin-bottom: 0.5rem;
       line-height: 1;
     }
-    &-meta-left{
-    }
     &-meta-right{
       .u-link.type-1 {
         font-size: 1.2rem;
@@ -1336,6 +1334,16 @@
     }
     &-form {
       margin-top: 3rem;
+    }
+  }
+
+  // 検索フォーム
+  &search {
+    display: flex;
+    gap: 1rem;
+    .u-btn {
+      min-width: 10rem;
+      flex-shrink: 0;
     }
   }
 }

@@ -9,10 +9,10 @@
       <h1 class="u-title">ユーザー一覧</h1>
 
       <%# search_form_for => ransackが提供するヘルパー %>
-      <%= search_form_for @q, url: users_path, method: :get do |f| %>
+      <%= search_form_for @q, url: users_path, method: :get, class: "u-search u-mb-50" do |f| %>
         <%# 属性名_cont => 属性名を部分検索、contains valueの意 %>
-        <%= f.search_field :name_cont %>
-        <%= f.submit "検索" %>
+        <%= f.search_field :name_cont, class: "u-field", placeholder: "ユーザー名を入力してください。" %>
+        <%= f.submit "検索", class: "u-btn opt-size-s" %>
       <% end %>
 
       <div class="u-table">
