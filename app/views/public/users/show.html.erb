@@ -52,11 +52,13 @@
             <i class="fa-solid fa-code"></i> コード一覧
           <% end %>
         </li>
-        <li>
-          <%= link_to user_groups_path(current_user.id) do %>
-            <i class="fa-solid fa-users"></i> グループ一覧
-          <% end %>
-        </li>
+        <% if @user == current_user %>
+          <li>
+              <%= link_to user_groups_path(current_user.id) do %>
+                <i class="fa-solid fa-users"></i> グループ一覧
+              <% end %>
+          </li>
+        <% end %>
         <% if @user.github.present? %>
           <li>
               <%= link_to @user.github, target: "_blank", rel: "noopener noreferrer", class: '' do %>
