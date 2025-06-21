@@ -5,13 +5,11 @@ class Public::PostsController < Public::BaseController
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true)
-    # .distinct.pluck(:name) => :nameが重複しないように
-    # .compact => 
-    # @language_names = Language.distinct.pluck(:name).compact
 
     @languages = Language
     .select("MIN(id) as id, name, MIN(color) as color")
     .group(:name)
+    .order(:name)
     
     # # SQLiteかどうかを判定する <= 本番はMySQL、開発はSQLite
     # if ActiveRecord::Base.connection.adapter_name.downcase.include?("sqlite")
