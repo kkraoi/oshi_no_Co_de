@@ -9,6 +9,8 @@
   <section class="u-sec">
     <div class="u-inner-1">
         <h1 class="u-title">ユーザー一覧</h1>
+        
+        <%= render 'shared/search_user', url: users_path, placeholder: "ユーザー名を入力してください。" %>
 
         <div class="u-table-1 u-ta-c">
           <table>
