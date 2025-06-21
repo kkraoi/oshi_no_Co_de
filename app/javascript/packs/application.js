@@ -202,10 +202,44 @@ function setupTab() {
   });
 }
 
-function chatScrollTop() {
+/**
+ * チャットを最下部までスクロールさせる
+ * @returns {void}
+ */
+function chatScrollBottom() {
   const chatWrap = document.getElementById("chat");
   if (!chatWrap) return;
   chatWrap.scrollTop = chatWrap.scrollHeight;
+}
+
+/**
+ * ポップアップUIをセットする
+ * @returns {void}
+ */
+function setupPopup() {
+  const roots = document.querySelectorAll(".js-popup-root");
+  const triggers = document.querySelectorAll(".js-popup-trigger");
+  if(roots.length === 0 || triggers === 0) return;
+  const ACTIVE_CLASS_NAME = "is-active";
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const targetID = trigger.dataset.target;
+      const targetRoot = document.getElementById(targetID);
+      targetRoot.classList.add(ACTIVE_CLASS_NAME);
+    });
+  });
+
+  roots.forEach((root) => {
+    const closers = root.querySelectorAll('[class*="js-popup-close"]');
+    if (closers.length > 0) {
+      closers.forEach((closer) => {
+        closer.addEventListener("click", () => {
+          root.classList.remove(ACTIVE_CLASS_NAME);
+        });
+      });
+    };
+  });
 }
 
 Rails.start()
@@ -222,5 +256,6 @@ document.addEventListener("turbolinks:load", () => {
   setupToast();
   setupJump();
   setupTab();
-  chatScrollTop()
+  chatScrollBottom()
+  setupPopup()
 });

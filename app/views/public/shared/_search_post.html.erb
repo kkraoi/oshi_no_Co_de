@@ -1,16 +1,28 @@
 <%= search_form_for @q, url: url, method: :get, class: "u-search u-mb-50" do |f| %>
   <%= f.search_field :title_cont, class: "u-field", placeholder: "投稿のタイトルを入力してください。" %>
 
-  <div class="u-checkbox-group">
-    <% @languages.each do |lang| %>
-      <label class="u-checkbox">
-        <%= check_box_tag "q[codes_language_name_in][]", lang.name,
-          Array(params.dig(:q, :codes_language_name_in)).include?(lang.name) %>
-          <%= lang.name %>
-          <i class="fa-solid fa-code" style="color: <%= lang.color %>"></i>
-      </label>
-    <% end %>
+  <div class="js-popup-root" id="js-popup-checkboxs">
+    <button type="button" class="js-popup-close-bg"></button>
+    <div class="js-popup">
+      <button type="button" class="js-popup-close-btn u-btn-1 opt-size-s"><i class="fa-solid fa-xmark"></i></button>
+      <div>
+        <div class="u-checkbox-group">
+          <% @languages.each do |lang| %>
+            <label class="u-checkbox">
+              <%= check_box_tag "q[codes_language_name_in][]", lang.name,
+                Array(params.dig(:q, :codes_language_name_in)).include?(lang.name) %>
+                <%= lang.name %>
+                <i class="fa-solid fa-code" style="color: <%= lang.color %>"></i>
+            </label>
+          <% end %>
+        </div>
+        <div class="u-btn-wrap u-mt-30">
+          <%= f.submit "検索", class: "u-btn opt-size-s" %>
+        </div>
+      </div>
+    </div>
   </div>
+  <button type="button" class="js-popup-trigger u-btn opt-size-s" data-target="js-popup-checkboxs">ジャンル</button>
 
   <%= f.submit "検索", class: "u-btn opt-size-s" %>
 <% end %>
