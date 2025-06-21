@@ -3,7 +3,8 @@ class Public::GroupsController < Public::BaseController
   before_action :ensure_correct_user, only: [:update, :edit, :destroy]
 
   def index
-    @groups = Group.all
+    @q = Group.ransack(params[:q])
+    @groups = @q.result(distinct: true)
   end
   
   def show

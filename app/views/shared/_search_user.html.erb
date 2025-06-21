@@ -1,6 +1,6 @@
 <%# search_form_for => ransackが提供するヘルパー %>
 <%= search_form_for @q, url: url, method: :get, class: "u-search u-mb-50" do |f| %>
   <%# 属性名_cont => 属性名を部分検索、contains valueの意 %>
-  <%= f.search_field :name_cont, class: "u-field", placeholder: "ユーザー名を入力してください。" %>
+  <%= f.search_field :name_cont, class: "u-field", placeholder: placeholder %>
   <%= f.submit "検索", class: "u-btn opt-size-s" %>
 <% end %>

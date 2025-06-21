@@ -6,8 +6,10 @@
 <% content_for :body_class, "" %>
 
 <section class="u-sec">
-  <div class="u-inner-3">
+  <div class="u-inner-1">
     <h1 class="u-title"><%= @user.name %>の参加グループ</h1>
+
+    <%= render 'shared/search_user', url: groups_path, placeholder: "グループ名を入力してください。" %>
 
     <div class="u-table">
       <table>

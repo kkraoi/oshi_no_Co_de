@@ -264,3 +264,19 @@ body {
     list-style: auto;
   }
 }
+
+.group-table {
+  &-name{
+    width: 25rem;
+    white-space: wrap !important;
+  }
+  &-intro{
+    width: 35rem;
+    white-space: wrap !important;
+  }
+}
+table:has(.group-table-intro) {
+  @include sp {
+    width: max-content;
+  }
+}

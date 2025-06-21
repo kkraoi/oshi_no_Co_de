@@ -28,4 +28,8 @@ class Group < ApplicationRecord
   def member?(user)
     group_members.exists?(user_id: user.id)
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name created_at]
+  end
 end

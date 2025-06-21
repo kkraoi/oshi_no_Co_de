@@ -37,7 +37,8 @@ class Public::UsersController < Public::BaseController
   
   def groups
     @user = User.find(params[:id])
-    @groups = @user.groups
+    @q = @user.groups.ransack(params[:q])
+    @groups = @q.result(distinct: true)
   end
   
   private
