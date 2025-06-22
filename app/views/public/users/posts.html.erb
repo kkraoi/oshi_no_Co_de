@@ -7,7 +7,7 @@
 <section class="u-sec">
   <h1 class="u-title"><%= @user.name %>のコード一覧</h1>
   <div class="u-inner-1">
-    <%= render 'public/shared/search_post', url: user_posts_path %>
+    <%= render 'public/shared/search_post', url: user_posts_path(@user.id) %>
   </div>
   <div class="u-inner-3">
     <%= render 'public/shared/posts', posts: @posts %>
