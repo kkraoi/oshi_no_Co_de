@@ -10,6 +10,17 @@ class Public::PostsController < Public::BaseController
     .select("MIN(id) as id, name, MIN(color) as color")
     .group(:name)
     .order(:name)
+    # 次のようなSQLに変換される => 
+    # SELECT MIN(id) as id, name, MIN(color) as color
+    # FROM languages
+    # GROUP BY name
+    # ORDER BY name ASC
+    # 
+    # MIN(id) as id, => 一意にするために、最も小さいidを代表として使う
+    # name, => group句で使うキー
+    # MIN(color) as color => 同じnameに対応するcolorを選ぶ
+    # GROUP BY name => nameが同じ言語ごとにグループにまとめて、それぞれ1件だけ代表で取り出す
+    # ORDER BY name ASC => name の昇順（A→Z）で並べる
   end
   
   def show

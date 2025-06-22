@@ -34,6 +34,7 @@ class Post < ApplicationRecord
     %w[title created_at]
   end
 
+  # 検索対象として許可する関連（アソシエーション）を明示的に定義する
   def self.ransackable_associations(auth_object = nil)
     %w[codes]
   end
