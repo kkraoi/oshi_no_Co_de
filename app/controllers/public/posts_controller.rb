@@ -10,17 +10,6 @@ class Public::PostsController < Public::BaseController
     .select("MIN(id) as id, name, MIN(color) as color")
     .group(:name)
     .order(:name)
-    
-    # # SQLiteかどうかを判定する <= 本番はMySQL、開発はSQLite
-    # if ActiveRecord::Base.connection.adapter_name.downcase.include?("sqlite")
-    #   # SQLite用の記述
-    #   @languages = Language.group(:name).select("MIN(id) as id, name, MIN(color) as color")
-    # else
-    #   # MySQL用の記述
-    #   @languages = Language
-    #   .select("DISTINCT ON (name) id, name, color")
-    #   .order("name, id")
-    # end
   end
   
   def show

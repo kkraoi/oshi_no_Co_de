@@ -32,7 +32,12 @@ class Public::UsersController < Public::BaseController
   
   def posts
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @q = @user.posts.ransack(params[:q])
+    @posts = @q.result(distinct: true)
+    @languages = Language
+      .select("MIN(id) as id, name, MIN(color) as color")
+      .group(:name)
+      .order(:name)
   end
   
   def groups
