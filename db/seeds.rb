@@ -73,14 +73,14 @@ ActiveRecord::Base.transaction do
     user.introduction = "#{user.name}です、よろしく。"
     user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"), filename:"sample-user1.jpg")
   end
-  User.find_or_create_by!(email: "jane@example.com") do |user|
+  user2 = User.find_or_create_by!(email: "jane@example.com") do |user|
     user.name = "Jane"
     user.password = "test00"
     user.password_confirmation = "test00"
     user.introduction = "#{user.name}です、よろしく。"
     user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpg"), filename:"sample-user2.jpg")
   end
-  User.find_or_create_by!(email: "doe@example.com") do |user|
+  user3 = User.find_or_create_by!(email: "doe@example.com") do |user|
     user.name = "Doe"
     user.password = "test00"
     user.password_confirmation = "test00"
@@ -202,4 +202,12 @@ html:has(.js-popup-root.is-active) {
 }
     SCSS
   end
+
+  # テストデータ: グループ
+  group = Group.find_or_create_by!(name: "エンジニアチーム", owner_id: user1.id) do |g|
+    g.introduction = "技術共有を目的としたグループ"
+  end
+  GroupMember.find_or_create_by!(user: user1, group: group)
+  GroupMember.find_or_create_by!(user: user2, group: group)
+  GroupMember.find_or_create_by!(user: user3, group: group)
 end
