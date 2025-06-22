@@ -1,7 +1,15 @@
 # メモ書き
 
-## 本番環境で.envは使えない！
-AWSは.envは読み込まれない。メンターに確認。
+## HTTPSの設定中断(6/22)
+HTTPSを学ぼう > Certbotを実装する で中断。
+ドメインを取得していないため。
+最終デプロイが完了したら行う。
+```
+  323  sudo wget -r --no-parent -A 'epel-release-*.rpm' https://archives.fedoraproject.org/pub/archive/epel/7/x86_64/Packages/e/
+  324  sudo rpm -Uvh archives.fedoraproject.org/pub/archive/epel/7/x86_64/Packages/e/epel-release-*.rpm
+  325  sudo yum-config-manager --enable epel*
+  326  sudo yum install -y certbot python2-certbot-nginx
+``` 
 
 ### 方法1: ECSのタスク定義
 タスク定義内に次のように書く。
