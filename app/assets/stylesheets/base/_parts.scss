@@ -1261,7 +1261,7 @@
     overflow: auto;
     &-item {
       display: flex;
-      align-items: flex-end;
+      // align-items: flex-end;
       gap: 3rem;
       &.is-me {
         flex-direction: row-reverse;
@@ -1280,6 +1280,7 @@
     }
     &-userimg{
       flex-shrink: 0;
+      margin-top: 4rem;
       img {
         width: 3rem;
         height: auto;
@@ -1300,6 +1301,9 @@
     &-meta-right{
       .u-link.type-1 {
         font-size: 1.2rem;
+        &::after {
+          content: none;
+        }
       }
     }
     &-username {
@@ -1319,7 +1323,7 @@
       &::after {
         content: "";
         position: absolute;
-        bottom: 0rem;
+        top: 2rem;
         left: 0;
         border-style: solid;
         border-width: 0 1rem 1rem 0;
@@ -1334,6 +1338,9 @@
     }
     &-form {
       margin-top: 3rem;
+    }
+    &-foot {
+      margin-top: 1rem;
     }
   }
 
@@ -1355,5 +1362,14 @@
       gap: 2rem;
       flex-wrap: wrap;
     }
+  }
+
+  // 画面いっぱい系
+  &center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: calc(100vh - 30rem);
   }
 }
