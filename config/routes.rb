@@ -27,6 +27,17 @@ Rails.application.routes.draw do
       resource :group_members, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
+
+    resources :comments, only: [] do
+      resources :reports, only: [:new, :create]
+    end
+
+    resources :reports, only: [:destroy] do
+      # 
+      collection do
+        get :complete
+      end
+    end
   end
 
   # 管理者用認証系 URL /admin/sign_in ...
