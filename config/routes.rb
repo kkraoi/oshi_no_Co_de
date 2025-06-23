@@ -55,5 +55,12 @@ Rails.application.routes.draw do
     post "/languages", to: "post_options#create_language_option", as: "create_language_option"
     delete "/language/:id", to: "post_options#destroy_language_option", as: "destroy_language_option"
     resources :post_options, only: [:index]
+
+    resources :reports, only: [:index, :update] do
+      member do
+        get :feedback
+      end
+    end
+    patch "comments/:id/hide", to: "reports#hide_comment", as: "hide_comment"
   end
 end
