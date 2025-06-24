@@ -2,6 +2,7 @@ class Public::ReportsController < Public::BaseController
   def new
     @comment = Comment.find(params[:comment_id])
     existing_report = @comment.reports.find_by(user: current_user)
+
     @is_reported = existing_report.present?
     @reported_id = existing_report&.id
     @report = @comment.reports.build

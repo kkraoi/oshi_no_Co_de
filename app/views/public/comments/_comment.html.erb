@@ -19,21 +19,32 @@
         <% if current_user == comment.user %>
           <%= link_to polymorphic_path([commentable, comment]), method: :delete, class: 'u-link type-1', title: "このコメントを削除する", data: { confirm: "このコメントを本当に削除しますか？" } do %><i class="fa-solid fa-trash"></i><% end %>
         <% else %>
-          <% unless report.present? %>
+          <% unless report.present? || !comment.is_active %>
             <%= link_to new_comment_report_path(comment.id), class: 'u-link type-1', title: "このコメントを通報する", target: "_blank" do %><i class="fa-solid fa-ban"></i><% end %>
           <% end %>
         <% end %>
       </div>
     </div>
     <div class="u-chat-comment">
-      <div class="u-chat-text"><%= simple_format(comment.content) %></div>
+      <div class="u-chat-text">
+        <% if comment.is_active %>
+          <%= simple_format(comment.content) %>
+        <% else %>
+          <i class="u-c-gray">このコメントは、通報により非表示にされました</i>
+        <% end %>
+      </div>
     </div>
     <% if report.present? %>
       <div class="u-chat-foot">
-        <p>あなたはこのコメントを<br>通報しました。<br>ただいま精査中です。</p>
-        <%= link_to report_path(report), method: :delete, class: 'u-link', data: { confirm: "本当に通報を取り消しますか？"} do %>
-          通報を取り消す
-        <% end %>
+      <% if report.resolved %>
+        <div><%= simple_format(report.admin_feedback) %></div>
+        <p>by 管理者</p>
+      <% else %>
+          <p>あなたはこのコメントを<br>通報しました。<br>ただいま精査中です。</p>
+          <%= link_to report_path(report), method: :delete, class: 'u-link', data: { confirm: "本当に通報を取り消しますか？"} do %>
+            通報を取り消す
+          <% end %>
+      <% end %>
       </div>
     <% end %>
   </div>
