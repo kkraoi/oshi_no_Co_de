@@ -21,24 +21,26 @@
         <%= @user.name %>
       </h1>
       <p>ID: <%= @user.id %></p>
+      <% unless current_user.guest? %>
       <div class="u-flex-between opt-center-y">
-        <p>
-          <%= link_to root_path, class: 'u-link u-inactive' do %>
-            フォロー0 / フォロワー0
-          <% end %>
-        </p>
-        <div class="u-btn-wrap u-ml-20">
-          <% if @user == current_user %>
-            <%= link_to edit_user_path(@user.id), class: 'u-btn type-1 opt-size-ss' do %>
-              <i class="fa-solid fa-gear"></i> 設定
+          <p>
+            <%= link_to root_path, class: 'u-link u-inactive' do %>
+              フォロー0 / フォロワー0
             <% end %>
-          <% else %>
-            <%= link_to edit_user_path(@user.id), class: 'u-btn opt-size-ss u-inactive' do %>
-              <i class="fa-solid fa-handshake-simple"></i> フォローする
+          </p>
+          <div class="u-btn-wrap u-ml-20">
+            <% if @user == current_user %>
+              <%= link_to edit_user_path(@user.id), class: 'u-btn type-1 opt-size-ss' do %>
+                <i class="fa-solid fa-gear"></i> 設定
+              <% end %>
+            <% else %>
+              <%= link_to edit_user_path(@user.id), class: 'u-btn opt-size-ss u-inactive' do %>
+                <i class="fa-solid fa-handshake-simple"></i> フォローする
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
+          </div>
       </div>
+      <% end %>
 
       <% if @user.introduction.present? %>
         <div class="u-mt-30 p-user-introduction"><%= simple_format(@user.introduction) %></div>

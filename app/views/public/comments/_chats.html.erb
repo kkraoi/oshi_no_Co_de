@@ -9,10 +9,12 @@
       <%= render partial: 'public/comments/comment', collection: comments, as: :comment, locals: { current_user: current_user, commentable: commentable } %>
     </ul>
   </div>
-  <%= form_with(model: [commentable, Comment.new], url: form_url, local: false, class: "u-chat-form") do |f| %>
-    <%= f.text_area :content, class: 'u-field', id: "js-chat-textare", placeholder: '内容を入力してください。' %>
-    <div class="u-btn-wrap opt-right u-mt-5">
-      <%= f.submit '送信', class: 'u-btn opt-size-ss' %>
-    </div>
+  <% unless current_user.guest? %>
+    <%= form_with(model: [commentable, Comment.new], url: form_url, local: false, class: "u-chat-form") do |f| %>
+      <%= f.text_area :content, class: 'u-field', id: "js-chat-textare", placeholder: '内容を入力してください。' %>
+      <div class="u-btn-wrap opt-right u-mt-5">
+        <%= f.submit '送信', class: 'u-btn opt-size-ss' %>
+      </div>
+    <% end %>
   <% end %>
 </div>

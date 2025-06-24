@@ -1,4 +1,7 @@
 class Public::ReportsController < Public::BaseController
+  # ゲストユーザー制限
+  include GuestUserRestriction
+  
   def new
     @comment = Comment.find(params[:comment_id])
     existing_report = @comment.reports.find_by(user: current_user)

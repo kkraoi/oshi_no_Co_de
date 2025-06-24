@@ -30,9 +30,11 @@
                     <% end %>
                   </figure>
                 </td>
-                <td>
-                  <div class="u-inactive">フォローする</div>
-                </td>
+                <% unless current_user.guest? %>
+                  <td>
+                    <div class="u-inactive">フォローする</div>
+                  </td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>

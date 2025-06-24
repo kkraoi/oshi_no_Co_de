@@ -9,7 +9,10 @@ class User < ApplicationRecord
   has_many :reports, dependent: :destroy
   
   validates :name, presence: true
-  validates :password_confirmation, presence: true, if: -> { password.present? }
+  validates :password_confirmation, presence: true, if: -> { 
+    # パスワードが存在している場合、ゲストグインは除く
+    password.present? && !guest?
+  }
   validates :github,
   format: {
     # \Ahttps: => 文字の先頭はhttps:から始まる
@@ -30,5 +33,20 @@ class User < ApplicationRecord
   # auth_object = nil => ログインしてない人でも検索可能になる。
   def self.ransackable_attributes(auth_object = nil)
     %w[name created_at]
+  end
+
+  GUEST_USER_EMAIL = "guest@example.com"
+
+  # Userモデルで使用できるメソッドとしてUser.guestの記述が可能になる
+  def self.guest
+    find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
+      # ランダムな文字列を生成するRubyのメソッドの一種
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
+  end
+
+  def guest?
+    email == GUEST_USER_EMAIL
   end
 end
