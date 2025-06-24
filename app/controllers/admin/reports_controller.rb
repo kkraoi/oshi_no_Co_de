@@ -1,6 +1,8 @@
-class Admin::ReportsController < ApplicationController
+class Admin::ReportsController < Admin::BaseController
   def index
-    
+    @reports = Report.includes(:comment, :user)
+    .where(resolved: false)
+    .order(created_at: :desc)
   end
   
   def update
