@@ -8,7 +8,10 @@
           <i class="fa-solid fa-arrow-right-from-bracket"></i> ログアウト
         <% end %>
       <% else %>
-        <%# <button class="u-btn" aria-label="ボタンの説明">ボタン</button> %>
+        <%= link_to users_guest_sign_in_path, class: "u-btn opt-size-l", method: :post do %>
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> ゲストログイン（閲覧用）
+        <% end %>
+
         <%= link_to new_user_session_path, class: "u-btn opt-size-l" do %>
           <i class="fa-solid fa-arrow-right-to-bracket"></i> ログイン
         <% end %>
