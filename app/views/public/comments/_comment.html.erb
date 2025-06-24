@@ -16,11 +16,13 @@
         <p class="u-chat-date"><%= comment.format_date(:created_at) %></p>
       </div>
       <div class="u-chat-meta-right">
-        <% if current_user == comment.user %>
-          <%= link_to polymorphic_path([commentable, comment]), method: :delete, class: 'u-link type-1', title: "このコメントを削除する", data: { confirm: "このコメントを本当に削除しますか？" } do %><i class="fa-solid fa-trash"></i><% end %>
-        <% else %>
-          <% unless report.present? || !comment.is_active %>
-            <%= link_to new_comment_report_path(comment.id), class: 'u-link type-1', title: "このコメントを通報する", target: "_blank" do %><i class="fa-solid fa-ban"></i><% end %>
+        <% unless current_user.guest? %>
+          <% if current_user == comment.user %>
+            <%= link_to polymorphic_path([commentable, comment]), method: :delete, class: 'u-link type-1', title: "このコメントを削除する", data: { confirm: "このコメントを本当に削除しますか？" } do %><i class="fa-solid fa-trash"></i><% end %>
+          <% else %>
+            <% unless report.present? || !comment.is_active %>
+              <%= link_to new_comment_report_path(comment.id), class: 'u-link type-1', title: "このコメントを通報する", target: "_blank" do %><i class="fa-solid fa-ban"></i><% end %>
+            <% end %>
           <% end %>
         <% end %>
       </div>

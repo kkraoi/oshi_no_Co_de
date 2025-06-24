@@ -11,10 +11,12 @@
   </div>
   <div class="u-inner-3">
     <%= render 'public/shared/posts', posts: @posts %>
-    <div class="u-btn-wrap u-mt-50">
-      <%= link_to new_post_path, class: "u-btn" do %>
-        <i class="fa-solid fa-square-plus"></i> コード投稿
-      <% end %>
-    </div>
+    <% unless current_user.guest? %>
+      <div class="u-btn-wrap u-mt-50">
+        <%= link_to new_post_path, class: "u-btn" do %>
+          <i class="fa-solid fa-square-plus"></i> コード投稿
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </section>
