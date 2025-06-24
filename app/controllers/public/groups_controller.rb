@@ -1,4 +1,7 @@
 class Public::GroupsController < Public::BaseController
+  # ゲストユーザー制限
+  include GuestUserRestriction
+  
   # 他人のアクセス防止
   before_action :ensure_correct_user, only: [:update, :edit, :destroy]
 
