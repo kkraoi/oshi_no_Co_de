@@ -27,6 +27,17 @@ Rails.application.routes.draw do
       resource :group_members, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
+
+    resources :comments, only: [] do
+      resources :reports, only: [:new, :create]
+    end
+
+    resources :reports, only: [:destroy] do
+      # 
+      collection do
+        get :complete
+      end
+    end
   end
 
   # 管理者用認証系 URL /admin/sign_in ...
@@ -44,5 +55,11 @@ Rails.application.routes.draw do
     post "/languages", to: "post_options#create_language_option", as: "create_language_option"
     delete "/language/:id", to: "post_options#destroy_language_option", as: "destroy_language_option"
     resources :post_options, only: [:index]
+
+    resources :reports, only: [:index, :update] do
+      member do
+        get :feedback
+      end
+    end
   end
 end

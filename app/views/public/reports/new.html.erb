@@ -1,0 +1,36 @@
+<% content_for :title, "通報｜投稿" %>
+<% content_for :head do %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+<% content_for :body_class, "" %>
+
+<section class="u-sec">
+  <div class="u-inner-1">
+    <h1 class="u-title">通報フォーム</h1>
+
+    <article class="u-mb-50 u-scroll-target" id="comment-<%= @comment.id %>">
+      <h2 class="u-title-2">対象のコメント</h2>
+      <p><%= @comment.content %></p>
+      <p class="u-ta-r u-mt-10">by <%= @comment.user.name %></p>
+    </article>
+    
+    <% if @is_reported %>
+      <p class="u-ta-c u-fz-24"><strong>このコメントは通報済みです</strong></p>
+      <div class="u-mt-30 u-btn-wrap">
+        <%= link_to report_path(@reported_id), method: :delete, class: 'u-btn opt-size-s', data: { confirm: "本当に通報を取り消しますか？"} do %>
+          通報を取り消す
+        <% end %>
+      </div>
+    <% else %>
+      <%= form_with(model: [@comment, @report], local: true) do |f| %>
+        <%= render 'public/shared/field_error', object: @report, field: :reason %>
+        <%= f.text_area :reason, class: 'u-field-text_area', placeholder: '通報した理由を記入してください' %>
+
+        <div class="u-mt-30 u-btn-wrap">
+          <%= f.submit '通報する', class: 'u-btn' %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</section>
