@@ -26,12 +26,10 @@
           <h2 class="u-title-2 u-mb-50">コメントを非表示にしますか？</h2>
           <div class="u-flex-center u-gap-30" id="js-raidowrap-feedback">
             <label>
-              <input type="radio" name="hide_comment" value="true" <%= checked if params[:hide_comment] == true %>>
-              非表示にする
+              <%= radio_button_tag :hide_comment, "true", params[:hide_comment] == "true" %> 非表示にする
             </label>
             <label>
-              <input type="radio" name="hide_comment" value="false" <%= checked if params[:hide_comment] == false %>>
-              非表示にしない
+              <%= radio_button_tag :hide_comment, "false", params[:hide_comment] == "false" %> 非表示にしない
             </label>
           </div>
         </div>
