@@ -1,8 +1,14 @@
 class Admin::ReportsController < Admin::BaseController
   def index
-    @reports = Report.includes(:comment, :user)
-    .where(resolved: false)
-    .order(created_at: :desc)
+    base = Report.includes(:comment, :user).order(created_at: :desc)
+    
+    if params[:resolved] == "true"
+      @reports = base.where(resolved: true)
+    elsif params[:resolved] == "false"
+      @reports = base.where(resolved: false)
+    else
+      @reports = base
+    end
   end
   
   def update

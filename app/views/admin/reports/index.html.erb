@@ -9,7 +9,13 @@
   <div class="u-inner-3">
     <h1 class="u-title">通報一覧</h1>
 
-    <div class="u-table-1">
+    <div class="u-btn-wrap opt-even">
+      <%= link_to "未対応のみ", admin_reports_path(resolved: "false"), class: "u-btn" %>
+      <%= link_to "対応済みのみ", admin_reports_path(resolved: "true"), class: "u-btn" %>
+      <%= link_to "すべて表示", admin_reports_path, class: "u-btn" %>
+    </div>
+
+    <div class="u-table-1 u-mt-50">
       <table>
         <thead>
           <tr>
