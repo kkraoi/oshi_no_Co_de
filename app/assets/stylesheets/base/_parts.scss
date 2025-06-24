@@ -1225,7 +1225,17 @@
         }
       }
     }
+    &-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
+  @for $i from 0 through 30 {
+		&gap-#{$i * $step} {
+			gap: calc(#{$i * $step / 10} * 1rem) !important;
+		}
+	}
 
   // ユーザー
   &user {

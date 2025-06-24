@@ -61,6 +61,5 @@ Rails.application.routes.draw do
         get :feedback
       end
     end
-    patch "comments/:id/hide", to: "reports#hide_comment", as: "hide_comment"
   end
 end
