@@ -1,4 +1,7 @@
 class Public::LikesController < Public::BaseController
+  # ゲストユーザー制限
+  include GuestUserRestriction
+  
   def create
     @post = Post.find(params[:post_id])
     current_user.likes.create(post: @post)
