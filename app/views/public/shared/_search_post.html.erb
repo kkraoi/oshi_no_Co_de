@@ -6,18 +6,37 @@
     <div class="js-popup">
       <button type="button" class="js-popup-close-btn u-btn-1 opt-size-s"><i class="fa-solid fa-xmark"></i></button>
       <div>
-        <div class="u-checkbox-group">
-          <% @languages.each do |lang| %>
-            <label class="u-checkbox">
-              <%= check_box_tag "q[codes_language_name_in][]", lang.name,
-                Array(params.dig(:q, :codes_language_name_in)).include?(lang.name) %>
-                <%= lang.name %>
-                <i class="fa-solid fa-code" style="color: <%= lang.color %>"></i>
-            </label>
-          <% end %>
-        </div>
-        <div>
-          <%= link_to "いいねの数", posts_path(q: { s: 'likes_count desc' }), class: 'u-link' %>
+        <div class="js-tab">
+          <div class="js-tab-head">
+            <div class="js-tab-head-inner">
+              <button type="button" class="js-tab-trigger">言語選択</button>
+              <button type="button" class="js-tab-trigger">フィルター</button>
+              <button type="button" class="js-tab-trigger">ソート</button>
+            </div>
+          </div>
+          <div class="js-tab-body">
+            <div class="js-tab-content">
+              <div class="u-checkbox-group">
+                <% @languages.each do |lang| %>
+                  <label class="u-checkbox">
+                    <%= check_box_tag "q[codes_language_name_in][]", lang.name,
+                      Array(params.dig(:q, :codes_language_name_in)).include?(lang.name) %>
+                      <%= lang.name %>
+                      <i class="fa-solid fa-code" style="color: <%= lang.color %>"></i>
+                  </label>
+                <% end %>
+              </div>
+            </div>
+            <div class="js-tab-content">
+            </div>
+            <div class="js-tab-content">
+              <ul>
+                <li>
+                  <%= link_to "いいねの数", posts_path(q: { s: 'likes_count desc' }), class: 'u-link' %>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="u-btn-wrap u-mt-30">
           <%= f.submit "検索", class: "u-btn opt-size-s" %>

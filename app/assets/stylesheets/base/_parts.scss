@@ -1388,6 +1388,27 @@
       min-width: 10rem;
       flex-shrink: 0;
     }
+    .js-tab {
+      &-trigger {
+        background-color: $d-color-font;
+        color: $d-color-bg;
+      }
+      &-body {
+        border-top: 2px solid $d-color-font;
+        padding-top: 2rem;
+        height: calc(100vh - 60rem);
+        overflow: auto;
+        background-color: initial;
+      }
+    }
+    .js-popup {
+      @include pc {
+        width: 100rem;
+      }
+      @include sp {
+        width: 100%;
+      }
+    }
   }
 
   // チェックボックス
