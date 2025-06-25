@@ -1162,7 +1162,7 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 1);
         z-index: 10;
         translate: 0 -4px;
-        + .u-like {
+        + .u-like-wrap {
          translate: 0 -4px;
         }
       }
@@ -1221,7 +1221,7 @@
       border: 1px solid $d-color-border;
       padding: $padding-x;
     }
-    .u-like {
+    .u-like-wrap {
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
