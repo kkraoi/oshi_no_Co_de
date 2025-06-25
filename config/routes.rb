@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
     resources :posts do
       resources :comments, only: [:create, :destroy]
+      # ↓なぜresource？: resourceは「:id」を使わないURLを作る。いいね機能は、ユーザーは1つの投稿に対して1つしかいいねできない。このため、いいねの削除は、ユーザーIDと投稿IDのみで、どのいいねを削除するか特定できるため、:idを必要としない。それに対し、↑のcommentsはユーザーは1つの投稿に対し、複数コメントできるため、削除をするには、[:id]で特定する必要があるのでresourcesとなる。
+      resource :likes, only: [:create, :destroy]
     end
 
     resources :groups do
