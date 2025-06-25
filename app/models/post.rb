@@ -39,4 +39,14 @@ class Post < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     %w[codes]
   end
+
+  # 指定されたユーザーが特定の投稿行をいいねしているか
+  #
+  # @param user [User] ユーザーインスタンス
+  # @return [boolean] 
+  #   - true: いいねをしている
+  #   - false: していない
+  def liked_by?(user)
+    likes.exists?(user_id: user.id)
+  end
 end
