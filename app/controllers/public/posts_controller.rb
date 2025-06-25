@@ -7,16 +7,12 @@ class Public::PostsController < Public::BaseController
 
   def index
     liked_post_ids = current_user.likes.pluck(:post_id) if params.dig(:q, :liked_by_me) == "1"
-    puts "🦐 #{liked_post_ids}"
 
     q_params = params[:q]&.dup || {}
-    puts "🐶 #{q_params}"
     q_params[:id_in] = liked_post_ids if liked_post_ids.present?
-    puts "🐱 #{q_params}"
 
     @q = Post.ransack(q_params)
     @posts = @q.result(distinct: true)
-    puts "🦞 #{@posts[0]}, #{@posts[1]}, #{@posts[2]}."
 
     @languages = Language
     .select("MIN(id) as id, name, MIN(color) as color")
