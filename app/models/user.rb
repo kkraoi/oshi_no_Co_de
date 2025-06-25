@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :groups, through: :group_members
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
+  has_many :likes, dependent: :destroy
   
   validates :name, presence: true
   validates :password_confirmation, presence: true, if: -> { 
