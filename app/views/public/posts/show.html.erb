@@ -30,6 +30,7 @@
               </figure>
               <div class="p-title-wrap">
                 <h1 class="p-title"><%= @post.title %></h1>
+                <%= render 'public/likes/btn', post: @post %>
               </div>
               <p>
                 <span>投稿日: <%= @post.format_date(:created_at) %></span>
