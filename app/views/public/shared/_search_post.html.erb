@@ -16,6 +16,9 @@
             </label>
           <% end %>
         </div>
+        <div>
+          <%= link_to "いいねの数", posts_path(q: { s: 'likes_count desc' }), class: 'u-link' %>
+        </div>
         <div class="u-btn-wrap u-mt-30">
           <%= f.submit "検索", class: "u-btn opt-size-s" %>
         </div>

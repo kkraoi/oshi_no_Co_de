@@ -1,4 +1,4 @@
-<% if current_user.guest? %>
+<% if current_user.guest? || post.user == current_user %>
   <div class="u-like">
      <i class="fa-solid fa-heart u-c-red"></i>
     <span class="u-like-count"><%= post.likes_count %></span>
