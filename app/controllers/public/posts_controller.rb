@@ -15,7 +15,6 @@ class Public::PostsController < Public::BaseController
     puts "🐱 #{q_params}"
 
     @q = Post.ransack(q_params)
-    puts "🐭 #{q_params}"
     @posts = @q.result(distinct: true)
     puts "🦞 #{@posts[0]}, #{@posts[1]}, #{@posts[2]}."
 
