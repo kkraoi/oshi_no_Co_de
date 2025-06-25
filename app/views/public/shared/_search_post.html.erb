@@ -28,6 +28,12 @@
               </div>
             </div>
             <div class="js-tab-content">
+              <div class="u-checkbox-group">
+                <label class="u-checkbox">
+                  <%= check_box_tag "q[liked_by_me]", "1", params.dig(:q, :liked_by_me) == "1" %>
+                  あなたがいいねした投稿
+                </label>
+              </div>
             </div>
             <div class="js-tab-content">
               <div class="u-sort">
