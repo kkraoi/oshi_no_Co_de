@@ -32,7 +32,11 @@
             <div class="js-tab-content">
               <ul>
                 <li>
-                  <%= link_to "いいねの数", posts_path(q: { s: 'likes_count desc' }), class: 'u-link' %>
+                  <%# params[:q] => 検索条件を持っている。 %>
+                  <%# params.fetch(:q, {}) => params[:q]が存在すればそれを使う。存在しなければ空ハッシュである{}を使う。これで、検索条件がなくてもエラーにならない。 %>
+                  <%# .to_unsafe_h => railsの ActionController::Parameters という保護された特殊なオブジェクト。通常の８種に変換し、.mergeを使うために使用している。.mergeはセキュリティ上、直接マージできない。 %>
+                  <%# .merge(s: 'likes_count desc') => params[:q]に「s: 'likes_count desc'」を追加。これで、likes_countで並べ替える。 %>
+                  <%= link_to "いいねの数", posts_path(q: params.fetch(:q, {}).to_unsafe_h.merge(s: 'likes_count desc')), class: 'u-link' %>
                 </li>
               </ul>
             </div>
