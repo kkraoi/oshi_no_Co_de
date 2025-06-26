@@ -14,7 +14,7 @@
       <button type="button" class="js-remove-code-field u-btn-1 type-1"><i class="fa-solid fa-trash"></i></button>
     </div>
     <div class="p-codefield-body">
-      <%= f.text_area :content, placeholder: "コードを入力", class: "u-field-text_area" %>
+      <%= f.text_area :content, placeholder: "コードを入力", class: "u-field-text_area js-code-textarea" %>
     </div>
     <%= f.hidden_field :_destroy, value: "false" %>
   <% else %>
@@ -34,7 +34,7 @@
       <button type="button" class="js-remove-code-field u-btn-1 type-1"><i class="fa-solid fa-trash"></i></button>
     </div>
     <div class="p-codefield-body">
-      <textarea name="post[codes_attributes][JS_INDEX][content]" placeholder="コードを入力" class="u-field-text_area"></textarea>
+      <textarea name="post[codes_attributes][JS_INDEX][content]" placeholder="コードを入力" class="u-field-text_area js-code-textarea"></textarea>
     </div>
     <input type="hidden" name="post[codes_attributes][JS_INDEX][_destroy]" value="false" />
   <% end %>
