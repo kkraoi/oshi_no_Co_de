@@ -8,9 +8,9 @@
 <section class="u-sec p-user">
   <div class="u-inner">
     <figure class="p-user-image">
-      <%= image_tag @user.get_profile_image,
-        height: 400,
-        width: 400,
+      <%= image_tag @user.get_profile_image(300, 300),
+        height: 300,
+        width: 300,
         alt: "ユーザー画像",
         class: "",
         fetchpriority: "high" %>

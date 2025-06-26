@@ -25,8 +25,18 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
-  def get_profile_image
-    (profile_image.attached?) ? profile_image : 'default-profile_image.png'
+  def get_profile_image(width = 100, height = 100)
+    if profile_image.attached?
+      profile_image.variant(resize_to_limit: [width, height])
+    else
+      file_path = Rails.root.join("app/assets/images/default-profile_image.webp")
+      default_blob = ActiveStorage::Blob.find_by(filename: "default-profile_image.webp") || ActiveStorage::Blob.create_after_upload!(
+        io: File.open(file_path),
+        filename: "default-profile_image.webp",
+        content_type: "image/webp"
+      )
+      default_blob.variant(resize_to_limit: [width, height])
+    end
   end
 
   # 検索しても良いカラムを明示する
