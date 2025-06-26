@@ -1430,4 +1430,11 @@
     flex-direction: column;
     min-height: calc(100vh - 30rem);
   }
+
+  // ページネーション
+  &paginate {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.8rem;
+  }
 }

@@ -3,11 +3,11 @@ class Admin::ReportsController < Admin::BaseController
     base = Report.includes(:comment, :user).order(created_at: :desc)
     
     if params[:resolved] == "true"
-      @reports = base.where(resolved: true)
+      @reports = base.where(resolved: true).page(params[:page]).per(10)
     elsif params[:resolved] == "false"
-      @reports = base.where(resolved: false)
+      @reports = base.where(resolved: false).page(params[:page]).per(10)
     else
-      @reports = base
+      @reports = base.page(params[:page]).per(10)
     end
   end
   

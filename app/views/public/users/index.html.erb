@@ -6,39 +6,43 @@
 
 <section class="u-sec">
   <div class="u-inner-1">
-      <h1 class="u-title">ユーザー一覧</h1>
+    <h1 class="u-title">ユーザー一覧</h1>
 
-      <%= render 'shared/search_user', url: users_path, placeholder: "ユーザー名を入力してください。" %>
+    <%= render 'shared/search_user', url: users_path, placeholder: "ユーザー名を入力してください。" %>
 
-      <div class="u-table">
-        <table>
-          <tbody>
-            <% @users.each do |user| %>
-              <tr>
+    <div class="u-table">
+      <table>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <figure class="u-pf-wrap">
+                  <%= link_to user_path(user.id) do %>
+                    <%= image_tag user.get_profile_image,
+                      loading: "lazy",
+                      height: 30,
+                      width: 30,
+                      alt: "ユーザープロフィール画像",
+                      class: "" %>
+                    <figcaption class="u-pf-name">
+                      <%= user.name %>
+                    </figcaption>
+                  <% end %>
+                </figure>
+              </td>
+              <% unless current_user.guest? %>
                 <td>
-                  <figure class="u-pf-wrap">
-                    <%= link_to user_path(user.id) do %>
-                      <%= image_tag user.get_profile_image,
-                        loading: "lazy",
-                        height: 30,
-                        width: 30,
-                        alt: "ユーザープロフィール画像",
-                        class: "" %>
-                      <figcaption class="u-pf-name">
-                        <%= user.name %>
-                      </figcaption>
-                    <% end %>
-                  </figure>
+                  <div class="u-inactive">フォローする</div>
                 </td>
-                <% unless current_user.guest? %>
-                  <td>
-                    <div class="u-inactive">フォローする</div>
-                  </td>
-                <% end %>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="u-paginate">
+      <%= paginate @users %>
+    </div>
   </div>
 </section>
