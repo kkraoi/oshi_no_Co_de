@@ -7,7 +7,7 @@ class Public::GroupsController < Public::BaseController
 
   def index
     @q = Group.ransack(params[:q])
-    @groups = @q.result(distinct: true)
+    @groups = @q.result(distinct: true).page(params[:page]).per(10)
   end
   
   def show

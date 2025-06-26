@@ -10,13 +10,7 @@
     <h1 class="u-title"><%= @user.name %>の参加グループ</h1>
 
     <%= render 'shared/search_user', url: user_groups_path(@user), placeholder: "グループ名を入力してください。" %>
-
-    <div class="u-table">
-      <table>
-        <tbody>
-          <%= render 'public/groups/index', groups: @groups %>
-        </tbody>
-      </table>
+    <%= render 'public/groups/index', groups: @groups %>
 
       <div class="u-btn-wrap u-mt-50">
         <%= link_to new_group_path, class: 'u-btn' do %>

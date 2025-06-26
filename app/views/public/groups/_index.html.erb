@@ -1,34 +1,43 @@
-<% groups.each do |group| %>
-  <tr>
-    <td class="group-table-name">
-      <%= link_to group_path(group.id), class: 'u-link', title: group.name do %>
-        <%= group.name %>
-      <% end %>
-    </td>
-    <td class="group-table-intro">
-      <%= group.introduction %>
-    </td>
-    <td class="u-ta-c">
-      <%= group.group_members.count %>人
-    </td>
-    <% unless current_user.guest? %>
-      <td>
-        <div class="u-btn-wrap opt-right">
-        <% if group.is_owned_by?(current_user) %>
-          <div class="u-btn opt-size-ss type-1">
-            <i class="fa-solid fa-crown"></i> オーナー
-          </div>
-        <% elsif group.member?(current_user) %>
-          <%= link_to group_group_members_path(group.id), method: :delete, class: 'u-btn opt-size-ss u-bg-red' do %>
-            <i class="fa-solid fa-arrow-right-from-bracket"></i> 退会する
-          <% end %>
-        <% else %>
-            <%= link_to group_group_members_path(group.id), method: :post, class: 'u-btn opt-size-ss' do %>
-              <i class="fa-solid fa-arrow-right-to-bracket"></i> 参加する
+<div class="u-table">
+  <table>
+    <tbody>
+      <% groups.each do |group| %>
+        <tr>
+          <td class="group-table-name">
+            <%= link_to group_path(group.id), class: 'u-link', title: group.name do %>
+              <%= truncate(group.name, length: 10) %>
             <% end %>
-        <% end %>
-        </div>
-      </td>
-    <% end %>
-  </tr>
-<% end %>
+          </td>
+          <td class="group-table-intro">
+            <%= truncate(group.introduction, length: 25) %>
+          </td>
+          <td class="u-ta-c">
+            <%= group.group_members.count %>人
+          </td>
+          <% unless current_user.guest? %>
+            <td>
+              <div class="u-btn-wrap opt-right">
+              <% if group.is_owned_by?(current_user) %>
+                <div class="u-btn opt-size-ss type-1">
+                  <i class="fa-solid fa-crown"></i> オーナー
+                </div>
+              <% elsif group.member?(current_user) %>
+                <%= link_to group_group_members_path(group.id), method: :delete, class: 'u-btn opt-size-ss u-bg-red', data: {confirm: "本当に退会してよろしいですか？"} do %>
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i> 退会する
+                <% end %>
+              <% else %>
+                  <%= link_to group_group_members_path(group.id), method: :post, class: 'u-btn opt-size-ss' do %>
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> 参加する
+                  <% end %>
+              <% end %>
+              </div>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="u-paginate">
+  <%= paginate groups %>
+</div>

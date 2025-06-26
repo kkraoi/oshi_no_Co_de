@@ -8,7 +8,7 @@ class Public::UsersController < Public::BaseController
   def index
     @q = User.ransack(params[:q])
     # distinct: true => SQLのJOINが発生する場合、重複行を除去する
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).page(params[:page]).per(10)
   end
   
   def show
@@ -46,7 +46,7 @@ class Public::UsersController < Public::BaseController
   def groups
     @user = User.find(params[:id])
     @q = @user.groups.ransack(params[:q])
-    @groups = @q.result(distinct: true)
+    @groups = @q.result(distinct: true).page(params[:page]).per(10)
   end
   
   private

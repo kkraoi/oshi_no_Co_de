@@ -10,14 +10,7 @@
     <h1 class="u-title">グループ一覧</h1>
 
     <%= render 'shared/search_user', url: groups_path, placeholder: "グループ名を入力してください。" %>
-
-    <div class="u-table">
-      <table>
-        <tbody>
-          <%= render 'public/groups/index', groups: @groups %>
-        </tbody>
-      </table>
-    </div>
+    <%= render 'public/groups/index', groups: @groups %>
 
     <% unless current_user.guest? %>
       <div class="u-btn-wrap u-mt-50">
