@@ -331,3 +331,19 @@ table:has(.group-table-intro) {
 html:has(.js-popup-root.is-active) {
   overflow: hidden;
 }
+
+.CodeMirror {
+  border-radius: $radius;
+}
+.CodeMirror-scroll {
+  background-color: $d-color-font;
+}
+.CodeMirror-gutters {
+  border-color: $d-color-font !important;
+}
+.CodeMirror-gutter{
+  background-color: #bcbcbc;
+}
+.CodeMirror-linenumber {
+  color: $d-color-bg !important;
+}
