@@ -1,3 +1,26 @@
+function setupCodeMirror() {
+  const textareas = document.querySelectorAll("textarea.js-code-textarea");
+  if(textareas.length === 0)return;
+  const INITIALIZED_FLAG = "flag-cm-initialized";
+
+  textareas.forEach(textarea => {
+    if(!textarea.classList.contains(INITIALIZED_FLAG)){
+      CodeMirror.fromTextArea(textarea, {
+        lineNumbers: true,
+        indentUnit: 2,
+        tabSize: 2,
+        indentWithTabs: false,
+        extraKeys: {
+          Tab: cm => cm.execCommand("indentMore"),
+          "Shift-Tab": cm => cm.execCommand("indentLess")
+        }
+      });
+      console.log(CodeMirror);
+    }
+    textarea.classList.add(INITIALIZED_FLAG);
+  });
+}
+
 function setupAddCodeFields() {
   const container = document.getElementById("js-code-fields-container");
   const template = document.getElementById("js-code-field-template");
@@ -13,6 +36,7 @@ function setupAddCodeFields() {
   addBtn.addEventListener("click", () => {
     const html = templateHTML.replace(/JS_INDEX/g, index);
     container.insertAdjacentHTML("beforeend", html);
+    setupCodeMirror()
     index++;
   });
 
@@ -41,4 +65,5 @@ document.addEventListener("turbolinks:load", () => {
   // 投稿作成ページ以外は実行させない
   if (!document.body.classList.contains("js-posts-new")) return;
   setupAddCodeFields();
+  setupCodeMirror();
 });
