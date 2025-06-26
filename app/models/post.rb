@@ -13,6 +13,7 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :codes, allow_destroy: true
 
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :title, presence: true
   
@@ -31,11 +32,21 @@ class Post < ApplicationRecord
   end
   
   def self.ransackable_attributes(auth_object = nil)
-    %w[title created_at]
+    %w[id title created_at likes_count]
   end
 
   # 検索対象として許可する関連（アソシエーション）を明示的に定義する
   def self.ransackable_associations(auth_object = nil)
     %w[codes]
+  end
+
+  # 指定されたユーザーが特定の投稿行をいいねしているか
+  #
+  # @param user [User] ユーザーインスタンス
+  # @return [boolean] 
+  #   - true: いいねをしている
+  #   - false: していない
+  def liked_by?(user)
+    likes.exists?(user_id: user.id)
   end
 end

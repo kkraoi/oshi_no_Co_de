@@ -6,7 +6,12 @@ class Public::PostsController < Public::BaseController
   before_action :ensure_correct_user, only: [:update, :edit, :destroy]
 
   def index
-    @q = Post.ransack(params[:q])
+    liked_post_ids = current_user.likes.pluck(:post_id) if params.dig(:q, :liked_by_me) == "1"
+
+    q_params = params[:q]&.dup || {}
+    q_params[:id_in] = liked_post_ids if liked_post_ids.present?
+
+    @q = Post.ransack(q_params)
     @posts = @q.result(distinct: true)
 
     @languages = Language

@@ -1,0 +1,4 @@
+(() => {
+  const wrap = document.getElementById("js-like-wrap-<%= @post.id %>");
+  wrap.innerHTML = `<%= j(render('public/likes/btn', post: @post)) %>`;
+})();

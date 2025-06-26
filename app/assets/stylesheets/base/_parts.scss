@@ -1141,15 +1141,31 @@
       @include sp {
         grid-template-columns: repeat(1, 1fr);
       }
-      a {
-        height: 100%;
-      }
     }
     &-wrap-center{
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: $padding-x;
+    }
+    &-link {
+      display: block;
+      position: relative;
+      background-color: $d-color-bg-1;
+      border: 1px solid $d-color-border;
+      padding: $padding-x;
+      transition: translate 0.2s ease, box-shadow 0.2s ease;
+      border-radius: $radius;
+      box-shadow: 0 0 0px rgba(0, 0, 0, 1);
+      height: 100%;
+      @include hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 1);
+        z-index: 10;
+        translate: 0 -4px;
+        + .u-like-wrap {
+         translate: 0 -4px;
+        }
+      }
     }
     &-date {
       font-size: .8em;
@@ -1191,22 +1207,8 @@
       padding: .5em;
       border-radius: $radius;
     }
-    > a {
-      display: block;
-      position: relative;
-      background-color: $d-color-bg-1;
-      border: 1px solid $d-color-border;
-      padding: $padding-x;
-      transition: translate 0.2s ease, box-shadow 0.2s ease;
-      border-radius: $radius;
-      box-shadow: 0 0 0px rgba(0, 0, 0, 1);
-      @include hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 1);
-        z-index: 10;
-        translate: 0 -4px;
-      }
-    }
     .u-pf-wrap {
+      pr6rem
       img {
         width: 3rem;
       }
@@ -1214,10 +1216,27 @@
     .u-pf-name {
       margin-left: 0.5rem;
     }
-    &:not(:has(>a)) {
+    &:not(:has(.u-card-link)) {
       background-color: $d-color-bg-1;
       border: 1px solid $d-color-border;
       padding: $padding-x;
+    }
+    .u-like-wrap {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 10;
+      transition: translate 0.2s ease;
+      display: inline-block;
+    }
+  }
+
+  // いいね
+  &like {
+    @include hover {
+      .fa-heart {
+        color: $red;
+      }
     }
   }
 
@@ -1368,6 +1387,27 @@
     .u-btn {
       min-width: 10rem;
       flex-shrink: 0;
+    }
+    .js-tab {
+      &-trigger {
+        background-color: $d-color-font;
+        color: $d-color-bg;
+      }
+      &-body {
+        border-top: 2px solid $d-color-font;
+        padding-top: 2rem;
+        height: calc(50vh);
+        overflow: auto;
+        background-color: initial;
+      }
+    }
+    .js-popup {
+      @include pc {
+        width: 100rem;
+      }
+      @include sp {
+        width: 100%;
+      }
     }
   }
 

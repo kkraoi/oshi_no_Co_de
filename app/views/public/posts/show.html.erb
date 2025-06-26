@@ -30,6 +30,9 @@
               </figure>
               <div class="p-title-wrap">
                 <h1 class="p-title"><%= @post.title %></h1>
+                <div class="u-like-wrap" id="js-like-wrap-<%= @post.id %>">
+                  <%= render 'public/likes/btn', post: @post %>
+                </div>
               </div>
               <p>
                 <span>投稿日: <%= @post.format_date(:created_at) %></span>

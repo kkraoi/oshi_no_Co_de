@@ -1,20 +1,53 @@
 <%= search_form_for @q, url: url, method: :get, class: "u-search u-mb-50" do |f| %>
   <%= f.search_field :title_cont, class: "u-field", placeholder: "投稿のタイトルを入力してください。" %>
 
-  <div class="js-popup-root" id="js-popup-checkboxs">
+  <div class="js-popup-root" id="js-popup-options">
     <button type="button" class="js-popup-close-bg"></button>
     <div class="js-popup">
       <button type="button" class="js-popup-close-btn u-btn-1 opt-size-s"><i class="fa-solid fa-xmark"></i></button>
       <div>
-        <div class="u-checkbox-group">
-          <% @languages.each do |lang| %>
-            <label class="u-checkbox">
-              <%= check_box_tag "q[codes_language_name_in][]", lang.name,
-                Array(params.dig(:q, :codes_language_name_in)).include?(lang.name) %>
-                <%= lang.name %>
-                <i class="fa-solid fa-code" style="color: <%= lang.color %>"></i>
-            </label>
-          <% end %>
+        <div class="js-tab">
+          <div class="js-tab-head">
+            <div class="js-tab-head-inner">
+              <button type="button" class="js-tab-trigger">言語選択</button>
+              <button type="button" class="js-tab-trigger">フィルター</button>
+              <button type="button" class="js-tab-trigger">ソート</button>
+            </div>
+          </div>
+          <div class="js-tab-body">
+            <div class="js-tab-content">
+              <div class="u-checkbox-group">
+                <% @languages.each do |lang| %>
+                  <label class="u-checkbox">
+                    <%= check_box_tag "q[codes_language_name_in][]", lang.name,
+                      Array(params.dig(:q, :codes_language_name_in)).include?(lang.name) %>
+                      <%= lang.name %>
+                      <i class="fa-solid fa-code" style="color: <%= lang.color %>"></i>
+                  </label>
+                <% end %>
+              </div>
+            </div>
+            <div class="js-tab-content">
+              <div class="u-checkbox-group">
+                <label class="u-checkbox">
+                  <%= check_box_tag "q[liked_by_me]", "1", params.dig(:q, :liked_by_me) == "1" %>
+                  あなたがいいねした投稿
+                </label>
+              </div>
+            </div>
+            <div class="js-tab-content">
+              <div class="u-sort">
+                <label>
+                  <%= radio_button_tag "q[s]", "created_at desc", params.dig(:q, :s) == "created_at desc", checked: true%>
+                  新着順
+                </label>
+                <label>
+                  <%= radio_button_tag "q[s]", "likes_count desc", params.dig(:q, :s) == "likes_count desc" %>
+                  いいね順
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="u-btn-wrap u-mt-30">
           <%= f.submit "検索", class: "u-btn opt-size-s" %>
@@ -22,7 +55,7 @@
       </div>
     </div>
   </div>
-  <button type="button" class="js-popup-trigger u-btn opt-size-s" data-target="js-popup-checkboxs">ジャンル</button>
+  <button type="button" class="js-popup-trigger u-btn opt-size-s" data-target="js-popup-options">オプション</button>
 
   <%= f.submit "検索", class: "u-btn opt-size-s" %>
 <% end %>

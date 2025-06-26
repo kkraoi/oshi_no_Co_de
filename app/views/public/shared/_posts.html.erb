@@ -1,7 +1,7 @@
 <ul class="u-card-wrap">
   <% posts.each do |post| %>
     <li class="u-card">
-      <%= link_to post_path(post.id) do %>
+      <%= link_to post_path(post.id), class: "u-card-link" do %>
         <figure class="u-pf-wrap">
           <%= image_tag post.user.get_profile_image,
             loading: "lazy",
@@ -23,6 +23,9 @@
           <% end %>
         </div>
       <% end %>
+      <div class="u-like-wrap" id="js-like-wrap-<%= post.id %>">
+        <%= render 'public/likes/btn', post: post %>
+      </div>
     </li>
   <% end %>
 </ul>
