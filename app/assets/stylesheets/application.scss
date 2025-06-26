@@ -40,7 +40,9 @@ body {
   background-color: $d-color-bg;
 
   &-logo {
-    width: 10rem;
+    width: auto;
+    height: 8rem;
+    aspect-ratio: 1 / 1;
     position: absolute;
     top: 50%;
     translate: 0 -50%;

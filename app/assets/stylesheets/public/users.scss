@@ -4,10 +4,15 @@
 // ユーザー詳細ページ
 .p-user {
   &-image {
-    border-radius: 1rem;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    img {
+      border-radius: 1rem;
+      width: 20rem;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center;
+    }
   }
   &-introduction{
     &:empty {
