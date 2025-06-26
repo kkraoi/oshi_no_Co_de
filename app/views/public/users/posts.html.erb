@@ -1,8 +1,10 @@
 <% content_for :title, "#{@user.name}のコード一覧" %>
 <% content_for :head do %>
+  <%= stylesheet_link_tag 'public/posts', media: 'all' %>
 <% end %>
 <% content_for :foot do %>
 <% end %>
+<% content_for :body_class, "p-post" %>
 
 <section class="u-sec">
   <h1 class="u-title"><%= @user.name %>のコード一覧</h1>

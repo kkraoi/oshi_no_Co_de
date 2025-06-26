@@ -92,3 +92,12 @@ input[type="hidden"] + .p-codefield{
     flex-shrink: 0;
   }
 }
+
+// 投稿一覧ページ
+.p-post {
+  .u-checkbox.type-your_likes {
+    pointer-events: none;
+    text-decoration: line-through;
+    color: $d-color-font-inactive
+  }
+}

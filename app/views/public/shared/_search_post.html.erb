@@ -29,19 +29,21 @@
             </div>
             <div class="js-tab-content">
               <div class="u-checkbox-group">
-                <label class="u-checkbox">
-                  <%= check_box_tag "q[liked_by_me]", "1", params.dig(:q, :liked_by_me) == "1" %>
-                  あなたがいいねした投稿
-                </label>
+                <% unless current_user.guest? %>
+                  <label class="u-checkbox type-your_likes">
+                    <%= check_box_tag "q[liked_by_me]", "1", params.dig(:q, :liked_by_me) == "1" %>
+                    あなたがいいねした投稿
+                  </label>
+                <% end %>
               </div>
             </div>
             <div class="js-tab-content">
-              <div class="u-sort">
-                <label>
+              <div class="u-raidobtn-group">
+                <label class="u-raidobtn">
                   <%= radio_button_tag "q[s]", "created_at desc", params.dig(:q, :s) == "created_at desc", checked: true%>
                   新着順
                 </label>
-                <label>
+                <label class="u-raidobtn">
                   <%= radio_button_tag "q[s]", "likes_count desc", params.dig(:q, :s) == "likes_count desc" %>
                   いいね順
                 </label>
