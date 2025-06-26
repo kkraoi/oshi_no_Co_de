@@ -15,7 +15,6 @@ function setupCodeMirror() {
           "Shift-Tab": cm => cm.execCommand("indentLess")
         }
       });
-      console.log(CodeMirror);
     }
     textarea.classList.add(INITIALIZED_FLAG);
   });
