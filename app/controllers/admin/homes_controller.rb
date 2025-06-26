@@ -3,7 +3,7 @@ class Admin::HomesController < Admin::BaseController
   skip_before_action :authenticate_admin!, only: [:style_cheatsheet]
 
   def top
-    @q = User.ransack(params[:q])
+    @q = User.where.not(email: User::GUEST_USER_EMAIL).ransack(params[:q])
     @users = @q.result(distinct: true).page(params[:page]).per(10)
   end
 

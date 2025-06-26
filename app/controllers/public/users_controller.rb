@@ -6,7 +6,7 @@ class Public::UsersController < Public::BaseController
   before_action :ensure_correct_user, only: [:update, :edit, :destroy]
 
   def index
-    @q = User.ransack(params[:q])
+    @q = User.where.not(email: User::GUEST_USER_EMAIL).ransack(params[:q])
     # distinct: true => SQLのJOINが発生する場合、重複行を除去する
     @users = @q.result(distinct: true).page(params[:page]).per(10)
   end
