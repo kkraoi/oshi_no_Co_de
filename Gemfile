@@ -78,3 +78,6 @@ gem 'kramdown-parser-gfm'
 
 # 検索機能実装
 gem "ransack"
+
+# ページネーション
+gem "kaminari", "~> 1.2.1"
