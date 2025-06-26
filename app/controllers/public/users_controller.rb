@@ -36,7 +36,7 @@ class Public::UsersController < Public::BaseController
   def posts
     @user = User.find(params[:id])
     @q = @user.posts.ransack(params[:q])
-    @posts = @q.result(distinct: true).page(params[:page]).per(3)
+    @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(9)
     @languages = Language
       .select("MIN(id) as id, name, MIN(color) as color")
       .group(:name)
@@ -46,7 +46,7 @@ class Public::UsersController < Public::BaseController
   def groups
     @user = User.find(params[:id])
     @q = @user.groups.ransack(params[:q])
-    @groups = @q.result(distinct: true).page(params[:page]).per(10)
+    @groups = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(10)
   end
   
   private
