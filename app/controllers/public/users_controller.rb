@@ -36,7 +36,7 @@ class Public::UsersController < Public::BaseController
   def posts
     @user = User.find(params[:id])
     @q = @user.posts.ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    @posts = @q.result(distinct: true).page(params[:page]).per(3)
     @languages = Language
       .select("MIN(id) as id, name, MIN(color) as color")
       .group(:name)
