@@ -11,31 +11,6 @@ HTTPSを学ぼう > Certbotを実装する で中断。
   326  sudo yum install -y certbot python2-certbot-nginx
 ``` 
 
-### 方法1: ECSのタスク定義
-タスク定義内に次のように書く。
-```
-"environment": [
-  {
-    "name": "ADMIN_EMAIL",
-    "value": "ほげほげ@example.com"
-  },
-  {
-    "name": "ADMIN_PASSWORD",
-    "value": "ほげほげパスワード"
-  }
-]
-```
-### 方法2: EC2で手動で設定
-~/.bash_profile などに追記
-```
-export ADMIN_EMAIL=ほげほげ@example.com
-export ADMIN_PASSWORD=ほげほげパスワード
-```
-そして起動前に読み込む
-```
-source ~/.bash_profile
-```
-
 ## 特定のページのヘッドだけタグを追加
 特定のページ.html.erbにて
 ```
