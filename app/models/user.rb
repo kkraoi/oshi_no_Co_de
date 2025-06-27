@@ -8,6 +8,14 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  # フォローしているユーザーとの関連
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :followings, through: :active_relationships, source: :followed
+
+  # フォロされているユーザーとの関連
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
   
   validates :name, presence: true
   validates :password_confirmation, presence: true, if: -> { 
@@ -59,5 +67,20 @@ class User < ApplicationRecord
 
   def guest?
     email == GUEST_USER_EMAIL
+  end
+
+  # 指定したユーザーをフォローする
+  def follow(user)
+    active_relationships.create(followed_id: user.id)
+  end
+  
+  # 指定したユーザーのフォローを解除する
+  def unfollow(user)
+    active_relationships.find_by(followed_id: user.id).destroy
+  end
+  
+  # 指定したユーザーをフォローしているかどうかを判定
+  def following?(user)
+    followings.include?(user)
   end
 end
