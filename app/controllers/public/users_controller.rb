@@ -3,7 +3,7 @@ class Public::UsersController < Public::BaseController
   include GuestUserRestriction
   
   # 他人のアクセス防止
-  before_action :ensure_correct_user, only: [:update, :edit, :destroy]
+  before_action :ensure_correct_user, only: [:update, :edit, :destroy, :groups, :posts, :relationships]
 
   def index
     @q = User.where.not(email: User::GUEST_USER_EMAIL).ransack(params[:q])
@@ -34,7 +34,6 @@ class Public::UsersController < Public::BaseController
   end
   
   def posts
-    @user = User.find(params[:id])
     @q = @user.posts.ransack(params[:q])
     @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(9)
     @languages = Language
@@ -44,9 +43,13 @@ class Public::UsersController < Public::BaseController
   end
   
   def groups
-    @user = User.find(params[:id])
     @q = @user.groups.ransack(params[:q])
     @groups = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(10)
+  end
+
+  def relationships
+    @followers = @user.followers
+    @followings = @user.followings
   end
   
   private

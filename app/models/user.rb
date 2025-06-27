@@ -80,7 +80,7 @@ class User < ApplicationRecord
   # 引数のユーザーをフォロー解除する
   #
   # @param param_name [User] 解除するユーザー
-  def follow(user)
+  def unfollow(user)
     active_relationships.find_by(followed_id: user.id).destroy
   end
 
