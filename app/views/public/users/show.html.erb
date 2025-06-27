@@ -24,7 +24,7 @@
       <% unless current_user.guest? %>
       <div class="u-flex-between opt-center-y">
           <p>
-            <%= link_to root_path, class: 'u-link' do %>
+            <%= link_to user_relationships_path(@user.id), class: 'u-link' do %>
               フォロー0 / フォロワー0
             <% end %>
           </p>

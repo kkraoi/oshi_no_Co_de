@@ -50,9 +50,9 @@ class Public::UsersController < Public::BaseController
   end
 
   def relationships
-    user = User.find(params[:id])
-    @followers = user.follower
-    @followings = user.followings
+    @user = User.find(params[:id])
+    @followings = @user.followings.page(params[:page]).per(12)
+    @followers = @user.followers.page(params[:page]).per(12)
   end
   
   private

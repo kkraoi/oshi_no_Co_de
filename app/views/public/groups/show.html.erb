@@ -30,7 +30,7 @@
                 <li class="u-user">
                   <%= link_to user_path(member.user.id) do %>
                     <figure class="u-user-image">
-                      <%= image_tag member.user.get_profile_image,
+                      <%= image_tag member.user.get_profile_image(200, 200),
                         height: 400,
                         width: 400,
                         alt: "ユーザー画像",
@@ -48,6 +48,7 @@
                 </li>
               <% end %>
             </ul>
+
             <% unless current_user.guest? %>
               <div class="u-btn-wrap u-mt-50">
                 <% if @group.is_owned_by?(current_user) %>
