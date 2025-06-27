@@ -48,6 +48,12 @@ class Public::UsersController < Public::BaseController
     @q = @user.groups.ransack(params[:q])
     @groups = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(10)
   end
+
+  def relationships
+    @user = User.find(params[:id])
+    @followings = @user.followings.page(params[:page]).per(12)
+    @followers = @user.followers.page(params[:page]).per(12)
+  end
   
   private
 

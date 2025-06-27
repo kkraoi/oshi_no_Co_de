@@ -32,7 +32,9 @@
               </td>
               <% unless current_user.guest? %>
                 <td>
-                  <div class="u-inactive">フォローする</div>
+                  <div class="u-btn-wrap opt-right">
+                    <%= render 'public/relationships/btn', user: user %>
+                  </div>
                 </td>
               <% end %>
             </tr>

@@ -1,0 +1,64 @@
+<% content_for :title, "ユーザー｜#{@user.name}｜フォロー・フォロワー" %>
+<% content_for :head do %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+<% content_for :body_class, "" %>
+
+<section class="u-sec">
+  <div class="u-inner-1">
+    <h1 class="u-title"><%= @user.name %>のフォロー</h1>
+    <ul class="u-users">
+      <% @followings.each do |following| %>
+        <li class="u-user">
+          <%= link_to user_path(following.id) do %>
+            <figure class="u-user-image">
+              <%= image_tag following.get_profile_image(200, 200),
+                height: 400,
+                width: 400,
+                alt: "ユーザー画像",
+                class: "",
+                loading: "lazy"
+                %>
+              <figcaption class="u-user-name">
+                <%= following.name %>
+              </figcaption>
+            </figure>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="u-paginate">
+      <%= paginate @followings %>
+    </div>
+  </div>
+</section>
+
+<section class="u-sec">
+  <div class="u-inner-1">
+    <h1 class="u-title"><%= @user.name %>のフォロワー</h1>
+    <ul class="u-users">
+      <% @followers.each do |follower| %>
+        <li class="u-user">
+          <%= link_to user_path(follower.id) do %>
+            <figure class="u-user-image">
+              <%= image_tag follower.get_profile_image(200, 200),
+                height: 400,
+                width: 400,
+                alt: "ユーザー画像",
+                class: "",
+                loading: "lazy"
+                %>
+              <figcaption class="u-user-name">
+                <%= follower.name %>
+              </figcaption>
+            </figure>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="u-paginate">
+      <%= paginate @followers %>
+    </div>
+  </div>
+</section>

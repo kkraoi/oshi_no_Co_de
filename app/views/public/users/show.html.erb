@@ -24,7 +24,7 @@
       <% unless current_user.guest? %>
       <div class="u-flex-between opt-center-y">
           <p>
-            <%= link_to root_path, class: 'u-link u-inactive' do %>
+            <%= link_to user_relationships_path(@user.id), class: 'u-link' do %>
               フォロー0 / フォロワー0
             <% end %>
           </p>
@@ -34,9 +34,7 @@
                 <i class="fa-solid fa-gear"></i> 設定
               <% end %>
             <% else %>
-              <%= link_to edit_user_path(@user.id), class: 'u-btn opt-size-ss u-inactive' do %>
-                <i class="fa-solid fa-handshake-simple"></i> フォローする
-              <% end %>
+              <%= render 'public/relationships/btn', user: @user %>
             <% end %>
           </div>
       </div>
@@ -61,13 +59,11 @@
               <% end %>
           </li>
         <% end %>
-        <% if @user.github.present? %>
-          <li>
-              <%= link_to @user.github, target: "_blank", rel: "noopener noreferrer", class: '' do %>
-                <i class="fa-brands fa-github"></i> GitHub
-              <% end %>
-          </li>
-        <% end %>
+        <li>
+          <%= link_to @user.github, target: "_blank", rel: "noopener noreferrer", class: @user.github.present? ? "" : "u-inactive" do %>
+            <i class="fa-brands fa-github"></i> GitHub
+          <% end %>
+        </li>
       </menu>
     </div>
   </div>
