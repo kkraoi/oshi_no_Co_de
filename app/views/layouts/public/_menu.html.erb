@@ -92,7 +92,7 @@
         <% end %>
       </li>
       <li>
-        <%= link_to about_path, class: "u-inactive" do %>
+        <%= link_to relationships_user_path(current_user.id) do %>
           <i class="fa-solid fa-handshake-simple"></i> フォロー/フォロワー
         <% end %>
       </li>

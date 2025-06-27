@@ -168,8 +168,8 @@ ActiveRecord::Schema.define(version: 2025_06_27_070424) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
-  add_foreign_key "relationships", "followeds"
-  add_foreign_key "relationships", "followers"
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
   add_foreign_key "reports", "comments"
   add_foreign_key "reports", "users"
 end
