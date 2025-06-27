@@ -14,10 +14,18 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "/about", to: "homes#about"
 
-    # as:によってprefixができる
+    # as:によってprefixができる（memberで表現できるが学習のためこちらでも実装しておく）
     get "/users/:id/posts", to: "users#posts", as: "user_posts"
     get "/users/:id/groups", to: "users#groups", as: "user_groups"
-    resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :users, only: [:index, :show, :edit, :update, :destroy] do
+      resource :relationships, only: [:create, :destroy]
+
+      # member => idが必要なパスをネストで作る。
+      # get "/users/:id/relationships", to: "users#relationships", as: "relationships_user" と同じ作りとなる。
+      member do
+        get :relationships
+      end
+    end
 
     resources :posts do
       resources :comments, only: [:create, :destroy]
@@ -35,7 +43,7 @@ Rails.application.routes.draw do
     end
 
     resources :reports, only: [:destroy] do
-      # 
+      # collection　=> idが必要ない時にネストする。
       collection do
         get :complete
       end
