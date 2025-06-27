@@ -59,13 +59,11 @@
               <% end %>
           </li>
         <% end %>
-          <li>
-            <%= link_to @user.github, target: "_blank", rel: "noopener noreferrer", class: "is-inactive" do %>
-              <i class="fa-brands fa-github"></i> GitHub
-            <% end %>
-          </li>
-        <% if @user.github.present? %>
-        <% end %>
+        <li>
+          <%= link_to @user.github, target: "_blank", rel: "noopener noreferrer", class: @user.github.present? ? "" : "u-inactive" do %>
+            <i class="fa-brands fa-github"></i> GitHub
+          <% end %>
+        </li>
       </menu>
     </div>
   </div>
