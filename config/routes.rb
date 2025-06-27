@@ -17,7 +17,14 @@ Rails.application.routes.draw do
     # as:によってprefixができる
     get "/users/:id/posts", to: "users#posts", as: "user_posts"
     get "/users/:id/groups", to: "users#groups", as: "user_groups"
-    resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :users, only: [:index, :show, :edit, :update, :destroy] do
+      resource :relationships, only: [:create, :destroy]
+
+      # idが含まれるネストの書き方
+      member do
+        get :relationships
+      end
+    end
 
     resources :posts do
       resources :comments, only: [:create, :destroy]
@@ -35,7 +42,7 @@ Rails.application.routes.draw do
     end
 
     resources :reports, only: [:destroy] do
-      # 
+      # idがいらないネストの書き方
       collection do
         get :complete
       end
