@@ -25,7 +25,7 @@
       <div class="u-flex-between opt-center-y">
           <p>
             <%= link_to user_relationships_path(@user.id), class: 'u-link' do %>
-              フォロー0 / フォロワー0
+              フォロー<%= @user.followings.count %> / フォロワー<%= @user.followers.count %>
             <% end %>
           </p>
           <div class="u-btn-wrap u-ml-20">
