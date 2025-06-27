@@ -15,7 +15,7 @@ class Public::ReportsController < Public::BaseController
     @comment = Comment.find(params[:comment_id])
     @report = @comment.reports.build(report_params)
     @report.user = current_user
-    if @report.save
+    if @report.save(context: :public)
       redirect_to complete_reports_path, notice: 'フォームの送信に成功しました'
     else
       flash.now[:alert] = "フォームの送信に失敗しました"

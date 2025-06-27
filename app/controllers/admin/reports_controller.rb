@@ -24,10 +24,13 @@ class Admin::ReportsController < Admin::BaseController
     end
 
     # report_params.merge(resolved: true) => resolvedの変更はフォームにはないため、ストパラ「report_params」だけでは変更されない。merge(resolved: true)によって、ハッシュをストパラと合成させる。
-    if @report.update(report_params.merge(resolved: true))
+    @report.assign_attributes(report_params.merge(resolved: true))
+    if @report.valid?(:admin)
+      @report.save(validate: false)
       redirect_to admin_reports_path, notice: '通報への対応が完了しました'
     else
-      render "feedback", alert: "通報処理に失敗しました"
+      flash.now[:alert] = '通報処理に失敗しました'
+      render :feedback
     end
   end
   
