@@ -28,7 +28,6 @@
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
 - IDE：Cloud9
 
 ### 各バージョン
@@ -39,5 +38,5 @@
 | Yarn    | 1.22.22  |
 ​
 ## 使用素材
-- フリーのソフトウェアアイコンの素材として以下を使用
-    - [ICONS](https://icons8.jp/icons)
+- テストデータに使用
+    - [ぱくたそ](https://www.pakutaso.com/?srsltid=AfmBOoqovOw5hiYYo3JxpyBPVve39xrWkXWlnh68-ieRjM27XstTptkh)
