@@ -20,6 +20,19 @@ function setupCodeMirror() {
   });
 }
 
+/**
+ * CodeMirrorの取得が遅れる場合があったため、ポーリングをかける
+ * @param {number} 試行回数上限
+ */
+function pollingCodeMirror(retryCount = 10) {
+  if (typeof CodeMirror === "undefined") {
+    if (retryCount <= 0) return;
+    setTimeout(() => pollingCodeMirror(retryCount - 1), 100);
+    return;
+  }
+  setupCodeMirror();
+}
+
 function setupAddCodeFields() {
   const container = document.getElementById("js-code-fields-container");
   const template = document.getElementById("js-code-field-template");
@@ -64,5 +77,5 @@ document.addEventListener("turbolinks:load", () => {
   // 投稿作成ページ以外は実行させない
   if (!document.body.classList.contains("js-posts-new")) return;
   setupAddCodeFields();
-  setupCodeMirror();
+  pollingCodeMirror();
 });
