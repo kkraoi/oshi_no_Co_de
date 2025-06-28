@@ -1,0 +1,51 @@
+<% content_for :title, "管理側｜ユーザー｜#{@user.name}" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'public/users', media: 'all' %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+
+<section class="u-sec p-user">
+  <div class="u-inner">
+    <figure class="p-user-image">
+      <%= image_tag @user.get_profile_image(400, 400),
+        height: 400,
+        width: 400,
+        alt: "ユーザー画像",
+        class: "",
+        fetchpriority: "high" %>
+    </figure>
+
+    <div class="u-mt-20">
+      <h1 class="u-title">
+        <%= @user.name %>
+      </h1>
+      <p>ID: <%= @user.id %></p>
+
+      <% if @user.introduction.present? %>
+        <div class="u-mt-30 p-user-introduction"><%= simple_format(@user.introduction) %></div>
+      <% end %>
+    </div>
+
+    <div class="u-mt-50">
+      <menu class="p-user-menu">
+        <li>
+          <%= link_to user_posts_path(@user.id) do %>
+            <i class="fa-solid fa-code"></i> コード一覧
+          <% end %>
+        </li>
+        <li>
+          <%= link_to @user.github, target: "_blank", rel: "noopener noreferrer", class: @user.github.present? ? "" : "u-inactive" do %>
+            <i class="fa-brands fa-github"></i> GitHub
+          <% end %>
+        </li>
+      </menu>
+    </div>
+
+    <div class="u-btn-wrap u-mt-50">
+      <%= link_to admin_destroy_user_path(@user), method: :delete, class: 'u-btn u-bg-red', data: { confirm: "本当に削除しますか？" } do %>
+        ユーザーを削除する <i class="fa-solid fa-trash"></i>
+      <% end %>
+    </div>
+  </div>
+</section>

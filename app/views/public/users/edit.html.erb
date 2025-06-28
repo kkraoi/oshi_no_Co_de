@@ -37,7 +37,7 @@
             <h2 class="u-title-1">アイコン</h2>
             <div class="u-diff">
               <div class="u-diff-item">
-                <%= image_tag @user.get_profile_image,
+                <%= image_tag @user.get_profile_image(400, 400),
                   loading: "lazy",
                   height: 300,
                   width: 300,

@@ -69,6 +69,8 @@ Rails.application.routes.draw do
     delete "/language/:id", to: "post_options#destroy_language_option", as: "destroy_language_option"
     resources :post_options, only: [:index]
 
+    resources :users, only: [:show]
+
     resources :reports, only: [:index, :update] do
       member do
         get :feedback
