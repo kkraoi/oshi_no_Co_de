@@ -1,9 +1,11 @@
-<% if current_user.following?(user) %>
-  <%= link_to user_relationships_path(user.id), method: :delete, class: "u-btn opt-size-ss u-bg-red" do %>
-    フォローを外す
-  <% end %>
-<% else %>
-  <%= link_to user_relationships_path(user.id), method: :post, class: "u-btn opt-size-ss" do %>
-    フォローする
+<% unless current_user == user %>
+  <% if current_user.following?(user) %>
+    <%= link_to user_relationships_path(user.id), method: :delete, class: "u-btn opt-size-ss u-bg-red" do %>
+      フォローを外す
+    <% end %>
+  <% else %>
+    <%= link_to user_relationships_path(user.id), method: :post, class: "u-btn opt-size-ss" do %>
+      フォローする
+    <% end %>
   <% end %>
 <% end %>
