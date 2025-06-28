@@ -27,21 +27,6 @@
       <% end %>
     </div>
 
-    <div class="u-mt-50">
-      <menu class="p-user-menu">
-        <li>
-          <%= link_to user_posts_path(@user.id) do %>
-            <i class="fa-solid fa-code"></i> コード一覧
-          <% end %>
-        </li>
-        <li>
-          <%= link_to @user.github, target: "_blank", rel: "noopener noreferrer", class: @user.github.present? ? "" : "u-inactive" do %>
-            <i class="fa-brands fa-github"></i> GitHub
-          <% end %>
-        </li>
-      </menu>
-    </div>
-
     <div class="u-btn-wrap u-mt-50">
       <%= link_to admin_destroy_user_path(@user), method: :delete, class: 'u-btn u-bg-red', data: { confirm: "本当に削除しますか？" } do %>
         ユーザーを削除する <i class="fa-solid fa-trash"></i>
