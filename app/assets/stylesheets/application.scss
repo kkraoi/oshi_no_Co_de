@@ -248,13 +248,22 @@ body {
   border: 1px solid $d-color-border;
   border-radius: $radius;
   h1 {
-    margin-bottom: 4rem !important;
+    margin-bottom: 3rem !important;
+    &:not(:first-of-type) {
+      margin-top: 8rem;
+    }
   }
   h2 {
-    margin-bottom: 3rem !important;
+    margin-bottom: 2rem !important;
+    &:not(:first-of-type) {
+      margin-top: 5rem;
+    }
   }
   h3 {
-    margin-bottom: 2rem !important;
+    margin-bottom: 1.5rem !important;
+    &:not(:first-of-type) {
+      margin-top: 3rem;
+    }
   }
   li {
     list-style: inherit;
