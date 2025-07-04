@@ -67,4 +67,16 @@ class Public::CommentsController < Public::BaseController
   def comment_params
     params.require(:comment).permit(:content)
   end
+
+  # Description of the method
+  #
+  # @param param_name [Type] description
+  # @return [Type] description
+  def update_recommend_score(post)
+    scores = post.comments.where.not(sentiment_score: nil).pluck(:sentiment_score)
+    if scores.any?
+      average = scores.sum / scores.size
+      post.update(recommend_score: average)
+    end
+  end
 end
