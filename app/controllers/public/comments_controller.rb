@@ -7,6 +7,7 @@ class Public::CommentsController < Public::BaseController
     # new() => 生どんなモデルでも汎用的に使えるが、自分で設定しないといけない
     @comment = @commentable.comments.build(comment_params)
     @comment.sentiment_score = GoogleLanguage.get_sentiment_data(comment_params[:content]);
+    puts "🦐#{@comment.sentiment_score }"
 
     @comment.user = current_user
 
