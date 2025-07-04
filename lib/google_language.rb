@@ -3,7 +3,7 @@ require "json"
 require "net/https"
 # ↑ これらはRubyに標準的に組み込まれているライブラリ
 
-module Language
+module GoogleLanguage
   class << self
     def get_sentiment_data(text)
       # 感情分析用のAPIのURLを作成
