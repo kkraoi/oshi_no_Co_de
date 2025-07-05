@@ -13,7 +13,10 @@
             <%= post.user.name %>
           </figcaption>
         </figure>
-        <p class="u-card-date"><%= post.format_date(:created_at) %></p>
+        <p class="u-card-date">
+          <span><%= post.format_date(:created_at) %></span>
+          <span class="u-ml-20">コメントスコア: <%= post.recommend_score %></span>
+        </p>
         <h2 class="u-card-title"><%= post.title %></h2>
         <div class="u-card-labels">
           <% post.unique_languages.each do |language| %>
@@ -22,6 +25,7 @@
             </span>
           <% end %>
         </div>
+
       <% end %>
       <div class="u-like-wrap" id="js-like-wrap-<%= post.id %>">
         <%= render 'public/likes/btn', post: post %>

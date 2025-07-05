@@ -6,10 +6,16 @@ class Public::CommentsController < Public::BaseController
     # build() => has_many や has_one の関連先オブジェクト生成する。able_id/able_typeを自動的に補完する。
     # new() => 生どんなモデルでも汎用的に使えるが、自分で設定しないといけない
     @comment = @commentable.comments.build(comment_params)
+    @comment.sentiment_score = GoogleLanguage.get_sentiment_data(comment_params[:content]);
+    puts "🦐#{@comment.sentiment_score }"
 
     @comment.user = current_user
 
     if @comment.save
+      if @commentable.is_a?(Post)
+        update_recommend_score(@commentable)
+      end
+
       respond_to do |format|
         # polymorphic_path => オブジェクトに応じたURLを自動生成する。
         format.html { redirect_to polymorphic_path(@commentable), notice: 'コメントを投稿しました' }
@@ -64,5 +70,23 @@ class Public::CommentsController < Public::BaseController
 
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  # 投稿に紐づく有効なコメントの感情スコア平均を計算し、Postのrecommend_scoreに保存する
+  #
+  # 無効（is_active: false）やスコアが存在しないコメントは除外される。
+  #
+  # @param post [Post] 対象の投稿
+  # @return [void]
+  def update_recommend_score(post)
+    scores = post.comments
+      .where.not(sentiment_score: nil)
+      .where(is_active: true)
+      .pluck(:sentiment_score)
+
+    if scores.any?
+      average = scores.sum / scores.size
+      post.update(recommend_score: average)
+    end
   end
 end
