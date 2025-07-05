@@ -12,7 +12,7 @@ class Public::PostsController < Public::BaseController
     q_params[:id_in] = liked_post_ids if liked_post_ids.present?
 
     @q = Post.ransack(q_params)
-    @posts = @q.result(distinct: true).page(params[:page]).per(9)
+    @posts = @q.result.page(params[:page]).per(9)
 
     @languages = Language
     .select("MIN(id) as id, name, MIN(color) as color")

@@ -40,7 +40,9 @@
             <div class="js-tab-content">
               <div class="u-raidobtn-group">
                 <label class="u-raidobtn">
-                  <%= radio_button_tag "q[s]", "created_at desc", params.dig(:q, :s) == "created_at desc", checked: true%>
+                  <%# radio_button_tag(パラメーター名, 送信される値, ラジオボタンを選択状態にするかBool) %>
+                  <%# q[s] => ソートキー %>
+                  <%= radio_button_tag "q[s]", "created_at desc", params.dig(:q, :s) == "created_at desc"%>
                   新着順
                 </label>
                 <label class="u-raidobtn">
