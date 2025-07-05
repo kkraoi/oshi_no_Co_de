@@ -47,6 +47,10 @@
                   <%= radio_button_tag "q[s]", "likes_count desc", params.dig(:q, :s) == "likes_count desc" %>
                   いいね順
                 </label>
+                <label class="u-raidobtn">
+                  <%= radio_button_tag "q[s]", "recommend_score desc", params.dig(:q, :s) == "recommend_score desc" %>
+                  コメントスコア順
+                </label>
               </div>
             </div>
           </div>

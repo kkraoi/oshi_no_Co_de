@@ -12,6 +12,10 @@ class Public::CommentsController < Public::BaseController
     @comment.user = current_user
 
     if @comment.save
+      if @commentable.is_a?(Post)
+        update_recommend_score(@commentable)
+      end
+
       respond_to do |format|
         # polymorphic_path => オブジェクトに応じたURLを自動生成する。
         format.html { redirect_to polymorphic_path(@commentable), notice: 'コメントを投稿しました' }
@@ -68,12 +72,18 @@ class Public::CommentsController < Public::BaseController
     params.require(:comment).permit(:content)
   end
 
-  # Description of the method
+  # 投稿に紐づく有効なコメントの感情スコア平均を計算し、Postのrecommend_scoreに保存する
   #
-  # @param param_name [Type] description
-  # @return [Type] description
+  # 無効（is_active: false）やスコアが存在しないコメントは除外される。
+  #
+  # @param post [Post] 対象の投稿
+  # @return [void]
   def update_recommend_score(post)
-    scores = post.comments.where.not(sentiment_score: nil).pluck(:sentiment_score)
+    scores = post.comments
+      .where.not(sentiment_score: nil)
+      .where(is_active: true)
+      .pluck(:sentiment_score)
+
     if scores.any?
       average = scores.sum / scores.size
       post.update(recommend_score: average)
