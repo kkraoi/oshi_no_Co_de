@@ -32,7 +32,7 @@ class Post < ApplicationRecord
   end
   
   def self.ransackable_attributes(auth_object = nil)
-    %w[id title created_at likes_count]
+    %w[id title created_at likes_count recommend_score]
   end
 
   # 検索対象として許可する関連（アソシエーション）を明示的に定義する
