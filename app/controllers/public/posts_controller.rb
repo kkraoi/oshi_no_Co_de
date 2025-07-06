@@ -64,9 +64,26 @@ class Public::PostsController < Public::BaseController
     # array.sort_by { |element| 条件 } => ブロックの戻り値を基準にソート
     # 「-」をつけることで降順にする。
     # .to_f => 浮動小数点数にする。
-    # byebug
 
     if @post.save
+      # top_entities.each do |entity|
+      #   @post.post_keywords.create!(
+      # ...にする方法もあるが、
+      # 回すたびにDBを呼び出して、効率がよくない（N+1問題）
+      # なので「バルクインサート」で実装する↓
+      records = top_entities.map do |entity|
+        {
+          post_id: @post.id,
+          name: entity["name"],
+          salience: entity["salience"].to_f,
+          entity_type: @post.id,
+          created_at: @post.id,
+          updated_at: @post.id
+        }
+      end
+      PostKeyword.insert_all(records)
+      puts "🦐 #{@post.post_keywords[0].name}"
+
       redirect_to post_path(@post), notice: "投稿に成功しました"
     else
       @languages = Language.order(:extension)
