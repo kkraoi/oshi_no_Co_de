@@ -64,7 +64,7 @@ class Public::PostsController < Public::BaseController
     # array.sort_by { |element| 条件 } => ブロックの戻り値を基準にソート
     # 「-」をつけることで降順にする。
     # .to_f => 浮動小数点数にする。
-    byebug
+    # byebug
 
     if @post.save
       redirect_to post_path(@post), notice: "投稿に成功しました"

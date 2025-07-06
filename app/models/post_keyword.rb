@@ -1,0 +1,2 @@
+class PostKeyword < ApplicationRecord
+end
