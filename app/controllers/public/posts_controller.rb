@@ -146,9 +146,9 @@ class Public::PostsController < Public::BaseController
           post_id: @post.id,
           name: entity["name"],
           salience: entity["salience"].to_f,
-          entity_type: @post.id,
-          created_at: @post.id,
-          updated_at: @post.id
+          entity_type: entity["type"],
+          created_at:  Time.current,
+          updated_at:  Time.current
         }
       end
       PostKeyword.insert_all(records)
