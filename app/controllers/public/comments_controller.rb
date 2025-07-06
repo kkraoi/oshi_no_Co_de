@@ -6,9 +6,8 @@ class Public::CommentsController < Public::BaseController
     # build() => has_many や has_one の関連先オブジェクト生成する。able_id/able_typeを自動的に補完する。
     # new() => 生どんなモデルでも汎用的に使えるが、自分で設定しないといけない
     @comment = @commentable.comments.build(comment_params)
-    
+
     @comment.sentiment_score = GoogleLanguage.get_sentiment_data(comment_params[:content]);
-    puts "🦐#{@comment.sentiment_score }"
 
     @comment.user = current_user
 
@@ -43,6 +42,11 @@ class Public::CommentsController < Public::BaseController
     if @comment.user == current_user
       commentable = @comment.commentable
       @comment.destroy
+
+      if commentable.is_a?(Post)
+        update_recommend_score(commentable)
+      end
+
       redirect_to polymorphic_path(commentable, anchor: 'chat'), notice: 'コメントを削除しました'
     else
       redirect_back fallback_location: root_path, alert: "権限がありません"
