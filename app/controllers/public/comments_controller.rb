@@ -6,6 +6,7 @@ class Public::CommentsController < Public::BaseController
     # build() => has_many や has_one の関連先オブジェクト生成する。able_id/able_typeを自動的に補完する。
     # new() => 生どんなモデルでも汎用的に使えるが、自分で設定しないといけない
     @comment = @commentable.comments.build(comment_params)
+    
     @comment.sentiment_score = GoogleLanguage.get_sentiment_data(comment_params[:content]);
     puts "🦐#{@comment.sentiment_score }"
 

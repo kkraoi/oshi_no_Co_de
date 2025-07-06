@@ -2,6 +2,9 @@ class Public::PostsController < Public::BaseController
   # ゲストユーザー制限
   include GuestUserRestriction
 
+  # テキストをマークダウンHTML化する
+  include MarkdownHelper
+
   # 他人のアクセス防止
   before_action :ensure_correct_user, only: [:update, :edit, :destroy]
 
@@ -50,6 +53,19 @@ class Public::PostsController < Public::BaseController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+
+    description_text = post_params[:description]
+    html = markdown_to_html(description_text)
+    entity_data = GoogleLanguage.get_entity_data(html)
+    top_entities = entity_data["entities"]
+      .sort_by { |e| -e["salience"].to_f }
+      .first(5)
+    # [↑ 一連の解説]
+    # array.sort_by { |element| 条件 } => ブロックの戻り値を基準にソート
+    # 「-」をつけることで降順にする。
+    # .to_f => 浮動小数点数にする。
+    byebug
+
     if @post.save
       redirect_to post_path(@post), notice: "投稿に成功しました"
     else

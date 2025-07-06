@@ -5,15 +5,13 @@ require "net/https"
 
 module GoogleLanguage
   END_POINT = "https://language.googleapis.com"
-  KEY_QUERY = "?key=#{ENV['GOOGLE_API_KEY']}"
-
   class << self
     def get_sentiment_data(text)
       # 感情分析用のAPIのURLを作成
       # エンドポイント: https://language.googleapis.com/
       # リソース: v1/documents:analyzeSentiment
       # クエリ: ?key=APIキー
-      api_url = "#{END_POINT}/v1/documents:analyzeSentiment#{KEY_QUERY}"
+      api_url = "#{END_POINT}/v1/documents:analyzeSentiment?key=#{ENV['GOOGLE_API_KEY']}"
 
       # APIリクエストの本文（JSON）
       # https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeSentiment?hl=ja
@@ -29,7 +27,7 @@ module GoogleLanguage
     end
 
     def get_entity_data(html)
-      api_url = "#{END_POINT}/v1/documents:analyzeEntities#{KEY_QUERY}"
+      api_url = "#{END_POINT}/v1/documents:analyzeEntities?key=#{ENV['GOOGLE_API_KEY']}"
 
       params = {
         "document": {
