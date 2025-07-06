@@ -55,35 +55,10 @@ class Public::PostsController < Public::BaseController
     @post.user_id = current_user.id
 
     description_text = post_params[:description]
-    html = markdown_to_html(description_text)
-    entity_data = GoogleLanguage.get_entity_data(html)
-    top_entities = entity_data["entities"]
-      .sort_by { |e| -e["salience"].to_f }
-      .first(5)
-    # [↑ 一連の解説]
-    # array.sort_by { |element| 条件 } => ブロックの戻り値を基準にソート
-    # 「-」をつけることで降順にする。
-    # .to_f => 浮動小数点数にする。
+    top_entities = extract_top_entities(description_text)
 
     if @post.save
-      # top_entities.each do |entity|
-      #   @post.post_keywords.create!(
-      # ...にする方法もあるが、
-      # 回すたびにDBを呼び出して、効率がよくない（N+1問題）
-      # なので「バルクインサート」で実装する↓
-      records = top_entities.map do |entity|
-        {
-          post_id: @post.id,
-          name: entity["name"],
-          salience: entity["salience"].to_f,
-          entity_type: @post.id,
-          created_at: @post.id,
-          updated_at: @post.id
-        }
-      end
-      PostKeyword.insert_all(records)
-      puts "🦐 #{@post.post_keywords[0].name}"
-
+      build_keywords(@post_id, top_entities)
       redirect_to post_path(@post), notice: "投稿に成功しました"
     else
       @languages = Language.order(:extension)
@@ -99,7 +74,16 @@ class Public::PostsController < Public::BaseController
   end
   
   def update
+    description_text = post_params[:description]
+    top_entities = extract_top_entities(description_text)
+
     if @post.update(post_params)
+      # 古いエンティティを削除
+      @post.post_keywords.delete_all
+
+      # 新エンティティを作成
+      build_keywords(@post.id, top_entities)
+
       redirect_to post_path(@post.id), notice: "編集に成功しました"
     else
       @languages = Language.order(:extension)
@@ -135,5 +119,38 @@ class Public::PostsController < Public::BaseController
     unless @user == current_user
       redirect_to user_path(current_user), alert: "アクセスを禁止しています"
     end
+  end
+
+  # GoogleNaturalLangugageAPIからのエンティティを抽出する
+  def extract_top_entities(description_text)
+    html = markdown_to_html(description_text)
+    entity_data = GoogleLanguage.get_entity_data(html)
+    entity_data["entities"]
+      .sort_by { |e| -e["salience"].to_f }
+      .first(5)
+    # [↑ 一連の解説]
+    # array.sort_by { |element| 条件 } => ブロックの戻り値を基準にソート
+    # 「-」をつけることで降順にする。
+    # .to_f => 浮動小数点数にする。
+  end
+
+  # post_keywordsテーブルを作成する
+  def build_keywords(post_id, top_entities)
+    # top_entities.each do |entity|
+      #   @post.post_keywords.create!(
+      # ...にする方法もあるが、
+      # 回すたびにDBを呼び出して、効率がよくない（N+1問題）
+      # なので「バルクインサート」で実装する↓
+      records = top_entities.map do |entity|
+        {
+          post_id: @post.id,
+          name: entity["name"],
+          salience: entity["salience"].to_f,
+          entity_type: @post.id,
+          created_at: @post.id,
+          updated_at: @post.id
+        }
+      end
+      PostKeyword.insert_all(records)
   end
 end
