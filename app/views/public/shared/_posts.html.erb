@@ -25,6 +25,13 @@
             </span>
           <% end %>
         </div>
+        <div class="u-card-labels">
+          <% post.post_keywords.each do |keyword| %>
+            <span class="u-card-label type-1">
+              #<%= keyword.name %>
+            </span>
+          <% end %>
+        </div>
 
       <% end %>
       <div class="u-like-wrap" id="js-like-wrap-<%= post.id %>">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_07_05_141700) do
+ActiveRecord::Schema.define(version: 2025_07_06_103205) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -110,6 +110,16 @@ ActiveRecord::Schema.define(version: 2025_07_05_141700) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "post_keywords", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.string "name", null: false
+    t.decimal "salience", precision: 5, scale: 3, null: false
+    t.string "entity_type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_post_keywords_on_post_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title", null: false
@@ -169,6 +179,7 @@ ActiveRecord::Schema.define(version: 2025_07_05_141700) do
   add_foreign_key "group_members", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "post_keywords", "posts"
   add_foreign_key "posts", "users"
   add_foreign_key "relationships", "users", column: "followed_id"
   add_foreign_key "relationships", "users", column: "follower_id"

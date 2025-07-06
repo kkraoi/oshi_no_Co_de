@@ -1198,6 +1198,9 @@
     }
     &-labels {
       margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5em;
     }
     &-label {
       display: inline-block;
@@ -1206,6 +1209,12 @@
       line-height: 1;
       padding: .5em;
       border-radius: $radius;
+      &.type {
+        &-1 {
+          background: $blue;
+          filter: brightness($dark);
+        }
+      }
     }
     .u-pf-wrap {
       pr6rem
