@@ -16,7 +16,7 @@
           <div class="u-inner-4">
             <div class="u-vert-20">
               <figure class="u-pf-wrap">
-                <%= link_to users_path do %>
+                <%= link_to user_path(@post.user) do %>
                   <%= image_tag @post.user.get_profile_image,
                     loading: "lazy",
                     height: 30,
