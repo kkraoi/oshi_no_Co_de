@@ -16,6 +16,7 @@ class Public::UsersController < Public::BaseController
   end
   
   def edit
+    @user.achievements.build if @user.achievements.blank? # 空の実績フォームを1つ表示
   end
   
   def update
@@ -62,7 +63,8 @@ class Public::UsersController < Public::BaseController
       :name,
       :introduction,
       :profile_image,
-      :github
+      :github,
+      achievements_attributes: [:id, :title, :description, :link, :thumb, :_destroy]
     )
   end
 
