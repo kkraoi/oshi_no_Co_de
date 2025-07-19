@@ -1,7 +1,7 @@
 class Achievement < ApplicationRecord
   belongs_to :user
 
-  validates :title, presence: true
+  # validates :title, presence: true
 
   has_one_attached :thumb
 end

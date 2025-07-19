@@ -80,7 +80,7 @@
       </div>
 
       <%# GitHub %>
-      <div class="u-scroll-target"id="github">
+      <div class="u-scroll-target" id="github">
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">GitHub</h2>
@@ -110,10 +110,27 @@
       </div>
 
       <%# 実績 %>
-      <div class="u-scroll-target"id="achievement">
+      <div class="u-scroll-target" id="achievement">
         <section class="u-sec">
           <div class="u-inner-4">
             <h2 class="u-title-1">実績</h2>
+            <%= f.fields_for :achievements do |af| %>
+              <%= af.file_field :thumb %>
+
+              <%= af.text_field :title, class: "u-field" %>
+
+              <%= af.text_area :description, class: "u-field-text_area" %>
+
+              <%= af.text_field :link, class: "u-field" %>
+
+              <%= af.check_box :_destroy %>
+              <%= af.label :_destroy, "この実績を削除しますか？" %>
+            <% end %>
+              <div class="u-field-box">
+                <div class="">
+
+                </div>
+              </div>
           </div>
         </section>
       </div>
