@@ -43,6 +43,38 @@
       }
     }
   }
+  &-item {
+    &s {
+      display: grid;
+      gap: 3rem 1.5rem;
+      @include pc {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include sp {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+    &-figure {
+      img {
+        width: 100%;
+      }
+    }
+    &-caption {
+      font-weight: bold;
+      margin-top: 0.5rem;
+      line-height: 1.4;
+      font-size: 1.25em;
+    }
+    &-desc {
+      font-size: 1.4rem;
+      margin-top: .5rem;
+    }
+    .u-btn {
+      &-wrap {
+        margin-top: 1rem;
+      }
+    }
+  }
   .u-title {
     text-align-last: left;
     margin-bottom: 2rem;

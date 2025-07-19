@@ -69,8 +69,31 @@
   </div>
 </section>
 
+<% if @achievements.any? %>
 <section class="u-sec">
   <div class="u-inner-2">
     <h2 class="u-title-1">実績</h2>
+    <ul class="p-user-items">
+      <% @achievements.each do |achievement| %>
+        <li class="p-user-item">
+          <figure class="p-user-item-figure">
+            <%= image_tag achievement.get_thumb_image(800, 400),
+              height: 300,
+              width: 200,
+              alt: "サムネイル",
+              class: "",
+              loading: "lazy" %>
+            <figcaption class="p-user-item-caption"><%= achievement.title %></figcaption>
+          </figure>
+          <div class="p-user-item-desc"><%= simple_format(achievement.description) %></div>
+          <div class="u-btn-wrap">
+            <%= link_to achievement.link, target: "_blank", rel: "noopener noreferrer", class: "u-btn opt-size-ss #{"u-inactive" unless achievement.link.present?}" do %>
+              詳細
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </section>
+<% end %>
