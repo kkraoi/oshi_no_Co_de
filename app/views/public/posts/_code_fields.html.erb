@@ -1,4 +1,4 @@
-<div class="p-codefield js-code-block">
+<div class="p-codefield js-field-block">
   <% if f %>
     <%= render 'public/shared/field_error', object: f.object, field: :name %>
     <%= render 'public/shared/field_error', object: f.object, field: :language_id %>
@@ -11,7 +11,7 @@
         <%# 第1引数: フィールド名（保存先の属性）, 第2引数: コレクション（選択肢一覧）, 第3引数: 選択肢の値（保存されるid）, 第4引数: 選択肢の表示名（見せるラベル）, オプション: prompt・html属性など %>
         <%= f.collection_select :language_id, @languages, :id, :extension, { prompt: "拡張子選択" }, { class: "u-field" } %>
       </div>
-      <button type="button" class="js-remove-code-field u-btn-1 type-1"><i class="fa-solid fa-trash"></i></button>
+      <button type="button" class="js-remove-field u-btn-1 type-1"><i class="fa-solid fa-trash"></i></button>
     </div>
     <div class="p-codefield-body">
       <%= f.text_area :content, placeholder: "コードを入力", class: "u-field-text_area js-code-textarea" %>
@@ -31,7 +31,7 @@
           <% end %>
         </select>
       </div>
-      <button type="button" class="js-remove-code-field u-btn-1 type-1"><i class="fa-solid fa-trash"></i></button>
+      <button type="button" class="js-remove-field u-btn-1 type-1"><i class="fa-solid fa-trash"></i></button>
     </div>
     <div class="p-codefield-body">
       <textarea name="post[codes_attributes][JS_INDEX][content]" placeholder="コードを入力" class="u-field-text_area js-code-textarea"></textarea>
