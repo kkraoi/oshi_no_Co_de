@@ -48,3 +48,12 @@
     margin-bottom: 2rem;
   }
 }
+
+// ユーザー編集ページ
+.p-edit {
+  &-field-wrap {
+    + .p-edit-field-wrap {
+      margin-top: 2rem;
+    }
+  }
+}
