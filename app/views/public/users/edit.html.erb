@@ -4,6 +4,7 @@
 <% end %>
 <% content_for :foot do %>
 <% end %>
+<% content_for :body_class, "p-edit" %>
 
 <%= form_with model:@user, url: user_path(@user), method: :patch, local: true do |f| %>
 <div class="u-col2" id="js-col2-root">
@@ -135,7 +136,7 @@
                     <%= af.text_field :link, class: "u-field" %>
                   </div>
                   
-                  <button type="button" class="js-remove-field u-btn-1 type-1"><i class="fa-solid fa-trash"></i></button>
+                  <button type="button" class="js-remove-field u-btn-1 type-1 opt-size-s"><i class="fa-solid fa-trash"></i></button>
                   <%= af.hidden_field :_destroy, value: "false" %>
                 </div>
               <% end %>
@@ -160,7 +161,7 @@
                   <input class="u-field" type="text" name="user[achievements_attributes][JS_INDEX][link]">
                 </div>
                   
-                <button type="button" class="js-remove-field u-btn-1 type-1"><i class="fa-solid fa-trash"></i></button>
+                <button type="button" class="js-remove-field u-btn-1 type-1 opt-size-s"><i class="fa-solid fa-trash"></i></button>
                 <input type="hidden" name="user[achievements_attributes][JS_INDEX][_destroy]" >
               </div>
             </template>
