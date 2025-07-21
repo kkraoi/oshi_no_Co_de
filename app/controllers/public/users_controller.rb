@@ -17,7 +17,11 @@ class Public::UsersController < Public::BaseController
   end
   
   def edit
-    @user.achievements.build if @user.achievements.blank? # 空の実績フォームを1つ表示
+    max_fields = 3 # フィールドの上限数
+    current_count = @user.achievements.size
+
+    # フィールドを上限数の分作成する。
+    (max_fields - current_count).times { @user.achievements.build }
   end
   
   def update
