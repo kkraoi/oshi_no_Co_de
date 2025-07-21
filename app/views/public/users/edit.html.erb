@@ -137,11 +137,13 @@
                   <%= af.check_box :_destroy%>
                   <%= af.label :_destroy, "この実績を削除しますか？", class: "u-checkbox" %>
                 </div>
+                <button type="button" class="js-remove-field u-btn-1 type-1"><i class="fa-solid fa-trash"></i></button>
+                <%= f.hidden_field :_destroy, value: "false" %>
               </div>
             <% end %>
 
             <template>
-              
+              <input autocomplete="off" type="hidden" value="1" name="user[achievements_attributes][0][id]" >
             </template>
 
             <div class="u-btn-wrap u-mt-30">

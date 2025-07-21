@@ -287,7 +287,7 @@ function pollingCodeMirror(retryCount = 10) {
  * @param {function} afterAddedCallBack - フィールド追加後に実行する関数
  * @returns {void}
  */
-function setupAddFields(afterAddedCallBack) {
+function setupAddFields(afterAddedCallBack = () => {}) {
   const container = document.getElementById("js-fields-container");
   const template = document.getElementById("js-field-template");
   const addBtn = document.getElementById("js-add-field");
