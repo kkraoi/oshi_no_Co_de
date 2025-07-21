@@ -268,7 +268,7 @@ body {
   ol {
     list-style: auto;
   }
-  code {
+  code, pre {
     background-color: $d-color-font-inactive !important;
   }
   > *:first-child {

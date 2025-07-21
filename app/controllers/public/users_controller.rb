@@ -13,6 +13,7 @@ class Public::UsersController < Public::BaseController
   
   def show
     @user = User.find(params[:id]);
+    @achievements = @user.achievements
   end
   
   def edit
@@ -62,7 +63,8 @@ class Public::UsersController < Public::BaseController
       :name,
       :introduction,
       :profile_image,
-      :github
+      :github,
+      achievements_attributes: [:id, :title, :description, :link, :thumb, :_destroy]
     )
   end
 

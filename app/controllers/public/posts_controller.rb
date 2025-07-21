@@ -13,6 +13,7 @@ class Public::PostsController < Public::BaseController
 
     q_params = params[:q]&.dup || {}
     q_params[:id_in] = liked_post_ids if liked_post_ids.present?
+    q_params[:s] ||= "created_at desc" # パラメータがなかったら新着順
 
     @q = Post.ransack(q_params)
     @posts = @q.result.page(params[:page]).per(9)
@@ -58,7 +59,7 @@ class Public::PostsController < Public::BaseController
     top_entities = extract_top_entities(description_text)
 
     if @post.save
-      build_keywords(@post_id, top_entities)
+      build_keywords(@post.id, top_entities)
       redirect_to post_path(@post), notice: "投稿に成功しました"
     else
       @languages = Language.order(:extension)
@@ -143,7 +144,7 @@ class Public::PostsController < Public::BaseController
       # なので「バルクインサート」で実装する↓
       records = top_entities.map do |entity|
         {
-          post_id: @post.id,
+          post_id: post_id,
           name: entity["name"],
           salience: entity["salience"].to_f,
           entity_type: entity["type"],
@@ -151,6 +152,6 @@ class Public::PostsController < Public::BaseController
           updated_at:  Time.current
         }
       end
-      PostKeyword.insert_all(records)
+      PostKeyword.insert_all(records) if records.present?
   end
 end

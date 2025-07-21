@@ -1128,6 +1128,19 @@
     }
   }
 
+  // ボックス
+  &box {
+    border: 1px solid $d-color-border;
+    background-color: $d-color-bg-1;
+    border-radius: $radius;
+    @include pc {
+      padding: 3rem;
+    }
+    @include sp {
+      padding: $padding-x;
+    }
+  }
+
   // カード
   &card {
     position: relative;
