@@ -71,13 +71,13 @@
 
 <% if @achievements.any? %>
 <section class="u-sec">
-  <div class="u-inner-2">
+  <div class="u-inner-3">
     <h2 class="u-title-1">実績</h2>
     <ul class="p-user-items">
       <% @achievements.each do |achievement| %>
         <li class="p-user-item">
           <figure class="p-user-item-figure">
-            <%= image_tag achievement.get_thumb_image(800, 400),
+            <%= image_tag achievement.get_thumb_image(400, 200),
               height: 300,
               width: 200,
               alt: "サムネイル",

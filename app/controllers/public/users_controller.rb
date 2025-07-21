@@ -17,14 +17,6 @@ class Public::UsersController < Public::BaseController
   end
   
   def edit
-    # max_fields = 3 # フィールドの上限数
-    # current_count = @user.achievements.size
-
-    # # フィールドを上限数の分作成する。
-    # (max_fields - current_count).times { @user.achievements.build }
-    
-    # achievementsを持っていなければ、フィールドを1個用意する
-    @user.achievements.build if @user.achievements.blank?
   end
   
   def update
