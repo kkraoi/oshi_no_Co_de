@@ -1,4 +1,4 @@
-<%= search_form_for @q, url: url, method: :get, class: "u-search u-mb-50" do |f| %>
+<%= search_form_for @q, url: url, method: :get, class: "u-search u-mb-50 js-form-reset-root" do |f| %>
   <%= f.search_field :title_cont, class: "u-field", placeholder: "投稿のタイトルを入力してください。" %>
 
   <div class="js-popup-root" id="js-popup-options">
@@ -42,8 +42,12 @@
                 <label class="u-raidobtn">
                   <%# radio_button_tag(パラメーター名, 送信される値, ラジオボタンを選択状態にするかBool) %>
                   <%# q[s] => ソートキー %>
-                  <%= radio_button_tag "q[s]", "created_at desc", params.dig(:q, :s) == "created_at desc"%>
+                  <%= radio_button_tag "q[s]", "created_at desc", params.dig(:q, :s) == "created_at desc", class: "js-form-reset-radio-default" %>
                   新着順
+                </label>
+                <label class="u-raidobtn">
+                  <%= radio_button_tag "q[s]", "created_at asc", params.dig(:q, :s) == "created_at asc"%>
+                  投稿順
                 </label>
                 <label class="u-raidobtn">
                   <%= radio_button_tag "q[s]", "likes_count desc", params.dig(:q, :s) == "likes_count desc" %>
@@ -57,7 +61,8 @@
             </div>
           </div>
         </div>
-        <div class="u-btn-wrap u-mt-30">
+        <div class="u-btn-wrap opt-col-2 u-mt-30">
+          <button type="button" class="js-form-reset-btn u-btn type-1 opt-size-s">リセット</button>
           <%= f.submit "検索", class: "u-btn opt-size-s" %>
         </div>
       </div>

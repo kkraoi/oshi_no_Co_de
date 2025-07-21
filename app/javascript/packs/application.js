@@ -327,6 +327,44 @@ function setupAddFields(afterAddedCallBack = () => {}) {
   });
 }
 
+/**
+ * フォームをリセットする
+ * @returns {void}
+ */
+function setupResetSortFilter(){
+  const roots = document.querySelectorAll(".js-form-reset-root");
+  if(roots.length === 0) return;
+
+  const setDefaultRadio = (root) => {
+    const defaultRadio = root.querySelector(".js-form-reset-radio-default")
+    if (!defaultRadio) return
+    defaultRadio.checked = true
+  };
+
+  roots.forEach((root) => {
+    setDefaultRadio(root);
+
+    const resetBtn = root.querySelector(".js-form-reset-btn");
+    if(resetBtn) {
+      resetBtn.addEventListener("click", () => {
+        // チェックボックス・ラジオボタンのリセット
+        const inputs = root.querySelectorAll("input[type='checkbox'], input[type='radio']");
+        if (inputs) {
+          inputs.forEach((input) => input.checked = false)
+        }
+        
+        // 検索フィールドのリセット
+        const searches = root.querySelectorAll("input[type='search']")
+        if (searches) {
+          searches.forEach((search) => search.value = "")
+        }
+
+        setDefaultRadio(root);
+      });
+    };
+  });
+}
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -345,4 +383,5 @@ document.addEventListener("turbolinks:load", () => {
   setupPopup()
   setupAddFields(setupCodeMirror)
   pollingCodeMirror();
+  setupResetSortFilter();
 });

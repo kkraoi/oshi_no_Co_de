@@ -13,6 +13,7 @@ class Public::PostsController < Public::BaseController
 
     q_params = params[:q]&.dup || {}
     q_params[:id_in] = liked_post_ids if liked_post_ids.present?
+    q_params[:s] ||= "created_at desc" # パラメータがなかったら新着順
 
     @q = Post.ransack(q_params)
     @posts = @q.result.page(params[:page]).per(9)
