@@ -13,7 +13,8 @@ class Public::UsersController < Public::BaseController
   
   def show
     @user = User.find(params[:id]);
-    @achievements = @user.achievements
+    # TODO 後で復活
+    # @achievements = @user.achievements
   end
   
   def edit
