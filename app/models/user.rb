@@ -9,8 +9,9 @@ class User < ApplicationRecord
   has_many :reports, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  has_many :achievements, dependent: :destroy
-  accepts_nested_attributes_for :achievements, allow_destroy: true
+  # TODO: 後で復旧する
+  # has_many :achievements, dependent: :destroy
+  # accepts_nested_attributes_for :achievements, allow_destroy: true
 
   # フォローしているユーザーとの関連
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
