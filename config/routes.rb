@@ -24,6 +24,12 @@ Rails.application.routes.draw do
       member do
         get :relationships
       end
+
+      resources :interviews do
+        collection do
+          get :gacha
+        end
+      end
     end
 
     resources :posts do
@@ -70,6 +76,8 @@ Rails.application.routes.draw do
     resources :post_options, only: [:index]
 
     resources :users, only: [:show]
+
+    resources :interviews, only: [:new, :create, :edit, :update, :destroy]
 
     resources :reports, only: [:index, :update] do
       member do
