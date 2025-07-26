@@ -22,7 +22,10 @@
 - 転職活動などで、自分の技量をアピールするとき
 ​
 ## 設計書
-後ほど作成予定
+- ER図: https://drive.google.com/file/d/1PLR_JF05n2-lHo37jNhpfMCflBKdc4vJ/view?usp=sharing
+- テーブル定義書: https://docs.google.com/spreadsheets/d/1FBMhYS-wcxYdkfyxW3INVtoIyg_6eQfaQWDP7p_aYUc/edit?usp=sharing
+- アプリケーション詳細設計書: https://docs.google.com/spreadsheets/d/1A-yu9OigbmQLH36cbJ1zD7wa5Q1tpw5-JbtLaWGpG38/edit?usp=sharing
+
 ​
 ## 開発環境
 - OS：Linux(CentOS)
