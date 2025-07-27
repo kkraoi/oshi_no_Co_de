@@ -1,0 +1,10 @@
+(() => {
+  const list = document.getElementById("js-interview-list");
+  list.insertAdjacentHTML("beforeend", "<li><%= j @interview.content %></li>");
+
+  const form = document.getElementById("js-interview-form");
+  form.reset();
+
+  const wrap = document.getElementById("js-interview-list-wrap");
+  wrap.scroll = wrap.scrollHeight;
+})();

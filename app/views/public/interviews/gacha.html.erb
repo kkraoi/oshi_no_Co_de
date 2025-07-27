@@ -1,0 +1,18 @@
+<% content_for :title, "面接質問ガチャ" %>
+<% content_for :head do %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+<% content_for :body_class, "" %>
+
+<section class="u-sec">
+  <div class="u-inner-2">
+    <h1 class="u-title">面接質問ガチャ</h1>
+
+    <p class="u-ta-r">
+      <%= link_to new_user_interview_path(current_user), class: 'u-link' do %>
+        質問作成
+      <% end %>
+    </p>
+  </div>
+</section>
