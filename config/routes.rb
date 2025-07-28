@@ -25,9 +25,11 @@ Rails.application.routes.draw do
         get :relationships
       end
 
-      resources :interviews, only: [:new, :create, :edit, :update, :destroy] do
+      resources :interviews, only: [:new, :create] do
         collection do
           get :gacha
+          get :edit_all
+          patch :update_all
         end
       end
     end

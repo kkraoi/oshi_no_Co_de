@@ -3,7 +3,7 @@ class Public::InterviewsController < Public::BaseController
   include GuestUserRestriction
 
   # 他人のアクセス防止
-  before_action :ensure_correct_user, only: [:new, :update, :edit, :destroy, :gacha]
+  before_action :ensure_correct_user, only: [:new, :update_all, :edit_all, :destroy, :gacha]
 
   def new
     @interview_list = Interview.where(user: [nil, current_user]);
@@ -23,17 +23,30 @@ class Public::InterviewsController < Public::BaseController
       render :new, status: :unprocessable_entity
     end
   end
-  
-  def edit
-    
+
+  def edit_all
+    @interviews = @user.interviews
   end
-  
-  def update
-    
-  end
-  
-  def destroy
-    
+
+  def update_all
+    success = true
+
+    params[:interviews].each do |id, attrs|
+      interview = @user.interviews.find_by(id: id)
+
+      if attrs[:_destroy] == "1"
+        interview.destroy
+      else
+        success &&= interview.update(content: attrs[:content])
+      end
+    end
+
+    if success
+      redirect_to new_user_interview_path(@user), notice: '質問の更新に成功しました。'
+    else
+      flash.now[:alert] = "一部の質問の更新に失敗しました。"
+      render :edit_all, status: :unprocessable_entity
+    end
   end
 
   def gacha
