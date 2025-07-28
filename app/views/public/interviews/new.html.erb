@@ -9,22 +9,7 @@
   <div class="u-inner-2">
     <h1 class="u-title">質問作成</h1>
 
-    <div class="" id="js-interview-list-wrap">
-      <ul id="js-interview-list">
-        <% @interview_list.each do |interview| %>
-          <li><%= interview.content %></li>
-        <% end %>
-      </ul>
-    </div>
-
-    <%= form_with(model: @interview, url: user_interviews_path, local: false, id: "js-interview-form") do |f| %>
-      <%= render 'public/shared/field_error', object: @interview, field: :content %>
-      <%= f.text_area :content, class: 'u-field', placeholder: '質問内容を入力してください。' %>
-
-      <div class="u-btn-wrap opt-right u-mt-5">
-        <%= f.submit '作成', class: 'u-btn opt-size-ss' %>
-      </div>
-    <% end %>
+    <%= render 'shared/interview_form_create', interview_list: @interview_list, url: user_interviews_path, interview: @interview %>
 
     <div class="u-mt-50">
       <p class="u-ta-r">
