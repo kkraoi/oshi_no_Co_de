@@ -79,7 +79,12 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show]
 
-    resources :interviews, only: [:new, :create, :edit, :update, :destroy]
+    resources :interviews, only: [:new, :create] do
+      collection do
+        get :edit_all
+        patch :update_all
+      end
+    end
 
     resources :reports, only: [:index, :update] do
       member do
