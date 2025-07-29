@@ -26,7 +26,7 @@ class Public::InterviewsController < Public::BaseController
   end
 
   def edit_all
-    @interviews = @user.interviews
+    @interviews = @user.interviews.order(created_at: :asc)
   end
 
   def update_all
@@ -45,7 +45,7 @@ class Public::InterviewsController < Public::BaseController
     if success
       redirect_to new_user_interview_path(@user), notice: '質問の更新に成功しました。'
     else
-      @interviews = @user.interviews
+      @interviews = @user.interviews.order(created_at: :asc)
       flash.now[:alert] = "一部の質問の更新に失敗しました。"
       render :edit_all, status: :unprocessable_entity
     end

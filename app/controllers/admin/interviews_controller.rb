@@ -24,7 +24,7 @@ class Admin::InterviewsController < Admin::BaseController
   end
 
   def edit_all
-    @interviews = Interview.where(user_id: nil)
+    @interviews = Interview.where(user_id: nil).order(created_at: :asc)
   end
 
   def update_all
@@ -43,7 +43,7 @@ class Admin::InterviewsController < Admin::BaseController
     if success
       redirect_to new_admin_interview_path, notice: '質問の更新に成功しました。'
     else
-      @interviews = Interview.where(user_id: nil)
+      @interviews = Interview.where(user_id: nil).order(created_at: :asc)
       flash.now[:alert] = "一部の質問の更新に失敗しました。"
       render :edit_all, status: :unprocessable_entity
     end
