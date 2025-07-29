@@ -16,13 +16,12 @@ class Public::InterviewsController < Public::BaseController
 
     if @interview.save
       respond_to do |format|
-        format.html { redirect_to new_user_interview(@user), notice: "面接質問を作成しました" }
+        # format.html => JSが無効の環境に対する処理 
+        format.html { redirect_to new_user_interview_path(@user), notice: "面接質問を作成しました" }
         format.js { render "shared/interview_create"}
       end
     else
-      @interview_list = Interview.where(user: [nil, current_user]);
-      flash.now[:alert] = "面接質問の作成に失敗しました"
-      render :new, status: :unprocessable_entity
+      redirect_to new_admin_interview_path, alert: '面接質問の作成に失敗しました。また、空の投稿はできません。'
     end
   end
 

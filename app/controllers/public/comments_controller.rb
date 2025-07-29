@@ -17,6 +17,7 @@ class Public::CommentsController < Public::BaseController
       end
 
       respond_to do |format|
+        # format.htmlはJSが無効の環境のための保険
         # polymorphic_path => オブジェクトに応じたURLを自動生成する。
         format.html { redirect_to polymorphic_path(@commentable), notice: 'コメントを投稿しました' }
         format.js
