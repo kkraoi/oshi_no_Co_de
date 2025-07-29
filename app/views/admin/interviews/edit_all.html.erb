@@ -1,0 +1,22 @@
+<% content_for :title, "面接質問ガチャ｜質問編集" %>
+<% content_for :head do %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+<% content_for :body_class, "" %>
+
+<section class="u-sec">
+  <div class="u-inner-2">
+    <h1 class="u-title">質問編集</h1>
+
+    <%= render 'shared/interview_form_edit', url: update_all_admin_interviews_path, interviews: @interviews %>
+
+    <div class="u-mt-50">
+      <p class="u-ta-r">
+        <%= link_to edit_all_admin_interviews_path, class: 'u-link' do %>
+          質問作成
+        <% end %>
+      </p>
+    </div>
+  </div>
+</section>
