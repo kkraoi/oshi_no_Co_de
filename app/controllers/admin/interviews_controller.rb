@@ -1,7 +1,7 @@
 class Admin::InterviewsController < Admin::BaseController
 
   def new
-    @interview_list = Interview.where(user_id: nil);
+    @interview_list = Interview.where(user_id: nil).order(created_at: :asc);
     @interview = Interview.new
   end
 

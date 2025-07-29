@@ -6,7 +6,7 @@ class Public::InterviewsController < Public::BaseController
   before_action :ensure_correct_user, only: [:new, :update_all, :edit_all, :destroy, :gacha]
 
   def new
-    @interview_list = Interview.where(user: [nil, current_user]);
+    @interview_list = Interview.where(user: [nil, current_user]).order(created_at: :asc);
     @interview = @user.interviews.new
   end
   
