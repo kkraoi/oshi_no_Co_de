@@ -9,6 +9,20 @@
   <div class="u-inner-2">
     <h1 class="u-title">面接質問ガチャ</h1>
 
+    <div class="gacha-wrap">
+      <div id="js-gacha-result">
+        <p>覚悟はできた？</p>
+      </div>
+      <button id="js-gacha-prev" class="gacha-btn-prev"><i class="fa-solid fa-chevron-left"></i></button>
+      <button id="js-gacha-next" class="gacha-btn-next"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <template id="js-gacha-template"></template>
+
+    <div class="u-btn-wrap">
+      <button class="u-btn" aria-label="10連質問ガチャ" id="js-gacha-btn">10連質問ガチャ</button>
+    </div>
+
     <p class="u-ta-r">
       <%= link_to new_user_interview_path(current_user), class: 'u-link' do %>
         質問作成 <i class="fa-solid fa-plus"></i>

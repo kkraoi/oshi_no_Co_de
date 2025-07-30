@@ -54,6 +54,10 @@ class Public::InterviewsController < Public::BaseController
   def gacha
     
   end
+
+  def draw_gacha
+    
+  end
   
 private
   # ユーザをチェック

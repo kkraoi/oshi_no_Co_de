@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       resources :interviews, only: [:new, :create] do
         collection do
           get :gacha
+          get :draw_gacha
           get :edit_all
           patch :update_all
         end
