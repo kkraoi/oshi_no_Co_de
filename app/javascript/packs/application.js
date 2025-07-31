@@ -3,6 +3,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "./changeRaidoForReport"
+import InterviewGacha from "./interviewGacha"
 
 // トースターを閉じるクラス
 const G_CLOSE_TOAST_CLASS_NAME = "is-close";
@@ -365,10 +366,6 @@ function setupResetSortFilter(){
   });
 }
 
-function setupInterviewGacha() {
-
-}
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -388,5 +385,5 @@ document.addEventListener("turbolinks:load", () => {
   setupAddFields(setupCodeMirror)
   pollingCodeMirror();
   setupResetSortFilter();
-  setupInterviewGacha();
+  new InterviewGacha();
 });

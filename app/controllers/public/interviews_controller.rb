@@ -3,7 +3,7 @@ class Public::InterviewsController < Public::BaseController
   include GuestUserRestriction
 
   # 他人のアクセス防止
-  before_action :ensure_correct_user, only: [:new, :update_all, :edit_all, :destroy, :gacha]
+  before_action :ensure_correct_user, only: [:new, :update_all, :edit_all, :destroy, :gacha, :draw_gacha]
 
   def new
     @interview_list = Interview.where(user: [nil, current_user]).order(created_at: :asc);
@@ -56,7 +56,8 @@ class Public::InterviewsController < Public::BaseController
   end
 
   def draw_gacha
-    
+    @interviews = Interview.where(user: [nil, current_user]).order("RANDOM()").limit(10);
+    render json: @interviews.select(:id, :content)
   end
   
 private

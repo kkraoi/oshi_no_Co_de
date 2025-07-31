@@ -9,18 +9,30 @@
   <div class="u-inner-2">
     <h1 class="u-title">面接質問ガチャ</h1>
 
-    <div class="gacha-wrap">
-      <div id="js-gacha-result">
-        <p>覚悟はできた？</p>
+    <div id="js-interview-gacha">
+      <div class="gacha-wrap">
+        <div id="js-gacha-result">
+          <p>覚悟はできた？</p>
+        </div>
       </div>
-      <button id="js-gacha-prev" class="gacha-btn-prev"><i class="fa-solid fa-chevron-left"></i></button>
-      <button id="js-gacha-next" class="gacha-btn-next"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
 
-    <template id="js-gacha-template"></template>
+      <template id="js-gacha-template-prev">
+        <button class="gacha-btn-prev"><i class="fa-solid fa-chevron-left"></i></button>
+      </template>
+      <template id="js-gacha-template-next">
+        <button class="gacha-btn-next"><i class="fa-solid fa-chevron-right"></i></button>
+      </template>
+      <template id="js-gacha-template-question">
+        <div class="js-gacha-question-box" data-index="">
+          <p class="js-gacha-question"></p>
+          <button class="js-gacha-difficult">苦手...</button>
+        </div>
+      </template>
+      <%= draw_gacha_user_interviews_path(current_user) %>.json
 
-    <div class="u-btn-wrap">
-      <button class="u-btn" aria-label="10連質問ガチャ" id="js-gacha-btn">10連質問ガチャ</button>
+      <div class="u-btn-wrap">
+        <button class="u-btn" aria-label="10連質問ガチャ" id="js-gacha-btn" data-url="<%= draw_gacha_user_interviews_path(current_user) %>.json">10連質問ガチャ</button>
+      </div>
     </div>
 
     <p class="u-ta-r">
