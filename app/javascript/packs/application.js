@@ -365,6 +365,10 @@ function setupResetSortFilter(){
   });
 }
 
+function setupInterviewGacha() {
+
+}
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -384,4 +388,5 @@ document.addEventListener("turbolinks:load", () => {
   setupAddFields(setupCodeMirror)
   pollingCodeMirror();
   setupResetSortFilter();
+  setupInterviewGacha();
 });

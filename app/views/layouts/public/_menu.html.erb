@@ -102,6 +102,11 @@
         <% end %>
       </li>
       <li>
+        <%= link_to gacha_user_interviews_path(current_user) do %>
+          <i class="fa-solid fa-comment"></i> 面接質問ガチャ
+        <% end %>
+      </li>
+      <li>
         <%= link_to edit_user_path(current_user.id) do %>
           <i class="fa-solid fa-gear"></i> 設定
         <% end %>

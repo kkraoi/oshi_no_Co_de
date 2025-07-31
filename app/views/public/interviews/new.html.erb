@@ -1,0 +1,26 @@
+<% content_for :title, "面接質問ガチャ｜質問作成" %>
+<% content_for :head do %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+<% content_for :body_class, "" %>
+
+<section class="u-sec">
+  <div class="u-inner-2">
+    <h1 class="u-title">質問作成</h1>
+
+    <%= render 'shared/interview_form_create', interview_list: @interview_list, url: user_interviews_path, interview: @interview %>
+
+    <div class="u-mt-50">
+      <p class="u-ta-r">
+        <%= link_to gacha_user_interviews_path(current_user), class: 'u-link' do %>
+          質問ガチャ
+        <% end %>
+        &emsp;
+        <%= link_to edit_all_user_interviews_path(current_user), class: 'u-link' do %>
+          質問編集
+        <% end %>
+      </p>
+    </div>
+  </div>
+</section>

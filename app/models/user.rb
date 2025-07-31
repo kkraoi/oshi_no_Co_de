@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :interviews, dependent: :destroy
 
   has_many :achievements, dependent: :destroy
   accepts_nested_attributes_for :achievements, allow_destroy: true
