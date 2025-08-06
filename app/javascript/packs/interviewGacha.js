@@ -1,7 +1,7 @@
 export default class InterviewGacha {
   constructor() {
-    const root = document.getElementById("js-interview-gacha")
-    if (!root) return;
+    this.root = document.getElementById("js-interview-gacha")
+    if (!this.root) return;
     
     this.gachaBtn = document.getElementById("js-gacha-btn");
     this.resultEl = document.getElementById("js-gacha-result");
@@ -20,9 +20,6 @@ export default class InterviewGacha {
       this.drawGacha(self);
       self.target.textContent = "10連リセット"
     });
-    setupBtn(this.templatePrevEl, this.showPrev)
-    // this.prevBtn.addEventListener("click", () => this.showPrev());
-    // this.nextBtn.addEventListener("click", () => this.showNext());
   }
 
   drawGacha(self) {
@@ -41,6 +38,8 @@ export default class InterviewGacha {
       this.currentIndex = 0;
       this.setupQuestions();
       this.setupCurrentQuestion();
+      this.setupBtn(this.templatePrevEl, this.showPrev)
+      this.setupBtn(this.templateNextEl, this.showNext)
     })
     .catch(() => console.error("エラーが発生しました"))
   }
@@ -79,8 +78,11 @@ export default class InterviewGacha {
     return currentQuestionBoxEl;
   }
 
-  setupBtn(template, method = () => {}) {
-
+  setupBtn(template, method) {
+    const clone  = template.content.cloneNode(true);
+    const btn = clone.querySelector("button")
+    btn?.addEventListener("click", method);
+    this.resultEl.appendChild(clone)
   }
 
   showPrev() {
