@@ -16,19 +16,23 @@
         </div>
       </div>
 
+      <%# 前へボタンのテンプレ %>
       <template id="js-gacha-template-prev">
         <button class="gacha-btn-prev"><i class="fa-solid fa-chevron-left"></i></button>
       </template>
+
+      <%# 次へボタンのテンプレ %>
       <template id="js-gacha-template-next">
         <button class="gacha-btn-next"><i class="fa-solid fa-chevron-right"></i></button>
       </template>
+      
+      <%# 質問のテンプレ %>
       <template id="js-gacha-template-question">
-        <div class="js-gacha-question-box" data-index="">
-          <p class="js-gacha-question"></p>
-          <button class="js-gacha-difficult">苦手...</button>
+        <div class="js-gacha-question-box gacha-question-box" data-index="">
+          <p class="js-gacha-question gacha-question"></p>
+          <%# <button class="js-gacha-difficult">苦手...</button> %>
         </div>
       </template>
-      <%= draw_gacha_user_interviews_path(current_user) %>.json
 
       <div class="u-btn-wrap">
         <button class="u-btn" aria-label="10連質問ガチャ" id="js-gacha-btn" data-url="<%= draw_gacha_user_interviews_path(current_user) %>.json">10連質問ガチャ</button>

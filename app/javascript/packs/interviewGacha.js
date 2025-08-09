@@ -9,6 +9,8 @@ export default class InterviewGacha {
     this.templatePrevEl = document.getElementById("js-gacha-template-prev");
     this.templateNextEl = document.getElementById("js-gacha-template-next");
 
+    this.CURRENT_CLASS_NAME = "current"
+
     this.gachaData = [];
     this.currentIndex = 0;
 
@@ -40,6 +42,7 @@ export default class InterviewGacha {
       this.setupCurrentQuestion();
       this.setupBtn(this.templatePrevEl, this.showPrev)
       this.setupBtn(this.templateNextEl, this.showNext)
+      
     })
     .catch(() => console.error("エラーが発生しました"))
   }
@@ -52,12 +55,15 @@ export default class InterviewGacha {
 
       const questionBoxEl = clone.querySelector(".js-gacha-question-box");
       questionBoxEl.dataset.index = i;
+      questionBoxEl.style.cursor= "pointer";
+      questionBoxEl.addEventListener("click", this.showNext.bind(this));
 
       const questionEl = clone.querySelector(".js-gacha-question");
       questionEl.textContent = interview.content;
 
       const difficultBtnEl = clone.querySelector(".js-gacha-difficult");
-      difficultBtnEl.addEventListener("click", () => {
+      difficultBtnEl?.addEventListener("click", () => {
+        // TODO
         console.log("苦手ボタンを押した");
       });
 
@@ -67,29 +73,31 @@ export default class InterviewGacha {
 
   setupCurrentQuestion() {
     const currentQuestionBoxEl = this.resultEl.querySelector(`.js-gacha-question-box[data-index="${this.currentIndex}"]`);
-    const otherQuestionBoxEls = this.resultEl.querySelectorAll(`.js-gacha-question-box:not([data-index="${this.currentIndex}"])`);
-
-    otherQuestionBoxEls.forEach(otherQ => {
-      otherQ.style.display = "none";
-    });
-
-    currentQuestionBoxEl.style.display = "block";
-
+    currentQuestionBoxEl.classList.add(this.CURRENT_CLASS_NAME);
     return currentQuestionBoxEl;
   }
 
   setupBtn(template, method) {
     const clone  = template.content.cloneNode(true);
-    const btn = clone.querySelector("button")
-    btn?.addEventListener("click", method);
-    this.resultEl.appendChild(clone)
+    const btn = clone.querySelector("button");
+    // .bind(this) : addEventListenerとしてのthisが適用されてしまうが、bindメソッドにthisに対応するものを引数に指定すると、thisはその引数のものとして扱うことができる。
+    btn?.addEventListener("click", method.bind(this));
+    this.resultEl.appendChild(clone);
   }
 
   showPrev() {
-    console.log("前の質問を提示")
+    const len = this.gachaData.length;
+    this.currentIndex = (this.currentIndex - 1 + len) % len;
+    this.resultEl.querySelectorAll(".js-gacha-question-box").forEach(box => box.classList.remove(this.CURRENT_CLASS_NAME));
+    const currentEl = this.resultEl.querySelector(`.js-gacha-question-box[data-index="${this.currentIndex}"]`);
+    currentEl?.classList.add(this.CURRENT_CLASS_NAME);
   }
 
   showNext() {
-    console.log("次の質問を提示")
+    const len = this.gachaData.length;
+    this.currentIndex = (this.currentIndex + 1) % len;
+    this.resultEl.querySelectorAll(".js-gacha-question-box").forEach(box => box.classList.remove(this.CURRENT_CLASS_NAME));
+    const currentEl = this.resultEl.querySelector(`.js-gacha-question-box[data-index="${this.currentIndex}"]`);
+    currentEl?.classList.add(this.CURRENT_CLASS_NAME);
   }
 }
