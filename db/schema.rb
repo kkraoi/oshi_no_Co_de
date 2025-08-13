@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_07_25_055339) do
+ActiveRecord::Schema.define(version: 2025_07_26_090717) do
 
   create_table "achievements", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -103,6 +103,14 @@ ActiveRecord::Schema.define(version: 2025_07_25_055339) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "interviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_interviews_on_user_id"
+  end
+
   create_table "languages", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -188,6 +196,7 @@ ActiveRecord::Schema.define(version: 2025_07_25_055339) do
   add_foreign_key "comments", "users"
   add_foreign_key "group_members", "groups"
   add_foreign_key "group_members", "users"
+  add_foreign_key "interviews", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "post_keywords", "posts"

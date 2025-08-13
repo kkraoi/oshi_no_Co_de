@@ -24,6 +24,15 @@ Rails.application.routes.draw do
       member do
         get :relationships
       end
+
+      resources :interviews, only: [:new, :create] do
+        collection do
+          get :gacha
+          get :draw_gacha
+          get :edit_all
+          patch :update_all
+        end
+      end
     end
 
     resources :posts do
@@ -70,6 +79,13 @@ Rails.application.routes.draw do
     resources :post_options, only: [:index]
 
     resources :users, only: [:show]
+
+    resources :interviews, only: [:new, :create] do
+      collection do
+        get :edit_all
+        patch :update_all
+      end
+    end
 
     resources :reports, only: [:index, :update] do
       member do

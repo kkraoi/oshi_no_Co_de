@@ -1,0 +1,53 @@
+@import "../base/mixins";
+@import "../base/val";
+
+.gacha {
+  &-wrap {
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+  }
+  &-result {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    position: relative;
+  }
+  &-question {
+    text-align: center;
+    font-size: 3rem;
+    &-box {
+      display: none;
+      
+      &.current {
+        display: block;
+      }
+    }
+  }
+  &-btn {
+    &-next,
+    &-prev {
+      font-size: 2.4rem;
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+    }
+    &-next {
+      right: 0;
+    }
+    &-prev {
+      left: 0;
+    }
+  }
+  &-paginations {
+    display: flex;
+    gap: .5rem;
+  }
+  &-pagination-btn {
+    height: 1rem;
+    width: 100%;
+    background-color: $d-color-font;
+    border-radius: $radius;
+    &.current {
+      background-color: $blue;
+    }
+  }
+}

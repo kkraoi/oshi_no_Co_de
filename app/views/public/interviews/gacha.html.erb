@@ -1,0 +1,50 @@
+<% content_for :title, "面接質問ガチャ" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'public/gacha', media: 'all' %>
+<% end %>
+<% content_for :foot do %>
+<% end %>
+<% content_for :body_class, "" %>
+
+<section class="u-sec">
+  <div class="u-inner-2">
+    <h1 class="u-title">面接質問ガチャ</h1>
+
+    <div id="js-interview-gacha">
+      <div class="gacha-wrap">
+        <div id="js-gacha-result" class="gacha-result">
+          <p class="gacha-question">覚悟はできた？</p>
+        </div>
+        <div id="js-gacha-paginations" class="gacha-paginations u-mt-100"></div>
+      </div>
+
+      <%# 前へボタンのテンプレ %>
+      <template id="js-gacha-template-prev">
+        <button class="gacha-btn-prev"><i class="fa-solid fa-chevron-left"></i></button>
+      </template>
+
+      <%# 次へボタンのテンプレ %>
+      <template id="js-gacha-template-next">
+        <button class="gacha-btn-next"><i class="fa-solid fa-chevron-right"></i></button>
+      </template>
+      
+      <%# 質問のテンプレ %>
+      <template id="js-gacha-template-question">
+        <div class="js-gacha-question-box gacha-question-box" data-index="">
+          <p class="js-gacha-question gacha-question"></p>
+          <%# <button class="js-gacha-difficult">苦手...</button> %>
+        </div>
+      </template>
+
+      <div class="u-btn-wrap">
+        <button class="u-btn" aria-label="10連質問ガチャ" id="js-gacha-btn" data-url="<%= draw_gacha_user_interviews_path(current_user) %>.json">10連質問ガチャ</button>
+      </div>
+    </div>
+
+    <p class="u-ta-r u-mt-30">
+      <%= link_to new_user_interview_path(current_user), class: 'u-link' do %>
+        質問作成 <i class="fa-solid fa-plus"></i>
+      <% end %>
+    </p>
+  </div>
+</section>

@@ -1,0 +1,77 @@
+class Public::InterviewsController < Public::BaseController  
+  # ゲストユーザー制限
+  include GuestUserRestriction
+
+  # 他人のアクセス防止
+  before_action :ensure_correct_user, only: [:new, :update_all, :edit_all, :destroy, :gacha, :draw_gacha]
+
+  def new
+    @interview_list = Interview.where(user: [nil, current_user]).order(created_at: :asc);
+    @interview = @user.interviews.new
+  end
+  
+  def create
+    @user = User.find(params[:user_id])
+    @interview = @user.interviews.new(interview_params)
+
+    if @interview.save
+      respond_to do |format|
+        # format.html => JSが無効の環境に対する処理 
+        format.html { redirect_to new_user_interview_path(@user), notice: "面接質問を作成しました" }
+        format.js { render "shared/interview_create"}
+      end
+    else
+      redirect_to new_admin_interview_path, alert: '面接質問の作成に失敗しました。また、空の投稿はできません。'
+    end
+  end
+
+  def edit_all
+    @interviews = @user.interviews.order(created_at: :asc)
+  end
+
+  def update_all
+    success = true
+
+    params[:interviews].each do |id, attrs|
+      interview = @user.interviews.find_by(id: id)
+
+      if attrs[:_destroy] == "1"
+        interview.destroy
+      else
+        success &&= interview.update(content: attrs[:content])
+      end
+    end
+
+    if success
+      redirect_to new_user_interview_path(@user), notice: '質問の更新に成功しました。'
+    else
+      @interviews = @user.interviews.order(created_at: :asc)
+      flash.now[:alert] = "一部の質問の更新に失敗しました。"
+      render :edit_all, status: :unprocessable_entity
+    end
+  end
+
+  def gacha
+    
+  end
+
+  def draw_gacha
+    @interviews = Interview.where(user: [nil, current_user]).order("RANDOM()").limit(10);
+    render json: @interviews.select(:id, :content)
+  end
+  
+private
+  # ユーザをチェック
+  def ensure_correct_user
+    @user = User.find(params[:user_id])
+    unless @user == current_user
+      redirect_to user_path(current_user), alert: "アクセスを禁止しています"
+    end
+  end
+
+  def interview_params
+    params.require(:interview).permit(
+      :content,
+    )
+  end
+end
