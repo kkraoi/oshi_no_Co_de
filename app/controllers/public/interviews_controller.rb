@@ -56,7 +56,14 @@ class Public::InterviewsController < Public::BaseController
   end
 
   def draw_gacha
-    @interviews = Interview.where(user: [nil, current_user]).order("RANDOM()").limit(10);
+    random_function = 
+      if ActiveRecord::Base.connection.adapter_name == "Mysql2"
+        "RAND()"
+      else
+        "RANDOM()"
+      end
+
+    @interviews = Interview.where(user: [nil, current_user]).order(random_function).limit(10);
     render json: @interviews.select(:id, :content)
   end
   
