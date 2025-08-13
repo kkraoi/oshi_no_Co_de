@@ -4,3 +4,4 @@
 //= link admin/homes.css
 //= link public/users.css
 //= link public/posts.css
+//= link public/gacha.css

@@ -1,5 +1,6 @@
 <% content_for :title, "面接質問ガチャ" %>
 <% content_for :head do %>
+  <%= stylesheet_link_tag 'public/gacha', media: 'all' %>
 <% end %>
 <% content_for :foot do %>
 <% end %>
@@ -11,8 +12,8 @@
 
     <div id="js-interview-gacha">
       <div class="gacha-wrap">
-        <div id="js-gacha-result">
-          <p>覚悟はできた？</p>
+        <div id="js-gacha-result" class="gacha-result">
+          <p class="gacha-question">覚悟はできた？</p>
         </div>
       </div>
 
@@ -39,7 +40,7 @@
       </div>
     </div>
 
-    <p class="u-ta-r">
+    <p class="u-ta-r u-mt-30">
       <%= link_to new_user_interview_path(current_user), class: 'u-link' do %>
         質問作成 <i class="fa-solid fa-plus"></i>
       <% end %>
