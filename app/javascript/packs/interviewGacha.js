@@ -8,6 +8,7 @@ export default class InterviewGacha {
     this.templateQusetionEl = document.getElementById("js-gacha-template-question");
     this.templatePrevEl = document.getElementById("js-gacha-template-prev");
     this.templateNextEl = document.getElementById("js-gacha-template-next");
+    this.paginations = document.getElementById("js-gacha-paginations");
 
     this.CURRENT_CLASS_NAME = "current"
 
@@ -20,7 +21,7 @@ export default class InterviewGacha {
   setupEventListeners() {
     this.gachaBtn?.addEventListener("click", (self) => {
       this.drawGacha(self);
-      self.target.textContent = "10連リセット"
+      self.target.textContent = `10連リセット`
     });
   }
 
@@ -42,7 +43,7 @@ export default class InterviewGacha {
       this.setupCurrentQuestion();
       this.setupBtn(this.templatePrevEl, this.showPrev)
       this.setupBtn(this.templateNextEl, this.showNext)
-      
+      this.setupPagination();
     })
     .catch(() => console.error("エラーが発生しました"))
   }
@@ -85,19 +86,41 @@ export default class InterviewGacha {
     this.resultEl.appendChild(clone);
   }
 
+  changeQuestion() {
+    this.resultEl.querySelectorAll(".js-gacha-question-box").forEach(box => box.classList.remove(this.CURRENT_CLASS_NAME));
+    this.resultEl.querySelector(`.js-gacha-question-box[data-index="${this.currentIndex}"]`).classList.add(this.CURRENT_CLASS_NAME);
+
+    if (this.paginations) {
+      this.paginations.querySelectorAll(".gacha-pagination-btn").forEach(btn => btn.classList.remove(this.CURRENT_CLASS_NAME));
+      this.paginations.querySelector(`.gacha-pagination-btn[data-index="${this.currentIndex}"]`).classList.add(this.CURRENT_CLASS_NAME);
+    }
+  }
+
   showPrev() {
     const len = this.gachaData.length;
     this.currentIndex = (this.currentIndex - 1 + len) % len;
-    this.resultEl.querySelectorAll(".js-gacha-question-box").forEach(box => box.classList.remove(this.CURRENT_CLASS_NAME));
-    const currentEl = this.resultEl.querySelector(`.js-gacha-question-box[data-index="${this.currentIndex}"]`);
-    currentEl?.classList.add(this.CURRENT_CLASS_NAME);
+    this.changeQuestion();
   }
 
   showNext() {
     const len = this.gachaData.length;
     this.currentIndex = (this.currentIndex + 1) % len;
-    this.resultEl.querySelectorAll(".js-gacha-question-box").forEach(box => box.classList.remove(this.CURRENT_CLASS_NAME));
-    const currentEl = this.resultEl.querySelector(`.js-gacha-question-box[data-index="${this.currentIndex}"]`);
-    currentEl?.classList.add(this.CURRENT_CLASS_NAME);
+    this.changeQuestion();
+  }
+
+  setupPagination() {
+    this.paginations.innerHTML = "";
+
+    for (let i = 0; i < this.gachaData.length; i++) {
+      const btn = document.createElement("button");
+      btn.addEventListener("click", () => {
+        this.currentIndex = i;
+        this.changeQuestion();
+      })
+      btn.classList.add("gacha-pagination-btn");
+      btn.dataset.index = i;
+      if(this.currentIndex == i) btn.classList.add(this.CURRENT_CLASS_NAME);
+      this.paginations?.appendChild(btn)
+    }
   }
 }

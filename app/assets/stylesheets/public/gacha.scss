@@ -37,4 +37,17 @@
       left: 0;
     }
   }
+  &-paginations {
+    display: flex;
+    gap: .5rem;
+  }
+  &-pagination-btn {
+    height: 1rem;
+    width: 100%;
+    background-color: $d-color-font;
+    border-radius: $radius;
+    &.current {
+      background-color: $blue;
+    }
+  }
 }
