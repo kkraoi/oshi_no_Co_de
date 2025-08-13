@@ -1,12 +1,12 @@
 <div class="" id="js-interview-list-wrap">
-  <ul id="js-interview-list">
+  <ul id="js-interview-list" class="u-vert-10 u-fz-18 u-list-disc">
     <% interview_list.each do |i| %>
       <li><%= i.content %></li>
     <% end %>
   </ul>
 </div>
 
-<%= form_with(model: interview, url: url, local: false, id: "js-interview-form") do |f| %>
+<%= form_with(model: interview, url: url, local: false, id: "js-interview-form", class: "u-mt-50") do |f| %>
   <%= render 'public/shared/field_error', object: interview, field: :content %>
   <%= f.text_area :content, class: 'u-field', placeholder: '質問内容を入力してください。' %>
 

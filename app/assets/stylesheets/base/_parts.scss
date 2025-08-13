@@ -1010,6 +1010,13 @@
     &-item {
       border-bottom: 2px solid $d-color-font;
     }
+    &-disc {
+      padding-left: 1.2em;
+      list-style-position: outside;
+      li {
+        list-style: initial;
+      }
+    }
   }
 
   // プロフィール
