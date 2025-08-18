@@ -43,5 +43,3 @@
 ## 使用素材
 - テストデータに使用
     - [ぱくたそ](https://www.pakutaso.com/?srsltid=AfmBOoqovOw5hiYYo3JxpyBPVve39xrWkXWlnh68-ieRjM27XstTptkh)
-
-git pushてすと：githubトークンを更新した。問題なくpushできるかテスト
