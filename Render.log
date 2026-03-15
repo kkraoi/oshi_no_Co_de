@@ -1,100 +1,100 @@
-2026-03-15T12:59:34.740599029Z Installing rails-dom-testing 2.2.0
-2026-03-15T12:59:34.751531173Z Installing rails-html-sanitizer 1.6.2
-2026-03-15T12:59:34.756097475Z Fetching actionview 6.1.7.10
-2026-03-15T12:59:34.789184706Z Installing actionview 6.1.7.10
-2026-03-15T12:59:34.812413134Z Fetching kaminari-actionview 1.2.2
-2026-03-15T12:59:34.812922758Z Fetching actionpack 6.1.7.10
-2026-03-15T12:59:34.81298058Z Fetching jbuilder 2.13.0
-2026-03-15T12:59:34.824199322Z Installing kaminari-actionview 1.2.2
-2026-03-15T12:59:34.827149147Z Fetching kaminari 1.2.2
-2026-03-15T12:59:34.84741099Z Installing actionpack 6.1.7.10
-2026-03-15T12:59:34.853905427Z Installing jbuilder 2.13.0
-2026-03-15T12:59:34.864013537Z Installing kaminari 1.2.2
-2026-03-15T12:59:34.910410181Z Fetching railties 6.1.7.10
-2026-03-15T12:59:34.911708228Z Fetching activestorage 6.1.7.10
-2026-03-15T12:59:34.912016097Z Fetching actionmailer 6.1.7.10
-2026-03-15T12:59:34.912037818Z Fetching actioncable 6.1.7.10
-2026-03-15T12:59:34.912091959Z Fetching sprockets-rails 3.5.2
-2026-03-15T12:59:34.939484247Z Installing railties 6.1.7.10
-2026-03-15T12:59:34.945400346Z Installing activestorage 6.1.7.10
-2026-03-15T12:59:34.955072684Z Installing actionmailer 6.1.7.10
-2026-03-15T12:59:34.96742995Z Installing actioncable 6.1.7.10
-2026-03-15T12:59:34.973767892Z Installing sprockets-rails 3.5.2
-2026-03-15T12:59:35.015146361Z Fetching actiontext 6.1.7.10
-2026-03-15T12:59:35.015869102Z Fetching actionmailbox 6.1.7.10
-2026-03-15T12:59:35.029304138Z Installing actiontext 6.1.7.10
-2026-03-15T12:59:35.039705408Z Installing actionmailbox 6.1.7.10
-2026-03-15T12:59:35.108639339Z Fetching responders 3.1.1
-2026-03-15T12:59:35.109234456Z Fetching dotenv-rails 3.1.8
-2026-03-15T12:59:35.109527864Z Fetching sassc-rails 2.1.2
-2026-03-15T12:59:35.109759501Z Fetching rails 6.1.7.10
-2026-03-15T12:59:35.109764591Z Fetching webpacker 5.4.4
-2026-03-15T12:59:35.120972144Z Installing responders 3.1.1
-2026-03-15T12:59:35.126221695Z Fetching devise 4.9.4
-2026-03-15T12:59:35.130807086Z Installing dotenv-rails 3.1.8
-2026-03-15T12:59:35.140875966Z Installing sassc-rails 2.1.2
-2026-03-15T12:59:35.161111127Z Installing webpacker 5.4.4
-2026-03-15T12:59:35.16606367Z Installing rails 6.1.7.10
-2026-03-15T12:59:35.176129949Z Fetching sass-rails 6.0.0
-2026-03-15T12:59:35.180760182Z Installing devise 4.9.4
-2026-03-15T12:59:35.189746291Z Installing sass-rails 6.0.0
-2026-03-15T12:59:35.259165206Z Bundle complete! 30 Gemfile dependencies, 85 gems now installed.
-2026-03-15T12:59:35.259208777Z Gems in the groups 'development' and 'test' were not installed.
-2026-03-15T12:59:35.25965437Z Bundled gems are installed into `/opt/render/project/.gems`
-2026-03-15T12:59:35.260920736Z Post-install message from devise:
-2026-03-15T12:59:35.260930577Z 
-2026-03-15T12:59:35.260934457Z [DEVISE] Please review the [changelog] and [upgrade guide] for more info on Hotwire / Turbo integration.
-2026-03-15T12:59:35.260940557Z 
-2026-03-15T12:59:35.260943827Z   [changelog] https://github.com/heartcombo/devise/blob/main/CHANGELOG.md
-2026-03-15T12:59:35.260946817Z   [upgrade guide] https://github.com/heartcombo/devise/wiki/How-To:-Upgrade-to-Devise-4.9.0-%5BHotwire-Turbo-integration%5D
-2026-03-15T12:59:35.260949677Z   1 installed gem you directly depend on is looking for funding.
-2026-03-15T12:59:35.260953117Z   Run `bundle fund` for details
-2026-03-15T12:59:38.091623059Z ==> Using Node.js version 22.22.0 (default)
-2026-03-15T12:59:38.115415743Z ==> Docs on specifying a Node.js version: https://render.com/docs/node-version
-2026-03-15T12:59:40.735411418Z yarn install v1.22.22
-2026-03-15T12:59:40.788922226Z [1/4] Resolving packages...
-2026-03-15T12:59:41.033829726Z [2/4] Fetching packages...
-2026-03-15T12:59:51.426249177Z [3/4] Linking dependencies...
-2026-03-15T12:59:51.427118322Z warning " > @babel/plugin-proposal-private-methods@7.18.6" has unmet peer dependency "@babel/core@^7.0.0-0".
-2026-03-15T12:59:51.427244045Z warning "@babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin@7.27.1" has unmet peer dependency "@babel/core@^7.0.0".
-2026-03-15T12:59:51.427277186Z warning "@babel/plugin-proposal-private-methods > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers@7.27.1" has unmet peer dependency "@babel/core@^7.0.0".
-2026-03-15T12:59:51.427349808Z warning " > @babel/plugin-proposal-private-property-in-object@7.21.11" has unmet peer dependency "@babel/core@^7.0.0-0".
-2026-03-15T12:59:51.427493022Z warning "@babel/plugin-proposal-private-property-in-object > @babel/plugin-syntax-private-property-in-object@7.14.5" has unmet peer dependency "@babel/core@^7.0.0-0".
-2026-03-15T13:00:11.841637559Z [4/4] Building fresh packages...
-2026-03-15T13:00:12.341746125Z Done in 31.61s.
-2026-03-15T13:00:13.458227139Z I, [2026-03-15T13:00:13.458021 #181]  INFO -- : Writing /opt/render/project/src/public/assets/manifest-2ea7d4701d69c26ab63627d91d5d337927c55fa4a46c819103de10e179b01b02.js
-2026-03-15T13:00:13.45860701Z I, [2026-03-15T13:00:13.458444 #181]  INFO -- : Writing /opt/render/project/src/public/assets/manifest-2ea7d4701d69c26ab63627d91d5d337927c55fa4a46c819103de10e179b01b02.js.gz
-2026-03-15T13:00:13.458813276Z I, [2026-03-15T13:00:13.458734 #181]  INFO -- : Writing /opt/render/project/src/public/assets/default-profile_image-133bfcc0e8e8de64d703349773eff69d0a181441a00b6d9c38f33d02951c3e46.webp
-2026-03-15T13:00:13.459497965Z I, [2026-03-15T13:00:13.459426 #181]  INFO -- : Writing /opt/render/project/src/public/assets/logo-485d9ca0b580c3f8237bd856f89aa9e4fe9b30b0ebdf52f6267cd282f8157d8b.webp
-2026-03-15T13:00:13.460254317Z I, [2026-03-15T13:00:13.460130 #181]  INFO -- : Writing /opt/render/project/src/public/assets/no_image-5a77aab3e635a35c98caeb5d584210a3232860205b9db0f5b48dcaa90cc66c9d.webp
-2026-03-15T13:00:13.460860915Z I, [2026-03-15T13:00:13.460793 #181]  INFO -- : Writing /opt/render/project/src/public/assets/application-c7b8f571c01bfb9a3ffc794ea7272d6b640f64b2d925f122a5471ed9f6092935.css
-2026-03-15T13:00:13.461201294Z I, [2026-03-15T13:00:13.461086 #181]  INFO -- : Writing /opt/render/project/src/public/assets/application-c7b8f571c01bfb9a3ffc794ea7272d6b640f64b2d925f122a5471ed9f6092935.css.gz
-2026-03-15T13:00:13.4614148Z I, [2026-03-15T13:00:13.461347 #181]  INFO -- : Writing /opt/render/project/src/public/assets/admin/style_cheatsheet-0c6a8e164294ce2207d664fb5bbce585f7687f87f3c52861b5ba030110877f3b.css
-2026-03-15T13:00:13.461607426Z I, [2026-03-15T13:00:13.461516 #181]  INFO -- : Writing /opt/render/project/src/public/assets/admin/style_cheatsheet-0c6a8e164294ce2207d664fb5bbce585f7687f87f3c52861b5ba030110877f3b.css.gz
-2026-03-15T13:00:13.461709769Z I, [2026-03-15T13:00:13.461646 #181]  INFO -- : Writing /opt/render/project/src/public/assets/admin/homes-04024382391bb910584145d8113cf35ef376b55d125bb4516cebeb14ce788597.css
-2026-03-15T13:00:13.461897864Z I, [2026-03-15T13:00:13.461813 #181]  INFO -- : Writing /opt/render/project/src/public/assets/admin/homes-04024382391bb910584145d8113cf35ef376b55d125bb4516cebeb14ce788597.css.gz
-2026-03-15T13:00:13.462145832Z I, [2026-03-15T13:00:13.462075 #181]  INFO -- : Writing /opt/render/project/src/public/assets/public/users-5046274a25a7484a2fcf96b6f528d39f1df70411acde89256d4ad5dc8c85a509.css
-2026-03-15T13:00:13.462368418Z I, [2026-03-15T13:00:13.462307 #181]  INFO -- : Writing /opt/render/project/src/public/assets/public/users-5046274a25a7484a2fcf96b6f528d39f1df70411acde89256d4ad5dc8c85a509.css.gz
-2026-03-15T13:00:13.462851352Z I, [2026-03-15T13:00:13.462787 #181]  INFO -- : Writing /opt/render/project/src/public/assets/public/posts-0f57e62e0f81c768f0405666ea6027f3f5347c3d193ceec0250b8bc2bd1c6b00.css
-2026-03-15T13:00:13.463099729Z I, [2026-03-15T13:00:13.463029 #181]  INFO -- : Writing /opt/render/project/src/public/assets/public/posts-0f57e62e0f81c768f0405666ea6027f3f5347c3d193ceec0250b8bc2bd1c6b00.css.gz
-2026-03-15T13:00:13.463233593Z I, [2026-03-15T13:00:13.463147 #181]  INFO -- : Writing /opt/render/project/src/public/assets/public/gacha-851556e6df8a5e401d8baf2b3d3f771d2e6673652a28c1ca58ea32cf70f9c147.css
-2026-03-15T13:00:13.463406528Z I, [2026-03-15T13:00:13.463342 #181]  INFO -- : Writing /opt/render/project/src/public/assets/public/gacha-851556e6df8a5e401d8baf2b3d3f771d2e6673652a28c1ca58ea32cf70f9c147.css.gz
-2026-03-15T13:00:13.774397677Z Compiling...
-2026-03-15T13:00:14.155252495Z Compilation failed:
-2026-03-15T13:00:14.155274396Z /opt/render/project/.gems/ruby/3.1.0/gems/activesupport-6.1.7.10/lib/active_support/logger_thread_safe_level.rb:16:in `<module:LoggerThreadSafeLevel>': uninitialized constant ActiveSupport::LoggerThreadSafeLevel::Logger (NameError)
-2026-03-15T13:00:14.155280106Z 
-2026-03-15T13:00:14.155283836Z     Logger::Severity.constants.each do |severity|
-2026-03-15T13:00:14.155297997Z     ^^^^^^
-2026-03-15T13:00:14.155301806Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/activesupport-6.1.7.10/lib/active_support/logger_thread_safe_level.rb:9:in `<module:ActiveSupport>'
-2026-03-15T13:00:14.155304827Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/activesupport-6.1.7.10/lib/active_support/logger_thread_safe_level.rb:8:in `<top (required)>'
-2026-03-15T13:00:14.155308467Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/activesupport-6.1.7.10/lib/active_support/logger_silence.rb:5:in `require'
-2026-03-15T13:00:14.155311357Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/activesupport-6.1.7.10/lib/active_support/logger_silence.rb:5:in `<top (required)>'
-2026-03-15T13:00:14.155313977Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/activesupport-6.1.7.10/lib/active_support/logger.rb:3:in `require'
-2026-03-15T13:00:14.155316657Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/activesupport-6.1.7.10/lib/active_support/logger.rb:3:in `<top (required)>'
-2026-03-15T13:00:14.155319917Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/webpacker-5.4.4/lib/webpacker.rb:3:in `require'
-2026-03-15T13:00:14.155323187Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/webpacker-5.4.4/lib/webpacker.rb:3:in `<top (required)>'
-2026-03-15T13:00:14.155326997Z 	from ./bin/webpack:12:in `require'
-2026-03-15T13:00:14.155329567Z 	from ./bin/webpack:12:in `<main>'
-2026-03-15T13:00:14.155332087Z 
-2026-03-15T13:00:14.245755417Z ==> Build failed 😞
-2026-03-15T13:00:14.245777647Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
+2026-03-15T13:21:12.778492338Z I, [2026-03-15T13:21:12.778430 #180]  INFO -- : Writing /opt/render/project/src/public/assets/default-profile_image-133bfcc0e8e8de64d703349773eff69d0a181441a00b6d9c38f33d02951c3e46.webp
+2026-03-15T13:21:12.779140173Z I, [2026-03-15T13:21:12.779061 #180]  INFO -- : Writing /opt/render/project/src/public/assets/logo-485d9ca0b580c3f8237bd856f89aa9e4fe9b30b0ebdf52f6267cd282f8157d8b.webp
+2026-03-15T13:21:12.779950631Z I, [2026-03-15T13:21:12.779873 #180]  INFO -- : Writing /opt/render/project/src/public/assets/no_image-5a77aab3e635a35c98caeb5d584210a3232860205b9db0f5b48dcaa90cc66c9d.webp
+2026-03-15T13:21:12.780361309Z I, [2026-03-15T13:21:12.780289 #180]  INFO -- : Writing /opt/render/project/src/public/assets/application-c7b8f571c01bfb9a3ffc794ea7272d6b640f64b2d925f122a5471ed9f6092935.css
+2026-03-15T13:21:12.780681276Z I, [2026-03-15T13:21:12.780610 #180]  INFO -- : Writing /opt/render/project/src/public/assets/application-c7b8f571c01bfb9a3ffc794ea7272d6b640f64b2d925f122a5471ed9f6092935.css.gz
+2026-03-15T13:21:12.780808719Z I, [2026-03-15T13:21:12.780745 #180]  INFO -- : Writing /opt/render/project/src/public/assets/admin/style_cheatsheet-0c6a8e164294ce2207d664fb5bbce585f7687f87f3c52861b5ba030110877f3b.css
+2026-03-15T13:21:12.781019144Z I, [2026-03-15T13:21:12.780948 #180]  INFO -- : Writing /opt/render/project/src/public/assets/admin/style_cheatsheet-0c6a8e164294ce2207d664fb5bbce585f7687f87f3c52861b5ba030110877f3b.css.gz
+2026-03-15T13:21:12.781343331Z I, [2026-03-15T13:21:12.781282 #180]  INFO -- : Writing /opt/render/project/src/public/assets/admin/homes-04024382391bb910584145d8113cf35ef376b55d125bb4516cebeb14ce788597.css
+2026-03-15T13:21:12.781617067Z I, [2026-03-15T13:21:12.781553 #180]  INFO -- : Writing /opt/render/project/src/public/assets/admin/homes-04024382391bb910584145d8113cf35ef376b55d125bb4516cebeb14ce788597.css.gz
+2026-03-15T13:21:12.782047577Z I, [2026-03-15T13:21:12.781973 #180]  INFO -- : Writing /opt/render/project/src/public/assets/public/users-5046274a25a7484a2fcf96b6f528d39f1df70411acde89256d4ad5dc8c85a509.css
+2026-03-15T13:21:12.78221552Z I, [2026-03-15T13:21:12.782153 #180]  INFO -- : Writing /opt/render/project/src/public/assets/public/users-5046274a25a7484a2fcf96b6f528d39f1df70411acde89256d4ad5dc8c85a509.css.gz
+2026-03-15T13:21:12.782314192Z I, [2026-03-15T13:21:12.782260 #180]  INFO -- : Writing /opt/render/project/src/public/assets/public/posts-0f57e62e0f81c768f0405666ea6027f3f5347c3d193ceec0250b8bc2bd1c6b00.css
+2026-03-15T13:21:12.782488246Z I, [2026-03-15T13:21:12.782431 #180]  INFO -- : Writing /opt/render/project/src/public/assets/public/posts-0f57e62e0f81c768f0405666ea6027f3f5347c3d193ceec0250b8bc2bd1c6b00.css.gz
+2026-03-15T13:21:12.782573018Z I, [2026-03-15T13:21:12.782527 #180]  INFO -- : Writing /opt/render/project/src/public/assets/public/gacha-851556e6df8a5e401d8baf2b3d3f771d2e6673652a28c1ca58ea32cf70f9c147.css
+2026-03-15T13:21:12.782747962Z I, [2026-03-15T13:21:12.782691 #180]  INFO -- : Writing /opt/render/project/src/public/assets/public/gacha-851556e6df8a5e401d8baf2b3d3f771d2e6673652a28c1ca58ea32cf70f9c147.css.gz
+2026-03-15T13:21:13.005461584Z Compiling...
+2026-03-15T13:21:17.87224413Z Compiled all packs in /opt/render/project/src/public/packs
+2026-03-15T13:21:17.872262321Z Browserslist: browsers data (caniuse-lite) is 10 months old. Please run:
+2026-03-15T13:21:17.872267691Z   npx update-browserslist-db@latest
+2026-03-15T13:21:17.872272231Z   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+2026-03-15T13:21:17.872276061Z 
+2026-03-15T13:21:17.872280481Z Hash: b05a0a77232535c0753c
+2026-03-15T13:21:17.872284961Z Version: webpack 4.47.0
+2026-03-15T13:21:17.872288851Z Time: 3166ms
+2026-03-15T13:21:17.872292651Z Built at: 03/15/2026 1:21:17 PM
+2026-03-15T13:21:17.872297272Z                                                  Asset       Size   Chunks                         Chunk Names
+2026-03-15T13:21:17.872301192Z                 js/application-06365e97b29dc4715ec0.js   78.3 KiB  0, 1, 2  [emitted] [immutable]  application
+2026-03-15T13:21:17.872305022Z              js/application-06365e97b29dc4715ec0.js.br   17.5 KiB           [emitted]              
+2026-03-15T13:21:17.872308852Z              js/application-06365e97b29dc4715ec0.js.gz   20.2 KiB           [emitted]              
+2026-03-15T13:21:17.872312602Z             js/application-06365e97b29dc4715ec0.js.map    231 KiB  0, 1, 2  [emitted] [dev]        application
+2026-03-15T13:21:17.872316342Z          js/application-06365e97b29dc4715ec0.js.map.br   50.8 KiB           [emitted]              
+2026-03-15T13:21:17.872320172Z          js/application-06365e97b29dc4715ec0.js.map.gz   59.1 KiB           [emitted]              
+2026-03-15T13:21:17.872324502Z        js/changeRaidoForReport-908f42c43124c622e331.js    1.6 KiB        1  [emitted] [immutable]  changeRaidoForReport
+2026-03-15T13:21:17.872328212Z     js/changeRaidoForReport-908f42c43124c622e331.js.br  683 bytes           [emitted]              
+2026-03-15T13:21:17.872332032Z     js/changeRaidoForReport-908f42c43124c622e331.js.gz  793 bytes           [emitted]              
+2026-03-15T13:21:17.872335832Z    js/changeRaidoForReport-908f42c43124c622e331.js.map   5.93 KiB        1  [emitted] [dev]        changeRaidoForReport
+2026-03-15T13:21:17.872339672Z js/changeRaidoForReport-908f42c43124c622e331.js.map.br    2.1 KiB           [emitted]              
+2026-03-15T13:21:17.872343473Z js/changeRaidoForReport-908f42c43124c622e331.js.map.gz   2.43 KiB           [emitted]              
+2026-03-15T13:21:17.872347382Z              js/interviewGacha-d00a1d4410dbb75a50c3.js   5.23 KiB        2  [emitted] [immutable]  interviewGacha
+2026-03-15T13:21:17.872351173Z           js/interviewGacha-d00a1d4410dbb75a50c3.js.br   1.58 KiB           [emitted]              
+2026-03-15T13:21:17.872357793Z           js/interviewGacha-d00a1d4410dbb75a50c3.js.gz   1.79 KiB           [emitted]              
+2026-03-15T13:21:17.872361653Z          js/interviewGacha-d00a1d4410dbb75a50c3.js.map   12.9 KiB        2  [emitted] [dev]        interviewGacha
+2026-03-15T13:21:17.872365483Z       js/interviewGacha-d00a1d4410dbb75a50c3.js.map.br   3.99 KiB           [emitted]              
+2026-03-15T13:21:17.872369263Z       js/interviewGacha-d00a1d4410dbb75a50c3.js.map.gz    4.5 KiB           [emitted]              
+2026-03-15T13:21:17.872373003Z                                          manifest.json    1.1 KiB           [emitted]              
+2026-03-15T13:21:17.872376733Z                                       manifest.json.br  235 bytes           [emitted]              
+2026-03-15T13:21:17.872380503Z                                       manifest.json.gz  268 bytes           [emitted]              
+2026-03-15T13:21:17.872384233Z Entrypoint application = js/application-06365e97b29dc4715ec0.js js/application-06365e97b29dc4715ec0.js.map
+2026-03-15T13:21:17.872398874Z Entrypoint changeRaidoForReport = js/changeRaidoForReport-908f42c43124c622e331.js js/changeRaidoForReport-908f42c43124c622e331.js.map
+2026-03-15T13:21:17.872401604Z Entrypoint interviewGacha = js/interviewGacha-d00a1d4410dbb75a50c3.js js/interviewGacha-d00a1d4410dbb75a50c3.js.map
+2026-03-15T13:21:17.872404164Z [0] ./app/javascript/packs/interviewGacha.js 5.45 KiB {0} {2} [built]
+2026-03-15T13:21:17.872406624Z [1] ./app/javascript/packs/changeRaidoForReport.js 694 bytes {0} {1} [built]
+2026-03-15T13:21:17.872409204Z [5] ./app/javascript/packs/application.js 9.81 KiB {0} [built]
+2026-03-15T13:21:17.872411704Z [6] ./app/javascript/channels/index.js 205 bytes {0} [built]
+2026-03-15T13:21:17.872414274Z [7] ./app/javascript/channels sync _channel\.js$ 160 bytes {0} [built]
+2026-03-15T13:21:17.872416804Z     + 3 hidden modules
+2026-03-15T13:21:17.872419194Z 
+2026-03-15T13:21:18.011033091Z ==> Requesting Node.js version 16
+2026-03-15T13:21:18.139341991Z ==> Using Node.js version 16.20.2 via environment variable NODE_VERSION
+2026-03-15T13:21:18.164039225Z ==> Node.js version 16.20.2 has reached end-of-life.
+2026-03-15T13:21:18.164054836Z ==> Upgrade to a maintained version to receive important security updates.
+2026-03-15T13:21:18.164073876Z ==> Information on maintained Node.js versions: https://nodejs.org/en/about/previous-releases
+2026-03-15T13:21:18.164086946Z ==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+2026-03-15T13:21:19.160903529Z ==> Uploading build...
+2026-03-15T13:21:28.713149848Z ==> Uploaded in 5.9s. Compression took 3.6s
+2026-03-15T13:21:28.768187072Z ==> Build successful 🎉
+2026-03-15T13:21:31.908769401Z ==> Deploying...
+2026-03-15T13:21:31.979544495Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+2026-03-15T13:21:54.357089109Z ==> Running 'bundle exec puma -C config/puma.rb'
+2026-03-15T13:21:57.548246923Z bundler: failed to load command: puma (/opt/render/project/.gems/bin/puma)
+2026-03-15T13:21:57.549633933Z config/puma.rb:48:in `_load_from': uninitialized constant Puma::DSL::Rails (NameError)
+2026-03-15T13:21:57.549650134Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/puma-3.12.6/lib/puma/dsl.rb:43:in `instance_eval'
+2026-03-15T13:21:57.549656204Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/puma-3.12.6/lib/puma/dsl.rb:43:in `_load_from'
+2026-03-15T13:21:57.549660594Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/puma-3.12.6/lib/puma/configuration.rb:194:in `block in load'
+2026-03-15T13:21:57.549664384Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/puma-3.12.6/lib/puma/configuration.rb:194:in `each'
+2026-03-15T13:21:57.549668294Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/puma-3.12.6/lib/puma/configuration.rb:194:in `load'
+2026-03-15T13:21:57.549671734Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/puma-3.12.6/lib/puma/launcher.rb:61:in `initialize'
+2026-03-15T13:21:57.549674925Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/puma-3.12.6/lib/puma/cli.rb:71:in `new'
+2026-03-15T13:21:57.549678065Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/puma-3.12.6/lib/puma/cli.rb:71:in `initialize'
+2026-03-15T13:21:57.549681454Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/puma-3.12.6/bin/puma:8:in `new'
+2026-03-15T13:21:57.549684275Z 	from /opt/render/project/.gems/ruby/3.1.0/gems/puma-3.12.6/bin/puma:8:in `<top (required)>'
+2026-03-15T13:21:57.549688305Z 	from /opt/render/project/.gems/bin/puma:27:in `load'
+2026-03-15T13:21:57.549691585Z 	from /opt/render/project/.gems/bin/puma:27:in `<top (required)>'
+2026-03-15T13:21:57.549694955Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/lib/bundler/cli/exec.rb:59:in `load'
+2026-03-15T13:21:57.549698085Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/lib/bundler/cli/exec.rb:59:in `kernel_load'
+2026-03-15T13:21:57.549701175Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/lib/bundler/cli/exec.rb:23:in `run'
+2026-03-15T13:21:57.549704285Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/lib/bundler/cli.rb:452:in `exec'
+2026-03-15T13:21:57.549724986Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/lib/bundler/vendor/thor/lib/thor/command.rb:28:in `run'
+2026-03-15T13:21:57.549733616Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'
+2026-03-15T13:21:57.549736026Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/lib/bundler/vendor/thor/lib/thor.rb:538:in `dispatch'
+2026-03-15T13:21:57.549738166Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/lib/bundler/cli.rb:35:in `dispatch'
+2026-03-15T13:21:57.549756846Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/lib/bundler/vendor/thor/lib/thor/base.rb:584:in `start'
+2026-03-15T13:21:57.549764676Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/lib/bundler/cli.rb:29:in `start'
+2026-03-15T13:21:57.549768867Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/exe/bundle:28:in `block in <top (required)>'
+2026-03-15T13:21:57.549772276Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/lib/bundler/friendly_errors.rb:117:in `with_friendly_errors'
+2026-03-15T13:21:57.549774437Z 	from /opt/render/project/.gems/gems/bundler-2.6.5/exe/bundle:20:in `<top (required)>'
+2026-03-15T13:21:57.549778257Z 	from /opt/render/project/.gems/bin/bundle:108:in `load'
+2026-03-15T13:21:57.549782117Z 	from /opt/render/project/.gems/bin/bundle:108:in `<main>'
+2026-03-15T13:21:59.214823226Z ==> Exited with status 1
+2026-03-15T13:21:59.217010458Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
