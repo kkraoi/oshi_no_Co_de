@@ -63,7 +63,7 @@ gem 'devise'
 gem 'dotenv-rails' # envファイルを扱う
 
 group :production do
-  gem 'mysql2' # 本番環境でMYSQLを使用する。SQLiteは開発用、MYSQLは本番用。
+  gem "pg", "~> 1.5"
 end
 
 gem "net-smtp" # SMTPプロトコル: 	メールサーバーにメールを送るために使う（送信用）

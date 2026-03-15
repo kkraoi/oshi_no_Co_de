@@ -43,3 +43,8 @@
 ## 使用素材
 - テストデータに使用
     - [ぱくたそ](https://www.pakutaso.com/?srsltid=AfmBOoqovOw5hiYYo3JxpyBPVve39xrWkXWlnh68-ieRjM27XstTptkh)
+
+## ruby ローカル適用
+1. `rbenv local 3.1.2`：適用
+2. `rbenv rehash`：反映
+3. `ruby -v`：確認
