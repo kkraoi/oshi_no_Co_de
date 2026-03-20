@@ -7,7 +7,10 @@ class Public::CommentsController < Public::BaseController
     # new() => 生どんなモデルでも汎用的に使えるが、自分で設定しないといけない
     @comment = @commentable.comments.build(comment_params)
 
-    @comment.sentiment_score = GoogleLanguage.get_sentiment_data(comment_params[:content]);
+    # NOTE:
+    # Google Cloud Natural Language API（感情/言語認識）は、GCP側の利用削除後にエラーになり得るため
+    # 一時的に無効化しています。
+    # @comment.sentiment_score = GoogleLanguage.get_sentiment_data(comment_params[:content]);
 
     @comment.user = current_user
 

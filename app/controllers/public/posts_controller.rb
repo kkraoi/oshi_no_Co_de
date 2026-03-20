@@ -124,15 +124,24 @@ class Public::PostsController < Public::BaseController
 
   # GoogleNaturalLangugageAPIからのエンティティを抽出する
   def extract_top_entities(description_text)
-    html = markdown_to_html(description_text)
-    entity_data = GoogleLanguage.get_entity_data(html)
-    entity_data["entities"]
-      .sort_by { |e| -e["salience"].to_f }
-      .first(5)
+    # NOTE:
+    # Google Cloud Natural Language API（言語認識）は、GCP側の利用削除後にエラーになり得るため
+    # 一時的に無効化しています。
+    #
+    # 再有効化する場合は、下記を戻し `GoogleLanguage.get_entity_data` の呼び出しを復帰してください。
+    return [] if description_text.blank?
+
+    # html = markdown_to_html(description_text)
+    # entity_data = GoogleLanguage.get_entity_data(html)
+    # entity_data["entities"]
+    #   .sort_by { |e| -e["salience"].to_f }
+    #   .first(5)
+    #
     # [↑ 一連の解説]
     # array.sort_by { |element| 条件 } => ブロックの戻り値を基準にソート
     # 「-」をつけることで降順にする。
     # .to_f => 浮動小数点数にする。
+    []
   end
 
   # post_keywordsテーブルを作成する

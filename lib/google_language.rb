@@ -7,36 +7,21 @@ module GoogleLanguage
   END_POINT = "https://language.googleapis.com"
   class << self
     def get_sentiment_data(text)
-      # 感情分析用のAPIのURLを作成
-      # エンドポイント: https://language.googleapis.com/
-      # リソース: v1/documents:analyzeSentiment
-      # クエリ: ?key=APIキー
-      api_url = "#{END_POINT}/v1/documents:analyzeSentiment?key=#{ENV['GOOGLE_API_KEY']}"
-
-      # APIリクエストの本文（JSON）
-      # https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeSentiment?hl=ja
-      params = {
-        "document": {
-          type: "PLAIN_TEXT", # HTMLにしたらHTMLタグを無視することができる！
-          content: text
-        }
-      }.to_json
-
-      # dig() => response_body['documentSentiment']['score']と同じ感じ
-      send_request(api_url, params)&.dig("documentSentiment", "score")
+      # NOTE:
+      # Google Cloud Natural Language API（感情/言語認識）は、GCP側の利用削除後にエラーになり得るため
+      # 一時的に無効化しています。
+      #
+      # 再有効化する場合は、下記のコメントアウトを戻してください。
+      nil
     end
 
     def get_entity_data(html)
-      api_url = "#{END_POINT}/v1/documents:analyzeEntities?key=#{ENV['GOOGLE_API_KEY']}"
-
-      params = {
-        "document": {
-          type: "HTML",
-          content: html
-        }
-      }.to_json
-
-      send_request(api_url, params)
+      # NOTE:
+      # Google Cloud Natural Language API（言語認識/エンティティ抽出）は、GCP側の利用削除後にエラーになり得るため
+      # 一時的に無効化しています。
+      #
+      # 再有効化する場合は、下記のコメントアウトを戻してください。
+      { "entities" => [] }
     end
 
     private
@@ -48,25 +33,10 @@ module GoogleLanguage
     # @return [Hash] パース済みのレスポンスボディ（Hash形式）
     # @raise [RuntimeError] APIがエラーを返した場合、そのメッセージを例外として発生させる
     def send_request(api_url, params)
-      # HTTPの雛形を作成
-      uri = URI.parse(api_url)
-      https = Net::HTTP.new(uri.host, uri.port)
-      https.use_ssl = true
-
-      # リクエスト作成
-      request = Net::HTTP::Post.new(uri.request_uri)
-      request["Content-Type"] = "application/json"
-
-      # リクエストを送信し、レスポンスを受ける（ブロッキングメソッド）
-      response = https.request(request, params)
-
-      # レスポンスを整形する
-      response_body = JSON.parse(response.body)
-      if (error = response_body["error"]).present?
-        raise error["message"]
-      else
-        response_body
-      end
+      # NOTE:
+      # Google Cloud Natural Language API へのHTTPリクエストを一時的に無効化しています。
+      # （`get_sentiment_data` / `get_entity_data` 側でも無効化済みですが、万一呼ばれても外部通信しないため）
+      {}
     end
   end
 end
